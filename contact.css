@@ -1,0 +1,34 @@
+#contact {
+   border: none;
+   margin: 0;
+   padding: 0; }
+   
+#contact ol {
+   list-style: none;
+   margin 0;
+   padding; 0; }
+   
+#contact li {
+   margin: .2em 0;
+   float: left;
+   width: 100%; }
+
+#contact label {
+   width: 30%;
+   float: left;
+   text-align: right;
+   margin-right: 2%; }
+   
+#contact input#submit {
+   margin-left: 32%;
+   width: 10em; }
+   
+#contact imput, #contact select, #contact textarea {
+   font-family: inherit;
+   font-size: 100%; }
+   
+#contact legend {
+   color: #339966;
+   font: 135% Georgia, "Times New Roman", Times, serif;
+   margin: auto 0;
+   padding: 0; }
