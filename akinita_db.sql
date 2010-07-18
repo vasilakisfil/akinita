@@ -1,4 +1,4 @@
---vreating new database for the earth project
+ο»Ώ--vreating new database for the earth project
 
 create database akinita;
 
@@ -32,7 +32,7 @@ create table property
 	prop_id int not null auto_increment primary key,
 	address char(100) not null,
 	price int(15) not null,
-	offer_type ENUM('Πωληση','Ενοικιαση'),   -- <-----
+	offer_type ENUM('P','L'),   -- <-----
 	area int(10) not null,
 	constr_date date,
 	/*coordinates */
