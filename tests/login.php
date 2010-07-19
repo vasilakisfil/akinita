@@ -14,9 +14,9 @@ if (isset($_POST['userid']) && isset($_POST['password']))
    exit();
   }
 
-  $query = 'select * from authorised_users '
+  $query = 'select * from users '
            ."where name='$userid' "
-           ." and password=sha1('$password')";
+           ." and password='$password';
 
   $result = $db_conn->query($query);
   if ($result->num_rows >0 )
