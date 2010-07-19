@@ -16,7 +16,7 @@ if (isset($_POST['userid']) && isset($_POST['password']))
 
   $query = 'select * from users '
            ."where name='$userid' "
-           ." and password='$password';
+           ." and password='$password'";
 
   $result = $db_conn->query($query);
   if ($result->num_rows >0 )
