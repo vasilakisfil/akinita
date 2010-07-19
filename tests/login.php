@@ -50,7 +50,7 @@ if (isset($_POST['userid']) && isset($_POST['password']))
     }
 
     // provide form to log in 
-    echo '<form method="post" action="authmain.php">';
+    echo '<form method="post" action="login.php">';
     echo '<table>';
     echo '<tr><td>Userid:</td>';
     echo '<td><input type="text" name="userid"></td></tr>';
