@@ -15,7 +15,7 @@ if (isset($_POST['userid']) && isset($_POST['password']))
    exit();
   }
   
-$db_selected = mysql_select_db("akinita", $db_con);
+$db_selected = mysql_select_db("akinita", $db_conn);
 
 if (!$db_selected)
   {
