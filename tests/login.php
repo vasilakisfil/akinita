@@ -22,21 +22,19 @@ if (!$db_selected)
   die ("Can\'t use test_db : " . mysql_error());
   }
 
-  $result = mysql_query("SELECT * FROM users where name='$userid' and password='$password'");
+  $result = mysql_query("SELECT * FROM users where username='$userid' and password='$password'");
 
-  $num_results=mysqli_num_rows($result);
+  $num_results=mysql_num_rows($result);
   if ($num_results>0)
   {
       $_SESSION['valid_user'] = $userid;
   }
-  else echo 'problem.........';
-  /*$result = $db_conn->query($query);
-  if ($result->num_rows >0 )
+  else
   {
-    // if they are in the database register the user id
-    $_SESSION['valid_user'] = $userid;    
-  }*/
-  mysqli_close($db_conn);
+  	echo 'problem........could not log you in...did you use the correct username/password ?!';
+  }
+  
+  mysql_close($db_conn);
 }
 ?>
 <html>

@@ -20,6 +20,6 @@
     echo 'You were not logged in, and so have not been logged out.<br />'; 
   }
 ?> 
-<a href="authmain.php">Back to main page</a>
+<a href="login.php">Back to main page</a>
 </body>
 </html>

@@ -16,5 +16,5 @@
     echo '<p>Only logged in members may see this page.</p>';
   }
 
-  echo '<a href="authmain.php">Back to main page</a>';
+  echo '<a href="login.php">Back to main page</a>';
 ?>
