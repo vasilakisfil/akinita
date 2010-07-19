@@ -7,24 +7,36 @@ if (isset($_POST['userid']) && isset($_POST['password']))
   $userid = $_POST['userid'];
   $password = $_POST['password'];
 
-  $db_conn = new mysqli('localhost', 'akinauth', 'password', 'akinita');
+  
+  $db_conn = mysql_connect("localhost", "akinauth", "password");
 
-  if (mysqli_connect_errno()) {
-   echo 'Connection to database failed:'.mysqli_connect_error();
+  if (!$db_conn) {
+   echo 'Connection to database failed:'.mysql_error();
    exit();
   }
+  
+$db_selected = mysql_select_db("akinita", $db_con);
 
-  $query = 'select * from users '
-           ."where name='$userid' "
-           ." and password='$password'";
+if (!$db_selected)
+  {
+  die ("Can\'t use test_db : " . mysql_error());
+  }
 
-  $result = $db_conn->query($query);
+  $result = mysql_query("SELECT * FROM users where name='$userid' and password='$password'");
+
+  $num_results=mysqli_num_rows($result);
+  if ($num_results>0)
+  {
+      $_SESSION['valid_user'] = $userid;
+  }
+  else echo 'problem.........';
+  /*$result = $db_conn->query($query);
   if ($result->num_rows >0 )
   {
     // if they are in the database register the user id
     $_SESSION['valid_user'] = $userid;    
-  }
-  $db_conn->close();
+  }*/
+  mysqli_close($db_conn);
 }
 ?>
 <html>
