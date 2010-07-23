@@ -75,5 +75,5 @@ create table cat_prop
 	primary key(cat_id,prop_id)
 );
 
-grant select, insert, update, delete on akinita.* to akinauth identified by password;
+grant select, insert, update, delete on akinita.* to akinauth identified by 'password';
 flush privileges;
