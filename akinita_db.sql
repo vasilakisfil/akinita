@@ -40,6 +40,7 @@ create table property
 	constr_date date,
 	/*coordinates */
 	photos mediumblob,
+	views int(10),
 	comments text,
 	user_id char(20),
 	primary key(prop_id),
