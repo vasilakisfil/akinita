@@ -61,7 +61,7 @@ if (!$db_selected)
     }
 
     // provide form to log in 
-	do_html_login();
+	dispLoginBox();
   }
 ?>
 <br />

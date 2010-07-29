@@ -1,5 +1,5 @@
 <?php
-function do_html_header($header)
+function dispHeader($header)
 {
 ?>
 <html>
@@ -31,15 +31,15 @@ function do_html_header($header)
 
 
 <?php
-function do_html_login()
+function dispLoginBox()
 {
 ?>
 <h1>Κεντρική σελίδα σύνδεσης</h1>
 	<h2>*Log in</h2>
 	<h3>Eisai melos? kane log in!</h3>
-	<form method="post" action="login.php">
-		Username: <input type="text" name="firstname"/><br />
-		Password: <input type="password" name="pwd" /><br />
+	<form method="post" action="member.php">
+		Username: <input type="text" name="username"/><br />
+		Password: <input type="password" name="password" /><br />
 		<input type="submit" value="Log in" />
 	</form>
 
@@ -48,3 +48,13 @@ function do_html_login()
 <?php
 }
 ?>
+
+<?php
+function do_html_footer()
+{
+  // print an HTML footer
+?>
+  </body>
+  </html>
+<?php
+}
