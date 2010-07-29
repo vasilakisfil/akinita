@@ -1,11 +1,12 @@
 <?php
+include('html_functions.php');
 session_start();
 
-if (isset($_POST['userid']) && isset($_POST['password']))
+if (isset($_POST['firstname']) && isset($_POST['pwd']))
 {
   // if the user has just tried to log in
-  $userid = $_POST['userid'];
-  $password = $_POST['password'];
+  $userid = $_POST['firstname'];
+  $password = $_POST['pwd'];
 
   
   $db_conn = mysql_connect("localhost", "akinauth", "password");
@@ -60,7 +61,7 @@ if (!$db_selected)
     }
 
     // provide form to log in 
-	do_html_login()
+	do_html_login();
   }
 ?>
 <br />
