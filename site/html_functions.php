@@ -1,5 +1,5 @@
-<?php
-function dispHeader($header)
+ο»Ώ<?php
+function dispHeader($header,$num=1)
 {
 ?>
 <html>
@@ -9,32 +9,28 @@ function dispHeader($header)
 <body>
 
 <div id="menu" align="right" >
-<a href=""target="_blank">Aρχική</a> | 
+<a href=""target="_blank">Ξ‘ΟΟ‡ΞΉΞΊΞ®</a>
 <a href="">
 <select>
-	<option>Αναζήτηση</option>
-	<option>Σύντομη</option>
-	<option>Mε σύνθετες επιλογές</option>
+	<option>Ξ‘Ξ½Ξ±Ξ¶Ξ®Ο„Ξ·ΟƒΞ·</option>
+	<option>Ξ£ΟΞ½Ο„ΞΏΞΌΞ·<option>
+	<option>ΞΞµ ΟƒΟΞ½ΞΈΞµΟ„ΞµΟ‚ ΞµΟ€ΞΉΞ»ΞΏΞ³Ξ­Ο‚</option>
 	</select></a> | 
-<a href=""target="_blank">Contact Us</a> |
-<a href=""target="_blank">Όροι χρήσης</a>
+<a href=""target="_blank">Contact Us</a>
+<a href=""target="_blank">ΞΟΞΏΞΉ Ο‡ΟΞ®ΟƒΞ·Ο‚</a>
 </div>
 <?php
-	if($title)
+	if($header)
 	{
 	?>
-		<h2><?php echo $header;?></h2>
+		<h<?php echo $num;?>><?php echo $header;?></h<?php echo $num;?>>
 	<?php
 	}
 }
-?>
 
-
-<?php
 function dispLoginBox()
 {
 ?>
-<h1>Κεντρική σελίδα σύνδεσης</h1>
 	<h2>*Log in</h2>
 	<h3>Eisai melos? kane log in!</h3>
 	<form method="post" action="member.php">
@@ -47,10 +43,8 @@ function dispLoginBox()
 	<form><input type="submit" value="Sign in" /></form>
 <?php
 }
-?>
 
-<?php
-function do_html_footer()
+function dispFooter()
 {
   // print an HTML footer
 ?>
@@ -58,3 +52,14 @@ function do_html_footer()
   </html>
 <?php
 }
+
+function dispURL($url, $name)
+{
+  // output URL as link and br
+?>
+  <br /><a href="<?php echo $url;?>"><?php echo $name;?></a><br />
+<?php
+}
+
+?>
+

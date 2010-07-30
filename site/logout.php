@@ -1,4 +1,4 @@
-<?php
+﻿<?php
   session_start();
   
   // store to test if they *were* logged in

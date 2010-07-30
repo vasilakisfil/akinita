@@ -15,6 +15,7 @@ if (!$db_selected)
   {
   die ("Can\'t use test_db : " . mysql_error());
   }
+  return $db_conn;
 }
 
 ?>
@@ -30,24 +31,16 @@ function login($username, $password)
   $conn = db_connect();
 
   // check if username is unique
-  $result = mysql_query("SELECT * FROM users where username='$userid' and password='$password'");
+  $result = mysql_query("SELECT * FROM users where username='$username' and password='$password'");
 
-  $num_results=mysql_num_rows($result);
-  if ($num_results>0)
-  {
-      $_SESSION['valid_user'] = $userid;
-  }
-  else
-  {
-  	echo 'problem........could not log you in...did you use the correct username/password ?!';
-  }
-  
-  mysql_close($db_conn);
+  mysql_close($conn);
   
   if (mysql_num_rows($result)>0)
+  {
      return true;
+  }
   else 
-     throw new Exception('Could not log you in.');
+     throw new Exception('Could not log you in.Did you use the right username and password?');
 }
 
 ?>
