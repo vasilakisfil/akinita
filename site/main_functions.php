@@ -75,6 +75,7 @@ function dispCurrUsers()
 
 }
 
+
 function filled_out($variable)
 {
   // testing the variable
@@ -92,7 +93,33 @@ function valid_email($address)
     return false;
 }
 
+function register($username, $password, $email)
+// register new person with db
+// return true or error message
+{
+  // connect to db
+  $conn = db_connect();
+
+  // check if username is unique
+  $result = mysql_query("SELECT username FROM users where username='$username'");
+  if (!$result)
+    throw new Exception('Could not execute query');
+  if (mysql_num_rows($result)>0)
+    throw new Exception('That username is taken - go back and choose another one.');
+
+  // if ok, put in db
+  $result = mysql_query("INSERT INTO users (username,password,email,user_type) VALUES ('$username', '$password', '$email', 'U')");
+  if (!$result)
+    throw new Exception('Could not register you in database - please try again later.');
+	
+  mysql_close($conn);
+
+  return true;
+}
+
 ?>
+
+
 
 
 
