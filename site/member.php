@@ -1,8 +1,7 @@
 ﻿<?php
 
 // include function files for this application
-require_once('html_functions.php');
-require_once('db_user_functions.php');
+require_once('includes.php');
 session_start();
 
 //create short variable names
@@ -36,6 +35,7 @@ dispHeader('Home');
   if (isset($_SESSION['valid_user']))
   {
     echo 'You are logged in as: '.$_SESSION['valid_user'].' <br />';
+	dispCurrUsers();
     echo '<a href="logout.php">Log out</a><br />';
   }
   else

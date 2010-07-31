@@ -1,8 +1,7 @@
 ﻿
 
 <?php
-require_once('html_functions.php');
-require_once('db_user_functions.php');
+require_once('includes.php');
 session_start();
 
 dispHeader('Κεντρικη Συνδεση Σελιδας');
