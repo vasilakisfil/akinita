@@ -53,14 +53,15 @@ function dispCurrUsers()
   // check if username is unique
   $result = mysql_query("SELECT username,email,user_type FROM users");
   mysql_close($conn);
-    if (mysql_num_rows($result)>0)
+  if (mysql_num_rows($result)>0)
   {
 		echo "<table border='1'>
 		<tr>
 		<th>username</th>
 		<th>email</th>
 		<th>user_type</th>
-		<th>delete</th>
+		<th>Delete User</th>
+		<th>Edit User</th>
 		</tr>";
 
 		while($row = mysql_fetch_array($result))
@@ -69,8 +70,10 @@ function dispCurrUsers()
 			  echo "<td>" . $row['username'] . "</td>";
 			  echo "<td>" . $row['email'] . "</td>";
 			  echo "<td>" . $row['user_type'] . "</td>";
-			  echo "<td> <form name=\"input\" action=\"html_form_action.asp\" method=\"get\">
+			  echo "<td> <form name=\"input\" action=\"delUser.php?user=".$row['username']."\" method=\"post\">
 			        <input type=\"submit\" value=\"Delete\" /></form> </td>";
+			  echo "<td> <form name=\"input\" action=\"editUser.php?user=".$row['username']."\" method=\"post\">
+			        <input type=\"submit\" value=\"Edit\" /></form> </td>";
 			  echo "</tr>";
 		  }
 		echo "</table>";
@@ -122,8 +125,37 @@ function register($username, $password, $email)
   return true;
 }
 
+function db_del_user($user)
+{
+	$conn=db_connect();
+	// check if username is unique
+	$result = mysql_query("SELECT username FROM users where username='$user'");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query SELECT.');
+	}
+	$result = mysql_query("delete from property where user_id='$user'");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query DELETE3.');
+	}
+	$result = mysql_query("delete from telephone where user_id='$user'");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query DELETE2.');
+	}
+	$result = mysql_query("delete from users where username='$user'");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query DELETE1.');
+	}
 
+
+	
+	mysql_close($conn);	
+}
 ?>
+
 
 
 
