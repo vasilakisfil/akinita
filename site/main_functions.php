@@ -46,7 +46,24 @@ function login($username, $password)
      throw new Exception('Could not log you in.Did you use the right username and password?');
 }
 
-
+function check_valid_user()
+// see if somebody is logged in and notify them if not
+{
+  if (isset($_SESSION['valid_user']))
+  {
+      echo 'Logged in as '.$_SESSION['valid_user'].'.';
+      echo '<br />';
+  }
+  else
+  {
+     // they are not logged in 
+     dispHeader('Problem:');
+     echo 'You are not logged in.<br />';
+     dispURL('login.php', 'Login');
+     dispFooter();
+     exit;
+  }  
+}
 
 //auth h sunarthsh emfanizei olous tous sundedemenous xrhstes kai admins
 function dispCurrUsers()

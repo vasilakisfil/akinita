@@ -10,14 +10,14 @@ $pas2=$_POST['newPassword2'];
 $newMail=$_POST['newEmail'];
 $newMob1=$_POST['newMob1'];
 $user=strval($_GET['user']);
-
+check_valid_user();
 try{
 
 	if(!$oldPas && !$pas1 && !$pas2 && !$oldMail && !$newMail && !$oldMob1 && !$newMob1)
 	{
 
-		dispHeader("User Profile $user");
-		displayUserProfile($user);
+		dispHeader("User Profile $user ($type)");
+		displayUserProfile($user,$type);
 		dispFooter();
 
 	}
@@ -79,7 +79,7 @@ try{
 		
 		
 		dispHeader("User Profile $user");
-		displayUserProfile($user);
+		displayUserProfile($user,$type);
 		echo $message;
 		dispFooter();
 	}

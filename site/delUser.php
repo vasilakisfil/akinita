@@ -2,7 +2,7 @@
 //auto to arxeio periexei tis aparaithtes sunarthseis gia thn diagrafh enos xrhsth
 
 require_once("includes.php");
-//session_start();
+check_valid_user();
 try{
 
 	$user=strval($_GET['user']);

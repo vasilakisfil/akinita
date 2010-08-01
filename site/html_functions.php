@@ -23,6 +23,12 @@ function dispHeader($header,$num=1)
 	</select></a>
 <a href=""target="_blank">Contact Us</a>
 <a href=""target="_blank">Όροι χρήσης</a>
+<?php
+if(isset($_SESSION['valid_user']))
+{
+	dispURL("logout.php","Logout");
+}
+?>
 </div>
 <?php
 	if($header)
@@ -100,15 +106,15 @@ Your Lastname: <input type="text" name="lstname" /><br/><br/>
 }
 
 //auth h sunarthsh emfanizei to profil tou ka8e xrhsth
-function displayUserProfile($user)
+function displayUserProfile($user,$type_)
 {
 
-if($type=="User")
+if($type_=="User")
 { ?>
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Change your password</legend>
-	Old Password:<input type="password" name="oldPassword"/>S
+	Old Password:<input type="password" name="oldPassword"/>
 	New Password:<input type="password" name="newPassword1"/>
 	New Password:<input type="password" name="newPassword2"/>
 	<input type="submit" name="submit" value="change"/>

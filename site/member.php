@@ -1,4 +1,4 @@
-﻿<?php
+﻿<?php 
 //auto to arxeio parexei thn vasikh selida enos melous amesws meta thn sundesh
 
 
@@ -17,9 +17,11 @@ if ($username && $passwd)
     $type_=login($username, $passwd);
     // if they are in the database register the user id
     $_SESSION['valid_user'] = $username;
+	$val_user=$_SESSION['valid_user'];
 	if ($type_=="A") $type_="Admin";
 	else $type_="User";
 	$_SESSION['user_type'] = $type_;
+	$type=$_SESSION['user_type'];
   }
   catch(Exception $e)
   {
@@ -34,9 +36,9 @@ if ($username && $passwd)
   }      
 }
 
+check_valid_user();
 dispHeader('Home');
-//check_valid_user();
-  if (isset($_SESSION['valid_user']))
+ if (isset($_SESSION['user_type']))
   {
     echo 'You are logged in as: '.$_SESSION['valid_user'].' ('.$_SESSION['user_type'].') <br />';
 	if($type=="Admin")
@@ -45,9 +47,9 @@ dispHeader('Home');
 	}
 	else
 	{
-		//user code here
+		dispURL("editUser.php?user=".$val_user,"Edit my Profile");
 	}
-    echo '<a href="logout.php">Log out</a><br />';
+    dispURL("logout.php","logout");
   }
   else
   {

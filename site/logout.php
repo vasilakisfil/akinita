@@ -1,7 +1,6 @@
 ﻿<?php
 //auto to arxeio parexei tis aparaithtes sunarthseis gia to logout
-
-  session_start();
+require_once("includes.php");
   
   // store to test if they *were* logged in
   $old_user = $_SESSION['valid_user'];  

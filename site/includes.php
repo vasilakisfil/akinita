@@ -7,5 +7,7 @@
 	session_start();
 	global $type;
 	$type=$_SESSION['user_type'];
+	global $val_user;
+	$val_user=$_SESSION['valid_user'];
 
 ?>
