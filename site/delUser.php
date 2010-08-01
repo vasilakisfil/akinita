@@ -6,7 +6,7 @@ session_start();
 try{
 
 	$user=strval($_GET['user']);
-	echo 'hello world'.$user;
+	echo 'hello world '.$user;
 	db_del_user($user);
 
 	dispHeader('Deletion successful',2);

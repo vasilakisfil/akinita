@@ -88,5 +88,42 @@ Your Lastname: <input type="text" name="lstname" /><br/><br/>
 
 <?php
 }
+
+function displayUserProfile()
+{
 ?>
+
+<form method="post" action="editUser.php">
+<fieldset>
+<legend>Change your password</legend>
+Old Password:<input type="password" name="oldPassword"/>
+New Password:<input type="password" name="newPassword1"/>
+New Password:<input type="password" name="newPassword2"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+</form>
+
+<form method="post" action="editUser.php">
+<fieldset>
+<legend>Change your email</legend>
+Old Email:<input type="password" name="oldEmail"/>
+New Email:<input type="password" name="newEmail"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+</form>
+
+<form method="post" action="editUser.php">
+<fieldset>
+<legend>Change your mobile1 number</legend>
+Old Number:<input type="password" name="oldMob1"/>
+New Number:<input type="password" name="newMob1"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+</form>
+
+<?php
+}
+?>
+
+
 
