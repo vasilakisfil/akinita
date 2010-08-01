@@ -1,6 +1,6 @@
-﻿
+﻿<?php
+//auto to arxeio exei tis aparaithtes formes gia thn epe3ergasia tou profil tou xrhsth
 
-<?php 
 require_once("includes.php");
 
 //create short variable names

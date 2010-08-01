@@ -1,5 +1,5 @@
-﻿
-<?php 
+﻿<?php
+//auto to arxeio periexei tis aparaithtes sunarthseis gia thn diagrafh enos xrhsth
 
 require_once("includes.php");
 //session_start();

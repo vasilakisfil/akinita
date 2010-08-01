@@ -1,8 +1,9 @@
 ﻿<?php
+//auto to arxeio parexei thn vasikh selida enos melous amesws meta thn sundesh
+
 
 // include function files for this application
 require_once('includes.php');
-//session_start();
 
 //create short variable names
 $username = $_POST['username'];
@@ -38,9 +39,13 @@ dispHeader('Home');
   if (isset($_SESSION['valid_user']))
   {
     echo 'You are logged in as: '.$_SESSION['valid_user'].' ('.$_SESSION['user_type'].') <br />';
-	if($_SESSION['user_type']=="Admin")
+	if($type=="Admin")
 	{
 		dispCurrUsers();
+	}
+	else
+	{
+		//user code here
 	}
     echo '<a href="logout.php">Log out</a><br />';
   }

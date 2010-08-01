@@ -1,8 +1,8 @@
-﻿
+﻿<?php
+//auto to arxeio parexei to login gia xrhstes kai admins
 
-<?php
+
 require_once('includes.php');
-//session_start();
 
 dispHeader('Κεντρικη Συνδεση Σελιδας');
 

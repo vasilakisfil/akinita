@@ -2,6 +2,8 @@
 
 require_once('includes.php');
 
+//auth h sunarthsh emfanizei to head kai kapoia vasika pragmata tou body gia na xrhsimopoihtai ka8e fora
+//pairnei ws deutero orisma to numero to mege8os ths epikefalidas
 function dispHeader($header,$num=1)
 {
 ?>
@@ -31,6 +33,8 @@ function dispHeader($header,$num=1)
 	}
 }
 
+
+//auth h sunarthsh dhmiourgei thn forma gia to login
 function dispLoginBox()
 {
 ?>
@@ -47,6 +51,7 @@ function dispLoginBox()
 <?php
 }
 
+//auth h sunarthsh emfanizei ta teleutaia stoixeia ths html gia na xrhsimopoieitai ka8e fora
 function dispFooter()
 {
   // print an HTML footer
@@ -56,6 +61,7 @@ function dispFooter()
 <?php
 }
 
+//auth h sunarthsh dexetai ena url kai to onoma kai to metatrepei se html kai to emfanizei 
 function dispURL($url, $name)
 {
   // output URL as link and br
@@ -64,6 +70,7 @@ function dispURL($url, $name)
 <?php
 }
 
+//auth h sunarthsh emfanizei thn registration form
 function dispRegForm()
 {
 
@@ -92,6 +99,7 @@ Your Lastname: <input type="text" name="lstname" /><br/><br/>
 <?php
 }
 
+//auth h sunarthsh emfanizei to profil tou ka8e xrhsth
 function displayUserProfile($user)
 {
 

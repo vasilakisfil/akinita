@@ -1,4 +1,8 @@
 <?php
+//auto to arxeio periexei tous aparaithtous elegxous kata thn eggrafh kapoiou xrhsth.
+//an einai ola swsta tote eggrafete o xrhsths
+
+
   // include function files for this application
   require_once('includes.php');
 
@@ -13,8 +17,6 @@
   $othr=$_POST['othrnumber'];
   $frst=$_POST['frstname'];
   $lst=$_POST['lstname'];
-  // start session which may be needed later
-  // start it now because it must go before headers
   
   try
   {

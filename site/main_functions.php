@@ -2,6 +2,7 @@
 
 require_once('includes.php');
 
+//ayth h synarthsh sundeei thn php me thn mysql kai epilegei thn vash akinita
 function db_connect()
 {
   $db_conn = mysql_connect("localhost", "akinauth", "password");
@@ -20,7 +21,8 @@ if (!$db_selected)
   return $db_conn;
 }
 
-
+/*auth h sunarthsh epistrefei ton tupo xrhsth pou paei na sunde8ei afou diapistwsei prwta oti
+o xrhsths evale ta swsta stoixeia*/
 function login($username, $password)
 // check username and password with db
 // if yes, return true
@@ -46,7 +48,7 @@ function login($username, $password)
 
 
 
-
+//auth h sunarthsh emfanizei olous tous sundedemenous xrhstes kai admins
 function dispCurrUsers()
 {
   // connect to db
@@ -85,7 +87,7 @@ function dispCurrUsers()
 
 }
 
-
+//auth h sunarthsh elegxei an mia metavlhth einai gemismenh me dedomena
 function filled_out($variable)
 {
   // testing the variable
@@ -94,6 +96,7 @@ function filled_out($variable)
   return true;
 }
 
+//auth h sunarthsh elegxei an to email einai swsto
 function valid_email($address)
 {
   // check an email address is possibly valid
@@ -103,6 +106,7 @@ function valid_email($address)
     return false;
 }
 
+//auth h sunarthsh eggrafh sth vash ta aparaithta stoixeia tou xrhsth, dhladh username,pass,email kai mobile1
 function register($username, $password, $email, $mob1)
 // register new person with db
 // return true or error message
@@ -129,6 +133,7 @@ function register($username, $password, $email, $mob1)
   return true;
 }
 
+//auth h sunarthsh diagrafei enan xrhsth apo thn vash (DROPPED use db_update instead)
 function db_del_user($user)
 {
 	$conn=db_connect();
@@ -159,7 +164,7 @@ function db_del_user($user)
 	mysql_close($conn);	
 }
 
-
+//auth h sunarthsh kanei ena update sth vash analoga me ta orismata pou ths dinontai
 function db_update($table,$column1,$column2,$user,$data)
 {
 	$conn=db_connect();
@@ -173,7 +178,7 @@ function db_update($table,$column1,$column2,$user,$data)
 	mysql_close($conn);
 }
 
-
+//auth h sunarthsh ananewnei ton kwdiko sthn vash (DROPPED use db_update instead)
 function db_upd_pas($user,$password)
 {
 	$conn=db_connect();
@@ -187,7 +192,7 @@ function db_upd_pas($user,$password)
 	mysql_close($conn);
 }
 
-
+//auth h sunarthsh elegxei an enas kwdikos enos xrhsth uparxei sth vash kai einai swstos (DROPPED)
 function check_pass($user,$password)
 {
 // connect to db
@@ -206,6 +211,7 @@ function check_pass($user,$password)
 
 }
 
+//auth h sunarthsh elegxei analoga me ta orismata an uparxei to $data sthn vash.Epistrefei $error se periptwsh la8ous
 function db_check($table,$column1,$column2,$user,$data,$error)
 {
 // connect to db
