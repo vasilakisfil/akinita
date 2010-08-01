@@ -2,7 +2,7 @@
 
 // include function files for this application
 require_once('includes.php');
-session_start();
+//session_start();
 
 //create short variable names
 $username = $_POST['username'];
@@ -13,12 +13,12 @@ if ($username && $passwd)
 {
   try
   {
-    $type=login($username, $passwd);
+    $type_=login($username, $passwd);
     // if they are in the database register the user id
     $_SESSION['valid_user'] = $username;
-	if ($type=="A") $type="Adminstrator";
-	else $type="User";
-	$_SESSION['user_type'] = $type;
+	if ($type_=="A") $type_="Admin";
+	else $type_="User";
+	$_SESSION['user_type'] = $type_;
   }
   catch(Exception $e)
   {
@@ -38,7 +38,7 @@ dispHeader('Home');
   if (isset($_SESSION['valid_user']))
   {
     echo 'You are logged in as: '.$_SESSION['valid_user'].' ('.$_SESSION['user_type'].') <br />';
-	if($_SESSION['user_type']=="Adminstrator")
+	if($_SESSION['user_type']=="Admin")
 	{
 		dispCurrUsers();
 	}

@@ -15,21 +15,20 @@
   $lst=$_POST['lstname'];
   // start session which may be needed later
   // start it now because it must go before headers
-  session_start();
   
   try
   {
     // check forms filled in
-    /*if (!filled_out($username) || !filled_out($passwd) || !filled_out($passwd2) || !filled_out($email) || !filled_out($mob1))
+    if (!filled_out($username) || !filled_out($passwd) || !filled_out($passwd2) || !filled_out($email) || !filled_out($mob1))
     {
       throw new Exception('You have not filled the form out correctly - please go back and try again.');    
-    }*/
+    }
    
     // email address not valid
-    /*if (!valid_email($email))
+    if (!valid_email($email))
     {
       throw new Exception('That is not a valid email address.  Please go back  and try again.');
-    }*/ 
+    }
 
     // passwords not the same 
     if ($passwd != $passwd2)
@@ -51,7 +50,7 @@
 	
 	// attempt to register
     // this function can also throw an exception
-    register($username, $passwd, $email);
+    register($username, $passwd, $email, $mob1);
 	// provide link to login page
     dispHeader('Registration successful',2);
     echo 'Your registration was successful.  Go to login page to enter into the system!';

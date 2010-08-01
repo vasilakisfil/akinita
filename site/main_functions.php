@@ -1,5 +1,7 @@
 ﻿<?php
 
+require_once('includes.php');
+
 function db_connect()
 {
   $db_conn = mysql_connect("localhost", "akinauth", "password");
@@ -101,7 +103,7 @@ function valid_email($address)
     return false;
 }
 
-function register($username, $password, $email)
+function register($username, $password, $email, $mob1)
 // register new person with db
 // return true or error message
 {
@@ -117,8 +119,10 @@ function register($username, $password, $email)
 
   // if ok, put in db
   $result = mysql_query("INSERT INTO users (username,password,email,user_type) VALUES ('$username', '$password', '$email', 'U')");
-  if (!$result)
-    throw new Exception('Could not register you in database - please try again later.');
+  if (!$result) throw new Exception('Could not register you in database - please try again later.');
+	
+  $result = mysql_query("INSERT INTO telephone (mobile1,user_id) VALUES ('$mob1','$username')");
+  if (!$result) throw new Exception('Could not register you in database - please try again later.');
 	
   mysql_close($conn);
 
@@ -154,11 +158,72 @@ function db_del_user($user)
 	
 	mysql_close($conn);	
 }
+
+
+function db_update($table,$column1,$column2,$user,$data)
+{
+	$conn=db_connect();
+	// check if username is unique
+	$result = mysql_query("UPDATE $table SET $column2='$data' where $column1='$user'");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query UPDATE.');
+	}
+	
+	mysql_close($conn);
+}
+
+
+function db_upd_pas($user,$password)
+{
+	$conn=db_connect();
+	// check if username is unique
+	$result = mysql_query("UPDATE users SET password='$password' where username='$user'");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query UPDATE.');
+	}
+	
+	mysql_close($conn);
+}
+
+
+function check_pass($user,$password)
+{
+// connect to db
+  $conn = db_connect();
+
+  // check if username is unique
+  $result = mysql_query("SELECT * FROM users where username='$user' and password='$password'");
+
+  mysql_close($conn);
+  
+  if (mysql_num_rows($result)>0)
+  {
+	return true;
+  }
+  else throw new Exception('Wrong password.');
+
+}
+
+function db_check($table,$column1,$column2,$user,$data,$error)
+{
+// connect to db
+  $conn = db_connect();
+
+  // check if username is unique
+  $result = mysql_query("SELECT * FROM $table where $column1='$user' and $column2='$data'");
+
+  mysql_close($conn);
+  
+  if (mysql_num_rows($result)>0)
+  {
+	return true;
+  }
+  else throw new Exception($error);
+
+}
+
 ?>
-
-
-
-
-
 
 	 

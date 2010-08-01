@@ -2,7 +2,7 @@
 
 <?php
 include('includes.php');
-session_start();
+//session_start();
 
 dispHeader('Σελιδα Εγγραφης Χρηστη');
 

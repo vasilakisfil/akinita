@@ -2,7 +2,7 @@
 <?php 
 
 require_once("includes.php");
-session_start();
+//session_start();
 try{
 
 	$user=strval($_GET['user']);
