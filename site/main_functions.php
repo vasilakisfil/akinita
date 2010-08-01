@@ -28,13 +28,15 @@ function login($username, $password)
   $conn = db_connect();
 
   // check if username is unique
-  $result = mysql_query("SELECT * FROM users where username='$username' and password='$password'");
+  $result = mysql_query("SELECT user_type FROM users where username='$username' and password='$password'");
 
   mysql_close($conn);
   
   if (mysql_num_rows($result)>0)
   {
-     return true;
+  
+	 $row = mysql_fetch_object($result);
+     return $row->user_type;
   }
   else 
      throw new Exception('Could not log you in.Did you use the right username and password?');
@@ -58,6 +60,7 @@ function dispCurrUsers()
 		<th>username</th>
 		<th>email</th>
 		<th>user_type</th>
+		<th>delete</th>
 		</tr>";
 
 		while($row = mysql_fetch_array($result))
@@ -65,7 +68,9 @@ function dispCurrUsers()
 			  echo "<tr>";
 			  echo "<td>" . $row['username'] . "</td>";
 			  echo "<td>" . $row['email'] . "</td>";
-			  echo "<td>" . $row['user_type'] . "</td>";		  
+			  echo "<td>" . $row['user_type'] . "</td>";
+			  echo "<td> <form name=\"input\" action=\"html_form_action.asp\" method=\"get\">
+			        <input type=\"submit\" value=\"Delete\" /></form> </td>";
 			  echo "</tr>";
 		  }
 		echo "</table>";
@@ -116,6 +121,7 @@ function register($username, $password, $email)
 
   return true;
 }
+
 
 ?>
 

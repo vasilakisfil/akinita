@@ -13,9 +13,12 @@ if ($username && $passwd)
 {
   try
   {
-    login($username, $passwd);
+    $type=login($username, $passwd);
     // if they are in the database register the user id
     $_SESSION['valid_user'] = $username;
+	if ($type=="A") $type="Adminstrator";
+	else $type="User";
+	$_SESSION['user_type'] = $type;
   }
   catch(Exception $e)
   {
@@ -34,8 +37,11 @@ dispHeader('Home');
 //check_valid_user();
   if (isset($_SESSION['valid_user']))
   {
-    echo 'You are logged in as: '.$_SESSION['valid_user'].' <br />';
-	dispCurrUsers();
+    echo 'You are logged in as: '.$_SESSION['valid_user'].' ('.$_SESSION['user_type'].') <br />';
+	if($_SESSION['user_type']=="Adminstrator")
+	{
+		dispCurrUsers();
+	}
     echo '<a href="logout.php">Log out</a><br />';
   }
   else
