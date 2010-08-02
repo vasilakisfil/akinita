@@ -9,14 +9,20 @@ $pas1=$_POST['newPassword1'];
 $pas2=$_POST['newPassword2'];
 $newMail=$_POST['newEmail'];
 $newMob1=$_POST['newMob1'];
+$newName=$_POST['newName'];
+$newLast=$_POST['newLast'];
+$newMob2=$_POST['newMob2'];
+$newHome=$_POST['newHome'];
+$newOthr=$_POST['newOthr'];
+$makeAdmin=$_POST['Admin'];
 $user=strval($_GET['user']);
 check_valid_user();
 try{
 
-	if(!$oldPas && !$pas1 && !$pas2 && !$oldMail && !$newMail && !$oldMob1 && !$newMob1)
+	if(!$oldPas&&!$pas1&&!$pas2&&!$newMail&&!$newMob1&&!$newName&&!$newLast&&!$newMob2&&!$newHome&&!$newOthr)
 	{
 
-		dispHeader("User Profile $user ($type)");
+		dispHeader("User Profile $user");
 		showUserProfile($user);
 		echo "<br /><br ?>";
 		displayUserOptions($user,$type);
@@ -78,6 +84,36 @@ try{
 		{
 			db_update("telephone","user_id","mobile1",$user,$newMob1);
 			$message="Mobile1 has been changed!";
+		}
+		if($newName)
+		{
+			db_update("users","username","name",$user,$newName);
+			$message="Name has been changed!";
+		}
+		if($newLast)
+		{
+			db_update("users","username","surname",$user,$newLast);
+			$message="Surname has been changed!";
+		}
+		if($newMob2)
+		{
+			db_update("telephone","user_id","mobile2",$user,$newMob2);
+			$message="Mobile2 has been changed!";
+		}
+		if($newHome)
+		{
+			db_update("telephone","user_id","home",$user,$newHome);
+			$message="Home num has been changed!";
+		}
+		if($newOthr)
+		{
+			db_update("telephone","user_id","other",$user,$newOthr);
+			$message="Other num has been changed!";
+		}
+		if($Admin)
+		{
+			db_update("users","username","user_type",$user,$Admin);
+			$message="User promoted to Admin!";
 		}
 		
 		

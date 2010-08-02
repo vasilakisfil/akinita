@@ -285,9 +285,9 @@ function showUserProfile($user)
 	<tr>
 	<th>username</th>
 	<th>mobile1</th>
-	<th>telephone</th>
-	<th>telephone</th>
-	<th>telephone</th>
+	<th>mobile2</th>
+	<th>home</th>
+	<th>other</th>
 	</tr>";
 
 	while($row = mysql_fetch_array($result))

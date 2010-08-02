@@ -140,7 +140,7 @@ else
 	New Password:<input type="password" name="newPassword2"/>
 	<input type="submit" name="submit" value="change"/>
 	</fieldset>
-	</form
+	</form>
 <?php
 }
 ?>
@@ -163,112 +163,130 @@ New Number:<input type="text" name="newMob1"/>
 <?php
 if($name==true)
 {
-?>
-<form method="post" action="editUser.php?user=<?php echo $user; ?>">
-<fieldset>
-<legend>Enter your firstname</legend>
-New Number:<input type="text" name="newMob1"/>
-<input type="submit" name="submit" value="change"/>
-</fieldset>
-<?php
+	?>
+	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+	<fieldset>
+	<legend>Enter your firstname</legend>
+	Your Firstname:<input type="text" name="newName"/>
+	<input type="submit" name="submit" value="change"/>
+	</fieldset>
+	</form>
+	<?php
 }
 else
 {
-?>
-<form method="post" action="editUser.php?user=<?php echo $user; ?>">
-<fieldset>
-<legend>Change your firstname</legend>
-New Number:<input type="text" name="newMob1"/>
-<input type="submit" name="submit" value="change"/>
-</fieldset>
-<?php
+	?>
+	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+	<fieldset>
+	<legend>Change your firstname</legend>
+	Your Firstname:<input type="text" name="newName"/>
+	<input type="submit" name="submit" value="change"/>
+	</fieldset>
+	</form>
+	<?php
 }
 if($surname==true)
 {
-?>
-<form method="post" action="editUser.php?user=<?php echo $user; ?>">
-<fieldset>
-<legend>Enter your lastname</legend>
-New Number:<input type="text" name="newMob1"/>
-<input type="submit" name="submit" value="change"/>
-</fieldset>
-<?php
+	?>
+	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+	<fieldset>
+	<legend>Enter your lastname</legend>
+	Your Lastname:<input type="text" name="newLast"/>
+	<input type="submit" name="submit" value="change"/>
+	</fieldset>
+	</form>
+	<?php
 }
 else
 {
-?>
-<form method="post" action="editUser.php?user=<?php echo $user; ?>">
-<fieldset>
-<legend>Change your lasttname</legend>
-New Number:<input type="text" name="newMob1"/>
-<input type="submit" name="submit" value="change"/>
-</fieldset>
-<?php
+	?>
+	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+	<fieldset>
+	<legend>Change your lasttname</legend>
+	Your Lastname:<input type="text" name="newLast"/>
+	<input type="submit" name="submit" value="change"/>
+	</fieldset>
+	</form>
+	<?php
 }
 if($mobile2==true)
 {
-?>
-<form method="post" action="editUser.php?user=<?php echo $user; ?>">
-<fieldset>
-<legend>Enter your mobile2</legend>
-New Number:<input type="text" name="newMob1"/>
-<input type="submit" name="submit" value="change"/>
-</fieldset>
-<?php
+	?>
+	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+	<fieldset>
+	<legend>Enter your mobile2</legend>
+	New Number:<input type="text" name="newMob2"/>
+	<input type="submit" name="submit" value="change"/>
+	</fieldset>
+	</form>
+	<?php
 }
 else
 {
-?>
-<form method="post" action="editUser.php?user=<?php echo $user; ?>">
-<fieldset>
-<legend>Change your mobile2</legend>
-New Number:<input type="text" name="newMob1"/>
-<input type="submit" name="submit" value="change"/>
-</fieldset>
-<?php
+	?>
+	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+	<fieldset>
+	<legend>Change your mobile2</legend>
+	New Number:<input type="text" name="newMob2"/>
+	<input type="submit" name="submit" value="change"/>
+	</fieldset>
+	</form>
+	<?php
 }
 if($home==true)
 {
-?>
-<form method="post" action="editUser.php?user=<?php echo $user; ?>">
-<fieldset>
-<legend>Enter your home number</legend>
-New Number:<input type="text" name="newMob1"/>
-<input type="submit" name="submit" value="change"/>
-</fieldset>
-<?php
+	?>
+	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+	<fieldset>
+	<legend>Enter your home number</legend>
+	New Number:<input type="text" name="newHome"/>
+	<input type="submit" name="submit" value="change"/>
+	</fieldset>
+	</form>
+	<?php
 }
 else
 {
-?>
-<form method="post" action="editUser.php?user=<?php echo $user; ?>">
-<fieldset>
-<legend>Change your home number</legend>
-New Number:<input type="text" name="newMob1"/>
-<input type="submit" name="submit" value="change"/>
-</fieldset>
-<?php
+	?>
+	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+	<fieldset>
+	<legend>Change your home number</legend>
+	New Number:<input type="text" name="newHome"/>
+	<input type="submit" name="submit" value="change"/>
+	</fieldset>
+	</form>
+	<?php
 }
 if($other==true)
 {
-?>
-<form method="post" action="editUser.php?user=<?php echo $user; ?>">
-<fieldset>
-<legend>Enter your other number</legend>
-New Number:<input type="text" name="newMob1"/>
-<input type="submit" name="submit" value="change"/>
-</fieldset>
-<?php
+	?>
+	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+	<fieldset>
+	<legend>Enter your other number</legend>
+	New Number:<input type="text" name="newOthr"/>
+	<input type="submit" name="submit" value="change"/>
+	</fieldset>
+	</form>
+	<?php
 }
 else
 {
+	?>
+	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+	<fieldset>
+	<legend>Change your other number</legend>
+	New Number:<input type="text" name="newOthr"/>
+	<input type="submit" name="submit" value="change"/>
+	</fieldset>
+	</form>
+	<?php
+}
+if($type_=="Admin")
+{
 ?>
-<form method="post" action="editUser.php?user=<?php echo $user; ?>">
-<fieldset>
-<legend>Change your other number</legend>
-New Number:<input type="text" name="newMob1"/>
-<input type="submit" name="submit" value="change"/>
-</fieldset>
+	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+	<input type="submit" name="Admin" value="Promote to Admin"/>
+	</form>
 <?php
 }
 
