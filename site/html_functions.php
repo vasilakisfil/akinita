@@ -109,8 +109,13 @@ Your Lastname: <input type="text" name="lstname" /><br/><br/>
 }
 
 //auth h sunarthsh emfanizei to profil tou ka8e xrhsth
-function displayUserProfile($user,$type_)
+function displayUserOptions($user,$type_)
 {
+$name=db_checkNULL("users","username","name",$user);
+$surname=db_checkNULL("users","username","surname",$user);
+$mobile2=db_checkNULL("telephone","user_id","mobile2",$user);
+$home=db_checkNULL("telephone","user_id","home",$user);
+$other=db_checkNULL("telephone","user_id","other",$user);
 
 if($type_=="User")
 { ?>
@@ -155,8 +160,118 @@ New Number:<input type="text" name="newMob1"/>
 <input type="submit" name="submit" value="change"/>
 </fieldset>
 </form>
-
 <?php
+if($name==true)
+{
+?>
+<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+<fieldset>
+<legend>Enter your firstname</legend>
+New Number:<input type="text" name="newMob1"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+<?php
+}
+else
+{
+?>
+<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+<fieldset>
+<legend>Change your firstname</legend>
+New Number:<input type="text" name="newMob1"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+<?php
+}
+if($surname==true)
+{
+?>
+<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+<fieldset>
+<legend>Enter your lastname</legend>
+New Number:<input type="text" name="newMob1"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+<?php
+}
+else
+{
+?>
+<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+<fieldset>
+<legend>Change your lasttname</legend>
+New Number:<input type="text" name="newMob1"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+<?php
+}
+if($mobile2==true)
+{
+?>
+<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+<fieldset>
+<legend>Enter your mobile2</legend>
+New Number:<input type="text" name="newMob1"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+<?php
+}
+else
+{
+?>
+<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+<fieldset>
+<legend>Change your mobile2</legend>
+New Number:<input type="text" name="newMob1"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+<?php
+}
+if($home==true)
+{
+?>
+<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+<fieldset>
+<legend>Enter your home number</legend>
+New Number:<input type="text" name="newMob1"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+<?php
+}
+else
+{
+?>
+<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+<fieldset>
+<legend>Change your home number</legend>
+New Number:<input type="text" name="newMob1"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+<?php
+}
+if($other==true)
+{
+?>
+<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+<fieldset>
+<legend>Enter your other number</legend>
+New Number:<input type="text" name="newMob1"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+<?php
+}
+else
+{
+?>
+<form method="post" action="editUser.php?user=<?php echo $user; ?>">
+<fieldset>
+<legend>Change your other number</legend>
+New Number:<input type="text" name="newMob1"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+<?php
+}
+
 }
 ?>
 

@@ -216,7 +216,7 @@ function db_insert($table,$column1,$column2,$data1,$data2)
 
 
 //auth h sunarthsh elegxei analoga me ta orismata an uparxei to $data sthn vash.Epistrefei $error se periptwsh la8ous
-function db_check($table,$column1,$column2,$user,$data,$error)
+function db_check($table,$column1,$column2,$user,$data)
 {
 // connect to db
   $conn = db_connect();
@@ -230,7 +230,25 @@ function db_check($table,$column1,$column2,$user,$data,$error)
   {
 	return true;
   }
-  else throw new Exception($error);
+  else return false;
+
+}
+
+function db_checkNULL($table,$column1,$column2,$user,$data)
+{
+// connect to db
+  $conn = db_connect();
+
+  // check if username is unique
+  $result = mysql_query("SELECT * FROM $table where $column1='$user' and $column2 IS NULL");
+
+  mysql_close($conn);
+  
+  if (mysql_num_rows($result)>0)
+  {
+	return true;
+  }
+  else return false;
 
 }
 

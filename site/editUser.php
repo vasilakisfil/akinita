@@ -19,7 +19,7 @@ try{
 		dispHeader("User Profile $user ($type)");
 		showUserProfile($user);
 		echo "<br /><br ?>";
-		displayUserProfile($user,$type);
+		displayUserOptions($user,$type);
 		dispFooter();
 
 	}
@@ -36,7 +36,8 @@ try{
 				else
 				{
 					//check_pass($user,$oldPas);
-					db_check("users","username","password",$user,$oldPas,"Wrong passowrd.");
+					$new=db_check("users","username","password",$user,$oldPas);
+					if($new==false) throw new Exception('Wrong password');
 					db_update("users","username","password",$user,$pas1);
 					$message="Password has been changed!";
 				}
@@ -83,7 +84,7 @@ try{
 		dispHeader("User Profile $user");
 		showUserProfile($user);
 		echo "<br /><br ?>";
-		displayUserProfile($user,$type);
+		displayUserOptions($user,$type);
 		echo $message;
 		dispFooter();
 	}
