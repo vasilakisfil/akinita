@@ -199,37 +199,7 @@ function db_update($table,$column1,$column2,$user,$data)
 }
 
 //auth h sunarthsh ananewnei ton kwdiko sthn vash (DROPPED use db_update instead)
-function db_upd_pas($user,$password)
-{
-	$conn=db_connect();
-	// check if username is unique
-	$result = mysql_query("UPDATE users SET password='$password' where username='$user'");
-	if (!$result)
-	{
-		throw new Exception('Could not execute query UPDATE.');
-	}
-	
-	mysql_close($conn);
-}
 
-//auth h sunarthsh elegxei an enas kwdikos enos xrhsth uparxei sth vash kai einai swstos (DROPPED)
-function check_pass($user,$password)
-{
-// connect to db
-  $conn = db_connect();
-
-  // check if username is unique
-  $result = mysql_query("SELECT * FROM users where username='$user' and password='$password'");
-
-  mysql_close($conn);
-  
-  if (mysql_num_rows($result)>0)
-  {
-	return true;
-  }
-  else throw new Exception('Wrong password.');
-
-}
 
 //auth h sunarthsh elegxei analoga me ta orismata an uparxei to $data sthn vash.Epistrefei $error se periptwsh la8ous
 function db_check($table,$column1,$column2,$user,$data,$error)
