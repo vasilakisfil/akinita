@@ -185,11 +185,11 @@ function db_del_user($user)
 }
 
 //auth h sunarthsh kanei ena update sth vash analoga me ta orismata pou ths dinontai
-function db_update($table,$column1,$column2,$user,$data)
+function db_update($table,$column1,$column2,$data1,$data2)
 {
 	$conn=db_connect();
 	// check if username is unique
-	$result = mysql_query("UPDATE $table SET $column2='$data' where $column1='$user'");
+	$result = mysql_query("UPDATE $table SET $column2='$data2' where $column1='$data1'");
 	if (!$result)
 	{
 		throw new Exception('Could not execute query UPDATE.');
@@ -198,7 +198,21 @@ function db_update($table,$column1,$column2,$user,$data)
 	mysql_close($conn);
 }
 
-//auth h sunarthsh ananewnei ton kwdiko sthn vash (DROPPED use db_update instead)
+//auth h sunarthsh kanei ena insert sth vash analoga me ta orismata pou ths dinontai
+function db_insert($table,$column1,$column2,$data1,$data2)
+{
+	$conn=db_connect();
+	// check if username is unique
+	$result = mysql_query("INSERT INTO $table ($column1,$column2) values ('$data1',$data2)");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query INSERT.');
+	}
+	
+	mysql_close($conn);
+}
+
+
 
 
 //auth h sunarthsh elegxei analoga me ta orismata an uparxei to $data sthn vash.Epistrefei $error se periptwsh la8ous
@@ -252,6 +266,9 @@ function showUserProfile($user)
 	echo "<table border='1'>
 	<tr>
 	<th>username</th>
+	<th>mobile1</th>
+	<th>telephone</th>
+	<th>telephone</th>
 	<th>telephone</th>
 	</tr>";
 
@@ -260,6 +277,9 @@ function showUserProfile($user)
 		echo "<tr>";
 		echo "<td>" . $row['user_id'] . "</td>";
 		echo "<td>" . $row['mobile1'] . "</td>";
+		echo "<td>" . $row['mobile2'] . "</td>";
+		echo "<td>" . $row['home'] . "</td>";
+		echo "<td>" . $row['other'] . "</td>";
 		echo "</tr>";
 	}
 	echo "</table>";

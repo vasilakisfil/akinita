@@ -17,6 +17,8 @@ try{
 	{
 
 		dispHeader("User Profile $user ($type)");
+		showUserProfile($user);
+		echo "<br /><br ?>";
 		displayUserProfile($user,$type);
 		dispFooter();
 
@@ -79,6 +81,8 @@ try{
 		
 		
 		dispHeader("User Profile $user");
+		showUserProfile($user);
+		echo "<br /><br ?>";
 		displayUserProfile($user,$type);
 		echo $message;
 		dispFooter();

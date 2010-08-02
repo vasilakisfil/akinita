@@ -55,7 +55,13 @@
     register($username, $passwd, $email, $mob1);
 	// provide link to login page
 	
-
+	if($frst)	db_update("users","username","name",$username,$frst);
+	if($lst)	db_update("users","username","surname",$username,$lst);
+	if($home)	db_update("telephone","user_id","home",$username,$home);
+	if($mob2)	db_update("telephone","user_id","mobile2",$username,$mob2);
+	if($othr)	db_update("telephone","user_id","other",$username,$othr);
+	
+	
     dispHeader('Registration successful',2);
     echo 'Your registration was successful.  Go to login page to enter into the system!';
     dispURL('login.php', 'Go to login page');
