@@ -21,12 +21,15 @@ function dispHeader($header,$num=1)
 	<option>Σύντομη</option>
 	<option>Με σύνθετες επιλογές</option>
 	</select></a>
+<a href="member.php">Members Page</a>
 <a href=""target="_blank">Contact Us</a>
 <a href=""target="_blank">Όροι χρήσης</a>
 <?php
 if(isset($_SESSION['valid_user']))
 {
-	dispURL("logout.php","Logout");
+?>
+<a href="logout.php">Logout</a>
+<?php
 }
 ?>
 </div>

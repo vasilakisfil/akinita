@@ -54,6 +54,8 @@
     // this function can also throw an exception
     register($username, $passwd, $email, $mob1);
 	// provide link to login page
+	
+
     dispHeader('Registration successful',2);
     echo 'Your registration was successful.  Go to login page to enter into the system!';
     dispURL('login.php', 'Go to login page');

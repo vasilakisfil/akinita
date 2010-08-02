@@ -83,6 +83,7 @@ function dispCurrUsers()
 		<th>user_type</th>
 		<th>Delete User</th>
 		<th>Edit User</th>
+		<th>Show Profile</th>
 		</tr>";
 
 		while($row = mysql_fetch_array($result))
@@ -95,6 +96,8 @@ function dispCurrUsers()
 			        <input type=\"submit\" value=\"Delete\" /></form> </td>";
 			  echo "<td> <form name=\"input\" action=\"editUser.php?user=".$row['username']."\" method=\"post\">
 			        <input type=\"submit\" value=\"Edit\" /></form> </td>";
+			  echo "<td> <form name=\"input\" action=\"profUser.php?user=".$row['username']."\" method=\"post\">
+			        <input type=\"submit\" value=\"View\" /></form> </td>";
 			  echo "</tr>";
 		  }
 		echo "</table>";
@@ -150,7 +153,7 @@ function register($username, $password, $email, $mob1)
   return true;
 }
 
-//auth h sunarthsh diagrafei enan xrhsth apo thn vash (DROPPED use db_update instead)
+//auth h sunarthsh diagrafei enan xrhsth apo thn vash 
 function db_del_user($user)
 {
 	$conn=db_connect();
@@ -245,6 +248,53 @@ function db_check($table,$column1,$column2,$user,$data,$error)
   }
   else throw new Exception($error);
 
+}
+
+function showUserProfile($user)
+{
+	// connect to db
+	$conn = db_connect();
+
+	$result = mysql_query("SELECT * FROM users where username='$user'");
+	echo "<table border='1'>
+	<tr>
+	<th>Username</th>
+	<th>Email</th>
+	<th>Name</th>
+	<th>Surname</th>
+	<th>User Type</th>
+	</tr>";
+
+	while($row = mysql_fetch_array($result))
+	{
+		echo "<tr>";
+		echo "<td>" . $row['username'] . "</td>";
+		echo "<td>" . $row['email'] . "</td>";
+		echo "<td>" . $row['name'] . "</td>";
+		echo "<td>" . $row['surname'] . "</td>";
+		echo "<td>" . $row['user_type'] . "</td>";
+		echo "</tr>";
+	}
+	echo "</table>";
+	
+	$result = mysql_query("SELECT * FROM telephone where user_id='$user'");
+
+	echo "<table border='1'>
+	<tr>
+	<th>username</th>
+	<th>telephone</th>
+	</tr>";
+
+	while($row = mysql_fetch_array($result))
+	{
+		echo "<tr>";
+		echo "<td>" . $row['user_id'] . "</td>";
+		echo "<td>" . $row['mobile1'] . "</td>";
+		echo "</tr>";
+	}
+	echo "</table>";
+	mysql_close($conn);
+	
 }
 
 ?>
