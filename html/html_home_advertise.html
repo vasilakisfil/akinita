@@ -12,11 +12,10 @@
 <h3>Στοιχεία Ακινήτου</h3>
 
 <h3>Διαθέσιμο προς:</h3>
-<select name="energeies">
-<option></option>
-<option>Πώληση</option>
-<option>Ενοικίαση</option>
-</select>
+<form>
+<input type="checkbox" name="actions" value="pwlhsh" /> Πώληση
+<input type="checkbox" name="actions" value="enoikiash" /> Ενοικίαση
+</form> 
 
 <h3>Διεύθυνση Ακινήτου:</h3>
 <textarea rows="2" cols="25" wrap="physical" name="comments">
@@ -24,17 +23,17 @@ Enter Comments Here
 </textarea>
 
 <h3>Κατηγορία ακινήτου:</h3>
-<select name="kathgoria">
-<option>Kατοικίες</option>
-<option>Βίλα</option>
-<option>Γκαρσονιέρα</option>
-<option>Διαμέρισμα</option>
-<option>Μεζονέτα</option>
-<option>Μονοκατοικία</option>
-<option>Οροφοδιαμέρισμα</option>
-<option>Ρετιρέ</option>
-<option>Στούντιο</option>
-</select>
+<form>
+<input type="checkbox" name="category" value="bila" /> Bίλα
+<input type="checkbox" name="category" value="gkarsoniera" /> Γκαρσονιέρα
+<input type="checkbox" name="category" value="diamerisma" /> Διαμέρισμα
+<input type="checkbox" name="category" value="mezoneta" /> Μεζονέτα
+<input type="checkbox" name="category" value="monokatoikia" /> Moνοκατοικία
+<input type="checkbox" name="category" value="orofodiamerisma" /> Oροφοδιαμέρισμα
+<input type="checkbox" name="category" value="retire" /> Pετιρέ
+<input type="checkbox" name="category" value="stountio" /> Στούντιο
+</form>
+
 
 <h3>Τιμή</br>
 
@@ -138,16 +137,16 @@ Enter Comments Here
 
 <h3>Παροχές:</h3>
 <form>
-<input type="radio" name="parking" value="sta8meush" /> Θέση στάθμευσης
-<input type="radio" name="heating" value="8ermansh" /> Αυτόνομη Θέρμανση
-<input type="radio" name="fireplace" value="tzaki" /> Tζάκι
-<input type="radio" name="a/c" value="air_condition" /> Air Condition
-<input type="radio" name="geyser" value="hliakos" /> Hλιακός 
-<input type="radio" name="elevator" value="asanser" /> Aνελκυστήρας
-<input type="radio" name="pool" value="pisina" /> Πισίνα
-<input type="radio" name="alarm" value="synagermos" /> Συναγερμός
-<input type="radio" name="furnished" value="epiplwmeno" /> Επιπλωμένο
-</form> 
+<input type="checkbox" name="paroxes" value="sta8meush" /> Θέση Στάθμευσης
+<input type="checkbox" name="paroxes" value="8ermansh" /> Αυτόνομη Θέρμανση
+<input type="checkbox" name="paroxes" value="tzaki" /> Τζάκι
+<input type="checkbox" name="paroxes" value="air_condition" /> Αir Condition
+<input type="checkbox" name="paroxes" value="hliakos" /> Hλιακός
+<input type="checkbox" name="paroxes" value="asanser" /> Ανελκυστήρας
+<input type="checkbox" name="paroxes" value="pisina" /> Πισίνα
+<input type="checkbox" name="paroxes" value="sunagermos" /> Συναγερμός
+<input type="checkbox" name="paroxes" value="epiplwmeno" /> Επιπλωμένο
+</form>
 
 <h3>Σχόλια:</h3>
 <textarea rows="5" cols="40" wrap="physical" name="comments">
