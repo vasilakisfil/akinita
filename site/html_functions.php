@@ -107,8 +107,9 @@ Your Lastname: <input type="text" name="lstname" /><br/><br/>
 
 <?php
 }
-
+/***********************************************************************
 //auth h sunarthsh emfanizei to profil tou ka8e xrhsth
+************************************************************************/
 function displayUserOptions($user,$type_)
 {
 $name=db_checkNULL("users","username","name",$user);
@@ -285,7 +286,12 @@ if($type_=="Admin")
 {
 ?>
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
-	<input type="submit" name="Admin" value="Promote to Admin"/>
+	<fieldset>
+	<legend>Make the user:</legend>
+	<input type="radio" name="privilege" value="Admin" /> Admin<br />
+	<input type="radio" name="privilege" value="User" /> User<br />
+	<input type="submit" name="submit" value="submit"/>
+	</fieldset>
 	</form>
 <?php
 }

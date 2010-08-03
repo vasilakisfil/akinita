@@ -14,17 +14,18 @@ $newLast=$_POST['newLast'];
 $newMob2=$_POST['newMob2'];
 $newHome=$_POST['newHome'];
 $newOthr=$_POST['newOthr'];
-$makeAdmin=$_POST['Admin'];
+$priv=$_POST['privilege'];
 $user=strval($_GET['user']);
+
 check_valid_user();
 try{
 
-	if(!$oldPas&&!$pas1&&!$pas2&&!$newMail&&!$newMob1&&!$newName&&!$newLast&&!$newMob2&&!$newHome&&!$newOthr)
+	if(!$oldPas&&!$pas1&&!$pas2&&!$newMail&&!$newMob1&&!$newName&&!$newLast&&!$newMob2&&!$newHome&&!$newOthr&&!$priv)
 	{
 
 		dispHeader("User Profile $user");
 		showUserProfile($user);
-		echo "<br /><br ?>";
+		echo "<br /><br />";
 		displayUserOptions($user,$type);
 		dispFooter();
 
@@ -110,19 +111,25 @@ try{
 			db_update("telephone","user_id","other",$user,$newOthr);
 			$message="Other num has been changed!";
 		}
-		if($Admin)
+		if($priv=="Admin")
 		{
-			db_update("users","username","user_type",$user,$Admin);
-			$message="User promoted to Admin!";
+			db_update("users","username","user_type",$user,"A");
+			$message="$user promoted to admin!";
 		}
-		
+		else if($priv=="User")
+		{
+			db_update("users","username","user_type",$user,"U");
+			$message="$user dropped to User!";
+		}
 		
 		dispHeader("User Profile $user");
 		showUserProfile($user);
-		echo "<br /><br ?>";
-		displayUserOptions($user,$type);
+		echo "<br />";
 		echo $message;
+		echo "<br /><br />";
+		displayUserOptions($user,$type);
 		dispFooter();
+		$message='';
 	}
 }
 catch(Exception $e)
