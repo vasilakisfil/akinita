@@ -498,98 +498,95 @@ function dispHomeSearch()
 
 <h3>Τιμή</br>
 
-από:<select name="low_value">
-<option>Eλάχιστη τιμή</option>
-<option>50.000</option>
-<option>75.000</option>
-<option>100.000</option>
-<option>150.000</option>
-<option>200.000</option>
-<option>250.000</option>
-<option>300.000</option>
-<option>350.000</option>
-<option>400.000</option>
-<option>500.000</option>
-<option>750.000</option>
-<option>1.000.000</option>
+από:<select name="low_price">
+<option value="nolimit" >Χωρις Οριο</option>
+<option value="50000">50.000</option>
+<option value="75000">75.000</option>
+<option value="100000">100.000</option>
+<option value="150000">150.000</option>
+<option value="200000">200.000</option>
+<option value="250000">250.000</option>
+<option value="300000">300.000</option>
+<option value="350000">350.000</option>
+<option value="400000">400.000</option>
+<option value="500000">500.000</option>
+<option value="750000">750.000</option>
+<option value="1000000">1.000.000</option>
 </select>
 
-έως:<select name="high_value">
-<option>Mέγιστη τιμή</option>
-<option>50.000</option>
-<option>75.000</option>
-<option>100.000</option>
-<option>150.000</option>
-<option>200.000</option>
-<option>250.000</option>
-<option>300.000</option>
-<option>350.000</option>
-<option>400.000</option>
-<option>500.000</option>
-<option>750.000</option>
-<option>1.000.000</option>
-<option>Μέγιστη τιμή</option>
+έως:<select name="high_price">
+<option value="50000">50.000</option>
+<option value="75000">75.000</option>
+<option value="100000">100.000</option>
+<option value="150000">150.000</option>
+<option value="200000">200.000</option>
+<option value="250000">250.000</option>
+<option value="300000">300.000</option>
+<option value="350000">350.000</option>
+<option value="400000">400.000</option>
+<option value="500000">500.000</option>
+<option value="750000">750.000</option>
+<option value="1000000">1.000.000</option>
+<option value="nolimit" selected>Χωρις Οριο</option>
 </select>
 </h3>
 
 <h3>Eμβαδό</br>
 
-από:<select name="low_value">
-<option>Κάτω από 50</option>
-<option>50</option>
-<option>60</option>
-<option>70</option>
-<option>85</option>
-<option>100</option>
-<option>120</option>
-<option>150</option>
-<option>200</option>
-<option>250</option>
-<option>300</option>
-<option>400</option>
-<option>500</option>
+από:<select name="low_area">
+<option value="nolimit">Κάτω από 50</option>
+<option value="50">50</option>
+<option value="60">60</option>
+<option value="70">70</option>
+<option value="85">85</option>
+<option value="100">100</option>
+<option value="120">120</option>
+<option value="150">150</option>
+<option value="200">200</option>
+<option value="250">250</option>
+<option value="300">300</option>
+<option value="400">400</option>
+<option value="500">500</option>
 </select>
 
-έως:<select name="high_value">
-<option>Πάνω από 500</option>
-<option>50</option>
-<option>60</option>
-<option>70</option>
-<option>85</option>
-<option>100</option>
-<option>120</option>
-<option>150</option>
-<option>200</option>
-<option>250</option>
-<option>300</option>
-<option>400</option>
-<option>500</option>
-<option>Πάνω από 500</option>
+έως:<select name="high_area">
+<option value="50">50</option>
+<option value="60">60</option>
+<option value="70">70</option>
+<option value="85">85</option>
+<option value="100">100</option>
+<option value="120">120</option>
+<option value="150">150</option>
+<option value="200">200</option>
+<option value="250">250</option>
+<option value="300">300</option>
+<option value="400">400</option>
+<option value="500">500</option>
+<option value="nolimit" selected>Πάνω από 500</option>
 </select>
 </h3>
 
 
-<h3>Έτος κατασκευής:<select name="etos_katask.">
-<option>----------------</option>
-<option>2010</option>
-<option>2009</option>
-<option>2008</option>
-<option>2007</option>
-<option>2006</option>
-<option>2005</option>
-<option>2004</option>
-<option>2003</option>
-<option>2002</option>
-<option>2001</option>
-<option>2000</option>
-<option>1995</option>
-<option>1990</option>
-<option>1985</option>
-<option>1980</option>
-<option>1975</option>
-<option>1970</option>
-<option>1965</option>
-<option>1960</option>
+<h3>Έτος κατασκευής από:<select name="etos_katask">
+<option value="2010">2010</option>
+<option value="2009">2009</option>
+<option value="2008">2008</option>
+<option value="2007">2007</option>
+<option value="2006">2006</option>
+<option value="2005">2005</option>
+<option value="2004">2004</option>
+<option value="2003">2003</option>
+<option value="2002">2002</option>
+<option value="2001">2001</option>
+<option value="2000">2000</option>
+<option value="1995">1995</option>
+<option value="1990">1990</option>
+<option value="1985">1985</option>
+<option value="1980">1980</option>
+<option value="1975">1975</option>
+<option value="1970">1970</option>
+<option value="1965">1965</option>
+<option value="nolimit" selected>Πριν το 1960</option>
 </select>
 </h3>
 

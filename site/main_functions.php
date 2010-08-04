@@ -305,6 +305,42 @@ function showUserProfile($user)
 	
 }
 
+function propertySearch($message)
+{
+	$conn=db_connect();
+	$result = mysql_query("$message");
+	mysql_close($conn);
+	echo "<table border='1'>
+	<tr>
+	<th>property.prop_id</th>
+	<th>address</th>
+	<th>price</th>
+	<th>offer_type</th>
+	<th>area</th>
+	<th>constr_date</th>
+	<th>photos</th>
+	<th>views</th>
+	<th>comments</th>
+	<th>user_id/th>
+	<th>cat_id</th>
+	<th>category</th>
+	<th>prop_id</th>
+	<th>cat_id</th>	
+	</tr>";
+
+	while($row = mysql_fetch_array($result,MYSQL_NUM))
+	{
+		echo "<tr>";
+		for($i=0; $i<14; $i++)
+		{
+			echo "<td>"."$row[$i]"."</td>";
+		}
+		echo "</tr>";
+	}
+	echo "</table>";
+
+}
+
 ?>
 
 	 
