@@ -234,7 +234,7 @@ function db_check($table,$column1,$column2,$user,$data)
 
 }
 
-function db_checkNULL($table,$column1,$column2,$user,$data)
+function db_checkNULL($table,$column1,$column2,$user)
 {
 // connect to db
   $conn = db_connect();
