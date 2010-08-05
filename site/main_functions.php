@@ -321,7 +321,7 @@ function propertySearch($message)
 	<th>photos</th>
 	<th>views</th>
 	<th>comments</th>
-	<th>user_id/th>
+	<th>user_id</th>
 	<th>cat_id</th>
 	<th>category</th>
 	<th>prop_id</th>

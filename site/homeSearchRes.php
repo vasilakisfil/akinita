@@ -9,32 +9,36 @@ $message="select distinct * from property,categories,cat_prop";
   
 try
 {
-	$message.=" where ";
+	$message.=" where";
 	if(isset($_POST['typos']))
 	{
 		$typos=$_POST['typos'];
+		$message.=" (";
 		foreach ($typos as $typ)
 		{
 			$message.=" property.offer_type='$typ' or";
 		}
 		$message=substr($message,0,-2);
+		$message.=" )";
 	}
 	if(isset($_POST['category']))
 	{
 		$message=$message." and";
 		$category=$_POST['category'];
+		$message.=" (";
 		foreach ($category as $cat)
 		{
 			$message.=" categories.category='$cat' or";
 		}
 		$message=substr($message,0,-2);
+		$message.=" )";
 	}
 	if(isset($_POST['low_price']))
 	{
 		$value=$_POST['low_price'];
 		if($value!="nolimit")
 		{
-			$message.=" and property.price>$value";
+			$message.=" and property.price>=$value";
 		}
 	}
 	if(isset($_POST['high_price']))
@@ -42,7 +46,7 @@ try
 		$value=$_POST['high_price'];
 		if($value!="nolimit")
 		{
-			$message.=" and property.price<$value";
+			$message.=" and property.price<=$value";
 		}
 	}
 	if(isset($_POST['low_area']))

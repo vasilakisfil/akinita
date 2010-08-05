@@ -484,7 +484,7 @@ function dispHomeSearch()
 
 <input type="checkbox" name="category[]" value="bila" /> Bίλα
 <input type="checkbox" name="category[]" value="gkarsoniera" /> Γκαρσονιέρα
-<input type="checkbox" name="category[]" value="diari" /> Δυαρι
+<input type="checkbox" name="category[]" value="duari" /> Δυαρι
 <input type="checkbox" name="category[]" value="triari" /> Τριαρι
 <input type="checkbox" name="category[]" value="tessari+" /> Τεσσαρι+
 <input type="checkbox" name="category[]" value="diamerisma" /> Διαμέρισμα
