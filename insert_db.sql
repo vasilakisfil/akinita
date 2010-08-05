@@ -53,6 +53,6 @@ insert into cat_prop (prop_id,cat_id) values
 (1,2),
 (2,3),
 (4,4),
-(5,4),
+(3,4),
 (6,4);
 
