@@ -4,17 +4,17 @@
 require_once("includes.php");
 
 //create short variable names
-$oldPas=$_POST['oldPassword'];
-$pas1=$_POST['newPassword1'];
-$pas2=$_POST['newPassword2'];
-$newMail=$_POST['newEmail'];
-$newMob1=$_POST['newMob1'];
-$newName=$_POST['newName'];
-$newLast=$_POST['newLast'];
-$newMob2=$_POST['newMob2'];
-$newHome=$_POST['newHome'];
-$newOthr=$_POST['newOthr'];
-$priv=$_POST['privilege'];
+if(isset($_POST['oldPassword'])) $oldPas=$_POST['oldPassword']; else $oldPas=NULL;
+if(isset($_POST['newPassword1'])) $pas1=$_POST['newPassword1']; else $pas1=NULL;
+if(isset($_POST['newPassword2'])) $pas2=$_POST['newPassword2']; else $pas2=NULL;
+if(isset($_POST['newEmail'])) $newMail=$_POST['newEmail']; else $newMail=NULL;
+if(isset($_POST['newMob1'])) $newMob1=$_POST['newMob1']; else $newMob1=NULL;
+if(isset($_POST['newName'])) $newName=$_POST['newName']; else $newName=NULL;
+if(isset($_POST['newLast'])) $newLast=$_POST['newLast']; else $newLast=NULL;
+if(isset($_POST['newMob2'])) $newMob2=$_POST['newMob2']; else $newMob2=NULL;
+if(isset($_POST['newHome'])) $newHome=$_POST['newHome']; else $newHome=NULL;
+if(isset($_POST['newOthr'])) $newOthr=$_POST['newOthr']; else $newOthr=NULL;
+if(isset($_POST['privilege'])) $priv=$_POST['privilege']; else $priv=NULL;
 $user=strval($_GET['user']);
 
 check_valid_user();
