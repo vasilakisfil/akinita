@@ -1,0 +1,1 @@
+<?php//auto to arxeio emfanizei apla thn forma dhmiourgias kainourgiou akinhtouinclude('includes.php');check_valid_user();try{	dispHeader('Oi eggegramenoi xrhstes');	dispCurrUsers();	dispFooter();}catch(Exception $e){	dispHeader("Error:");	echo $e->getMessage();	dispFooter();	exit;}      ?>

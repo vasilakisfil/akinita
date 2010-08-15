@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 //auto to arxeio periexei ola ta aparaithta includes kai tis aparaithtes dhlwseis
 //ginetai include sxedon se ka8e arxeio .php
 

@@ -6,8 +6,8 @@
 require_once('includes.php');
 
 //create short variable names
-$username = $_POST['username'];
-$passwd = $_POST['password'];
+if(isset($_POST['username'])) $username = $_POST['username']; else $username=NULL;
+if(isset( $_POST['password'])) $passwd = $_POST['password']; else $passwd=NULL;
 
 if ($username && $passwd)
 // they have just tried logging in
@@ -43,7 +43,8 @@ dispHeader('Home');
     echo 'You are logged in as: '.$_SESSION['valid_user'].' ('.$_SESSION['user_type'].') <br />';
 	if($type=="Admin")
 	{
-		dispCurrUsers();
+		dispURL("displayUsers.php","Display all the users");
+		dispURL("editCategories.php","Display/Edit the categories");
 	}
 	else
 	{

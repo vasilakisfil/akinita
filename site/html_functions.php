@@ -15,12 +15,14 @@ function dispHeader($header,$num=1)
 
 <div id="menu" align="right" >
 <a href="login.php">Αρχική</a>
-<a href="">
-<select>
+
+<!--<select>
 	<option>Αναζήτηση</option>
 	<option>Σύντομη</option>
 	<option>Με σύνθετες επιλογές</option>
-	</select></a>
+</select>-->
+<a href="homeSearch.php">Αναζήτηση</a>
+<a href="homeAdvertise.php">Καταχώρηση Αγγελίας</a>
 <a href="member.php">Members Page</a>
 <a href=""target="_blank">Contact Us</a>
 <a href=""target="_blank">Όροι χρήσης</a>
@@ -298,8 +300,16 @@ if($type_=="Admin")
 
 }
 
+
+/*********************************************************************************
+*								Comments here
+*
+**********************************************************************************/
 function dispHomeAdvertise()
 {
+
+$message="select * from categories;";
+$result=db_excecute($message,'select');
 ?>
 <h1>Καταχώρηση Ακινήτου</br></h1>
 <h2>Συμπληρώστε τα στοιχεία του ακινήτου σας στην παρακάτω φόρμα για να δημοσιευθεί στο site μας.</h2>
@@ -307,131 +317,34 @@ function dispHomeAdvertise()
 <h3>Στοιχεία Ακινήτου</h3>
 
 <h3>Διαθέσιμο προς:</h3>
-<form>
-<input type="radio" name="actions" value="pwlhsh" /> Πώληση
-<input type="radio" name="actions" value="enoikiash" /> Ενοικίαση
-</form> 
+<form method="post" action="homeAdvertiseNew.php">
+<input type="radio" name="typos" value="pwlhsh" /> Πώληση
+<input type="radio" name="typos" value="enoikiash" /> Ενοικίαση
 
 <h3>Διεύθυνση Ακινήτου:</h3>
-<textarea rows="2" cols="25" wrap="physical" name="comments">
-Enter Comments Here
-</textarea>
+<textarea rows="2" cols="25" wrap="physical" name="address">Οδος-Αριθμος</textarea>
 
 <h3>Κατηγορία ακινήτου:</h3>
-<form>
-<input type="radio" name="category" value="bila" /> Bίλα
-<input type="radio" name="category" value="gkarsoniera" /> Γκαρσονιέρα
-<input type="radio" name="category" value="diamerisma" /> Διαμέρισμα
-<input type="radio" name="category" value="mezoneta" /> Μεζονέτα
-<input type="radio" name="category" value="monokatoikia" /> Moνοκατοικία
-<input type="radio" name="category" value="orofodiamerisma" /> Oροφοδιαμέρισμα
-<input type="radio" name="category" value="retire" /> Pετιρέ
-<input type="radio" name="category" value="stountio" /> Στούντιο
-</form>
+<?php
+while($row = mysql_fetch_array($result))
+{?>
+	<input type="radio" name="category" value="<?php echo $row['category']?>" /> <?php echo $row['category']?>	
+<?php
+}?>
+
+<h3>Τιμή</h3>
+<input type="text" name="price"/><br />
 
 
-<h3>Τιμή</br>
-
-από:<select name="low_value">
-<option>Eλάχιστη τιμή</option>
-<option>50.000</option>
-<option>75.000</option>
-<option>100.000</option>
-<option>150.000</option>
-<option>200.000</option>
-<option>250.000</option>
-<option>300.000</option>
-<option>350.000</option>
-<option>400.000</option>
-<option>500.000</option>
-<option>750.000</option>
-<option>1.000.000</option>
-</select>
-
-έως:<select name="high_value">
-<option>Mέγιστη τιμή</option>
-<option>50.000</option>
-<option>75.000</option>
-<option>100.000</option>
-<option>150.000</option>
-<option>200.000</option>
-<option>250.000</option>
-<option>300.000</option>
-<option>350.000</option>
-<option>400.000</option>
-<option>500.000</option>
-<option>750.000</option>
-<option>1.000.000</option>
-<option>Μέγιστη τιμή</option>
-</select>
-</h3>
-
-
-<h3>Eμβαδό</br>
-
-από:<select name="low_value">
-<option>Κάτω από 50</option>
-<option>50</option>
-<option>60</option>
-<option>70</option>
-<option>85</option>
-<option>100</option>
-<option>120</option>
-<option>150</option>
-<option>200</option>
-<option>250</option>
-<option>300</option>
-<option>400</option>
-<option>500</option>
-</select>
-
-έως:<select name="high_value">
-<option>Πάνω από 500</option>
-<option>50</option>
-<option>60</option>
-<option>70</option>
-<option>85</option>
-<option>100</option>
-<option>120</option>
-<option>150</option>
-<option>200</option>
-<option>250</option>
-<option>300</option>
-<option>400</option>
-<option>500</option>
-<option>Πάνω από 500</option>
-</select>
-</h3>
+<h3>Eμβαδό</h3>
+<input type="text" name="area"/><br />
 
 
 
-<h3>Έτος κατασκευής:<select name="etos_katask.">
-<option>----------------</option>
-<option>2010</option>
-<option>2009</option>
-<option>2008</option>
-<option>2007</option>
-<option>2006</option>
-<option>2005</option>
-<option>2004</option>
-<option>2003</option>
-<option>2002</option>
-<option>2001</option>
-<option>2000</option>
-<option>1995</option>
-<option>1990</option>
-<option>1985</option>
-<option>1980</option>
-<option>1975</option>
-<option>1970</option>
-<option>1965</option>
-<option>1960</option>
-</select>
-</h3>
-
+<h3>Έτος κατασκευής:</h3>
+<input type="text" name="constr_date"/><br />
 
 <h3>Παροχές:</h3>
-<form>
 <input type="checkbox" name="paroxes" value="sta8meush" /> Θέση Στάθμευσης
 <input type="checkbox" name="paroxes" value="8ermansh" /> Αυτόνομη Θέρμανση
 <input type="checkbox" name="paroxes" value="tzaki" /> Τζάκι
@@ -441,7 +354,6 @@ Enter Comments Here
 <input type="checkbox" name="paroxes" value="pisina" /> Πισίνα
 <input type="checkbox" name="paroxes" value="sunagermos" /> Συναγερμός
 <input type="checkbox" name="paroxes" value="epiplwmeno" /> Επιπλωμένο
-</form>
 
 <h3>Σχόλια:</h3>
 <textarea rows="5" cols="40" wrap="physical" name="comments">
@@ -461,10 +373,15 @@ Enter Comments Here
 <input name="file" type="file" /></br></br></br>
 
 <input type="submit" value="Kαταχώρηση">
-
+</form>
 <?php
 }
 
+
+/*********************************************************************************
+*								Comments here
+*
+**********************************************************************************/
 function dispHomeSearch()
 {
 ?>

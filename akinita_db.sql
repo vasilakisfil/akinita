@@ -37,7 +37,7 @@ create table property
 	price int(15) not null,
 	offer_type ENUM('S','L'),   -- <-----
 	area int(10) not null,
-	constr_date date,
+	constr_date int(4),
 	/*coordinates */
 	photos mediumblob,
 	views int(10),

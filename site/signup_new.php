@@ -1,11 +1,10 @@
-<?php
+﻿<?php
 //auto to arxeio periexei tous aparaithtous elegxous kata thn eggrafh kapoiou xrhsth.
 //an einai ola swsta tote eggrafete o xrhsths
 
 
 // include function files for this application
 require_once('includes.php');
-
 //create short variable names
 if(isset($_POST['username'])) $username=$_POST['username']; else $username=NULL;
 if(isset($_POST['pwd'])) $passwd=$_POST['pwd']; else $passwd=NULL;
@@ -21,7 +20,7 @@ if(isset($_POST['lstname'])) $lst=$_POST['lstname']; else $lst=NULL;
 try
 {
 	// check forms filled in
-	if (!filled_out($username) || !filled_out($passwd) || !filled_out($passwd2) || !filled_out($email) || !filled_out($mob1))
+	if (!filledOut($username) || !filledOut($passwd) || !filledOut($passwd2) || !filledOut($email) || !filledOut($mob1))
 	{
 		throw new Exception('You have not filled the form out correctly - please go back and try again.');    
 	}

@@ -107,8 +107,44 @@ function dispCurrUsers()
 
 }
 
+function dispCategoriesSettings()
+{
+  // connect to db
+  $conn = db_connect();
+
+  // check if username is unique
+  $result = mysql_query("SELECT * FROM categories;");
+  mysql_close($conn);
+  if (mysql_num_rows($result)>0)
+  {
+		echo "<form name=\"deleteCat\" action=\"editCategories.php\"method=\"post\">";
+		echo "<table border='1'>
+		<tr>
+		<th>category</th>
+		<th><input type=\"submit\" value=\"Delete\" /></th>
+		</tr>";
+
+		while($row = mysql_fetch_array($result))
+		  {
+			  echo "<tr>";
+			  echo "<td>" . $row['category'] . "</td>";
+			  echo "<td><input type=\"checkbox\" name=\"category[]\" value=\"".$row['category']."\" /> </td>";
+			  echo "</tr>";
+		  }
+		echo "</table>";
+		echo "</form>";
+  }
+  else echo "Could not find any categories in the system!! <br />";
+  
+  echo "<br />";
+  echo "Enter new category:<form name=\"category\" action=\"editCategories.php\" method=\"post\">
+        <input type=\"text\" name=\"newCat\" />
+		<input type=\"submit\" value=\"Submit\" /></form>";
+
+}
+
 //auth h sunarthsh elegxei an mia metavlhth einai gemismenh me dedomena
-function filled_out($variable)
+function filledOut($variable)
 {
   // testing the variable
   if (!isset($variable) || ($variable == '')) 
@@ -179,6 +215,46 @@ function db_del_user($user)
 		throw new Exception('Could not execute query DELETE1.');
 	}
 
+	mysql_close($conn);	
+}
+
+
+function db_del_cat($cat)
+{
+	$conn=db_connect();
+
+	$result = mysql_query("SELECT * FROM categories where category='$cat';");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query SELECT1.');
+	}
+	$row = mysql_fetch_array($result);
+	$cat_id=$row['cat_id'];
+	$result = mysql_query("SELECT * FROM cat_prop where cat_id='$cat_id';");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query SELECT2.');
+	}
+	while($row=mysql_fetch_array($result))
+	{
+		$prop_id=$row['prop_id'];
+		$result1= mysql_query("delete from property where prop_id='$prop_id'");
+		if (!$result1)
+		{
+			throw new Exception('Could not execute query DELETE1.');
+		}
+	}
+	$result= mysql_query("delete from cat_prop where cat_id='$cat_id'");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query DELETE1.');
+	}
+	$result= mysql_query("delete from categories where category='$cat'");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query DELETE1.');
+	}
+	
 
 	
 	mysql_close($conn);	
@@ -203,7 +279,9 @@ function db_insert($table,$column1,$column2,$data1,$data2)
 {
 	$conn=db_connect();
 	// check if username is unique
-	$result = mysql_query("INSERT INTO $table ($column1,$column2) values ('$data1',$data2)");
+	$message="INSERT INTO $table ($column1,$column2) values ('$data1',$data2)";
+	echo $message;
+	$result = mysql_query("$message");
 	if (!$result)
 	{
 		throw new Exception('Could not execute query INSERT.');
@@ -212,8 +290,35 @@ function db_insert($table,$column1,$column2,$data1,$data2)
 	mysql_close($conn);
 }
 
+//auth h sunarthsh kanei ena insert sth vash analoga me ta orismata pou ths dinontai
+function db_insert1($table,$column1,$data1)
+{
+	$conn=db_connect();
+	// check if username is unique
+	$result = mysql_query("INSERT INTO $table ($column1) values ('$data1')");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query INSERT.');
+	}
+	
+	mysql_close($conn);
+}
 
+function db_excecute($message,$error)
+{
 
+	$conn=db_connect();
+	// check if username is unique
+	$result = mysql_query("$message");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query $error');
+	}
+	
+	mysql_close($conn);
+	
+	return $result;
+}
 
 //auth h sunarthsh elegxei analoga me ta orismata an uparxei to $data sthn vash.Epistrefei $error se periptwsh la8ous
 function db_check($table,$column1,$column2,$user,$data)
@@ -341,6 +446,19 @@ function propertySearch($message)
 
 }
 
+function db_insertProperty($message)
+{
+	$conn=db_connect();
+	// check if username is unique
+	$result = mysql_query("$message");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query INSERT.');
+	}
+	
+	mysql_close($conn);
+
+}
 ?>
 
 	 

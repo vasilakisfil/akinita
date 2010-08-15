@@ -1,6 +1,4 @@
-<?php
-//auto to arxeio periexei tous aparaithtous elegxous kata thn eggrafh kapoiou xrhsth.
-//an einai ola swsta tote eggrafete o xrhsths
+﻿<?php
 
 
 // include function files for this application
@@ -21,6 +19,7 @@ try
 		$message=substr($message,0,-2);
 		$message.=" )";
 	}
+	else throw new Exception('Den epile3ate ti tupo 8elete\(pwlhsh \'h enoikiash\)');
 	if(isset($_POST['category']))
 	{
 		$message=$message." and";
