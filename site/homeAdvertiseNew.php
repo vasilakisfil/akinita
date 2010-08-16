@@ -23,6 +23,7 @@ try
 	else $area=$_POST['area'];
 	if(!filledOut($_POST['constr_date'])) throw new Exception('Prepei na valete etos kataskeuhs');
 	else $constrDate=$_POST['constr_date'];
+
 	
 	$message="INSERT INTO property(address,price,offer_type,area,constr_date,user_id) VALUES ('$address',$price,'$typos',$area,$constrDate,'$val_user');";
 	$selectProp="select *from property where address='$address' and price=$price and offer_type='$typos' and area=$area and constr_date=$constrDate;";
@@ -34,11 +35,20 @@ try
 	$prop=mysql_fetch_array($prop_id);
 	$cat=mysql_fetch_array($cat_id);
 	db_insert('cat_prop','prop_id','cat_id',$prop['prop_id'],$cat['cat_id']);
+	if(isset($_POST['facilities']))
+	{
+		$facilities=$_POST['facilities'];
+		foreach($facilities as $fac)
+		{
+			$selectFac="select *from facilities where facility='$fac';";
+			echo "$selectFac <br />";
+			$fac_id=db_excecute($selectFac,'select3');
+			$fac=mysql_fetch_array($fac_id);
+			db_insert('fac_prop','prop_id','fac_id',$prop['prop_id'],$fac['fac_id']);
+		}
+	}
 	dispHeader('Κατασώρηση Αγγελίας');
 	echo "H aggelia sas kataxwrh8hke epituxws...<br />";
-	//echo $prop['prop_id']." <-- <br />";
-	//echo $cat['cat_id']." <-- <br />";
-	
 	dispFooter();
 	
 }

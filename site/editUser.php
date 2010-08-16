@@ -43,9 +43,9 @@ try{
 				else
 				{
 					//check_pass($user,$oldPas);
-					$new=db_check("users","username","password",$user,$oldPas);
+					$new=db_check("users","username","password","'$user'","'$oldPas'");
 					if($new==false) throw new Exception('Wrong password');
-					db_update("users","username","password",$user,$pas1);
+					db_update("users","username","password","'$user'","'$pas1'");
 					$message="Password has been changed!";
 				}
 			}
@@ -65,7 +65,7 @@ try{
 				else
 				{
 					//check_pass($user,$oldPas);
-					db_update("users","username","password",$user,$pas1);
+					db_update("users","username","password","'$user'","'$pas1'");
 					$message="Password has been changed!";
 				}
 			}
@@ -78,47 +78,47 @@ try{
 		{
 			$ret=valid_email($newMail);
 			if($ret==false) throw new Exception('That is not a valid email address.  Please go back  and try again.');
-			db_update("users","username","email",$user,$newMail);
+			db_update("users","username","email","'$user'","'$newMail'");
 			$message="Email has been changed!";
 		}
 		if($newMob1)
 		{
-			db_update("telephone","user_id","mobile1",$user,$newMob1);
+			db_update("telephone","user_id","mobile1","'$user'",$newMob1);
 			$message="Mobile1 has been changed!";
 		}
 		if($newName)
 		{
-			db_update("users","username","name",$user,$newName);
+			db_update("users","username","name","'$user'","'$newName'");
 			$message="Name has been changed!";
 		}
 		if($newLast)
 		{
-			db_update("users","username","surname",$user,$newLast);
+			db_update("users","username","surname","'$user'","'$newLast'");
 			$message="Surname has been changed!";
 		}
 		if($newMob2)
 		{
-			db_update("telephone","user_id","mobile2",$user,$newMob2);
+			db_update("telephone","user_id","mobile2","'$user'",$newMob2);
 			$message="Mobile2 has been changed!";
 		}
 		if($newHome)
 		{
-			db_update("telephone","user_id","home",$user,$newHome);
+			db_update("telephone","user_id","home","'$user'",$newHome);
 			$message="Home num has been changed!";
 		}
 		if($newOthr)
 		{
-			db_update("telephone","user_id","other",$user,$newOthr);
+			db_update("telephone","user_id","other","'$user'",$newOthr);
 			$message="Other num has been changed!";
 		}
 		if($priv=="Admin")
 		{
-			db_update("users","username","user_type",$user,"A");
+			db_update("users","username","user_type","'$user'","A");
 			$message="$user promoted to admin!";
 		}
 		else if($priv=="User")
 		{
-			db_update("users","username","user_type",$user,"U");
+			db_update("users","username","user_type","'$user'","U");
 			$message="$user dropped to User!";
 		}
 		

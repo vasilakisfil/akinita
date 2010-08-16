@@ -3,7 +3,8 @@
 
 // include function files for this application
 require_once('includes.php');
-$message="select distinct * from property,categories,cat_prop";
+$message="select distinct property.prop_id,address,price,offer_type,area,constr_date,views,category,property.user_id from property,categories,cat_prop,fac_prop,facilities";
+
   
 try
 {
@@ -72,7 +73,20 @@ try
 			$message.=" and property.constr_date>$value";
 		}
 	}
+	if(isset($_POST['facilities']))
+	{
+		$message=$message." and";
+		$facility=$_POST['facilities'];
+		$message.=" (";
+		foreach ($facility as $fac)
+		{
+			$message.=" facilities.facility='$fac' or";
+		}
+		$message=substr($message,0,-2);
+		$message.=" )";
+	}
 	$message.=" and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id";
+	$message.=" and property.prop_id=fac_prop.prop_id and facilities.fac_id=fac_prop.fac_id";
 	$message=$message.";";
 	
 	

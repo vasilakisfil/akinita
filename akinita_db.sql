@@ -9,8 +9,8 @@ create table users
 	username char(20) not null,
 	password char(16) not null,
 	email char(50) not null,
-	name char(16),
-	surname char(16),
+	name varchar(100),
+	surname varchar(100),
 	user_type enum('A','U'),
 	unique(email),
 	primary key(username)
@@ -40,8 +40,9 @@ create table property
 	constr_date int(4),
 	/*coordinates */
 	photos mediumblob,
-	views int(10),
+	views int(10) default '0',
 	comments text,
+	modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	user_id char(20),
 	primary key(prop_id),
 	foreign key(user_id) references users(username)
@@ -50,7 +51,7 @@ create table property
 create table facilities
 (
 	fac_id int not null auto_increment,
-	facility char(20) not null,
+	facility varchar(100) not null,
 	primary key(fac_id)
 )engine=innoDB default character set utf8 collate utf8_general_ci auto_increment=1;
 
@@ -70,7 +71,7 @@ create table fac_prop
 create table categories
 (
 	cat_id int not null auto_increment,
-	category char(20) not null,
+	category varchar(100) not null,
 	primary key(cat_id)
 )engine=innoDB default character set utf8 collate utf8_general_ci auto_increment=1;
 

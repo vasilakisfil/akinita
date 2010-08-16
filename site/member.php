@@ -43,12 +43,19 @@ dispHeader('Home');
     echo 'You are logged in as: '.$_SESSION['valid_user'].' ('.$_SESSION['user_type'].') <br />';
 	if($type=="Admin")
 	{
+		echo "<br />";
 		dispURL("displayUsers.php","Display all the users");
+		echo "<br />";
 		dispURL("editCategories.php","Display/Edit the categories");
+		echo "<br />";
+		dispURL("editFacilities.php","Display/Edit the facilities");
+		echo "<br />";
 	}
 	else
 	{
+		echo "<br />";
 		dispURL("editUser.php?user=".$val_user,"Edit my Profile");
+		echo "<br />";
 	}
     dispURL("logout.php","logout");
   }

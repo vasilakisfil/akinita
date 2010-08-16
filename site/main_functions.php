@@ -142,6 +142,41 @@ function dispCategoriesSettings()
 		<input type=\"submit\" value=\"Submit\" /></form>";
 
 }
+function dispFacilitiesSettings()
+{
+  // connect to db
+  $conn = db_connect();
+
+  // check if username is unique
+  $result = mysql_query("SELECT * FROM facilities;");
+  mysql_close($conn);
+  if (mysql_num_rows($result)>0)
+  {
+		echo "<form name=\"deleteFac\" action=\"editFacilities.php\"method=\"post\">";
+		echo "<table border='1'>
+		<tr>
+		<th>facility</th>
+		<th><input type=\"submit\" value=\"Delete\" /></th>
+		</tr>";
+
+		while($row = mysql_fetch_array($result))
+		  {
+			  echo "<tr>";
+			  echo "<td>" . $row['facility'] . "</td>";
+			  echo "<td><input type=\"checkbox\" name=\"facility[]\" value=\"".$row['facility']."\" /> </td>";
+			  echo "</tr>";
+		  }
+		echo "</table>";
+		echo "</form>";
+  }
+  else echo "Could not find any facilities in the system!! <br />";
+  
+  echo "<br />";
+  echo "Enter new facility:<form name=\"facility\" action=\"editFacilities.php\" method=\"post\">
+        <input type=\"text\" name=\"newFac\" />
+		<input type=\"submit\" value=\"Submit\" /></form>";
+
+}
 
 //auth h sunarthsh elegxei an mia metavlhth einai gemismenh me dedomena
 function filledOut($variable)
@@ -255,17 +290,56 @@ function db_del_cat($cat)
 		throw new Exception('Could not execute query DELETE1.');
 	}
 	
-
-	
 	mysql_close($conn);	
 }
 
+
+function db_del_fac($fac)
+{
+	$conn=db_connect();
+
+	$result = mysql_query("SELECT * FROM facilities where facility='$fac';");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query SELECT1.');
+	}
+	$row = mysql_fetch_array($result);
+	$fac_id=$row['fac_id'];
+	$result = mysql_query("SELECT * FROM fac_prop where fac_id='$fac_id';");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query SELECT2.');
+	}
+	while($row=mysql_fetch_array($result))
+	{
+		$prop_id=$row['prop_id'];
+		$result1= mysql_query("delete from property where prop_id='$prop_id'");
+		if (!$result1)
+		{
+			throw new Exception('Could not execute query DELETE1.');
+		}
+	}
+	$result= mysql_query("delete from fac_prop where fac_id='$fac_id'");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query DELETE1.');
+	}
+	$result= mysql_query("delete from facilities where facility='$fac'");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query DELETE1.');
+	}
+		
+	mysql_close($conn);	
+}
 //auth h sunarthsh kanei ena update sth vash analoga me ta orismata pou ths dinontai
 function db_update($table,$column1,$column2,$data1,$data2)
 {
 	$conn=db_connect();
 	// check if username is unique
-	$result = mysql_query("UPDATE $table SET $column2='$data2' where $column1='$data1'");
+	$message="UPDATE $table SET $column2=$data2 where $column1=$data1";
+	echo $message;
+	$result = mysql_query("$message");
 	if (!$result)
 	{
 		throw new Exception('Could not execute query UPDATE.');
@@ -279,7 +353,7 @@ function db_insert($table,$column1,$column2,$data1,$data2)
 {
 	$conn=db_connect();
 	// check if username is unique
-	$message="INSERT INTO $table ($column1,$column2) values ('$data1',$data2)";
+	$message="INSERT INTO $table ($column1,$column2) values ($data1,$data2)";
 	echo $message;
 	$result = mysql_query("$message");
 	if (!$result)
@@ -295,7 +369,7 @@ function db_insert1($table,$column1,$data1)
 {
 	$conn=db_connect();
 	// check if username is unique
-	$result = mysql_query("INSERT INTO $table ($column1) values ('$data1')");
+	$result = mysql_query("INSERT INTO $table ($column1) values ($data1)");
 	if (!$result)
 	{
 		throw new Exception('Could not execute query INSERT.');
@@ -312,7 +386,7 @@ function db_excecute($message,$error)
 	$result = mysql_query("$message");
 	if (!$result)
 	{
-		throw new Exception('Could not execute query $error');
+		throw new Exception("Could not execute query $error");
 	}
 	
 	mysql_close($conn);
@@ -410,14 +484,16 @@ function showUserProfile($user)
 	
 }
 
-function propertySearch($message)
+function showProperty($propId)
 {
-	$conn=db_connect();
-	$result = mysql_query("$message");
-	mysql_close($conn);
+	$message1="SELECT * FROM property where prop_id=$propId;";
+	$result1=db_excecute($message1,'select1');
+	$message2="SELECT * FROM facilities,fac_prop where fac_prop.prop_id=$propId and facilities.fac_id=fac_prop.fac_id;";
+	$result2=db_excecute($message2,'select2');
+
 	echo "<table border='1'>
 	<tr>
-	<th>property.prop_id</th>
+	<th>prop_id</th>
 	<th>address</th>
 	<th>price</th>
 	<th>offer_type</th>
@@ -426,20 +502,56 @@ function propertySearch($message)
 	<th>photos</th>
 	<th>views</th>
 	<th>comments</th>
-	<th>user_id</th>
-	<th>cat_id</th>
+	<th>user_id</th>	
+	</tr>";
+
+	while($row = mysql_fetch_array($result1,MYSQL_NUM))
+	{
+		echo "<tr>";
+		for($i=0; $i<10; $i++)
+		{
+			echo "<td>"."$row[$i]"."</td>";
+		}
+		echo "</tr>";
+	}
+	echo "</table>";
+	
+
+	echo "Facilities: ";
+	while($row = mysql_fetch_array($result2))
+	{
+		echo $row['facility']." ";
+	}
+
+}
+
+function propertySearch($message)
+{
+	$conn=db_connect();
+	$result = mysql_query("$message");
+	//echo "<br /> $message <br /> $result <br />";
+	mysql_close($conn);
+	echo "<table border='1'>
+	<tr>
+	<th>address</th>
+	<th>price</th>
+	<th>offer_type</th>
+	<th>area</th>
+	<th>constr_date</th>
+	<th>views</th>
 	<th>category</th>
-	<th>prop_id</th>
-	<th>cat_id</th>	
+	<th>user_id</th>
+	<th>Link</th>
 	</tr>";
 
 	while($row = mysql_fetch_array($result,MYSQL_NUM))
 	{
 		echo "<tr>";
-		for($i=0; $i<14; $i++)
+		for($i=1; $i<9; $i++)
 		{
 			echo "<td>"."$row[$i]"."</td>";
 		}
+		echo "<td><a href=viewProperty.php?propId=$row[0]>Open Up</a></td>";
 		echo "</tr>";
 	}
 	echo "</table>";

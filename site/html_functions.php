@@ -77,7 +77,7 @@ function dispURL($url, $name)
 {
   // output URL as link and br
 ?>
-  <br /><a href="<?php echo $url;?>"><?php echo $name;?></a><br />
+  <a href="<?php echo $url;?>"><?php echo $name;?></a>
 <?php
 }
 
@@ -310,6 +310,8 @@ function dispHomeAdvertise()
 
 $message="select * from categories;";
 $result=db_excecute($message,'select');
+$message="select * from facilities;";
+$facilities=db_excecute($message,'select2');
 ?>
 <h1>Καταχώρηση Ακινήτου</br></h1>
 <h2>Συμπληρώστε τα στοιχεία του ακινήτου σας στην παρακάτω φόρμα για να δημοσιευθεί στο site μας.</h2>
@@ -345,15 +347,12 @@ while($row = mysql_fetch_array($result))
 <input type="text" name="constr_date"/><br />
 
 <h3>Παροχές:</h3>
-<input type="checkbox" name="paroxes" value="sta8meush" /> Θέση Στάθμευσης
-<input type="checkbox" name="paroxes" value="8ermansh" /> Αυτόνομη Θέρμανση
-<input type="checkbox" name="paroxes" value="tzaki" /> Τζάκι
-<input type="checkbox" name="paroxes" value="air_condition" /> Αir Condition
-<input type="checkbox" name="paroxes" value="hliakos" /> Hλιακός
-<input type="checkbox" name="paroxes" value="asanser" /> Ανελκυστήρας
-<input type="checkbox" name="paroxes" value="pisina" /> Πισίνα
-<input type="checkbox" name="paroxes" value="sunagermos" /> Συναγερμός
-<input type="checkbox" name="paroxes" value="epiplwmeno" /> Επιπλωμένο
+<?php
+while($row = mysql_fetch_array($facilities))
+{?>
+	<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>	
+<?php
+}?>
 
 <h3>Σχόλια:</h3>
 <textarea rows="5" cols="40" wrap="physical" name="comments">
@@ -384,6 +383,10 @@ Enter Comments Here
 **********************************************************************************/
 function dispHomeSearch()
 {
+$message="select * from categories;";
+$categories=db_excecute($message,'select1');
+$message="select * from facilities;";
+$facilities=db_excecute($message,'select2');
 ?>
 <h1>Ψάχνετε ακίνητο?</br></h1>
 <h2>Ορίστε τα δικά σας κριτήρια αναζήτησης!</h2>
@@ -398,18 +401,12 @@ function dispHomeSearch()
  
 
 <h3>Kατηγορία Ακινήτου:</h3>
-
-<input type="checkbox" name="category[]" value="bila" /> Bίλα
-<input type="checkbox" name="category[]" value="gkarsoniera" /> Γκαρσονιέρα
-<input type="checkbox" name="category[]" value="duari" /> Δυαρι
-<input type="checkbox" name="category[]" value="triari" /> Τριαρι
-<input type="checkbox" name="category[]" value="tessari+" /> Τεσσαρι+
-<input type="checkbox" name="category[]" value="diamerisma" /> Διαμέρισμα
-<input type="checkbox" name="category[]" value="mezoneta" /> Μεζονέτα
-<input type="checkbox" name="category[]" value="monokatoikia" /> Moνοκατοικία
-<input type="checkbox" name="category[]" value="orofodiamerisma" /> Oροφοδιαμέρισμα
-<input type="checkbox" name="category[]" value="retire" /> Pετιρέ
-<input type="checkbox" name="category[]" value="studio" /> Στούντιο
+<?php
+while($row = mysql_fetch_array($categories))
+{?>
+	<input type="checkbox" name="category[]" value="<?php echo $row['category']?>" /> <?php echo $row['category']?>	
+<?php
+}?>
 
  
 
@@ -509,16 +506,12 @@ function dispHomeSearch()
 
 
 <h3>Παροχές:</h3>
-
-<input type="checkbox" name="paroxes" value="sta8meush" /> Θέση Στάθμευσης
-<input type="checkbox" name="paroxes" value="8ermansh" /> Αυτόνομη Θέρμανση
-<input type="checkbox" name="paroxes" value="tzaki" /> Τζάκι
-<input type="checkbox" name="paroxes" value="air_condition" /> Αir Condition
-<input type="checkbox" name="paroxes" value="hliakos" /> Hλιακός
-<input type="checkbox" name="paroxes" value="asanser" /> Ανελκυστήρας
-<input type="checkbox" name="paroxes" value="pisina" /> Πισίνα
-<input type="checkbox" name="paroxes" value="sunagermos" /> Συναγερμός
-<input type="checkbox" name="paroxes" value="epiplwmeno" /> Επιπλωμένο
+<?php
+while($row = mysql_fetch_array($facilities))
+{?>
+	<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>	
+<?php
+}?>
 
 <br /><br />
 
