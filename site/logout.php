@@ -1,8 +1,11 @@
 ﻿<?php
-//auto to arxeio parexei tis aparaithtes sunarthseis gia to logout
-require_once("includes.php");
+/****************************************************************************************
+*	Auto to arxeio ulopoiei to logout gia enan xrhsth
+*****************************************************************************************/
+//including required files
+include('includes.php');
   
-  // store to test if they *were* logged in
+  // elegxoume an ontws o xrhsths htan sundedemenos
   $old_user = $_SESSION['valid_user'];  
   unset($_SESSION['valid_user']);
   session_destroy();
@@ -17,7 +20,7 @@ require_once("includes.php");
   }
   else
   {
-    // if they weren't logged in but came to this page somehow
+    // ama den htan sundedemenos alla hr8e se auth th selida kapws..
     echo 'You were not logged in, and so have not been logged out.<br />'; 
   }
 ?> 

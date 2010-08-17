@@ -1,13 +1,15 @@
 ﻿<?php
-//auto to arxeio emfanizei apla thn forma eggrafhs
+/****************************************************************************************
+*	Auth h selida emfanizei thn forma eggrafhs enos kainourgiou xrhsth
+*****************************************************************************************/
 
+//including required files
 include('includes.php');
-//session_start();
+
 
 dispHeader('Σελιδα Εγγραφης Χρηστη');
-
+//h sunarthsh dispRegForm() emfanizei thn forma eggrafhs
 dispRegForm();
-
 dispFooter();
 
 ?>

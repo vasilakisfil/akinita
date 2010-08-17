@@ -84,15 +84,15 @@ try
 		}
 		$message=substr($message,0,-2);
 		$message.=" )";
+		$message.=" and property.prop_id=fac_prop.prop_id and facilities.fac_id=fac_prop.fac_id";
 	}
 	$message.=" and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id";
-	$message.=" and property.prop_id=fac_prop.prop_id and facilities.fac_id=fac_prop.fac_id";
 	$message=$message.";";
 	
 	
 	
 	dispHeader('Akinita:');
-	echo $message;
+	//echo $message;
 	propertySearch($message);
 	dispFooter();
 

@@ -1,8 +1,13 @@
 ﻿<?php
-//auto to arxeio parexei to login gia xrhstes kai admins
+/****************************************************************************************
+*	Auth h selida emfanizei to login box gia thn sundesh xrhstwn kai admins
+*****************************************************************************************/
 
 
-require_once('includes.php');
+//including required files
+include('includes.php');
+//SOS EDW KAI KATW 8ELEI GERO FTIA3IMO
+
 
 dispHeader('Κεντρικη Συνδεση Σελιδας');
 
