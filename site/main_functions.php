@@ -1,6 +1,7 @@
 ﻿<?php
 
-require_once('includes.php');
+//including required files
+include('includes.php');
 
 //ayth h synarthsh sundeei thn php me thn mysql kai epilegei thn vash akinita
 function db_connect()
