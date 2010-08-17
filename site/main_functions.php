@@ -6,6 +6,7 @@ include('includes.php');
 
 
 //ayth h synarthsh sundeei thn php me thn mysql kai epilegei thn vash akinita
+
 function db_connect()
 {
   $db_conn = mysql_connect("localhost", "akinauth", "password");
