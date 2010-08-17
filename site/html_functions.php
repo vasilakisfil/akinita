@@ -1,9 +1,20 @@
 ﻿<?php
+/****************************************************************************************
+*	Auto to arxeio periexei tis vasikes html sunarthseis
+*	Epeidh o html kwdikas kai genika h html einai sxetika aplh sxolia 8a uparxoun se
+*	polu periorismena shmeia
+*****************************************************************************************/
 
-require_once('includes.php');
 
-//auth h sunarthsh emfanizei to head kai kapoia vasika pragmata tou body gia na xrhsimopoihtai ka8e fora
-//pairnei ws deutero orisma to numero to mege8os ths epikefalidas
+//including required files
+include('includes.php');
+
+/************************************************
+* auth h sunarthsh emfanizei to head kai kapoia
+* vasika pragmata tou body gia na xrhsimopoihtai
+* ka8e fora.Pairnei ws deutero orisma ena numero
+* to opoio einai to mege8os ths epikefalidas
+*************************************************/
 function dispHeader($header,$num=1)
 {
 ?>
@@ -27,6 +38,7 @@ function dispHeader($header,$num=1)
 <a href=""target="_blank">Contact Us</a>
 <a href=""target="_blank">Όροι χρήσης</a>
 <?php
+//elegxoume an o xrhsths einai sudedemenos kai an einai emfanizoume perissoteres epiloges
 if(isset($_SESSION['valid_user']))
 {
 ?>
@@ -44,8 +56,10 @@ if(isset($_SESSION['valid_user']))
 	}
 }
 
-
-//auth h sunarthsh dhmiourgei thn forma gia to login
+/*************************************************
+* auth h sunarthsh dhmiourgei thn forma gia to
+* login gia thn sundesh enos xrhsth
+**************************************************/
 function dispLoginBox()
 {
 ?>
@@ -62,7 +76,10 @@ function dispLoginBox()
 <?php
 }
 
-//auth h sunarthsh emfanizei ta teleutaia stoixeia ths html gia na xrhsimopoieitai ka8e fora
+/************************************************
+* auth h sunarthsh emfanizei ta teleutaia stoixeia
+* ths html gia na xrhsimopoieitai ka8e fora
+*************************************************/
 function dispFooter()
 {
   // print an HTML footer
@@ -72,7 +89,10 @@ function dispFooter()
 <?php
 }
 
-//auth h sunarthsh dexetai ena url kai to onoma kai to metatrepei se html kai to emfanizei 
+/************************************************
+* auth h sunarthsh dexetai ena url kai to onoma,
+* to metatrepei se html kai to emfanizei
+*************************************************/
 function dispURL($url, $name)
 {
   // output URL as link and br
@@ -81,7 +101,10 @@ function dispURL($url, $name)
 <?php
 }
 
-//auth h sunarthsh emfanizei thn registration form
+/************************************************
+* auth h sunarthsh emfanizei to registration form
+* gia thn eggrafh enos neou xrhsth
+*************************************************/
 function dispRegForm()
 {
 
@@ -109,8 +132,11 @@ Your Lastname: <input type="text" name="lstname" /><br/><br/>
 
 <?php
 }
+
 /***********************************************************************
-//auth h sunarthsh emfanizei to profil tou ka8e xrhsth
+* auth h sunarthsh emfanizei to profil tou ka8e xrhsth.
+* analoga an einai kataxwrhmena ta stoixeia emfanizei an 8elei o xrhsths
+* na ta alla3ei 'h na ta eisagei.
 ************************************************************************/
 function displayUserOptions($user,$type_)
 {
@@ -301,10 +327,13 @@ if($type_=="Admin")
 }
 
 
-/*********************************************************************************
-*								Comments here
-*
-**********************************************************************************/
+/************************************************
+* Auth h sunarthsh emfanizei thn forma gia thn
+* kataxwrhsh mias kainourgias aggelias.
+* Analoga me ta stoixeia pou uparxoun sto susthma
+* (kathgories/paroxes) emfanizei kai tis anti-
+* stoixes epiloges gia ton xrhsth.
+*************************************************/
 function dispHomeAdvertise()
 {
 
@@ -377,10 +406,13 @@ Enter Comments Here
 }
 
 
-/*********************************************************************************
-*								Comments here
-*
-**********************************************************************************/
+/************************************************
+* Auth h sunarthsh emfanizei thn forma gia thn
+* anazhthsh aggeliwn apo to susthma.
+* Analoga me ta stoixeia pou uparxoun sto susthma
+* (kathgories/paroxes) emfanizei kai tis anti-
+* stoixes epiloges gia ton xrhsth.
+*************************************************/
 function dispHomeSearch()
 {
 $message="select * from categories;";

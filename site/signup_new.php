@@ -1,11 +1,15 @@
 ﻿<?php
-//auto to arxeio periexei tous aparaithtous elegxous kata thn eggrafh kapoiou xrhsth.
-//an einai ola swsta tote eggrafete o xrhsths
+/****************************************************************************************
+*	auto to arxeio periexei tous aparaithtous elegxous kata thn eggrafh kapoiou xrhsth.
+*	an einai ola swsta tote eggrafete o xrhsths
+*****************************************************************************************/
 
 
-// include function files for this application
-require_once('includes.php');
-//create short variable names
+//including required files
+include('includes.php');
+
+// dhmiourgoume topikes metavlhtes gia ka8e SESSION metavlhth.An h SESSION metavlhth
+// den exei te8ei sthn topikh metavlhth eisagoume thn timh NULL
 if(isset($_POST['username'])) $username=$_POST['username']; else $username=NULL;
 if(isset($_POST['pwd'])) $passwd=$_POST['pwd']; else $passwd=NULL;
 if(isset($_POST['pwd2'])) $passwd2=$_POST['pwd2']; else $passwd2=NULL;
@@ -17,43 +21,43 @@ if(isset($_POST['othrnumber'])) $othr=$_POST['othrnumber']; else $othr=NULL;
 if(isset($_POST['frstname'])) $frst=$_POST['frstname']; else $frst=NULL;
 if(isset($_POST['lstname'])) $lst=$_POST['lstname']; else $lst=NULL;
 
+//elegxoume ena ena ta stoixeia pou eishgage o xrhsths..an einai kati la8os petagetai e3airesh
 try
 {
-	// check forms filled in
+	//elegxoume an oi vasikes formes periexoun stoixeia..an oxi mia e3airesh petagetai me to antistoixo error
 	if (!filledOut($username) || !filledOut($passwd) || !filledOut($passwd2) || !filledOut($email) || !filledOut($mob1))
 	{
 		throw new Exception('You have not filled the form out correctly - please go back and try again.');    
 	}
 
-	// email address not valid
+	//elegxoume an to email einai swsto
 	if (!valid_email($email))
 	{
 		throw new Exception('That is not a valid email address.  Please go back  and try again.');
 	}
 
-	// passwords not the same 
+	//elegxoume an oi duo kwdikoi einai idioi meta3u tous
 	if ($passwd != $passwd2)
 	{
 		throw new Exception('The passwords you entered do not match - please go back and try again.');
 	}
 
-	// check password length is ok
-	// ok if username truncates, but passwords will get
-	// munged if they are too long.
+	//elegxoume an to mhkos tou kwdikou einai swsto
 	if (strlen($passwd)<4 || strlen($passwd) >16)
 	{
 		throw new Exception('Your password must be between 4 and 16 characters.Please go back and try again.');
 	}
+	//elegxoume an to mhkos tou thlefwnou einai to swsto
 	if (strlen($mob1)!=10)
 	{
 		throw new Exception('Your mobile phone must have exactly 10 digits.');
 	}
 
-	// attempt to register
-	// this function can also throw an exception
+	//afou ta vasika stoixeia einai swsta ginetai h prospa8eia eggrafhs tou xrhsth
+	//h sunarthsh register(...) eggrafei to xrhsth..epishs yparxei periptwsh na peta3ei exception an kati einai la8os
 	register($username, $passwd, $email, $mob1);
-	// provide link to login page
 
+	//sth sunexeia analoga me to poia pedia einai kataxwrhmena ginontai kai ta antistoixa update sth vash...
 	if($frst)	db_update("users","username","name","'$username'","'$frst'");
 	if($lst)	db_update("users","username","surname","'$username'","'$lst'");
 	if($home)	db_update("telephone","user_id","home","'$username'","'$home'");
