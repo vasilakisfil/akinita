@@ -17,4 +17,5 @@
 	//ths metavlhths $_SESSION['valid_user']
 	if(isset($_SESSION['valid_user'])) $val_user=$_SESSION['valid_user'];
 
+
 ?>
