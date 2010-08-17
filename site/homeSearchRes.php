@@ -7,8 +7,6 @@
 //including required files
 include('includes.php');
 
-
-
 //H metavlhth $message krataei to query pou 8a stalei sthn vash
 //sthn arxh thn arxikopoioume me to vasiko query, dld epilegoume olous tous pinakes kai ta stoixeia pou 8eloume
 $message="select distinct property.prop_id,address,price,offer_type,area,constr_date,views,category,property.user_id from property,categories,cat_prop,fac_prop,facilities";
