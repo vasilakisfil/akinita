@@ -38,7 +38,7 @@ try
 
 	//dhmiourgoume mia metavlhth $message pou ousiastika 8a krataei to query pou 8a stalei sthn vash
 	//h metavlhth ananewnetai sumfwna me tis times pou exei dwsei o xrhsths kata thn kataxwrhsh ths aggelias
-	$message="INSERT INTO property(address,price,offer_type,area,constr_date,user_id) VALUES ('$address',$price,'$typos',$area,$constrDate,'$val_user');";
+	$message="INSERT INTO property(address,price,offer_type,area,constr_date,user_id,propState) VALUES ('$address',$price,'$typos',$area,$constrDate,'$val_user','F');";
 	//h metavlhth $selectProp krataei to query pou vriskei thn aggelia pou molis kataxwrh8hke gia mellontikh xrhsh
 	$selectProp="select *from property where address='$address' and price=$price and offer_type='$typos' and area=$area and constr_date=$constrDate;";
 	//h metavlhth $selectCat krataei to query pou vriskei thn katagoria pou kataxwrh8hke to akihto gia mellontikh xrhsh

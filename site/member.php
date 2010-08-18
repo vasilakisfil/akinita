@@ -59,6 +59,8 @@ if (isset($_SESSION['user_type']))
 		echo "<br />";
 		dispURL("editFacilities.php","Display/Edit the facilities");
 		echo "<br />";
+		dispURL("showNewAdvs.php","Display/Edit the new Advertisments");
+		echo "<br />";
 	}
 	//alliws emfanise mono tis epiloges tou aplou xrhsth
 	else

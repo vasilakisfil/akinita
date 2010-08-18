@@ -18,13 +18,13 @@ insert into telephone (mobile1,user_id) values
 ('6666666666','alex');
 
 
-insert into property (prop_id,address,price,offer_type,area,user_id) values
-(1,'matzarou 15',45000,'S',35,'konstantina'),
-(2,'aliartou 19',65000,'S',59,'vasilakis'),
-(3,'kwsth palama 5',75000,'S',78,'alex'),
-(4,'kefallhnias 20-24',70000,'S',72,'guest'),
-(5,'satwmvriandou 35-37',300,'L',22,'mits'),
-(6,'ageirou 8',480,'L',75,'vassis');
+insert into property (prop_id,address,price,offer_type,area,user_id,propState) values
+(1,'matzarou 15',45000,'S',35,'konstantina','T'),
+(2,'aliartou 19',65000,'S',59,'vasilakis','T'),
+(3,'kwsth palama 5',75000,'S',78,'alex','T'),
+(4,'kefallhnias 20-24',70000,'S',72,'guest','T'),
+(5,'satwmvriandou 35-37',300,'L',22,'mits','T'),
+(6,'ageirou 8',480,'L',75,'vassis','T');
 
 
 insert into facilities (fac_id,facility) values

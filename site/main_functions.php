@@ -155,7 +155,7 @@ function dispCategoriesSettings()
 	//an uparxoun kathgories sto susthma emfanise tes..
 	if (mysql_num_rows($result)>0)
 	{
-		echo "<form name=\"deleteCat\" action=\"editCategories.php\"method=\"post\">";
+		echo "<form name=\"deleteCat\" action=\"editCategories.php \"method=\"post\">";
 		echo "<table border='1'>
 		<tr>
 		<th>category</th>
@@ -321,6 +321,17 @@ function db_del_user($user)
 	//kleisimo ths vashs
 	mysql_close($conn);	
 }
+function db_del_prop($propId)
+{
+	//sundesh sth vash
+	$conn=db_connect();
+	
+	$result = mysql_query("delete from property where prop_id='$propId'");
+	if (!$result)
+	{
+		throw new Exception('Could not execute query DELETE3.');
+	}
+}
 
 /************************************************
 * Auth h sunarthsh diagrafei thn kathgoria $cat
@@ -431,6 +442,7 @@ function db_update($table,$column1,$column2,$data1,$data2)
 	$conn=db_connect();
 	//ektelesh tou query
 	$message="UPDATE $table SET $column2=$data2 where $column1=$data1";
+	echo $message;
 	$result = mysql_query("$message");
 	if (!$result)
 	{
@@ -632,18 +644,16 @@ function showProperty($propId)
 	<th>views</th>
 	<th>comments</th>
 	<th>Last Modified</th>
+	<th>new one</th>
 	<th>user_id</th>	
 	</tr>";
-
-	while($row = mysql_fetch_array($result1,MYSQL_NUM))
+	$row = mysql_fetch_assoc($result1);
+	echo "<tr>";
+	foreach($row as $r)
 	{
-		echo "<tr>";
-		for($i=0; $i<11; $i++)
-		{
-			echo "<td>"."$row[$i]"."</td>";
-		}
-		echo "</tr>";
+		echo "<td>"."$r"."</td>";
 	}
+	echo "</tr>";
 	echo "</table>";
 	
 
@@ -659,8 +669,9 @@ function showProperty($propId)
 * Auth h sunarthsh emfanizei oles tis aggelies
 * analoga me to query $message pou exei dw8ei.
 *************************************************/
-function propertySearch($message)
+function propertySearch($message,$Ftype)
 {
+	global $type;
 	//sundesh sth vash
 	$conn=db_connect();
 	//ektelesh tou query
@@ -668,6 +679,7 @@ function propertySearch($message)
 	//kleisimo ths vashs
 	mysql_close($conn);
 	//emfanish twn dedomenwn
+	echo "<form name=actionProp action=".$_SERVER['REQUEST_URI']." method=post>";
 	echo "<table border='1'>
 	<tr>
 	<th>address</th>
@@ -678,8 +690,13 @@ function propertySearch($message)
 	<th>views</th>
 	<th>category</th>
 	<th>user_id</th>
-	<th>Link</th>
-	</tr>";
+	<th>Link</th>";
+	if(isset($type)&&$type=="Admin")
+	{
+		if($Ftype=="Delete") echo "<th>Delete</th>";
+		else echo "<th>Egkrish</th>";
+	}
+	echo "</tr>";
 
 	while($row = mysql_fetch_array($result,MYSQL_NUM))
 	{
@@ -689,9 +706,19 @@ function propertySearch($message)
 			echo "<td>"."$row[$i]"."</td>";
 		}
 		echo "<td><a href=viewProperty.php?propId=$row[0]>Open Up</a></td>";
+		if(isset($type) && $type=="Admin")
+		{
+			if($Ftype=="Delete") echo "<td><input type=checkbox name=delProperty[] value=".$row[0]." /></td>";
+			else echo "<td><input type=checkbox name=accProperty[] value=".$row[0]." /></td>";
+		}
 		echo "</tr>";
 	}
 	echo "</table>";
+	if(isset($type) && $type=="Admin")
+	{
+		if($Ftype=="Delete") echo "<input type=submit value=Delete />";
+		else echo "<input type=submit value=Accept />";
+	}
 
 }
 

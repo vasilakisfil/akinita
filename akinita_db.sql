@@ -43,6 +43,7 @@ create table property
 	views int(10) default '0',
 	comments text,
 	modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	propState ENUM('T','F'),
 	user_id char(20),
 	primary key(prop_id),
 	foreign key(user_id) references users(username)
