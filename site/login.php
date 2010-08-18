@@ -9,7 +9,7 @@ include('includes.php');
 //SOS EDW KAI KATW 8ELEI GERO FTIA3IMO
 
 
-dispHeader('Κεντρικηhh Συνδεση Σελιδας');
+dispHeader('Κεντρικη Συνδεση Σελιδας');
 
 if(!isset($val_user))
 {

@@ -1,80 +1,103 @@
 ﻿<?php
 
 //including required files
-include('includes.php');
+require_once('includes.php');
 
-//ayth h synarthsh sundeei thn php me thn mysql kai epilegei thn vash akinita
+/************************************************
+* ayth h synarthsh sundeei thn php me thn mysql
+* kai epilegei thn vash akinita.Epistrefei to
+* resource ths mysql_connect() wste na uparxei h
+* dunatothta na kleisei h vash meta mesw ths
+* mysql_close()
+*************************************************/
 function db_connect()
 {
-  $db_conn = mysql_connect("localhost", "akinauth", "password");
+	//sundesh sth vash ws xrhsths akinauth
+	$db_conn = mysql_connect("localhost", "akinauth", "password");
+	if (!$db_conn)
+	{
+		echo 'Connection to database failed:'.mysql_error();
+		exit();
+	}
 
-  if (!$db_conn) {
-   echo 'Connection to database failed:'.mysql_error();
-   exit();
-  }
-  
-$db_selected = mysql_select_db("akinita", $db_conn);
-
-if (!$db_selected)
-  {
-  die ("Can\'t use test_db : " . mysql_error());
-  }
-  return $db_conn;
+	//epilogh vashs
+	$db_selected = mysql_select_db("akinita", $db_conn);
+	if (!$db_selected)
+	{
+		die ("Can\'t use test_db : " . mysql_error());
+	}
+	//epistrofh tou resource tou mysql_connect()
+	return $db_conn;
 }
 
-/*auth h sunarthsh epistrefei ton tupo xrhsth pou paei na sunde8ei afou diapistwsei prwta oti
-o xrhsths evale ta swsta stoixeia*/
+/************************************************
+* auth h sunarthsh ulopoiei to login enos xrhsth
+* dhladh psaxnei sth vash kai vlepei an ta stoixeia
+* pou edwse o xrhsths einai swsta.An den einai
+* petaei exception enw an einai epistrefei ton
+* typo xrhsth
+*************************************************/
 function login($username, $password)
-// check username and password with db
-// if yes, return true
-// else throw exception
 {
-  // connect to db
-  $conn = db_connect();
+	//sundesh sth vash
+	$conn = db_connect();
 
-  // check if username is unique
-  $result = mysql_query("SELECT user_type FROM users where username='$username' and password='$password'");
+	//ektelesh tou query gia na vre8ei o xrhsths
+	$result = mysql_query("SELECT user_type FROM users where username='$username' and password='$password'");
 
-  mysql_close($conn);
-  
-  if (mysql_num_rows($result)>0)
-  {
-  
-	 $row = mysql_fetch_object($result);
-     return $row->user_type;
-  }
-  else 
-     throw new Exception('Could not log you in.Did you use the right username and password?');
+	//kleisimo vashs
+	mysql_close($conn);
+
+	//elegxos an ontws uparxei o xrhsths 'h dw8hkan lan8asmena stoixeia
+	if (mysql_num_rows($result)>0)
+	{
+		$row = mysql_fetch_object($result);
+		//an ta stoixeia einai swsta epistrofh tou tupou xrhsth
+		return $row->user_type;
+	}
+	else throw new Exception('Could not log you in.Did you use the right username and password?');
 }
 
+/************************************************
+* Auth h sunarthsh elegxei an o xrhsths pou vlepei
+* thn selida pou kaleitai h sunarthsh einai swsta
+* sundedemenos.An oxi ton parapempei na sunde8ei
+* +++++++++++++++++++++++++++++++++++++++++++++
+*************************************************/
 function check_valid_user()
-// see if somebody is logged in and notify them if not
 {
-  if (isset($_SESSION['valid_user']))
-  {
-      echo 'Logged in as '.$_SESSION['valid_user'].'.';
-      echo '<br />';
-  }
-  else
-  {
-     // they are not logged in 
-     dispHeader('Problem:');
-     echo 'You are not logged in.<br />';
-     dispURL('login.php', 'Login');
-     dispFooter();
-     exit;
-  }  
+	if (isset($_SESSION['valid_user']))
+	{
+		echo 'Logged in as '.$_SESSION['valid_user'].'.';
+		echo '<br />';
+	}
+	else
+	{
+		// they are not logged in 
+		dispHeader('Problem:');
+		echo 'You are not logged in.<br />';
+		dispURL('login.php', 'Login');
+		dispFooter();
+		exit;
+	}  
 }
 
-//auth h sunarthsh emfanizei olous tous sundedemenous xrhstes kai admins
+/************************************************
+* Auth h sunarthsh emfanizei olous tous eggegramenous
+* xrhstes, users kai admins.Epishs dipla apo tous
+* xrhstes emfanizei epiloges gia thn emfanish tou
+* profil tous, thn epe3ergasia tou profil tous kai
+*************************************************/
 function dispCurrUsers()
 {
-  // connect to db
+  //sundesh sth vash
   $conn = db_connect();
 
-  // check if username is unique
+  //ektelesh tou query gia na vre8oun oi eggegramenoi xrhstes
   $result = mysql_query("SELECT username,email,user_type FROM users");
+  //kleisimo vashs
   mysql_close($conn);
+  //an uparxoun xrhstes tote emfanise tous
   if (mysql_num_rows($result)>0)
   {
 		echo "<table border='1'>
@@ -102,20 +125,31 @@ function dispCurrUsers()
 			  echo "</tr>";
 		  }
 		echo "</table>";
-     return true;
+		//kai epestrepse
+		return true;
   }
+  //alliws peta katallhlh e3airesh
   else throw new Exception('Error..could not fine any user on the system!');
 
 }
 
+/************************************************
+* Auth h sunarthsh emfanizei oles tis kathgories
+* pou uparxoun sto susthma se enan pinaka mazi me
+* checkboxes gia thn diagrafh twn kathgoriwn
+* Epishs emfanizei epilogh(input box) gia thn
+* eisagwgh kainourgias kathgorias
+*************************************************/
 function dispCategoriesSettings()
 {
-  // connect to db
+  //sundesh sth vash
   $conn = db_connect();
 
-  // check if username is unique
+  //ektelesh tou query gia na vre8oun oi uparxouses kathgories
   $result = mysql_query("SELECT * FROM categories;");
+  //kleisimo vashs
   mysql_close($conn);
+  //an uparxoun kathgories sto susthma emfanise tes..
   if (mysql_num_rows($result)>0)
   {
 		echo "<form name=\"deleteCat\" action=\"editCategories.php\"method=\"post\">";
@@ -135,8 +169,10 @@ function dispCategoriesSettings()
 		echo "</table>";
 		echo "</form>";
   }
+  //alliws peta katallhlh e3airesh
   else echo "Could not find any categories in the system!! <br />";
   
+  //emfanise thn epilogh gia thn pros8hkh mias kathgorias
   echo "<br />";
   echo "Enter new category:<form name=\"category\" action=\"editCategories.php\" method=\"post\">
         <input type=\"text\" name=\"newCat\" />

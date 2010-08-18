@@ -29,7 +29,7 @@ try
 		$message.=" )";
 	}
 	//an den exei epilex8ei petame exception
-	else throw new Exception('Den epile3ate ti tupo 8elete\(pwlhsh \'h enoikiash\)');\
+	else throw new Exception('Den epile3ate ti tupo 8elete\(pwlhsh \'h enoikiash\)');
 	//elegxoume an exei epilex8ei kathgoria
 	if(isset($_POST['category']))
 	{
@@ -119,7 +119,7 @@ try
 	
 	
 	
-	dispHeader('Akinita:');
+	dispHeader('Αποτελσματα');
 	//echo $message;
 	propertySearch($message);
 	dispFooter();

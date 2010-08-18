@@ -7,7 +7,7 @@
 
 
 //including required files
-include('includes.php');
+require_once('includes.php');
 
 /************************************************
 * auth h sunarthsh emfanizei to head kai kapoia
