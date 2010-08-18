@@ -9,6 +9,8 @@ $id=strval($_GET['propId']);
 
 try
 {
+	//elegxoume an o xrhsths einai swsta sundedemenos
+	check_valid_user(1);
 	dispHeader("Property with id=$id");
 	//H sunarthsh showProperty($id) deixnei thn aggelia me propd_id to $id
 	showProperty($id);

@@ -34,7 +34,7 @@ function dispHeader($header,$num=1)
 </select>-->
 <a href="homeSearch.php">Αναζήτηση</a>
 <a href="homeAdvertise.php">Καταχώρηση Αγγελίας</a>
-<a href="member.php">Σελιδα χρηστών</a>
+<a href="member.php">Κεντρική Σελίδα</a>
 <a href=""target="_blank">Επικοινωνήστε μαζί μας</a>
 <a href=""target="_blank">Όροι χρήσης</a>
 <?php

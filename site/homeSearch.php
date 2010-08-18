@@ -9,6 +9,8 @@ include('includes.php');
 
 try
 {
+	//elegxoume an o xrhsths einai swsta sundedemenos?????
+	check_valid_user(1);
 	dispHeader('Φορμα αναζητησης αγγελιας');
 	//h sunarthsh dispHomeSearch() emfanizei thn forma anazhthshs aggeliwn
 	dispHomeSearch();

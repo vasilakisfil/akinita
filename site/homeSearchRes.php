@@ -133,8 +133,9 @@ try
 	
 	if(isset($message)) $_SESSION['message']=$message;
 	else $message=$_SESSION["message"];
-	
-	dispHeader('Αποτελσματα');
+	//elegxoume an o xrhsths einai swsta sundedemenos
+	check_valid_user(1);
+	dispHeader('Αποτελέματα αναζήτησης');
 	//echo $message;
 	propertySearch($message,"Delete");
 	dispFooter();
