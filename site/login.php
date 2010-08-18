@@ -9,7 +9,7 @@ include('includes.php');
 //SOS EDW KAI KATW 8ELEI GERO FTIA3IMO
 
 
-dispHeader('Κεντρικη Συνδεση Σελιδας');
+dispHeader('Κεντρικη Σελιδας Συνδεσης');
 
 if(!isset($val_user))
 {
@@ -17,8 +17,8 @@ if(!isset($val_user))
 }
 else
 {
-	echo "You are already logged in!If you want to log out follow the link!";
-    dispURL("logout.php","logout");
+	echo "Ειστε συνδεδεμενος!Αν θελετε να αποσυνδεθειτε πατηστε στο παρακατω συνδεσμο.";
+    dispURL("logout.php","Αποσύνδεση");
 }
 
 dispFooter();

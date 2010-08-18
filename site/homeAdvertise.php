@@ -5,11 +5,12 @@
 
 //including required files
 include('includes.php');
-//elegxoume an o xrhsths einai swsta sundedemenos
-check_valid_user();
+
 
 try
 {
+	//elegxoume an o xrhsths einai swsta sundedemenos
+	check_valid_user();
 	dispHeader('Φόρμα δημιουργίας καινούργιας αγγελίας');
 	//h sunarthsh dispHomeAdvertise emfanizei thn forma gia thn kataxwrhsh aggelias
 	dispHomeAdvertise();

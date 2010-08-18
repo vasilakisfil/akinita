@@ -7,10 +7,11 @@
 //including required files
 include('includes.php');
 if(isset($_POST['accProperty'])) $accProp=$_POST['accProperty']; else $accProp=NULL;
-//elegxoume an o xrhsths einai swsta sundedemenos
-check_valid_user();
+
 try
 {
+	//elegxoume an o xrhsths einai swsta sundedemenos
+	check_valid_user();
 	if(isset($accProp))
 	{
 		foreach($accProp as $prop)

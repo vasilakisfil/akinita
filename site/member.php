@@ -34,32 +34,34 @@ if ($username && $passwd)
   catch(Exception $e)
   {
     // unsuccessful login
-    dispHeader('Error');
-    echo 'You could not be logged in. 
-          You must be logged in to view this page.';
+    dispHeader('Εμφανίστηκε ένα λάθος:');
+    echo 'Δεν ήταν δυνατή η φόρτωση της σελίδας. 
+          Θα πρέπει να είστε συνδεδεμένος για να δείτε αυτή την σελίδα.';
 		  echo $e->getMessage();
-    dispURL('login.php', 'Login');
+    dispURL('login.php', 'Ξαναπροσπαθείστε');
     dispFooter();
     exit;
   }      
 }
+//elegxoume an o xrhsths einai swsta sundedemenos
+check_valid_user();
 //twra emfanizetai h kuriws selida
-dispHeader('Home');
+dispHeader('Κύρια Σελίδα');
 //an h session metavlhth exei te8ei(dld den einai null) auto shmainei oti o xrhsths einai sundedemenos
 if (isset($_SESSION['user_type']))
 {
-    echo 'You are logged in as: '.$_SESSION['valid_user'].' ('.$_SESSION['user_type'].') <br />';
+    if($type=="Admin") echo 'Είστε συνδεδεμένος ως διαχειριστής <br />';
 	//an o xrhsths einai "Admin" emfanise tis katallhles epiloges
 	if($type=="Admin")
 	{
 		echo "<br />";
-		dispURL("displayUsers.php","Display all the users");
+		dispURL("displayUsers.php","Εμφάνιση των χρηστών");
 		echo "<br />";
-		dispURL("editCategories.php","Display/Edit the categories");
+		dispURL("editCategories.php","Προβολή/Επεξεργασία κατηγοριών");
 		echo "<br />";
-		dispURL("editFacilities.php","Display/Edit the facilities");
+		dispURL("editFacilities.php","Προβολή/Επεξεργασία παροχών");
 		echo "<br />";
-		dispURL("showNewAdvs.php","Display/Edit the new Advertisments");
+		dispURL("showNewAdvs.php","Προβολή/Επεξεργασία καινούργιων αγγελιων");
 		echo "<br />";
 	}
 	//alliws emfanise mono tis epiloges tou aplou xrhsth
@@ -69,14 +71,10 @@ if (isset($_SESSION['user_type']))
 		dispURL("editUser.php?user=".$val_user,"Edit my Profile");
 		echo "<br />";
 	}
-    dispURL("logout.php","logout");
+    dispURL("logout.php","Αποσύνδεση");
 }
 //an h session metavlhth user_type den exei te8ei auto shmainei oti eite to login den egine swsta eite oti o xrhsths hr8e
 //se auth th selida xwris e3ousiodothsh
-else
-{
-	echo 'Could not log you in..make sure your data are valid.';
-}
 
 dispFooter();
 ?>

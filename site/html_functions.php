@@ -20,7 +20,7 @@ function dispHeader($header,$num=1)
 ?>
 <html>
 <head>
-<title>The real estate project!</title>
+<title>Akinita.gr</title>
 </head>
 <body>
 
@@ -34,15 +34,15 @@ function dispHeader($header,$num=1)
 </select>-->
 <a href="homeSearch.php">Αναζήτηση</a>
 <a href="homeAdvertise.php">Καταχώρηση Αγγελίας</a>
-<a href="member.php">Members Page</a>
-<a href=""target="_blank">Contact Us</a>
+<a href="member.php">Σελιδα χρηστών</a>
+<a href=""target="_blank">Επικοινωνήστε μαζί μας</a>
 <a href=""target="_blank">Όροι χρήσης</a>
 <?php
 //elegxoume an o xrhsths einai sudedemenos kai an einai emfanizoume perissoteres epiloges
 if(isset($_SESSION['valid_user']))
 {
 ?>
-<a href="logout.php">Logout</a>
+<a href="logout.php">Αποσύνδεση</a>
 <?php
 }
 ?>
@@ -63,16 +63,16 @@ if(isset($_SESSION['valid_user']))
 function dispLoginBox()
 {
 ?>
-	<h2>*Log in</h2>
-	<h3>Eisai melos? kane log in!</h3>
+	<h2>Σύνδεση Μέλους</h2>
+	<h3>Είσαι μέλος;Κάνε τώρα Log In!</h3>
 	<form method="post" action="member.php">
-		Username: <input type="text" name="username"/><br />
-		Password: <input type="password" name="password" /><br />
+		Όνομα Χρήστη: <input type="text" name="username"/><br />
+		Κωδικός Χρήστη: <input type="password" name="password" /><br />
 		<input type="submit" value="Log in" />
 	</form>
 
-	<h3>Not a member?</h3>
-	<a href="signup.php">Sign up</a>
+	<h3>Δεν είσαι μέλος;</h3>
+	<a href="signup.php">Εγγράψου τώρα δωρεάν!</a>
 <?php
 }
 
@@ -110,23 +110,26 @@ function dispRegForm()
 
 ?>
 
-<h1>Sign up form</h1>
-<p>Use your mouse, or tab and shift tab to move from blank to blank.</p>
+<h1>Φόρμα εγγραφής</h1>
+<p>Μπορείτε να χρησιμοποιείσετε είτε το ποντίκι είτε το tab για να μετακινηθείτε από πεδίο σε πεδίο.</p>
 <p>*Υποχρεωτικα πεδία</p>
-<h3>Select an account username and password for your new account:</h3>
+<h3>Παρακαλούμε εισάγετε ένα όνομα χρήστη και έναν κωδικό:</h3>
+tip:O κωδικός για να είναι ασφαλής καλό είναι να περιέχει γραμματα αριθμούς και λοιπούς χαρακτήρες καθώς και να μην περιέχει
+κάποια λέξη που ανήκει σε λεξικό ή ένα όνομα!<br />
+<br />
 <form method="post" action="signup_new.php">
-Username*: <input type="text" name="username"/><br />
-Password*: <input type="password" name="pwd" /><br />
-Password*: <input type="password" name="pwd2" /><br />
+Όνομα Χρήστη*: <input type="text" name="username"/><br />
+Κωδικός Χρήστη*: <input type="password" name="pwd" /><br />
+Επαλήθευση Κωδικού*: <input type="password" name="pwd2" /><br />
 
-<h3>How can we contact you?</h3>
-Your email address*: <input type="text" name="mail"/><br/>
-Your home number: <input type="text" name="homephone"/><br/>
-Your mobile1 number*: <input type="text" name="mob1phone"/><br/>
-Your mobile2 number: <input type="text" name="mob2phone"/><br/>
-Your other number: <input type="text" name="othrnumber"/><br/>
-Your Firstname: <input type="text" name="frstname"/><br />
-Your Lastname: <input type="text" name="lstname" /><br/><br/>
+<h3>Στοιχεία επικοινωνίας</h3>
+Διεύθυνση E-mail*: <input type="text" name="mail"/><br/>
+Τηλέφωνο σπιτιού: <input type="text" name="homephone"/><br/>
+Αριθμός κινητού*: <input type="text" name="mob1phone"/><br/>
+Αριθμός κινητού 2: <input type="text" name="mob2phone"/><br/>
+Άλλος αριθμός: <input type="text" name="othrnumber"/><br/>
+Όνομα: <input type="text" name="frstname"/><br />
+Επίθετο: <input type="text" name="lstname" /><br/><br/>
 <input type="submit" value="submit" />
 </form>
 

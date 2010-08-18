@@ -55,7 +55,7 @@ function login($username, $password)
 		//an ta stoixeia einai swsta epistrofh tou tupou xrhsth
 		return $row->user_type;
 	}
-	else throw new Exception('Could not log you in.Did you use the right username and password?');
+	else throw new Exception('Μήπως δεν βάλατε σωστά στοιχεία;');
 }
 
 /************************************************
@@ -74,11 +74,11 @@ function check_valid_user()
 	else
 	{
 		// they are not logged in 
-		dispHeader('Problem:');
-		echo 'You are not logged in.<br />';
-		dispURL('login.php', 'Login');
-		echo "<br />Not a member? ";
-		dispURL("signup.php","SignUp for Free!");
+		dispHeader('Εμφανίστηκε ένα λάθος:');
+		echo 'Δεν είστε συνδεδεμένος.<br />';
+		dispURL('login.php', 'Σύνδεση');
+		echo "<br />Δεν είστε μέλος; ";
+		dispURL("signup.php","Εγγραφτείτε τώρα δωρεάν!");
 		dispFooter();
 		exit;
 	}  
@@ -107,10 +107,10 @@ function dispCurrUsers()
 		<tr>
 		<th>username</th>
 		<th>email</th>
-		<th>user_type</th>
-		<th>Delete User</th>
-		<th>Edit User</th>
-		<th>Show Profile</th>
+		<th>Τύπος χρήστη</th>
+		<th>Διαγραφή</th>
+		<th>Επεξεργασία Χρήστη</th>
+		<th>Προβολή προφίλ Χρήστη</th>
 		</tr>";
 
 		while($row = mysql_fetch_array($result))
@@ -132,7 +132,7 @@ function dispCurrUsers()
 		return true;
   }
   //alliws peta katallhlh e3airesh
-  else throw new Exception('Error..could not fine any user on the system!');
+  else throw new Exception('Σφάλμα:Δεν ήταν δυνατή η εύρεση χρηστών στο σύστημα!');
 
 }
 
@@ -158,7 +158,7 @@ function dispCategoriesSettings()
 		echo "<form name=\"deleteCat\" action=\"editCategories.php \"method=\"post\">";
 		echo "<table border='1'>
 		<tr>
-		<th>category</th>
+		<th>κατηγορια</th>
 		<th><input type=\"submit\" value=\"Delete\" /></th>
 		</tr>";
 
@@ -173,13 +173,13 @@ function dispCategoriesSettings()
 		echo "</form>";
 	}
 	//alliws peta katallhlo munhma
-	else echo "Could not find any categories in the system!! <br />";
+	else echo "Σφάλμα:Δεν ήταν δυνατή η εύρεση κατηγοριών! <br />";
 
 	//emfanise thn epilogh gia thn pros8hkh mias kathgorias
 	echo "<br />";
-	echo "Enter new category:<form name=\"category\" action=\"editCategories.php\" method=\"post\">
+	echo "Εισάγεται καινούργια κατηγορία:<form name=\"category\" action=\"editCategories.php\" method=\"post\">
 		<input type=\"text\" name=\"newCat\" />
-		<input type=\"submit\" value=\"Submit\" /></form>";
+		<input type=\"submit\" value=\"Εισαγωγή\" /></form>";
 
 }
 
@@ -206,7 +206,7 @@ function dispFacilitiesSettings()
 		echo "<form name=\"deleteFac\" action=\"editFacilities.php\"method=\"post\">";
 		echo "<table border='1'>
 		<tr>
-		<th>facility</th>
+		<th>παροχή</th>
 		<th><input type=\"submit\" value=\"Delete\" /></th>
 		</tr>";
 
@@ -221,12 +221,12 @@ function dispFacilitiesSettings()
 		echo "</form>";
 	}
 	//alliws peta katallhlo mhnuma
-	else echo "Could not find any facilities in the system!! <br />";
+	else echo "Σφάλμα: Δεν ήταν δυνατή η εύρεση κατηγοριών στο σύστημα! <br />";
 
 	echo "<br />";
-	echo "Enter new facility:<form name=\"facility\" action=\"editFacilities.php\" method=\"post\">
+	echo "Εισάγετε καινούργια παροχή:<form name=\"facility\" action=\"editFacilities.php\" method=\"post\">
 		<input type=\"text\" name=\"newFac\" />
-		<input type=\"submit\" value=\"Submit\" /></form>";
+		<input type=\"submit\" value=\"Εισαγωγή\" /></form>";
 
 }
 
@@ -569,11 +569,11 @@ function showUserProfile($user)
 	//emfanish twn dedomenwn
 	echo "<table border='1'>
 	<tr>
-	<th>Username</th>
+	<th>username</th>
 	<th>Email</th>
-	<th>Name</th>
-	<th>Surname</th>
-	<th>User Type</th>
+	<th>Όνομα</th>
+	<th>Επίθετο</th>
+	<th>Τύπος Χρήστη</th>
 	</tr>";
 
 	while($row = mysql_fetch_array($result))
@@ -593,10 +593,10 @@ function showUserProfile($user)
 	echo "<table border='1'>
 	<tr>
 	<th>username</th>
-	<th>mobile1</th>
-	<th>mobile2</th>
-	<th>home</th>
-	<th>other</th>
+	<th>Κινητό1</th>
+	<th>Κινητο2</th>
+	<th>Τηλέφωνο σπιτιού</th>
+	<th>Άλλο τηλέφωνο</th>
 	</tr>";
 
 	while($row = mysql_fetch_array($result))

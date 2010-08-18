@@ -8,7 +8,6 @@
 require_once('includes.php');
 
 if(isset($_POST['delProperty'])) $delProp=$_POST['delProperty']; else $delProp=NULL;
-if(isset($_POST['accProperty'])) $accProp=$_POST['accProperty']; else $accProp=NULL;
 //H metavlhth $message krataei to query pou 8a stalei sthn vash
 //sthn arxh thn arxikopoioume me to vasiko query, dld epilegoume olous tous pinakes kai ta stoixeia pou 8eloume
 
@@ -21,14 +20,6 @@ try
 		{
 			echo "$prop <br />";
 			db_del_prop($prop);
-		}
-	}
-	else if(isset($accProp))
-	{
-		foreach($delProp as $prop)
-		{
-			echo "$prop <br />";
-			db_update('property','propState','prop_id','T',$prop);
 		}
 	}
 	else

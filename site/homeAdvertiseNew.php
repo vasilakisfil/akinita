@@ -7,11 +7,12 @@
 
 //including required files
 include('includes.php');
-//elegxoume an o xrhsths einai swsta sundedemenos
-check_valid_user();
+
 
 try
 {
+	//elegxoume an o xrhsths einai swsta sundedemenos
+	check_valid_user();
 	//elegxoume an exei epilegei ti tupos aggelias 8a einai (pwlhsh/enoikiash)
 	if(!isset($_POST['typos']))	throw new Exception('Prepei na balete enoikiash \'h pwlhsh');
 	else

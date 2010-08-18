@@ -11,7 +11,6 @@
 	if(isset($_SESSION['user_type'])) $type=$_SESSION['user_type'];
 	//elegxoume an h session metavlhth valis_user exei te8ei kai an exei te8ei 8etoume sthn topikh metavlhth $val_user thn timh
 	//ths metavlhths $_SESSION['valid_user']
-	if(isset($type) && $type=="Admin") echo "Action";
 	if(isset($_SESSION['valid_user'])) $val_user=$_SESSION['valid_user'];
 	
 	
