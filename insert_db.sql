@@ -19,19 +19,19 @@ insert into telephone (mobile1,user_id) values
 
 
 insert into property (prop_id,address,price,offer_type,area,user_id,propState) values
-(1,'matzarou 15',45000,'S',35,'konstantina','T'),
-(2,'aliartou 19',65000,'S',59,'vasilakis','T'),
-(3,'kwsth palama 5',75000,'S',78,'alex','T'),
-(4,'kefallhnias 20-24',70000,'S',72,'guest','T'),
-(5,'satwmvriandou 35-37',300,'L',22,'mits','T'),
-(6,'ageirou 8',480,'L',75,'vassis','T');
+(1,'Ματζαρου 4',45000,'S',35,'konstantina','T'),
+(2,'Αλιάρτου 19',65000,'S',59,'vasilakis','T'),
+(3,'Κωστή Παλαμά 5',75000,'S',78,'alex','T'),
+(4,'Κεφαλληνίας 20-24',70000,'S',72,'guest','T'),
+(5,'Σατωμβριάνδου 35-37',300,'L',22,'mits','T'),
+(6,'Αγείρου 8',480,'L',75,'vassis','T');
 
 
 insert into facilities (fac_id,facility) values
-(1,'proedriko mpanio'),
-(2,'mpaniera'),
-(3,'ntouz'),
-(4,'epiplwmeno');
+(1,'Μπανιέρα'),
+(2,'Air-Codition'),
+(3,'Ντουζ'),
+(4,'Επιπλωμενο');
 
 insert into fac_prop (prop_id,fac_id) values
 (2,1),
@@ -43,10 +43,10 @@ insert into fac_prop (prop_id,fac_id) values
 (5,3);
 
 insert into categories (cat_id,category) values
-(1,'studio'),
-(2,'gkarsoniera'),
-(3,'duari'),
-(4,'triari');
+(1,'Studio'),
+(2,'Γκαρσονιέρα'),
+(3,'Δυάρι'),
+(4,'Τριάρι');
 
 insert into cat_prop (prop_id,cat_id) values
 (5,1),

@@ -448,7 +448,7 @@ function db_update($table,$column1,$column2,$data1,$data2)
 	$conn=db_connect();
 	//ektelesh tou query
 	$message="UPDATE $table SET $column2=$data2 where $column1=$data1";
-	echo $message;
+	//echo $message; //debugging purpose
 	$result = mysql_query("$message");
 	if (!$result)
 	{
@@ -473,6 +473,22 @@ function db_insert($table,$column1,$column2,$data1,$data2)
 	if (!$result)
 	{
 		throw new Exception('Δεν ήταν δυνατή η εκτέλεση του INSERT.');
+	}
+	//kleisimo ths vashs
+	mysql_close($conn);
+}
+
+function db_delete($table,$column1,$column2,$data1,$data2)
+{
+	//sundesh sth vash
+	$conn=db_connect();
+	//ektelesh tou query
+	$message="DELETE FROM $table WHERE $column1=$data1 and $column2=$data2";
+	//echo "<br />".$message; //debugging purpose
+	$result = mysql_query("$message");
+	if (!$result)
+	{
+		throw new Exception('Δεν ήταν δυνατή η εκτέλεση του DELETE.');
 	}
 	//kleisimo ths vashs
 	mysql_close($conn);
@@ -638,8 +654,8 @@ function showProperty($propId)
 	//ektelesh tou query
 	$result2=db_excecute($message2,'select2');
 	$message3="Select * from fav_prop where user_id='$val_user' and prop_id=$propId";
-	echo $message3;
-	$result3=db_excecute($message3,'select2');
+	//echo $message3; //debugging purpose
+	$result3=db_excecute($message3,'select3');
 	if (mysql_num_rows($result3)>0)	$fav="Διαγραφή";
 	else $fav="Προσθήκη";
 	
@@ -676,7 +692,7 @@ function showProperty($propId)
 	echo "</table>";
 	
 
-	echo "Facilities: ";
+	echo "Το ακίνητο διαθέτει τις εξής παροχές: ";
 	while($row = mysql_fetch_array($result2))
 	{
 		echo $row['facility']." ";
@@ -688,7 +704,7 @@ function showProperty($propId)
 * Auth h sunarthsh emfanizei oles tis aggelies
 * analoga me to query $message pou exei dw8ei.
 *************************************************/
-function propertySearch($message,$Ftype)
+function propertySearch($message,$Ftype=NULL)
 {
 	global $type;
 	//sundesh sth vash
@@ -713,7 +729,8 @@ function propertySearch($message,$Ftype)
 	if(isset($type)&&$type=="Admin")
 	{
 		if($Ftype=="Delete") echo "<th>Διαγραφή;</th>";
-		else echo "<th>Έγκριση;</th>";
+		else if($Ftype=="Accept") echo "<th>Έγκριση;</th>";
+		else if($Ftype=="Favourites") echo "<th>Αφαίρεση;</th>";
 	}
 	echo "</tr>";
 
@@ -722,13 +739,24 @@ function propertySearch($message,$Ftype)
 		echo "<tr>";
 		for($i=1; $i<9; $i++)
 		{
+			if($row[$i]=="S")
+			{
+				echo "<td>Πώληση</td>";
+				continue;
+			}
+			else if($row[$i]=="L")
+			{
+				echo "<td>Ενοικίαση</td>";
+				continue;
+			}
 			echo "<td>"."$row[$i]"."</td>";
 		}
-		echo "<td><a href=viewProperty.php?propId=$row[0]>Open Up</a></td>";
+		echo "<td><a href=viewProperty.php?propId=$row[0]>Περισσότερα...</a></td>";
 		if(isset($type) && $type=="Admin")
 		{
 			if($Ftype=="Delete") echo "<td><input type=checkbox name=delProperty[] value=".$row[0]." /></td>";
-			else echo "<td><input type=checkbox name=accProperty[] value=".$row[0]." /></td>";
+			else if ($Ftype=="Accept") echo "<td><input type=checkbox name=accProperty[] value=".$row[0]." /></td>";
+			else if ($Ftype=="Favourites") echo "<td><input type=checkbox name=remProperty[] value=".$row[0]." /></td>";
 		}
 		echo "</tr>";
 	}
@@ -736,7 +764,8 @@ function propertySearch($message,$Ftype)
 	if(isset($type) && $type=="Admin")
 	{
 		if($Ftype=="Delete") echo "<input type=submit value=Διαγραφή />";
-		else echo "<input type=submit value=Έγκριση />";
+		else if($Ftype=="Accept") echo "<input type=submit value=Έγκριση />";
+		else if($Ftype=="Favourites") echo "<input type=submit value=Αφαίρεση />";
 	}
 
 }

@@ -18,7 +18,6 @@ try
 	{
 		foreach($delProp as $prop)
 		{
-			echo "$prop <br />";
 			db_del_prop($prop);
 		}
 	}

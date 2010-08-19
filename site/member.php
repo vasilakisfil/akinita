@@ -65,12 +65,16 @@ if (isset($_SESSION['user_type']))
 		echo "<br />";
 		dispURL("showNewAdvs.php","Προβολή/Επεξεργασία καινούργιων αγγελιων");
 		echo "<br />";
+		dispURL("favAdvs.php","Προβολή των Αγαπημένων μου αγγελιών");
+		echo "<br />";
 	}
 	//alliws emfanise mono tis epiloges tou aplou xrhsth
 	else
 	{
 		echo "<br />";
 		dispURL("editUser.php?user=".$val_user,"Επεξεργασία του προφίλ μου");
+		echo "<br />";
+		dispURL("favAdvs.php","Προβολή των Αγαπημένων μου αγγελιών");
 		echo "<br />";
 	}
     dispURL("logout.php","Αποσύνδεση");
