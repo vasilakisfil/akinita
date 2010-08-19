@@ -55,6 +55,8 @@ if (isset($_SESSION['user_type']))
 	if($type=="Admin")
 	{
 		echo "<br />";
+		dispURL("editUser.php?user=".$val_user,"Επεξεργασία του προφίλ μου");
+		echo "<br />";
 		dispURL("displayUsers.php","Εμφάνιση των χρηστών");
 		echo "<br />";
 		dispURL("editCategories.php","Προβολή/Επεξεργασία κατηγοριών");
@@ -68,7 +70,7 @@ if (isset($_SESSION['user_type']))
 	else
 	{
 		echo "<br />";
-		dispURL("editUser.php?user=".$val_user,"Edit my Profile");
+		dispURL("editUser.php?user=".$val_user,"Επεξεργασία του προφίλ μου");
 		echo "<br />";
 	}
     dispURL("logout.php","Αποσύνδεση");

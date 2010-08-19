@@ -47,7 +47,21 @@ create table property
 	user_id char(20),
 	primary key(prop_id),
 	foreign key(user_id) references users(username)
+	on delete cascade on update cascade
 )engine=innoDB default character set utf8 collate utf8_general_ci auto_increment=1;
+
+create table fav_prop
+(
+	user_id char(20) not null,
+	prop_id int not null,
+	primary key(user_id,prop_id),
+	constraint favProp_c1
+	foreign key(user_id) references users(username)
+	on delete cascade on update cascade,
+	constraint favProp_c2
+	foreign key(prop_id) references property(prop_id)
+	on delete cascade on update cascade
+)engine=innoDB default character set utf8 collate utf8_general_ci;
 
 create table facilities
 (
@@ -58,8 +72,8 @@ create table facilities
 
 create table fac_prop
 (
-	prop_id int,
-	fac_id int,
+	prop_id int not null,
+	fac_id int not null,
 	primary key(fac_id,prop_id),
 	constraint facProp_constr1
 	foreign key(prop_id) references property(prop_id)
@@ -78,8 +92,8 @@ create table categories
 
 create table cat_prop
 (
-	prop_id int,
-	cat_id int,
+	prop_id int not null,
+	cat_id int not null,
 	constraint catProp_constr1
 	foreign key(prop_id) references property(prop_id)
 	on delete cascade on update cascade,
@@ -88,6 +102,7 @@ create table cat_prop
 	on delete cascade on update cascade	,
 	primary key(cat_id,prop_id)
 )engine=innoDB default character set utf8 collate utf8_general_ci;
+
 
 grant select, insert, update, delete on akinita.* to akinauth identified by 'password';
 flush privileges;

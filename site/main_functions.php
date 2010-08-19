@@ -628,6 +628,7 @@ function showUserProfile($user)
 *************************************************/
 function showProperty($propId)
 {
+	global $val_user;
 	//query pou vriskei ola ta spitia me to sugkekrimeno $prop_id
 	$message1="SELECT * FROM property where prop_id=$propId;";
 	//ektelesh tou query
@@ -636,29 +637,41 @@ function showProperty($propId)
 	$message2="SELECT * FROM facilities,fac_prop where fac_prop.prop_id=$propId and facilities.fac_id=fac_prop.fac_id;";
 	//ektelesh tou query
 	$result2=db_excecute($message2,'select2');
-
+	$message3="Select * from fav_prop where user_id='$val_user' and prop_id=$propId";
+	echo $message3;
+	$result3=db_excecute($message3,'select2');
+	if (mysql_num_rows($result3)>0)	$fav="Διαγραφή";
+	else $fav="Προσθήκη";
+	
 	//emfanish twn apotelesmatwn
 	echo "<table border='1'>
 	<tr>
-	<th>prop_id</th>
-	<th>address</th>
-	<th>price</th>
-	<th>offer_type</th>
-	<th>area</th>
-	<th>constr_date</th>
-	<th>photos</th>
-	<th>views</th>
-	<th>comments</th>
-	<th>Last Modified</th>
-	<th>new one</th>
-	<th>user_id</th>	
+	<th>Διεύθυνση</th>
+	<th>Τιμή</th>
+	<th>Τύπος Προσφοράς</th>
+	<th>Εμβαδόν</th>
+	<th>Έτος Κατασκευής</th>
+	<th>Φωτογραφίες</th>
+	<th>Προβολές</th>
+	<th>Σχόλια</th>
+	<th>Τελευταία Τροποποίηση</th>
+	<th>Χρήστης</th>
+	<th>$fav στα Αγαπημένα;</th>
 	</tr>";
 	$row = mysql_fetch_assoc($result1);
 	echo "<tr>";
-	foreach($row as $r)
-	{
-		echo "<td>"."$r"."</td>";
-	}
+	echo "<td>".$row['address']."</td>";
+	echo "<td>".$row['price']."</td>";
+	if($row['offer_type']=="S") echo "<td>Πώληση</td>";
+	else echo "<td>Ενοικίαση</td>";
+	echo "<td>".$row['area']."</td>";
+	echo "<td>".$row['constr_date']."</td>";
+	echo "<td>".$row['photos']."</td>";
+	echo "<td>".$row['views']."</td>";
+	echo "<td>".$row['comments']."</td>";
+	echo "<td>".$row['modified']."</td>";
+	echo "<td>".$row['user_id']."</td>";
+	echo "<td><form method=post action=".$_SERVER['REQUEST_URI']."><input type=submit name=add value=$fav! /></td>";
 	echo "</tr>";
 	echo "</table>";
 	

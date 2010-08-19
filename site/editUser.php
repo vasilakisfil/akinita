@@ -104,7 +104,7 @@ try{
 			if($ret==false) throw new Exception('Το email που δώσατε δεν είναι έγκυρο.Παρακαλούμε προσπαθείστε ξανά.');
 			//an einai ananewse to email tou xrhsth
 			db_update("users","username","email","'$user'","'$newMail'");
-			if($type=="Admin") $message="To email του χρηστη $user άλλαξε!";
+			if($val_user!=$user) $message="To email του χρηστη $user άλλαξε!";
 			else $message="Το email σας αλλαξε!";
 		}
 		//eleg3e an to pedio gia to kinito1 einai kataxwrhmeo
@@ -113,7 +113,7 @@ try{
 			//SOS EDW PREPEI NA MPEI ELEGXOS GIA 10 ARI8MOUS
 			//ananewse to kinito1 tou xrhsth
 			db_update("telephone","user_id","mobile1","'$user'",$newMob1);
-			if($type=="Admin") $message="To κινητό1 του χρηστη $user άλλαξε!";
+			if($val_user!=$user) $message="To κινητό1 του χρηστη $user άλλαξε!";
 			else $message="Το κινητό σας αλλαξε!";
 		}
 		//elg3e an to pedio Onoma einai kataxwrhmeno
@@ -121,7 +121,7 @@ try{
 		{
 			//an einai ananewse to Onoma tou xrhsth
 			db_update("users","username","name","'$user'","'$newName'");
-			if($type=="Admin") $message="To όνομα του χρηστη $user άλλαξε!";
+			if($val_user!=$user) $message="To όνομα του χρηστη $user άλλαξε!";
 			else $message="Το όνομά σας αλλαξε!";
 		}
 		//eleg3e an to pedio Epi8eto einai kataxwrhmeno
@@ -129,7 +129,7 @@ try{
 		{
 			//an einai ananewse to epi8eto tou xrhsth
 			db_update("users","username","surname","'$user'","'$newLast'");
-			if($type=="Admin") $message="To επίθετο του χρηστη $user άλλαξε!";
+			if($val_user!=$user) $message="To επίθετο του χρηστη $user άλλαξε!";
 			else $message="Το επίθετό σας αλλαξε!";
 		}
 		//eleg3e an to pedio kinito2 einai kataxwrhmeno
@@ -138,7 +138,7 @@ try{
 			//SOS EDW PREPEI NA MPEI ELEGXOS GIA 10 ARI8MOUS
 			//an einai ananewse to kinito2 tou xrhsth
 			db_update("telephone","user_id","mobile2","'$user'",$newMob2);
-			if($type=="Admin") $message="To κινητό2 του χρηστη $user άλλαξε!";
+			if($val_user!=$user) $message="To κινητό2 του χρηστη $user άλλαξε!";
 			else $message="Το κινητό σας αλλαξε!";
 		}
 		//eleg3e an to pedio gia to sta8ero thlefwno einai kataxwrhmeno
@@ -147,7 +147,7 @@ try{
 			//SOS EDW PREPEI NA MPEI ELEGXOS GIA 10 ARI8MOUS
 			//an einai ananewse to sta8ero thlefwno tou xrhsth
 			db_update("telephone","user_id","home","'$user'",$newHome);
-			if($type=="Admin") $message="To σταθερό τηλέφωνο του χρηστη $user άλλαξε!";
+			if($val_user!=$user) $message="To σταθερό τηλέφωνο του χρηστη $user άλλαξε!";
 			else $message="Το σταθερό σας αλλαξε!";
 		}
 		//eleg3e an to pedio gia to allo thlefwno einai kataxwrhmeno
@@ -156,7 +156,7 @@ try{
 			//SOS EDW PREPEI NA MPEI ELEGXOS GIA 10 ARI8MOUS
 			//an einai ananewse to allo thlefwno tou xrhsth
 			db_update("telephone","user_id","other","'$user'",$newOthr);
-			if($type=="Admin") $message="To άλλο τηλέφωνο του χρηστη $user άλλαξε!";
+			if($val_user!=$user) $message="To άλλο τηλέφωνο του χρηστη $user άλλαξε!";
 			else $message="Το άλλο τηλέφωνό σας αλλαξε!";
 		}
 		//an to privilege exei parei thn timh "Admin" (mono gia Admin users)
@@ -191,7 +191,7 @@ try{
 catch(Exception $e)
 {
 	// unsuccessful login
-	dispHeader("User Profile $user error:");
+	dispHeader("Υπήρξε ένα σφάλμα με το προφίλ του χρήστη $user:");
 	echo $e->getMessage();
 	dispURL('editUser.php?user='.$user, 'Επεξεργασία του profil');
 	dispFooter();
