@@ -21,11 +21,12 @@ function dispHeader($header,$num=1)
 <html>
 <head>
 <title>Akinita.gr</title>
+<script type="text/javascript" src="functions.js"></script>
 </head>
 <body>
 
 <div id="menu" align="right" >
-<a href="login.php">Αρχική</a>
+<a href="main.php">Αρχική</a>
 
 <!--<select>
 	<option>Αναζήτηση</option>
@@ -45,6 +46,12 @@ if(isset($_SESSION['valid_user']))
 <a href="logout.php">Αποσύνδεση</a>
 <?php
 }
+else
+{
+?>
+<a href="login.php">Σύνδεση</a>
+<?php
+}
 ?>
 </div>
 <?php
@@ -56,6 +63,36 @@ if(isset($_SESSION['valid_user']))
 	}
 }
 
+
+/************************************************
+* auth h sunarthsh emfanizei ta teleutaia stoixeia
+* ths html gia na xrhsimopoieitai ka8e fora
+*************************************************/
+function dispFooter()
+{
+  // print an HTML footer
+?>
+  </body>
+  </html>
+<?php
+}
+
+/************************************************
+* Auth h sunarthsh emfanizei thn kentrikh selida
+* tou site
+*************************************************/
+function dispMainPage()
+{
+?>
+	<form method="post" action="homeSearchRes.php" >
+	Γρήγορη Αναζήτηση:<input type="text" value="Ψαχτήρι" name="mainQuery" /><br />
+	<input type=submit value="Βρές!" onclick="validForm1()"  />
+	</form>
+	
+	<h2>EDW MPAINEI TO GOOGLE MAPS</h2>
+<?php
+}	
+	
 /*************************************************
 * auth h sunarthsh dhmiourgei thn forma gia to
 * login gia thn sundesh enos xrhsth
@@ -73,19 +110,6 @@ function dispLoginBox()
 
 	<h3>Δεν είσαι μέλος;</h3>
 	<a href="signup.php">Εγγράψου τώρα δωρεάν!</a>
-<?php
-}
-
-/************************************************
-* auth h sunarthsh emfanizei ta teleutaia stoixeia
-* ths html gia na xrhsimopoieitai ka8e fora
-*************************************************/
-function dispFooter()
-{
-  // print an HTML footer
-?>
-  </body>
-  </html>
 <?php
 }
 

@@ -1,6 +1,6 @@
 ﻿<?php
 /****************************************************************************************
-*	H selida auth emfanizei thn forma gia thn anazhthsh aggeliwn
+*	H selida auth emfanizei thn kentrikh selida tou site
 *****************************************************************************************/
 
 
@@ -11,9 +11,9 @@ try
 {
 	//elegxoume an o xrhsths einai swsta sundedemenos, an den einai ton emfanizoume ws guest
 	check_valid_user(1);
-	dispHeader('Φορμα αναζητησης αγγελιας');
+	dispHeader('Καλως ήρθατε στο akinita.gr');
 	//h sunarthsh dispHomeSearch() emfanizei thn forma anazhthshs aggeliwn
-	dispHomeSearch();
+	dispMainPage();
 	dispFooter();
 }
 catch(Exception $e)
