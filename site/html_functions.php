@@ -18,10 +18,12 @@ require_once('includes.php');
 function dispHeader($header,$num=1)
 {
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<title>Akinita.gr</title>
 <script type="text/javascript" src="functions.js"></script>
+<title>Akinita.gr</title>
 </head>
 <body>
 
@@ -86,7 +88,7 @@ function dispMainPage()
 ?>
 	<form method="post" action="homeSearchRes.php" >
 	Γρήγορη Αναζήτηση:<input type="text" value="Ψαχτήρι" name="mainQuery" /><br />
-	<input type=submit value="Βρές!" onclick="validForm1()"  />
+	<input type=submit value="Βρές!"  />
 	</form>
 	
 	<h2>EDW MPAINEI TO GOOGLE MAPS</h2>
@@ -141,21 +143,22 @@ function dispRegForm()
 tip:O κωδικός για να είναι ασφαλής καλό είναι να περιέχει γραμματα αριθμούς και λοιπούς χαρακτήρες καθώς και να μην περιέχει
 κάποια λέξη που ανήκει σε λεξικό ή ένα όνομα!<br />
 <br />
-<form method="post" action="signup_new.php">
-Όνομα Χρήστη*: <input type="text" name="username"/><br />
-Κωδικός Χρήστη*: <input type="password" name="pwd" /><br />
-Επαλήθευση Κωδικού*: <input type="password" name="pwd2" /><br />
+<form method="post" onsubmit="return validRegForm()"  action="signup_new.php"  >
+Όνομα Χρήστη*: <input type="text" name="username" id="username" /><br />
+Κωδικός Χρήστη*: <input type="password" name="pwd" id="pwd" /><br />
+Επαλήθευση Κωδικού*: <input type="password" name="pwd2" id="pwd2" /><br />
 
 <h3>Στοιχεία επικοινωνίας</h3>
-Διεύθυνση E-mail*: <input type="text" name="mail"/><br/>
-Τηλέφωνο σπιτιού: <input type="text" name="homephone"/><br/>
-Αριθμός κινητού*: <input type="text" name="mob1phone"/><br/>
-Αριθμός κινητού 2: <input type="text" name="mob2phone"/><br/>
-Άλλος αριθμός: <input type="text" name="othrnumber"/><br/>
-Όνομα: <input type="text" name="frstname"/><br />
-Επίθετο: <input type="text" name="lstname" /><br/><br/>
+Διεύθυνση E-mail*: <input type="text" name="mail" id="mail" /><br/>
+Τηλέφωνο σπιτιού: <input type="text" name="homephone" id="homephone" /><br/>
+Αριθμός κινητού*: <input type="text" name="mob1phone" id="mob1phone" /><br/>
+Αριθμός κινητού 2: <input type="text" name="mob2phone" id="mob2phone" /><br/>
+Άλλος αριθμός: <input type="text" name="othrnumber" id="othrnumber" /><br/>
+Όνομα: <input type="text" name="frstname" id="firstname" /><br />
+Επίθετο: <input type="text" name="lstname" id="lstname" /><br/><br/>
 <input type="submit" value="submit" />
 </form>
+
 
 <?php
 }
@@ -369,7 +372,7 @@ $result=db_excecute($message,'select');
 $message="select * from facilities;";
 $facilities=db_excecute($message,'select2');
 ?>
-<h1>Καταχώρηση Ακινήτου</br></h1>
+<h1>Καταχώρηση Ακινήτου<br /></h1>
 <h2>Συμπληρώστε τα στοιχεία του ακινήτου σας στην παρακάτω φόρμα για να δημοσιευθεί στο site μας.</h2>
 
 <h3>Στοιχεία Ακινήτου</h3>
@@ -415,17 +418,17 @@ while($row = mysql_fetch_array($facilities))
 Enter Comments Here
 </textarea>
 
-<h3>Upload φωτογραφίες:</h3></br>
+<h3>Upload φωτογραφίες:</h3><br />
 <input type="hidden" name="MAX_FILE_SIZE" value="100" />
-<input name="file" type="file" /></br>
+<input name="file" type="file" /><br />
 <input type="hidden" name="MAX_FILE_SIZE" value="100" />
-<input name="file" type="file" /></br>
+<input name="file" type="file" /><br />
 <input type="hidden" name="MAX_FILE_SIZE" value="100" />
-<input name="file" type="file" /></br>
+<input name="file" type="file" /><br />
 <input type="hidden" name="MAX_FILE_SIZE" value="100" />
-<input name="file" type="file" /></br>
+<input name="file" type="file" /><br />
 <input type="hidden" name="MAX_FILE_SIZE" value="100" />
-<input name="file" type="file" /></br></br></br>
+<input name="file" type="file" /><br /><br /><br />
 
 <input type="submit" value="Kαταχώρηση">
 </form>
@@ -447,7 +450,7 @@ $categories=db_excecute($message,'select1');
 $message="select * from facilities;";
 $facilities=db_excecute($message,'select2');
 ?>
-<h1>Ψάχνετε ακίνητο?</br></h1>
+<h1>Ψάχνετε ακίνητο?<br /></h1>
 <h2>Ορίστε τα δικά σας κριτήρια αναζήτησης!</h2>
 
 <h3>Διαθέσιμες ενέργειες:</h3>
@@ -469,7 +472,7 @@ while($row = mysql_fetch_array($categories))
 
  
 
-<h3>Τιμή</br>
+<h3>Τιμή<br />
 
 από:<select name="low_price">
 <option value="nolimit" >Χωρις Οριο</option>
@@ -504,7 +507,7 @@ while($row = mysql_fetch_array($categories))
 </select>
 </h3>
 
-<h3>Eμβαδό</br>
+<h3>Eμβαδό<br />
 
 από:<select name="low_area">
 <option value="nolimit">Κάτω από 50</option>
