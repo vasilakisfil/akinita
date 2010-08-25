@@ -1,34 +1,15 @@
 ﻿
+/****************************************************************************************
+*				SUNARTHSEIS JAVASCRIPT GENIKOU SKOPOY
+*
+*****************************************************************************************/
 
-function formValidator(){
-	// Make quick references to our fields
-	var firstname = document.getElementById('firstname');
-	var addr = document.getElementById('addr');
-	var zip = document.getElementById('zip');
-	var state = document.getElementById('state');
-	var username = document.getElementById('username');
-	var email = document.getElementById('email');
-	
-	// Check each input in the order that it appears in the form!
-	if(isAlphabet(firstname, "Please enter only letters for your name")){
-		if(isAlphanumeric(addr, "Numbers and Letters Only for Address")){
-			if(isNumeric(zip, "Please enter a valid zip code")){
-				if(madeSelection(state, "Please Choose a State")){
-					if(lengthRestriction(username, 6, 8)){
-						if(emailValidator(email, "Please enter a valid email address")){
-							return true;
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	
-	return false;
-	
+function DIVoutput(message)
+{
+	document.write("<div>"+message+"<div>");
 }
 
+//sunarthsh pou elegxei an ena pedio einai keno
 function notEmpty(elem, helperMsg){
 	if(elem.value.length == 0){
 		alert(helperMsg);
@@ -38,6 +19,7 @@ function notEmpty(elem, helperMsg){
 	return true;
 }
 
+//sunarthsh pou elegxei an ena pedio periexei mono ari8mous
 function isNumeric(elem, helperMsg){
 	var numericExpression = /^[0-9]+$/;
 	if(elem.value.match(numericExpression)){
@@ -49,6 +31,7 @@ function isNumeric(elem, helperMsg){
 	}
 }
 
+//sunarthsh pou elegxei an ena pedio periexei mono xarakthres
 function isAlphabet(elem, helperMsg){
 	var alphaExp = /^[a-zA-Z]+$/;
 	if(elem.value.match(alphaExp)){
@@ -60,6 +43,7 @@ function isAlphabet(elem, helperMsg){
 	}
 }
 
+//sunarthsh pou elegxei an ena pedio periexei kai xarakthres kai noumera
 function isAlphanumeric(elem, helperMsg){
 	var alphaExp = /^[0-9a-zA-Z]+$/;
 	if(elem.value.match(alphaExp)){
@@ -71,32 +55,50 @@ function isAlphanumeric(elem, helperMsg){
 	}
 }
 
-function numbersCheck()
-{
-	var mob1phone=document.getElementById('mob1phone');
-	var mob2phone=document.getElementById('mob2phone');
-	var homephone=document.getElementById('homephone');
-	var othrphone=document.getElementById('othrnumber');
-	var msgPhone="Το ο αριθμός του τηλέφωνού σας θα πρέπει να έχει 10 ψηφία!";
-	
-	if(numberCheck(mob1phone,msgPhone,true))
-	{
-		if(numberCheck(mob2phone,msgPhone,false))
-		{
-			if(numberCheck(homephone,msgPhone,false))
-			{
-				if(numberCheck(othrphone,msgPhone,false))
-				{
-					return true;
-				}
-			}
-		}
+//sunarthsh pou elegxei an to mhkos tou pediou kumenaitai meta3u tou min kai tou max
+function lengthRestriction(elem, min, max,helperMsg){
+	var uInput = elem.value;
+	if(uInput.length >= min && uInput.length <= max){
+		return true;
+	}else{
+		alert(helperMsg);
+		elem.focus();
+		return false;
 	}
-	
-	return false;
+}
+
+//sunarthsh pou elegxei an exei epilextei kati se ena select box
+function madeSelection(elem, helperMsg){
+	if(elem.value == "Please Choose"){
+		alert(helperMsg);
+		elem.focus();
+		return false;
+	}else{
+		return true;
+	}
+}
+
+//sunarthsh pou elegxei an ena email exei thn swsth morfh (px a@a.a)
+function emailValidator(elem, helperMsg){
+	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+	if(elem.value.match(emailExp)){
+		return true;
+	}else{
+		alert(helperMsg);
+		elem.focus();
+		return false;
+	}
 }
 
 
+/****************************************************************************************
+*				SUNARTHSEIS ELEGXOU GIA TO REGISTRATION FORM
+*
+*****************************************************************************************/
+
+
+//sunarthsh pou elegxei pedia ari8mwn.An to who einai alh8es to pedio prepei na exei aparaithta 10 pshfia
+//an to who einai false to pedio mporei na periexei 'h 0 pshfia(dld den exei eisax8ei tipota) 'h 10 pshfia.
 function numberCheck(number,helpMsg,who)
 {
 	if(who==true)
@@ -140,54 +142,75 @@ function numberCheck(number,helpMsg,who)
 
 }
 
-function lengthRestriction(elem, min, max,helperMsg){
-	var uInput = elem.value;
-	if(uInput.length >= min && uInput.length <= max){
-		return true;
-	}else{
-		alert(helperMsg);
-		elem.focus();
-		return false;
-	}
-}
-
-function madeSelection(elem, helperMsg){
-	if(elem.value == "Please Choose"){
-		alert(helperMsg);
-		elem.focus();
-		return false;
-	}else{
-		return true;
-	}
-}
-
-function emailValidator(elem, helperMsg){
-	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-	if(elem.value.match(emailExp)){
-		return true;
-	}else{
-		alert(helperMsg);
-		elem.focus();
-		return false;
-	}
-}
-
-
-function validRegForm()
+//sunarthsh pou elegxei an oi ari8moi sto registration form einai swsta sumplhrwmenoi
+function numbersCheck()
 {
-
-
-	if(validEmptyRegForm())
+	var mob1phone=document.getElementById('mob1phone');
+	var mob2phone=document.getElementById('mob2phone');
+	var homephone=document.getElementById('homephone');
+	var othrphone=document.getElementById('othrnumber');
+	var msgPhone="Το ο αριθμός του τηλέφωνού σας θα πρέπει να έχει 10 ψηφία!";
+	
+	if(numberCheck(mob1phone,msgPhone,true))
 	{
-		if(multiValidRegForm())
+		if(numberCheck(mob2phone,msgPhone,false))
 		{
-			return true;
+			if(numberCheck(homephone,msgPhone,false))
+			{
+				if(numberCheck(othrphone,msgPhone,false))
+				{
+					return true;
+				}
+			}
 		}
 	}
+	
+	return false;
+}
+
+//sunarthsh pou elegxei an ola ta aparaithta pedia einai sumphrwmena sto registration form
+function validEmptyRegForm()
+{
+
+	//alert("helooooooooo");
+
+	// Make quick references to our fields
+	var username = document.getElementById('username');
+	var msgUsername="Δεν έχετε συμπληρώσει το username σας!";
+	var pwd = document.getElementById('pwd');
+	var msgPwd="Δεν έχετε συμπληρώσει τον κωδικό σας!";
+	var pwd2 = document.getElementById('pwd2');
+	var msgPwd2="Δεν έχετε συμπληρώσει τον δεύτερο κωδικό σας!";
+	var mail=document.getElementById('mail');
+	var msgMail="Δεν έχετε συμπληρώσει το email σας!";
+	var mob1phone=document.getElementById('mob1phone');
+	var msgmob1phone="Δεν έχετε συμπληρώσει το κινητό σας!";
+	
+
+	
+	if(notEmpty(username,msgUsername))
+	{
+		if(notEmpty(pwd,msgPwd))
+		{
+			if(notEmpty(pwd2,msgPwd2))
+			{
+				if(notEmpty(mail,msgMail))
+				{
+					if(notEmpty(mob1phone,msgmob1phone))
+					{
+						return true;
+					}
+				}
+			}
+		}
+	}
+	
+	
 	return false;
 
 }
 
+//sunarthsh pou elegxei an ta pedia sto registration form einai swsta sumplhrwmena
 function multiValidRegForm()
 {
 
@@ -244,43 +267,25 @@ function multiValidRegForm()
 
 }
 
-function validEmptyRegForm()
+//sunarthsh pou elegxei to registration form
+function validRegForm()
 {
 
-	//alert("helooooooooo");
-
-	// Make quick references to our fields
-	var username = document.getElementById('username');
-	var msgUsername="Δεν έχετε συμπληρώσει το username σας!";
-	var pwd = document.getElementById('pwd');
-	var msgPwd="Δεν έχετε συμπληρώσει τον κωδικό σας!";
-	var pwd2 = document.getElementById('pwd2');
-	var msgPwd2="Δεν έχετε συμπληρώσει τον δεύτερο κωδικό σας!";
-	var mail=document.getElementById('mail');
-	var msgMail="Δεν έχετε συμπληρώσει το email σας!";
-	var mob1phone=document.getElementById('mob1phone');
-	var msgmob1phone="Δεν έχετε συμπληρώσει το κινητό σας!";
-	
-
-	
-	if(notEmpty(username,msgUsername))
+	if(validEmptyRegForm())
 	{
-		if(notEmpty(pwd,msgPwd))
+		if(multiValidRegForm())
 		{
-			if(notEmpty(pwd2,msgPwd2))
-			{
-				if(notEmpty(mail,msgMail))
-				{
-					if(notEmpty(mob1phone,msgmob1phone))
-					{
-						return true;
-					}
-				}
-			}
+			return true;
 		}
 	}
-	
-	
 	return false;
 
 }
+
+
+/****************************************************************************************
+*				SUNARTHSEIS ELEGXOU GIA TO ........
+*
+*****************************************************************************************/
+
+
