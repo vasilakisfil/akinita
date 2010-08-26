@@ -145,15 +145,22 @@ tip:O κωδικός για να είναι ασφαλής καλό είναι �
 <br />
 <form method="post" onsubmit="return validRegForm()"  action="signup_new.php"  >
 Όνομα Χρήστη*: <input type="text" name="username" id="username" /><br />
-Κωδικός Χρήστη*: <input type="password" name="pwd" id="pwd" /><br />
-Επαλήθευση Κωδικού*: <input type="password" name="pwd2" id="pwd2" /><br />
+Κωδικός Χρήστη*: <input type="password" name="pwd" id="pwd" onkeyup="return RTpasswordChanged();" />
+<span id="strength"></span> <br />
+Επαλήθευση Κωδικού*: <input type="password" name="pwd2" id="pwd2" onkeyup="return RTequalPasswords();" />
+<span id="equal"></span> <br /><br />
 
 <h3>Στοιχεία επικοινωνίας</h3>
-Διεύθυνση E-mail*: <input type="text" name="mail" id="mail" /><br/>
-Τηλέφωνο σπιτιού: <input type="text" name="homephone" id="homephone" /><br/>
-Αριθμός κινητού*: <input type="text" name="mob1phone" id="mob1phone" /><br/>
-Αριθμός κινητού 2: <input type="text" name="mob2phone" id="mob2phone" /><br/>
-Άλλος αριθμός: <input type="text" name="othrnumber" id="othrnumber" /><br/>
+Διεύθυνση E-mail*: <input type="text" name="mail" id="mail" onkeyup="return RTemailValidator()" />
+<span id="email"></span> <br />
+Τηλέφωνο σπιτιού: <input type="text" name="homephone" id="homephone" onchange="RTisNumeric(homephone,shome)" />
+<span id="shome"></span><br/>
+Αριθμός κινητού*: <input type="text" name="mob1phone" id="mob1phone" onkeyup="RTisNumeric(mob1phone,smob1)" />
+<span id="smob1"></span><br/>
+Αριθμός κινητού 2: <input type="text" name="mob2phone" id="mob2phone" onchange="RTisNumeric(mob2phone,smob2)" />
+<span id="smob2"></span><br/>
+Άλλος αριθμός: <input type="text" name="othrnumber" id="othrnumber" onchange="RTisNumeric(othrnumber,othr)"  />
+<span id="othr"></span><br/>
 Όνομα: <input type="text" name="frstname" id="firstname" /><br />
 Επίθετο: <input type="text" name="lstname" id="lstname" /><br/><br/>
 <input type="submit" value="submit" />

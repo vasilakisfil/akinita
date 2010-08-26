@@ -6,7 +6,11 @@
 
 function DIVoutput(message)
 {
-	document.write("<div>"+message+"<div>");
+	document.write("<div>"+message+"</div>");
+}
+function SPANoutput(message)
+{
+	document.write("<span>"+message+"</span>");
 }
 
 //sunarthsh pou elegxei an ena pedio einai keno
@@ -96,6 +100,85 @@ function emailValidator(elem, helperMsg){
 *
 *****************************************************************************************/
 
+//sunarthsh pou upologizei thn dunamikothta(?) tou kwdikou  REAL TIME
+function RTpasswordChanged()
+{
+	var strength = document.getElementById('strength');
+	var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W).*$", "g");
+	var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+	var enoughRegex = new RegExp("(?=.{6,}).*", "g");
+	var pwd = document.getElementById("pwd");
+	if (pwd.value.length==0)
+	{
+		strength.innerHTML = '';
+	}
+	else if (false == enoughRegex.test(pwd.value))
+	{
+		strength.innerHTML = 'Πολύ μικρός!';
+	}
+	else if (strongRegex.test(pwd.value))
+	{
+		strength.innerHTML = '<span style="color:green">Δυνατός!</span>';
+	}
+	else if (mediumRegex.test(pwd.value))
+	{
+		strength.innerHTML = '<span style="color:orange">Μέτριος!</span>';
+	}
+	else
+	{ 
+		strength.innerHTML = '<span style="color:red">Αδύναμος!</span>';
+	}
+}
+
+//sunarthsh pou epivlepei an oi 2 kwdikoi einai idioi  REAL TIME
+function RTequalPasswords()
+{
+	var equal = document.getElementById('equal');
+	var pwd = document.getElementById("pwd");
+	var pwd2 = document.getElementById("pwd2");
+	
+	if(pwd2.value.length!=0)
+	{
+		if(pwd.value!=pwd2.value) equal.innerHTML = '<span style="color:red">Οι κωδικοί που έχετε βάλει δεν ταιριάζουν!</span>';
+		else equal.innerHTML = '<span style="color:green">Oi κωδικοί ταιριάζουν!</span>';
+	}
+	else equal.innerHTML='';
+}
+
+
+//sunarthsh pou elegxei an ena email exei thn swsth morfh (px a@a.a) REAL TIME
+function RTemailValidator()
+{
+
+	var email = document.getElementById('email');
+	var mail = document.getElementById("mail");
+	
+	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+	if(mail.value.match(emailExp))
+	{
+		email.innerHTML = '<span style="color:green">Αποδεκτό email!</span>';
+	}
+	else
+	{
+		email.innerHTML = '<span style="color:red">To mail σας δεν έχει την σωστή μορφή!</span>';	
+	}
+}
+
+//sunarthsh pou elegxei an ena pedio periexei mono ari8mous  REAL TIME
+function RTisNumeric(elem,span){
+
+	//var smob1 = document.getElementById("smob1");
+	
+	var numericExpression = /^[0-9]+$/;
+	if(elem.value.match(numericExpression))
+	{
+		span.innerHTML = '<span style="color:green">Αποδεκτό τηλέφωνο!</span>';
+	}
+	else
+	{
+		span.innerHTML = '<span style="color:red">Μη αποδεκτό τηλέφωνο!</span>';
+	}
+}
 
 //sunarthsh pou elegxei pedia ari8mwn.An to who einai alh8es to pedio prepei na exei aparaithta 10 pshfia
 //an to who einai false to pedio mporei na periexei 'h 0 pshfia(dld den exei eisax8ei tipota) 'h 10 pshfia.
