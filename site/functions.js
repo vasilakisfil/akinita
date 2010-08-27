@@ -367,8 +367,24 @@ function validRegForm()
 
 
 /****************************************************************************************
-*				SUNARTHSEIS ELEGXOU GIA TO ........
+*				SUNARTHSEIS ELEGXOU GIA TO FORMA ANAZHTHSHS
 *
 *****************************************************************************************/
 
+function validSearch()
+{
+
+	var typos = document.getElementById('typos');
+	var sell = document.getElementById("sell");
+	var lent = document.getElementById("lent");
+
+	if((sell.checked==true) || (lent.checked==true))
+	{
+		typos.innerHTML='<span style="color:green">&nbsp; &nbsp; &nbsp;  &#10003;</span>';
+	}
+	else
+	{
+		typos.innerHTML='<span style="color:red">&nbsp; &nbsp; &nbsp; Χ</span>';
+	}
+}
 

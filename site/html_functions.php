@@ -23,6 +23,7 @@ function dispHeader($header,$num=1)
 <html>
 <head>
 <script type="text/javascript" src="functions.js"></script>
+<link rel="stylesheet" type="text/css" href="mystyle.css" />
 <title>Akinita.gr</title>
 </head>
 <body>
@@ -463,9 +464,11 @@ $facilities=db_excecute($message,'select2');
 <h3>Διαθέσιμες ενέργειες:</h3>
 <form method="post" action="homeSearchRes.php">
 
+<!--<fieldset id="typos">-->
+<input type="checkbox" id="sell" name="typos[]" value="s" onclick="validSearch()" /> Πώληση
+<input type="checkbox" id="lent" name="typos[]" value="l" onclick="validSearch()" /> Ενοικίαση
+<!--</fieldset>--><span id="typos">&nbsp; &nbsp; &nbsp; Πρεπει να επιλέξετε αναγκαστικά...</span>
 
-<input type="checkbox" name="typos[]" value="s" /> Πώληση
-<input type="checkbox" name="typos[]" value="l" /> Ενοικίαση
 
  
 
@@ -473,7 +476,7 @@ $facilities=db_excecute($message,'select2');
 <?php
 while($row = mysql_fetch_array($categories))
 {?>
-	<input type="checkbox" name="category[]" value="<?php echo $row['category']?>" /> <?php echo $row['category']?>	
+	<input type="checkbox" name="category[]" value="<?php echo $row['category']?>" /> <?php echo $row['category']?>
 <?php
 }?>
 
