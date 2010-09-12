@@ -63,10 +63,18 @@ try
 	if($home)	db_update("telephone","user_id","home","'$username'","'$home'");
 	if($mob2)	db_update("telephone","user_id","mobile2","'$username'","'$mob2'");
 	if($othr)	db_update("telephone","user_id","other","'$username'","'$othr'");
+	// The message
+	$message = "Καλως ηρθατε στα akinita.gr!Αν θελετε ριξτε μια ματια στους όρους χρήσης.\n";
+	$message.= "Σας ευχόμαστε καλή διαμονή, καλές αγορές και καλές πωλήσεις!\n\n\n";
 
+	// In case any of our lines are larger than 70 characters, we should use wordwrap()
+	$message = wordwrap($message, 70);
+
+	// Send
+	mail($mail, 'Εγγραφή χρήστη $username', $message);
 
 	dispHeader('Registration successful',2);
-	echo 'Your registration was successful.  Go to login page to enter into the system!';
+	echo 'Your registration was successful.An email has been sent to you email account!Go to login page to enter into the system!';
 	dispURL('login.php', 'Go to login page');
 
 	// end page
