@@ -71,7 +71,7 @@ try
 	$message = wordwrap($message, 70);
 
 	// Send
-	mail($mail, 'eggrafh xrhsth $username', $message);
+	mail($email, 'eggrafh xrhsth $username', $message);
 
 	dispHeader('Registration successful',2);
 	echo 'Your registration was successful.An email has been sent to you email account!Go to login page to enter into the system!';
