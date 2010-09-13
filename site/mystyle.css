@@ -751,6 +751,18 @@ padding-bottom=25px;
 	margin-bottom: 40px;
 	}
 
+.button{
+background:transparent url(images/button.gif) no-repeat top left;
+  padding-bottom:2px;
+  padding-right:20px;  
+  border:none;
+  width:126px;
+  height:33px;
+  color:#FFFFFF;
+  font:bold 12px Georgia, "Times New Roman", Times;
+  cursor:pointer;
+}	
+	
 .leftColumn60 {
 	float: left;
 	width: 60%;
