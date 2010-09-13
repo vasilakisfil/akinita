@@ -29,7 +29,7 @@ try
 	}
 	//elegxoume an o xrhsths einai swsta sundedemenos
 	check_valid_user(1);
-	dispHeader("Property with id=$id");
+	dispHeader("");
 	//anevazoume kata ena to views(dld thn episkepsimohta) ths aggelias
 	db_update('property','prop_id','views',$id,'views+1');
 	//H sunarthsh showProperty($id) deixnei thn aggelia me propd_id to $id
