@@ -785,6 +785,8 @@ function propertySearch($message,$Ftype=NULL)
 				<img src='images/btnPropListingViewDetail.gif' alt='View Detail'/></a></div> </div>";
 			}
 		
+		
+		
 		}
 		
 		if(isset($type) && $type=="Admin")
