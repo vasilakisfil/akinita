@@ -18,10 +18,11 @@ try
 	if(isset($mainQuery))
 	{
 		$message="select distinct property.prop_id,address,price,offer_type,area,constr_date,views,category,property.user_id,property.propState from property,categories,cat_prop,fac_prop,facilities";
-		$message.=" where property.address like '%$mainQuery%'";
-		$message.=" and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id";
+		$message.=" where (property.address like '%$mainQuery%' or categories.category like '%$mainQuery%' or facilities.facility like '%$mainQuery%') ";
+		$message.=" and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id and facilities.fac_id=fac_prop.fac_id and property.prop_id=fac_prop.prop_id";
+		//$message="se (property.address like '%$mainQuery%') or
 		$message=$message.";";
-		//echo $message;
+		echo $message;
 	}
 	else
 	{
