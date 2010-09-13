@@ -651,7 +651,8 @@ function showProperty($propId)
 {
 	global $val_user;
 	//query pou vriskei ola ta spitia me to sugkekrimeno $prop_id
-	$message1="SELECT * FROM property where prop_id=$propId;";
+	$message1="SELECT property.* , categories.category FROM property,categories,cat_prop where property.prop_id=$propId ";
+	$message1.= "and categories.cat_id=cat_prop.cat_id and property.prop_id=cat_prop.cat_id;";
 	//ektelesh tou query
 	$result1=db_excecute($message1,'select1');
 	//query pou vriskei ola ta facilities pou exei to sugkekrimeno spiti
@@ -677,6 +678,7 @@ function showProperty($propId)
 	<th>Σχόλια</th>
 	<th>Τελευταία Τροποποίηση</th>
 	<th>Χρήστης</th>
+	<th>Τυπος</th>
 	<th>$fav στα Αγαπημένα;</th>
 	</tr>";
 	$row = mysql_fetch_assoc($result1);
@@ -692,6 +694,7 @@ function showProperty($propId)
 	echo "<td>".$row['comments']."</td>";
 	echo "<td>".$row['modified']."</td>";
 	echo "<td>".$row['user_id']."</td>";
+	echo "<td>".$row['category']."</td>";
 	echo "<td><form method=post action=".$_SERVER['REQUEST_URI']."><input type=submit name=add value=$fav! /></td>";
 	echo "</tr>";
 	echo "</table>";
