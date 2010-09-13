@@ -739,10 +739,9 @@ function propertySearch($message,$Ftype=NULL)
 	 while($row = mysql_fetch_array($result,MYSQL_NUM))
 	{
 		echo "<div class='propListingBox'>";
-		for($i=1; $i<9; $i++)
+		for($i=0; $i<7; $i++)
 		{
 		 
-		 if($i==5 || $i==8) continue;
 
 			if($row[$i]=="S")
 			{
@@ -753,7 +752,7 @@ function propertySearch($message,$Ftype=NULL)
 			</div>
 			<div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>
 		</div>";
-				continue;
+		
 			}
 			else if($row[$i]=="L")
 			{
@@ -764,24 +763,27 @@ function propertySearch($message,$Ftype=NULL)
 			</div>
 			<div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>
 		</div>";
-				continue;
+		
 			}
 			
 		
-		if ($i==1) { echo" <div class='propListingPhoto'><a href='' title='View Photo'><img src='images/no_photo.gif' 
-		width='125px' height='87px' alt='photo' /></a></div>
-		<div class='propListingCoreInfo'>
-			<div class='propListingAddress'>"."$row[1]"."</div>
-			<div class='propListingLocation'>Τύπος:"."$row[7]"."<br />Πάτρα</div>
-		</div>"; }
+			if ($i==1)
+			{
+				echo" <div class='propListingPhoto'><a href='' title='View Photo'><img src='images/no_photo.gif' 
+				width='125px' height='87px' alt='photo' /></a></div>
+				<div class='propListingCoreInfo'>
+					<div class='propListingAddress'>"."$row[1]"."</div>
+					<div class='propListingLocation'>Τύπος:"."$row[6]"."<br />Πάτρα</div>
+				</div>";
+			}
 		
-		if ($i==2) {
-		echo "<div class='propListingCallToAction'> 
-		<div class='propListingRent'>Τιμή:"."$row[2]"."€</div>
-		<div class='propListingViewDetail'><a href='viewProperty.php?propId=$row[0]' title='View Details' >
-		<img src='images/btnPropListingViewDetail.gif' alt='View Detail'/></a></div> </div>"; }
-		
-		
+			if ($i==2)
+			{
+				echo "<div class='propListingCallToAction'> 
+				<div class='propListingRent'>Τιμή:"."$row[2]"."€</div>
+				<div class='propListingViewDetail'><a href='viewProperty.php?propId=$row[0]' title='View Details' >
+				<img src='images/btnPropListingViewDetail.gif' alt='View Detail'/></a></div> </div>";
+			}
 		
 		}
 		
