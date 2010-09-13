@@ -82,7 +82,7 @@ function check_valid_user($guest=NULL)
 	{
 		// they are not logged in 
 		dispHeader('');
-		echo "<div class='header-bar-full'><h1 class='blue'>Κεντρική σελίδα ρυθμίσεων</h1></div>
+		echo "<div class='header-bar-full'><h1 class='blue'>Η σελίδα αυτη είναι μόνο για εγγεγραμένα μέλη</h1></div>
 		<h3>Δεν είστε συνδεδεμένος.</h3> 
 		<p class='blue-tip-text'>Θα πρέπει να συνδεθείτε ως μελος ή να κάνετε εγγραφή για να δείτε αυτή τη σελίδα.</p>
 		Αν έχετε κανει εγγραφή";
