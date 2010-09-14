@@ -718,20 +718,20 @@ function showProperty($propId)
 				<div class='clearDiv'>&nbsp;</div>
 			</div>";			
 	// oi paroxes	
-echo "<div id='propDetailAmenities'> 
-      <span style='text-decoration: underline;'>
-				<span style='font-size: 12px; color: navy; font-family: Georgia'>
-       <strong>To Ακίνητο διαθέτει τις παρακάτω παροχές:</strong></span></span><br/>";
-	while($row = mysql_fetch_array($result2))
+	echo "<div id='propDetailAmenities'> 
+		  <span style='text-decoration: underline;'>
+					<span style='font-size: 12px; color: navy; font-family: Georgia'>
+		   <strong>To Ακίνητο διαθέτει τις παρακάτω παροχές:</strong></span></span><br/>";
+	while($row1 = mysql_fetch_array($result2))
 	{
-	   echo "<span style='font-size: 10pt; font-family: Maiandra GD'>&bull;".$row['facility']."</span><br/> ";   
+	   echo "<span style='font-size: 10pt; font-family: Maiandra GD'>&bull;".$row1['facility']."</span><br/> ";   
 	}
 	// ta sxolia -den dokimastikan akoma-
 	echo "<br /><span style='text-decoration: underline;'>
 				<span style='font-size: 12px; color: navy; font-family: Georgia'>
-       <strong>Περιγραφή του ακινήτου:</strong></span></span><br/>
-	   <span style='font-size: 10pt; font-family: Maiandra GD'>".$row['comments']."</span> ";
-echo "</div></div> <div class='clearDiv'>&nbsp;</div> </div></div>";
+		   <strong>Περιγραφή του ακινήτου:</strong></span></span><br/>
+		   <span style='font-size: 10pt; font-family: Maiandra GD'>".$row['comments']."</span> ";
+	echo "</div></div> <div class='clearDiv'>&nbsp;</div> </div></div>";
 }
 
 /************************************************
