@@ -30,7 +30,7 @@ function dispHeader($header,$num=1)
 <body>
 <div id="main">
 <div id="header">
-<h1><a href="" class="logo">Akinita.gr</a></h1>
+
 
 
 
@@ -62,7 +62,7 @@ else
 
 </div>
 
-<div id="visual"><img width="817" height="115" alt="" src="images/visual1.jpg" /></div>
+<div id="visual"></div>
 <div id="middle-alt">
 <div id="bg-alt">
 <div class="no-column">
