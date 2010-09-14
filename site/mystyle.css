@@ -337,6 +337,7 @@ a.blue-link {
 color:#003471;
 font-size:20px;
 font-family:Georgia, Arial, "Times New Roman", Times;
+text-shadow:1px 1px 1px #fff;
 }	
 	
 .yellow {
