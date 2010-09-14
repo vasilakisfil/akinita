@@ -652,7 +652,7 @@ function showProperty($propId)
 	global $val_user;
 	//query pou vriskei ola ta spitia me to sugkekrimeno $prop_id
 	$message1="SELECT property.* , categories.category FROM property,categories,cat_prop where property.prop_id=$propId ";
-	$message1.= "and categories.cat_id=cat_prop.cat_id and property.prop_id=cat_prop.cat_id;";
+	$message1.= "and categories.cat_id=cat_prop.cat_id and property.prop_id=cat_prop.prop_id;";
 	//ektelesh tou query
 	$result1=db_excecute($message1,'select1');
 	//query pou vriskei ola ta facilities pou exei to sugkekrimeno spiti
@@ -666,46 +666,72 @@ function showProperty($propId)
 	else $fav="Προσθήκη";
 	
 	//emfanish twn apotelesmatwn
-	echo "<table border='1'>
-	<tr>
-	<th>Διεύθυνση</th>
-	<th>Τιμή</th>
-	<th>Τύπος Προσφοράς</th>
-	<th>Εμβαδόν</th>
-	<th>Έτος Κατασκευής</th>
-	<th>Φωτογραφίες</th>
-	<th>Προβολές</th>
-	<th>Σχόλια</th>
-	<th>Τελευταία Τροποποίηση</th>
-	<th>Χρήστης</th>
-	<th>Τυπος</th>
-	<th>$fav στα Αγαπημένα;</th>
-	</tr>";
 	$row = mysql_fetch_assoc($result1);
-	echo "<tr>";
-	echo "<td>".$row['address']."</td>";
-	echo "<td>".$row['price']."</td>";
-	if($row['offer_type']=="S") echo "<td>Πώληση</td>";
-	else echo "<td>Ενοικίαση</td>";
-	echo "<td>".$row['area']."</td>";
-	echo "<td>".$row['constr_date']."</td>";
-	echo "<td>".$row['photos']."</td>";
-	echo "<td>".$row['views']."</td>";
-	echo "<td>".$row['comments']."</td>";
-	echo "<td>".$row['modified']."</td>";
-	echo "<td>".$row['user_id']."</td>";
-	echo "<td>".$row['category']."</td>";
-	echo "<td><form method=post action=".$_SERVER['REQUEST_URI']."><input type=submit name=add value=$fav! /></td>";
-	echo "</tr>";
-	echo "</table>";
+	//Titlos kai eikona-koumpi back
+	echo "<div class='header-bar-full'><h1 class='blue'>".$row['category'].", ".$row['address']."</h1></div>
+	<a href='javascript:history.go(-1)'><img border='0' alt='Πισω στις αγγελίες' src='images/btn-back-to-properties.gif' /></a>" ;
+	// to kedriko division poy perexei ola ta stoixeia
+	echo "<div id='propDetailBoxContainer'> <div id='propDetailBox'>";
+	//to deksi tmima
+	echo "<div id='propDetailLeftBox'>
+	<div id='propDetailPhoto'><img name='no photo' src='images/no_photo.gif' width='311px' height='215px' alt='no photo' /></div> 
+	<div id='propDetailGoogleMap'><img src='images/btn-google-map.gif' alt='Google Map' /></div>
+	<span style='color:fff; text-align:right;'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	Εδω θα μπει ο χάρτης</span><br />
+	 <div class='map'  id='map_canvas' style='width:311px; height:250px;'></div>
+	</div>";
+	// to aristero tmima
+	echo "<div id='propDetailRightBox'>";
+	echo "<div id='propDetailCoreInfo'>
+	<div id='propDetailAddress'>".$row['address']."</div>
+	<div id='propDetailLocation'>Πάτρα</div></div>";
 	
-
-	echo "Το ακίνητο διαθέτει τις εξής παροχές: ";
+	echo "<div class='propDetailSubInfo whitebg'>
+				<div class='propDetailAmenities'><strong>Τύπος Προσφοράς: </strong>";
+				if($row['offer_type']=="S") echo "Πώληση";
+	else echo "Ενοικίαση";
+				echo "</div>
+				<div class='propDetailAmenities'><strong>Κατηγορία: </strong>".$row['category']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>";
+			
+	echo "<div class='propDetailSubInfo'>
+				<div class='propDetailAmenities'><strong>Τετραγωνικά: </strong>".$row['area']."</div>
+				<div class='propDetailAmenities'><strong>Έτος Κατασκευής: </strong>".$row['constr_date']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>";
+	echo "<div class='propDetailSubInfo whitebg'>
+				<div class='propDetailAmenities'><strong>Εμφανίσεις αγγελίας: </strong>".$row['views']."</div>
+				<div class='propDetailAmenities'><strong>Τελευταία Ενημέρωση: </strong>".$row['modified']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>";
+   	echo "<div class='propDetailSubInfo'>
+				<div class='propDetailAmenities'><strong>Από Χρήστη: </strong>".$row['user_id']."</div>
+				<div class='propDetailAmenities'><strong>Τιμή: </strong>".$row['price']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>";
+    echo "<div class='propDetailSubInfo whitebg'>
+				<div class='propDetailAmenities'><strong>Προσθήκη στα Αγαπημένα?:</strong></div>
+				<div class='propDetailAmenities'>
+				<form method=post action=".$_SERVER['REQUEST_URI']."><input type=submit class=button name=add value=$fav!
+				/></div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>";			
+	// oi paroxes	
+echo "<div id='propDetailAmenities'> 
+      <span style='text-decoration: underline;'>
+				<span style='font-size: 12px; color: navy; font-family: Georgia'>
+       <strong>To Ακίνητο διαθέτει τις παρακάτω παροχές:</strong></span></span><br/>";
 	while($row = mysql_fetch_array($result2))
 	{
-		echo $row['facility']." ";
+	   echo "<span style='font-size: 10pt; font-family: Maiandra GD'>&bull;".$row['facility']."</span><br/> ";   
 	}
-
+	// ta sxolia -den dokimastikan akoma-
+	echo "<br /><span style='text-decoration: underline;'>
+				<span style='font-size: 12px; color: navy; font-family: Georgia'>
+       <strong>Περιγραφή του ακινήτου:</strong></span></span><br/>
+	   <span style='font-size: 10pt; font-family: Maiandra GD'>".$row['comments']."</span> ";
+echo "</div></div> <div class='clearDiv'>&nbsp;</div> </div></div>";
 }
 
 /************************************************
