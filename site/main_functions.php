@@ -453,7 +453,7 @@ function db_update($table,$column1,$column2,$data1,$data2)
 	$conn=db_connect();
 	//ektelesh tou query
 	$message="UPDATE $table SET $column2=$data2 where $column1=$data1";
-	//echo $message; //debugging purpose
+	echo $message; //debugging purpose
 	$result = mysql_query("$message");
 	if (!$result)
 	{
@@ -650,6 +650,7 @@ function showUserProfile($user)
 function showProperty($propId)
 {
 	global $val_user;
+	global $type;
 	//query pou vriskei ola ta spitia me to sugkekrimeno $prop_id
 	$message1="SELECT property.* , categories.category FROM property,categories,cat_prop where property.prop_id=$propId ";
 	$message1.= "and categories.cat_id=cat_prop.cat_id and property.prop_id=cat_prop.prop_id;";
@@ -716,7 +717,12 @@ function showProperty($propId)
 				<form method=post action=".$_SERVER['REQUEST_URI']."><input type=submit class=button name=add value=$fav!
 				/></div>
 				<div class='clearDiv'>&nbsp;</div>
-			</div>";			
+			</div>";
+	//elegxoume an to akinhto einai tou xrhsth 'h an o xrhsths einai admin gia na emfanistei to link gia epe3ergasia..
+	if($val_user==$row['user_id'] || ($type=="Admin"))
+	{
+		dispURL("editProperty.php?propId=$propId","Επεξεργασία Αγγελίας");
+	}
 	// oi paroxes	
 	echo "<div id='propDetailAmenities'> 
 		  <span style='text-decoration: underline;'>
@@ -726,7 +732,7 @@ function showProperty($propId)
 	{
 	   echo "<span style='font-size: 10pt; font-family: Maiandra GD'>&bull;".$row1['facility']."</span><br/> ";   
 	}
-	// ta sxolia -den dokimastikan akoma-
+	// comments
 	echo "<br /><span style='text-decoration: underline;'>
 				<span style='font-size: 12px; color: navy; font-family: Georgia'>
 		   <strong>Περιγραφή του ακινήτου:</strong></span></span><br/>

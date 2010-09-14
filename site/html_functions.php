@@ -461,6 +461,60 @@ if($type_=="Admin")
 
 }
 
+function dispPropOptions($propId)
+{
+?>
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
+<fieldset>
+<legend>Αλλαγή διεύθυνσης</legend>
+Νέα διεύθυνση:<input type="text" name="newAddress"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+</form>
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
+<fieldset>
+<legend>Αλλαγή τύπου προσφοράς</legend>
+Νέος τύπος προσφοράς(δεν δουλεύει):<input type="text" name="newType"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+</form>
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
+<fieldset>
+<legend>Αλλαγή Κατηγορίας</legend>
+Νέα Κατηγορία(δεν δουλεύει):<input type="text" name="newCategory"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+</form>
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
+<fieldset>
+<legend>Αλλαγή τετραγωνικών μέτρων</legend>
+Τετραγωνικά μετρα:<input type="text" name="newArea"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+</form>
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
+<fieldset>
+<legend>Αλλαγή έτους κατασκευής</legend>
+Νέα έτος:<input type="text" name="newConstrDate"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+</form>
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
+<fieldset>
+<legend>Αλλαγή τιμής</legend>
+Νέα τιμή:<input type="text" name="newPrice"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+</form>
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
+<fieldset>
+<legend>Αλλαγή Παροχων</legend>
+(δεν δουλεύει):<input type="text" name="newFacilities"/>
+<input type="submit" name="submit" value="change"/>
+</fieldset>
+</form>
+<?php
+}
 
 /************************************************
 * Auth h sunarthsh emfanizei thn forma gia thn
