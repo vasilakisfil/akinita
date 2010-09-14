@@ -8,13 +8,17 @@ include('includes.php');
 
 // dhmiourgoume topikes metavlhtes gia ka8e SESSION metavlhth.An h SESSION metavlhth
 // den exei te8ei sthn topikh metavlhth eisagoume thn timh NULL
-
 if(isset($_POST['newAddress'])) $newAddress=$_POST['newAddress']; else $newAddress=NULL;
 if(isset($_POST['newType'])) $newType=$_POST['newType']; else $newType=NULL;
 if(isset($_POST['newArea'])) $newArea=$_POST['newArea']; else $newArea=NULL;
 if(isset($_POST['newConstrDate'])) $newConstrDate=$_POST['newConstrDate']; else $newConstrDate=NULL;
 if(isset($_POST['newPrice'])) $newPrice=$_POST['newPrice']; else $newPrice=NULL;
+if(isset($_POST['typos'])) $typos=$_POST['typos']; else $typos=NULL;
+if(isset($_POST['category'])) $category=$_POST['category']; else $category=NULL;
+
+//arxikopoihsh tou $message
 $message="";
+//pairnoume apo to URL to id tou property
 $propId=strval($_GET['propId']);
 try{
 	
@@ -22,7 +26,7 @@ try{
 	check_valid_user();
 
 	//ean tipota den exei te8ei(dld einai h prwth fora pou anoigei h selida)
-	if(!$newAddress&&!$newArea&&!$newType&&!$newConstrDate&&!$newPrice)
+	if(!$newAddress&&!$newArea&&!$newType&&!$newConstrDate&&!$newPrice&&!$typos&&!$category)
 	{
 		//apla emfanize to header..
 		dispHeader("Eπεξεργασία αγγελίας $propId");
@@ -37,24 +41,60 @@ try{
 	//alliws elegxoume ena ena ta forms kai gia ka8e form kanoume ena update sthn vash me thn nea timh...
 	else
 	{
+		//elegxoume an o xrhsths eishgage kapoia kathgoria
+		if($category)
+		{
+			//arxikopoioume to select gia na vroume thn sugkekrimenh kathgoria
+			$selectCat="select *from categories where category='$category';";
+			//ekteloume to select
+			$cat_id=db_excecute($selectCat,"selectCat");
+			//pername to apotelesma se enan assoc array
+			$cat=mysql_fetch_array($cat_id);
+			//kanoume telos to update ston pinaka cat_prop
+			db_update("cat_prop","prop_id","cat_id",$propId,$cat['cat_id']);
+			$message="Η κατηγορία του ακινήτου ανανεώθηκε!";
+		}
+		//an o xrhsths exei eisagh kapoio tupo prosforas
+		if($typos)
+		{
+			//elegxoume ti tupo evale (pwlhsh 'h enoikiash)
+			if($typos=="pwlhsh") $typos="S";
+			else $typos="L";
+			//ananewnoume thn vash me ton neo tupo
+			db_update("property","prop_id","offer_type",$propId,"'$typos'");
+			//apo8hkeuoume to enhmerwtiko mhnuma
+			$message="Ο τυπος προσφορας ανανεώθηκε!";
+		}
+		//an o xrhsths exei eisagei kainourgia dieu8unsh
 		if($newAddress)
 		{
-			db_update("property","prop_id","address","$propId","'$newAddress'");
+			//ananewnoume thn dieu8unsh
+			db_update("property","prop_id","address",$propId,"'$newAddress'");
+			//apo8hkeuoume to enhmerwtiko mhnuma
 			$message="Η διεύθυνση του ακινήτου άλλαξε!";
 		}
+		//an o xrhsths exei eisagei kainourgio emvadon
 		if($newArea)
 		{
-			db_update("property","prop_id","area","$propId","$newArea");
+			//ananewnoume thn vash me to kainourgio emvadon
+			db_update("property","prop_id","area",$propId,$newArea);
+			//apo8hkeuoume to enhmerwtiko mhnuma
 			$message="Tα τετραγωνικά μέτρα του ακινήτου άλλαξαν!";
 		}
+		//an o xrhsths exei eisagei kainourgio etos kataskeuhs tou akinhtou
 		if($newConstrDate)
 		{
-			db_update("property","prop_id","constr_date","$propId","$newConstrDate");
+			//ananewnoume thn vash me to kainourgio etos kataskeuhs
+			db_update("property","prop_id","constr_date",$propId,$newConstrDate);
+			//apo8hkeuoume to enhmerwtiko mhnuma
 			$message="Το έτος κατασκευής του ακινήτου άλλαξε!";
 		}
+		//an o xrhsths exei eisagei kainourgia timh gia to akinhto
 		if($newPrice)
 		{
-			db_update("property","prop_id","price","$propId","$newPrice");
+			//ananewnoume thn timh tou akinhtou sthn vash
+			db_update("property","prop_id","price",$propId,$newPrice);
+			//apo8hkeuoume to enhmerwtiko mhnuma
 			$message="Η τιμή του ακινήτο άλλαξε!";
 		}
 	}

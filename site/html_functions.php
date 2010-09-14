@@ -289,7 +289,7 @@ if($type_=="User")
 	Old Password:<input type="password" name="oldPassword"/>
 	New Password:<input type="password" name="newPassword1"/>
 	New Password:<input type="password" name="newPassword2"/>
-	<input type="submit" name="submit" value="change"/>
+	<input type="submit" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 <?php
@@ -302,7 +302,7 @@ else
 	<legend>Change usesrs password</legend>
 	New Password:<input type="password" name="newPassword1"/>
 	New Password:<input type="password" name="newPassword2"/>
-	<input type="submit" name="submit" value="change"/>
+	<input type="submit" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 <?php
@@ -313,7 +313,7 @@ else
 <fieldset>
 <legend>Change your email</legend>
 New Email:<input type="text" name="newEmail"/>
-<input type="submit" name="submit" value="change"/>
+<input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 
@@ -321,7 +321,7 @@ New Email:<input type="text" name="newEmail"/>
 <fieldset>
 <legend>Change your mobile1 number</legend>
 New Number:<input type="text" name="newMob1"/>
-<input type="submit" name="submit" value="change"/>
+<input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <?php
@@ -332,7 +332,7 @@ if($name==true)
 	<fieldset>
 	<legend>Enter your firstname</legend>
 	Your Firstname:<input type="text" name="newName"/>
-	<input type="submit" name="submit" value="change"/>
+	<input type="submit" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -344,7 +344,7 @@ else
 	<fieldset>
 	<legend>Change your firstname</legend>
 	Your Firstname:<input type="text" name="newName"/>
-	<input type="submit" name="submit" value="change"/>
+	<input type="submit" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -356,7 +356,7 @@ if($surname==true)
 	<fieldset>
 	<legend>Enter your lastname</legend>
 	Your Lastname:<input type="text" name="newLast"/>
-	<input type="submit" name="submit" value="change"/>
+	<input type="submit" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -368,7 +368,7 @@ else
 	<fieldset>
 	<legend>Change your lasttname</legend>
 	Your Lastname:<input type="text" name="newLast"/>
-	<input type="submit" name="submit" value="change"/>
+	<input type="submit" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -380,7 +380,7 @@ if($mobile2==true)
 	<fieldset>
 	<legend>Enter your mobile2</legend>
 	New Number:<input type="text" name="newMob2"/>
-	<input type="submit" name="submit" value="change"/>
+	<input type="submit" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -392,7 +392,7 @@ else
 	<fieldset>
 	<legend>Change your mobile2</legend>
 	New Number:<input type="text" name="newMob2"/>
-	<input type="submit" name="submit" value="change"/>
+	<input type="submit" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -404,7 +404,7 @@ if($home==true)
 	<fieldset>
 	<legend>Enter your home number</legend>
 	New Number:<input type="text" name="newHome"/>
-	<input type="submit" name="submit" value="change"/>
+	<input type="submit" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -416,7 +416,7 @@ else
 	<fieldset>
 	<legend>Change your home number</legend>
 	New Number:<input type="text" name="newHome"/>
-	<input type="submit" name="submit" value="change"/>
+	<input type="submit" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -428,7 +428,7 @@ if($other==true)
 	<fieldset>
 	<legend>Enter your other number</legend>
 	New Number:<input type="text" name="newOthr"/>
-	<input type="submit" name="submit" value="change"/>
+	<input type="submit" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -440,7 +440,7 @@ else
 	<fieldset>
 	<legend>Change your other number</legend>
 	New Number:<input type="text" name="newOthr"/>
-	<input type="submit" name="submit" value="change"/>
+	<input type="submit" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -463,54 +463,64 @@ if($type_=="Admin")
 
 function dispPropOptions($propId)
 {
+$message="select * from categories;";
+$result=db_excecute($message,'select');
+$message="select * from facilities;";
+$facilities=db_excecute($message,'select2');
 ?>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή διεύθυνσης</legend>
 Νέα διεύθυνση:<input type="text" name="newAddress"/>
-<input type="submit" name="submit" value="change"/>
-</fieldset>
-</form>
-<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
-<fieldset>
-<legend>Αλλαγή τύπου προσφοράς</legend>
-Νέος τύπος προσφοράς(δεν δουλεύει):<input type="text" name="newType"/>
-<input type="submit" name="submit" value="change"/>
+<input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή Κατηγορίας</legend>
-Νέα Κατηγορία(δεν δουλεύει):<input type="text" name="newCategory"/>
-<input type="submit" name="submit" value="change"/>
+<?php
+while($row = mysql_fetch_array($result))
+{?>
+	<input type="radio" name="category" value="<?php echo $row['category']?>" /> <?php echo $row['category']?>	
+<?php
+}?>
+<input type="submit" name="submit" value="Αλλαγή"/>
+</fieldset>
+</form>
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
+<fieldset>
+<legend>Αλλαγή τύπου προσφοράς</legend>
+<input type="radio" name="typos" value="pwlhsh" /> Πώληση
+<input type="radio" name="typos" value="enoikiash" /> Ενοικίαση
+<input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή τετραγωνικών μέτρων</legend>
 Τετραγωνικά μετρα:<input type="text" name="newArea"/>
-<input type="submit" name="submit" value="change"/>
+<input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή έτους κατασκευής</legend>
 Νέα έτος:<input type="text" name="newConstrDate"/>
-<input type="submit" name="submit" value="change"/>
+<input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή τιμής</legend>
 Νέα τιμή:<input type="text" name="newPrice"/>
-<input type="submit" name="submit" value="change"/>
+<input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή Παροχων</legend>
 (δεν δουλεύει):<input type="text" name="newFacilities"/>
-<input type="submit" name="submit" value="change"/>
+<input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <?php
