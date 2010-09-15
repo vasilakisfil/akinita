@@ -119,7 +119,7 @@ try{
 			}
 			else if(preg_match($pattern2,$destination)>0)
 			{
-				$destination="/photos/";
+				$destination.="/photos/";
 			}
 			else $destination="error";
 			$message.="<br />".$destination;
