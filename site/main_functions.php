@@ -752,7 +752,7 @@ function showProperty($propId)
 		   <span style='font-size: 10pt; font-family: Maiandra GD'>".$row['comments']."</span> ";
 
 	echo "</div></div> <div class='clearDiv'>&nbsp;</div> </div></div>";
-	
+	echo  $_SERVER['SCRIPT_NAME'];
 	//emfanizoume tis fwtografies...
 	if(mysql_num_rows($resImg)>0)
 	{
