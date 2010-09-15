@@ -651,6 +651,8 @@ function showProperty($propId)
 {
 	global $val_user;
 	global $type;
+	$images="select * from images where prop_id=$propId";
+	$resImages=db_excecute($images,"resImages");
 	//query pou vriskei ola ta spitia me to sugkekrimeno $prop_id
 	$message1="SELECT property.* , categories.category FROM property,categories,cat_prop where property.prop_id=$propId ";
 	$message1.= "and categories.cat_id=cat_prop.cat_id and property.prop_id=cat_prop.prop_id;";
@@ -723,6 +725,10 @@ function showProperty($propId)
 	{
 		dispURL("editProperty.php?propId=$propId","Επεξεργασία Αγγελίας");
 	}
+	/*while($Imrow = mysql_fetch_array($result2))
+	{
+	   echo < ";   
+	}*/
 	// oi paroxes	
 	echo "<div id='propDetailAmenities'> 
 		  <span style='text-decoration: underline;'>
