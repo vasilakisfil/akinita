@@ -38,15 +38,29 @@ create table property
 	offer_type ENUM('S','L'),   -- <-----
 	area int(10) not null,
 	constr_date int(4),
-	/*coordinates */
-	photos mediumblob,
+	cordX varchar(20),
+	cordY varchar(20),
+	region char(100),
 	views int(10) default '0',
 	comments text,
 	modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	propState ENUM('T','F'),
-	user_id char(20),
+	user_id char(20) not null,
 	primary key(prop_id),
 	foreign key(user_id) references users(username)
+	on delete cascade on update cascade
+)engine=innoDB default character set utf8 collate utf8_general_ci auto_increment=1;
+
+create table images
+(
+	image_id int not null auto_increment,
+	prop_id int not null,
+	filename varchar(255) not null,
+	mime_type varchar(255) not null,
+	image_size int(20),
+	description text,
+	primary key(image_id),
+	foreign key(prop_id) references property(prop_id)
 	on delete cascade on update cascade
 )engine=innoDB default character set utf8 collate utf8_general_ci auto_increment=1;
 

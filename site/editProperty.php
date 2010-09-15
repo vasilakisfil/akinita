@@ -15,6 +15,7 @@ if(isset($_POST['newConstrDate'])) $newConstrDate=$_POST['newConstrDate']; else 
 if(isset($_POST['newPrice'])) $newPrice=$_POST['newPrice']; else $newPrice=NULL;
 if(isset($_POST['typos'])) $typos=$_POST['typos']; else $typos=NULL;
 if(isset($_POST['category'])) $category=$_POST['category']; else $category=NULL;
+if(isset($_FILE['file'])) $file=$_FILE['file']; else $file=NULL;
 
 //arxikopoihsh tou $message
 $message="";
@@ -26,7 +27,7 @@ try{
 	check_valid_user();
 
 	//ean tipota den exei te8ei(dld einai h prwth fora pou anoigei h selida)
-	if(!$newAddress&&!$newArea&&!$newType&&!$newConstrDate&&!$newPrice&&!$typos&&!$category)
+	/*if(!$newAddress&&!$newArea&&!$newType&&!$newConstrDate&&!$newPrice&&!$typos&&!$category&&!$file)
 	{
 		//apla emfanize to header..
 		dispHeader("Eπεξεργασία αγγελίας $propId");
@@ -37,10 +38,10 @@ try{
 		dispPropOptions($propId);
 		dispFooter();
 
-	}
+	}*/
 	//alliws elegxoume ena ena ta forms kai gia ka8e form kanoume ena update sthn vash me thn nea timh...
-	else
-	{
+	//else
+	//{
 		//elegxoume an o xrhsths eishgage kapoia kathgoria
 		if($category)
 		{
@@ -97,7 +98,34 @@ try{
 			//apo8hkeuoume to enhmerwtiko mhnuma
 			$message="Η τιμή του ακινήτο άλλαξε!";
 		}
-	}
+		if (array_key_exists('file', $_FILES))
+		{
+			$message="you uploaded a file !!!\n";
+			if ($_FILES["file"]["error"] > 0)
+			{
+				throw new Exception("Error: " . $_FILES["file"]["error"] . "<br />");
+			}
+			$message.="Upload: " . $_FILES["file"]["name"] . "<br />";
+			$message.="Type: " . $_FILES["file"]["type"] . "<br />";
+			$message.="Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
+			$message.="Stored in: " . $_FILES["file"]["tmp_name"];
+			$destination=getcwd();
+			$pattern="/\\\/";
+			$pattern2="/\//";
+			echo $destination;
+			if(preg_match($pattern,$destination)>0)
+			{
+				$destination.="\photos\\";
+			}
+			else if(preg_match($pattern2,$destination)>0)
+			{
+				$destination="/photos/";
+			}
+			else $destination="error";
+			$message.="<br />".$destination;
+				
+		}
+		
 		//sto telos emfanizoume pali thn aggelia me tis allages kai ena munhma ti alla3e...
 		dispHeader("Eπεξεργασία αγγελίας $propId");
 		//tην αγγελία..
@@ -108,6 +136,7 @@ try{
 		//..kai tis epiloges gia thn allagh tou profil
 		dispPropOptions($propId);
 		dispFooter();
+	//}
 }
 catch(Exception $e)
 {
