@@ -729,7 +729,8 @@ function showProperty($propId)
 		$edit="editProperty.php";
 		$view="viewProperty.php";
 		$server=$_SERVER['SCRIPT_NAME'];
-		//don't change === !!!
+		//elegxoume an eimaste sto editProperty 'h sto viewProperty
+		//don't change == !!!
 		if(stripos($server,$edit)!==FALSE)
 		{
 			dispURL("viewProperty.php?propId=$propId","Προβολή Αγγελίας");
@@ -766,6 +767,7 @@ function showProperty($propId)
 				//an eimaste sthn epe3ergasia ths aggelias emfanizoume epilogh gia diagrafh ths ka8e eikonas..
 				$server=$_SERVER['SCRIPT_NAME'];
 				$edit="editProperty.php";
+				//elegxoume an h metavlhth $server periexei kati san thn $edit..
 				if(stripos($server,$edit)!==FALSE)
 				{
 					echo "<form method=\"post\" action=".$_SERVER['REQUEST_URI'].">";

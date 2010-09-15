@@ -16,6 +16,7 @@ if(isset($_POST['newPrice'])) $newPrice=$_POST['newPrice']; else $newPrice=NULL;
 if(isset($_POST['typos'])) $typos=$_POST['typos']; else $typos=NULL;
 if(isset($_POST['category'])) $category=$_POST['category']; else $category=NULL;
 if(isset($_POST['delete'])) $delete=$_POST['imgId']; else $delete=NULL;
+if(isset($_POST['add'])) $add=$_POST['add']; else $add=NULL;
 
 //arxikopoihsh tou $message
 $message="";
@@ -25,7 +26,20 @@ try{
 	
 	//elegxoume an o xrhsths einai swsta sundedemenos
 	check_valid_user();
-
+	//elegxoume an o xrhsths pros8ese 'h afairese thn aggelia sta agaphmena...
+	if(isset($add))
+	{
+		if($add=="Προσθήκη!")
+		{
+			db_insert('fav_prop','user_id','prop_id',"'$val_user'",$propId);
+			$message="<br />H αγγελια προστεθηκε στις Αγαπημένες σας αγγελίες! <br />";
+		}
+		else
+		{
+			db_delete('fav_prop','user_id','prop_id',"'$val_user'",$propId);
+			$message="<br />H αγγελια διαγράφτηκε από τις Αγαπημένες σας αγγελίες! <br />";
+		}
+	}
 	//elegxoume an o xrhsths eishgage kapoia kathgoria
 	if($category)
 	{
