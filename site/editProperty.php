@@ -15,7 +15,6 @@ if(isset($_POST['newConstrDate'])) $newConstrDate=$_POST['newConstrDate']; else 
 if(isset($_POST['newPrice'])) $newPrice=$_POST['newPrice']; else $newPrice=NULL;
 if(isset($_POST['typos'])) $typos=$_POST['typos']; else $typos=NULL;
 if(isset($_POST['category'])) $category=$_POST['category']; else $category=NULL;
-if(isset($_FILE['file'])) $file=$_FILE['file']; else $file=NULL;
 
 //arxikopoihsh tou $message
 $message="";
@@ -111,27 +110,46 @@ try{
 			$message.="Type: " . $_FILES["file"]["type"] . "<br />";
 			$message.="Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
 			$message.="Stored in: " . $_FILES["file"]["tmp_name"];
+			$uploadName=$_FILES["file"]["name"];
+			$mimeType=$_FILES["file"]["type"];
+			$size=($_FILES["file"]["size"] / 1024);
+			$stored=$_FILES["file"]["tmp_name"];
 			//anaktoume to parwn directory
 			//auto ginetai giati emeis douleuoume se windows alla o server einai se linux opou sto linux ta directorys einai
 			// me / enw sta windows einai \. Etsi prepei na e3akrivwsoume o server se ti susthma vrisketai (windows 'h linux)
-			$destination=getcwd();
+			$pwd=getcwd();
 			//windows pattern
 			$pattern="/\\\/";
 			//linux pattern
 			$pattern2="/\//";
 			//elegxoume gia windows directory
-			if(preg_match($pattern,$destination)>0)
+			if(preg_match($pattern,$pwd)>0)
 			{
-				$destination.="\photos\\";
+				$photosD="\photos\\";
 			}
 			//elegxoume gia linux directory
-			else if(preg_match($pattern2,$destination)>0)
+			else if(preg_match($pattern2,$pwd)>0)
 			{
-				$destination.="/photos/";
+				$photosD="/photos/";
 			}
 			//an den einai tipota apo ta 2 e3agoume error(ligo api8ano..)
 			else throw new Exception("Could not identify server's Operating System");
 			$message.="<br />".$destination;
+			//proetoimasia gia thn kataxwrhsh sthn vash...
+			$findRows="select * from images where prop_id=$propId";
+			$result=db_excecute($findRows,"exists");
+			$rows=mysql_num_rows($result);
+			$filename=$photosD.$propId."-".$rows."-".$_FILES["file"]["name"];
+			$destination=$pwd.$filename;
+			$message.="<br />".$destination;
+			$message.="<br />".$stored;
+			$description="";
+			//$insert="insert into images (prop_id,filename,mime_type,image_size,description) values ($propId,'$filename','$mimeType',$size,'$description')";
+			//echo $insert;
+			//echo $destination."\n";
+			//echo $stored;
+			//if(!copy($stored,$destination)) throw new Exception("Failed to copy the file...");
+			//db_excecute($insert,"insert image");
 				
 		}
 		
