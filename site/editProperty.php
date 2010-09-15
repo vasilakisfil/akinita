@@ -130,7 +130,7 @@ try{
 			//elegxoume gia linux directory
 			else if(preg_match($pattern2,$pwd)>0)
 			{
-				$photosD="/photos/";
+				$photosD="photos/";
 			}
 			//an den einai tipota apo ta 2 e3agoume error(ligo api8ano..)
 			else throw new Exception("Could not identify server's Operating System");
