@@ -726,11 +726,15 @@ function showProperty($propId)
 	//elegxoume an to akinhto einai tou xrhsth 'h an o xrhsths einai admin gia na emfanistei to link gia epe3ergasia..
 	if($val_user==$row['user_id'] || ($type=="Admin"))
 	{
-		if($_SERVER['SCRIPT_NAME']=="/editProperty.php")
+		$edit="editProperty.php";
+		$view="viewProperty.php";
+		$server=$_SERVER['SCRIPT_NAME'];
+		//don't change === !!!
+		if(stripos($server,$edit)!==FALSE)
 		{
 			dispURL("viewProperty.php?propId=$propId","Προβολή Αγγελίας");
 		}
-		else if($_SERVER['SCRIPT_NAME']=="/viewProperty.php")
+		else if(stripos($server,$view)!==FALSE)
 		{
 			dispURL("editProperty.php?propId=$propId","Επεξεργασία Αγγελίας");
 		}
@@ -752,7 +756,6 @@ function showProperty($propId)
 		   <span style='font-size: 10pt; font-family: Maiandra GD'>".$row['comments']."</span> ";
 
 	echo "</div></div> <div class='clearDiv'>&nbsp;</div> </div></div>";
-	echo  $_SERVER['SCRIPT_NAME'];
 	//emfanizoume tis fwtografies...
 	if(mysql_num_rows($resImg)>0)
 	{
@@ -761,7 +764,9 @@ function showProperty($propId)
 				echo "<br />";
 				echo "<img src=\"".$Imrow['filename']."\" alt=\"photo\" />";
 				//an eimaste sthn epe3ergasia ths aggelias emfanizoume epilogh gia diagrafh ths ka8e eikonas..
-				if($_SERVER['SCRIPT_NAME']=="/editProperty.php")
+				$server=$_SERVER['SCRIPT_NAME'];
+				$edit="editProperty.php";
+				if(stripos($server,$edit)!==FALSE)
 				{
 					echo "<form method=\"post\" action=".$_SERVER['REQUEST_URI'].">";
 					echo "<input type=hidden value=".$Imrow['image_id']." name=imgId>";
