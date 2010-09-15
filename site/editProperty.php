@@ -101,27 +101,36 @@ try{
 		if (array_key_exists('file', $_FILES))
 		{
 			$message="you uploaded a file !!!\n";
+			//elegxoume an kata thn diadikasia upload proekupse kapoio sfalma
 			if ($_FILES["file"]["error"] > 0)
 			{
 				throw new Exception("Error: " . $_FILES["file"]["error"] . "<br />");
 			}
+			//apo8hkeuoume ta enhmerwtika munhmata
 			$message.="Upload: " . $_FILES["file"]["name"] . "<br />";
 			$message.="Type: " . $_FILES["file"]["type"] . "<br />";
 			$message.="Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
 			$message.="Stored in: " . $_FILES["file"]["tmp_name"];
+			//anaktoume to parwn directory
+			//auto ginetai giati emeis douleuoume se windows alla o server einai se linux opou sto linux ta directorys einai
+			// me / enw sta windows einai \. Etsi prepei na e3akrivwsoume o server se ti susthma vrisketai (windows 'h linux)
 			$destination=getcwd();
+			//windows pattern
 			$pattern="/\\\/";
+			//linux pattern
 			$pattern2="/\//";
-			echo $destination;
+			//elegxoume gia windows directory
 			if(preg_match($pattern,$destination)>0)
 			{
 				$destination.="\photos\\";
 			}
+			//elegxoume gia linux directory
 			else if(preg_match($pattern2,$destination)>0)
 			{
 				$destination.="/photos/";
 			}
-			else $destination="error";
+			//an den einai tipota apo ta 2 e3agoume error(ligo api8ano..)
+			else throw new Exception("Could not identify server's Operating System");
 			$message.="<br />".$destination;
 				
 		}
