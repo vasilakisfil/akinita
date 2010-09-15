@@ -125,12 +125,14 @@ try{
 			//elegxoume gia windows directory
 			if(preg_match($pattern,$pwd)>0)
 			{
-				$photosD="\photos\\";
+				$photosD="photos\\";
+				$middle="\\";
 			}
 			//elegxoume gia linux directory
 			else if(preg_match($pattern2,$pwd)>0)
 			{
 				$photosD="photos/";
+				$middle="/";
 			}
 			//an den einai tipota apo ta 2 e3agoume error(ligo api8ano..)
 			else throw new Exception("Could not identify server's Operating System");
@@ -139,7 +141,7 @@ try{
 			$result=db_excecute($findRows,"exists");
 			$rows=mysql_num_rows($result);
 			$filename=$photosD.$propId."-".$rows."-".$_FILES["file"]["name"];
-			$destination=$pwd.$filename;
+			$destination=$pwd.$middle.$filename;
 			$message.="<br /> Destination directory: ".$destination;
 			$message.="<br /> Source directory: ".$stored;
 			$message.="<br /> filename: ".$filename;
@@ -171,8 +173,10 @@ try{
 			while($Imrow = mysql_fetch_array($resImg))
 			{
 					echo "<img src=\"".$Imrow['filename']."\" alt=\"Big Boat\" />";
+					//echo "<img src=\"photos\1-1-house-canada.jpg\" alt=\"Big Boat\" />";
 			}
 		}
+		//echo "<img src=\"photos\\1-1-house-canada.jpg\" alt=\"Big Boat\" />";
 				
 		dispFooter();
 	//}
