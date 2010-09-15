@@ -651,8 +651,11 @@ function showProperty($propId)
 {
 	global $val_user;
 	global $type;
-	$images="select * from images where prop_id=$propId";
-	$resImages=db_excecute($images,"resImages");
+
+	//query pou vriskei oles tis fwtografies tou akinhtou
+	$selImages="select * from images where prop_id=$propId";
+	$resImg=db_excecute($selImages,"selImages:");
+	
 	//query pou vriskei ola ta spitia me to sugkekrimeno $prop_id
 	$message1="SELECT property.* , categories.category FROM property,categories,cat_prop where property.prop_id=$propId ";
 	$message1.= "and categories.cat_id=cat_prop.cat_id and property.prop_id=cat_prop.prop_id;";
@@ -723,12 +726,16 @@ function showProperty($propId)
 	//elegxoume an to akinhto einai tou xrhsth 'h an o xrhsths einai admin gia na emfanistei to link gia epe3ergasia..
 	if($val_user==$row['user_id'] || ($type=="Admin"))
 	{
-		dispURL("editProperty.php?propId=$propId","Επεξεργασία Αγγελίας");
+		if($_SERVER['SCRIPT_NAME']=="/editProperty.php")
+		{
+			dispURL("viewProperty.php?propId=$propId","Προβολή Αγγελίας");
+		}
+		else if($_SERVER['SCRIPT_NAME']=="/viewProperty.php")
+		{
+			dispURL("editProperty.php?propId=$propId","Επεξεργασία Αγγελίας");
+		}
 	}
-	/*while($Imrow = mysql_fetch_array($result2))
-	{
-	   echo < ";   
-	}*/
+	
 	// oi paroxes	
 	echo "<div id='propDetailAmenities'> 
 		  <span style='text-decoration: underline;'>
@@ -743,7 +750,27 @@ function showProperty($propId)
 				<span style='font-size: 12px; color: navy; font-family: Georgia'>
 		   <strong>Περιγραφή του ακινήτου:</strong></span></span><br/>
 		   <span style='font-size: 10pt; font-family: Maiandra GD'>".$row['comments']."</span> ";
+
 	echo "</div></div> <div class='clearDiv'>&nbsp;</div> </div></div>";
+	
+	//emfanizoume tis fwtografies...
+	if(mysql_num_rows($resImg)>0)
+	{
+		while($Imrow = mysql_fetch_array($resImg))
+		{
+				echo "<br />";
+				echo "<img src=\"".$Imrow['filename']."\" alt=\"photo\" />";
+				//an eimaste sthn epe3ergasia ths aggelias emfanizoume epilogh gia diagrafh ths ka8e eikonas..
+				if($_SERVER['SCRIPT_NAME']=="/editProperty.php")
+				{
+					echo "<form method=\"post\" action=".$_SERVER['REQUEST_URI'].">";
+					echo "<input type=hidden value=".$Imrow['image_id']." name=imgId>";
+					echo "<input type=submit name=\"delete\" value=\"Διαγραφή\" /></form>";
+					echo "</form>";
+				}
+				echo "<br />";
+		}
+	}
 }
 
 /************************************************

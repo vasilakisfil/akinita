@@ -526,6 +526,7 @@ while($row = mysql_fetch_array($result))
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>" enctype="multipart/form-data"> 
 <table width="350" border="0" cellpadding="1" cellspacing="1" class="box">
 <tr> 
+<!--<td>Περιγραφή(προαιρετικό)<input type="text" name="description" /></td>-->
 <td width="246">
 <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
 <input name="file" type="file" id="file"> 
@@ -604,17 +605,11 @@ while($row = mysql_fetch_array($facilities))
 Enter Comments Here
 </textarea>
 
-<h3>Upload φωτογραφίες:</h3><br />
-<input type="hidden" name="MAX_FILE_SIZE" value="100" />
-<input name="file" type="file" /><br />
-<input type="hidden" name="MAX_FILE_SIZE" value="100" />
-<input name="file" type="file" /><br />
-<input type="hidden" name="MAX_FILE_SIZE" value="100" />
-<input name="file" type="file" /><br />
-<input type="hidden" name="MAX_FILE_SIZE" value="100" />
-<input name="file" type="file" /><br />
-<input type="hidden" name="MAX_FILE_SIZE" value="100" />
-<input name="file" type="file" /><br /><br /><br />
+<br />
+<br />
+Φωτογραφίες θα μπορείτε να ανεβάσετε αφού γίνει η καταχώρηση.
+<br />
+<br />
 
 <input type="submit" value="Kαταχώρηση">
 <div class="clearDiv">&nbsp;</div>
