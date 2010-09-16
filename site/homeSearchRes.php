@@ -120,7 +120,7 @@ try
 				$message.=" (";
 				foreach($Afloor as $fl)
 				{
-					$message.=" property.Afloor='$fl' or";
+					$message.=" property.Afloor=$fl or";
 				}
 				$message=substr($message,0,-2);
 				$message.=" )";

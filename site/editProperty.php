@@ -8,9 +8,11 @@ include('includes.php');
 
 // dhmiourgoume topikes metavlhtes gia ka8e SESSION metavlhth.An h SESSION metavlhth
 // den exei te8ei sthn topikh metavlhth eisagoume thn timh NULL
-if(isset($_POST['newAddress'])) $newAddress=$_POST['newAddress']; else $newAddress=NULL;
+if(isset($_POST['newAddress'])) $newAddress=trim($_POST['newAddress']); else $newAddress=NULL;
 if(isset($_POST['newType'])) $newType=$_POST['newType']; else $newType=NULL;
 if(isset($_POST['newArea'])) $newArea=$_POST['newArea']; else $newArea=NULL;
+if(isset($_POST['newRegion'])) $newRegion=trim($_POST['newRegion']); else $newRegion=NULL;
+if(isset($_POST['newAfloor'])) $newAfloor=$_POST['newAfloor']; else $newAfloor=NULL;
 if(isset($_POST['newConstrDate'])) $newConstrDate=$_POST['newConstrDate']; else $newConstrDate=NULL;
 if(isset($_POST['newPrice'])) $newPrice=$_POST['newPrice']; else $newPrice=NULL;
 if(isset($_POST['typos'])) $typos=$_POST['typos']; else $typos=NULL;
@@ -80,6 +82,20 @@ try{
 		db_update("property","prop_id","area",$propId,$newArea);
 		//apo8hkeuoume to enhmerwtiko mhnuma
 		$message="Tα τετραγωνικά μέτρα του ακινήτου άλλαξαν!";
+	}
+	if($newRegion)
+	{
+		//ananewnoume thn vash me thn kainoyrgia perioxh
+		db_update("property","prop_id","region",$propId,"'$newRegion'");
+		//apo8hkeuoume to enhmerwtiko mhnuma
+		$message="Η περιοχή του ακινήτου άλλαξε!";
+	}
+	if(isset($newAfloor))
+	{
+		//ananewnoume thn vash me thn kainoyrgia perioxh
+		db_update("property","prop_id","Afloor",$propId,$newAfloor);
+		//apo8hkeuoume to enhmerwtiko mhnuma
+		$message="Ο όροφος του ακινήτου άλλαξε!";
 	}
 	//an o xrhsths exei eisagei kainourgio etos kataskeuhs tou akinhtou
 	if($newConstrDate)

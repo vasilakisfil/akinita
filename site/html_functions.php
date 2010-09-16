@@ -497,8 +497,34 @@ while($row = mysql_fetch_array($result))
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
-<legend>Αλλαγή τετραγωνικών μέτρων</legend>
-Τετραγωνικά μετρα:<input type="text" name="newArea"/>
+<legend>Αλλαγή εμβαδού</legend>
+Νέο εμβαδόν:<input type="text" name="newArea"/>
+<input type="submit" name="submit" value="Αλλαγή"/>
+</fieldset>
+</form>
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
+<fieldset>
+<legend>Αλλαγή ορόφου</legend>
+<select name="newAfloor">
+<option value="0" >Ισόγειο</option>
+<option value="1">1ος</option>
+<option value="2">2ος</option>
+<option value="3">3ος</option>
+<option value="4">4ος</option>
+<option value="5">5ος</option>
+<option value="6">6ος</option>
+<option value="7">7ος</option>
+<option value="8">8ος</option>
+<option value="9">9ος</option>
+<option value="666">10+</option>
+</select>
+<input type="submit" name="submit" value="Αλλαγή"/>
+</fieldset>
+</form>
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
+<fieldset>
+<legend>Αλλαγή Περιοχής</legend>
+Νέα Περιοχή:<input type="text" name="newRegion"/>
 <input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>

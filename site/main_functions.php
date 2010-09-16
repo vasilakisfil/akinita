@@ -453,7 +453,7 @@ function db_update($table,$column1,$column2,$data1,$data2)
 	$conn=db_connect();
 	//ektelesh tou query
 	$message="UPDATE $table SET $column2=$data2 where $column1=$data1";
-	//echo $message; //debugging purpose
+	echo $message; //debugging purpose
 	$result = mysql_query("$message");
 	if (!$result)
 	{
