@@ -577,6 +577,9 @@ while($row = mysql_fetch_array($result))
 <?php
 }?>
 
+<h3>Περιοχή</h3>
+<input type="text" name="region"/><br />
+
 <h3>Τιμή</h3>
 <input type="text" name="price"/><br />
 

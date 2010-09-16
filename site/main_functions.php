@@ -717,10 +717,14 @@ function showProperty($propId)
    	echo "<div class='propDetailSubInfo'>
 				<div class='propDetailAmenities'><strong>Από Χρήστη: </strong>".$row['user_id']."</div>
 				<div class='propDetailAmenities'><strong>Τιμή: </strong>".$row['price']."</div>
-				<div class='propDetailAmenities'><strong>Οροφος: </strong>".$Floor."</div>
 				<div class='clearDiv'>&nbsp;</div>
 			</div>";
-    echo "<div class='propDetailSubInfo whitebg'>
+   	echo "<div class='propDetailSubInfo whitebg'>			
+				<div class='propDetailAmenities'><strong>Οροφος: </strong>".$Floor."</div>
+				<div class='propDetailAmenities'><strong>Περιοχή: </strong>".$row['region']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>";
+    echo "<div class='propDetailSubInfo'>
 				<div class='propDetailAmenities'><strong>Προσθήκη στα Αγαπημένα?:</strong></div>
 				<div class='propDetailAmenities'>
 				<form method=post action=".$_SERVER['REQUEST_URI']."><input type=submit class=button name=add value=$fav!
