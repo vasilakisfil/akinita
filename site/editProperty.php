@@ -17,6 +17,7 @@ if(isset($_POST['typos'])) $typos=$_POST['typos']; else $typos=NULL;
 if(isset($_POST['category'])) $category=$_POST['category']; else $category=NULL;
 if(isset($_POST['delete'])) $delete=$_POST['imgId']; else $delete=NULL;
 if(isset($_POST['add'])) $add=$_POST['add']; else $add=NULL;
+if(isset($_POST['description'])) $description=$_POST['description']; else $description="";
 
 //arxikopoihsh tou $message
 $message="";
@@ -152,8 +153,7 @@ try{
 		$message.="<br /> Destination directory: ".$destination;
 		$message.="<br /> Source directory: ".$stored;
 		$message.="<br /> filename: ".$filename;
-		//arxikopoihsh tou description
-		$description="";
+
 		//edw eisagoume slashes se special characters(px directory) prin apo8hkeutei to akinhto sthn vash..
 		$filename=addslashes($filename);
 		//enhmerwtiko munhma

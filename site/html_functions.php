@@ -524,16 +524,13 @@ while($row = mysql_fetch_array($result))
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>" enctype="multipart/form-data"> 
-<table width="350" border="0" cellpadding="1" cellspacing="1" class="box">
-<tr> 
-<!--<td>Περιγραφή(προαιρετικό)<input type="text" name="description" /></td>-->
-<td width="246">
+<fieldset>
+<legend>Προσθήκη Φωτογραφίας</legend>
+Περιγραφή(προαιρετικό)<input type="text" name="description" />
 <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
 <input name="file" type="file" id="file"> 
-</td>
-<td width="80"><input name="upload" type="submit" class="box" id="upload" value=" Upload "></td>
-</tr>
-</table>
+<input name="upload" type="submit" class="box" id="upload" value=" Upload ">
+</fieldset>
 </form>
 <?php
 }
@@ -587,7 +584,20 @@ while($row = mysql_fetch_array($result))
 <h3>Eμβαδό</h3>
 <input type="text" name="area"/><br />
 
-
+<h3>Όροφος</h3>
+<select name="Afloor">
+<option value="0" >Ισόγειο</option>
+<option value="1">1ος</option>
+<option value="2">2ος</option>
+<option value="3">3ος</option>
+<option value="4">4ος</option>
+<option value="5">5ος</option>
+<option value="6">6ος</option>
+<option value="7">7ος</option>
+<option value="8">8ος</option>
+<option value="9">9ος</option>
+<option value="666">10+</option>
+</select>
 
 <h3>Έτος κατασκευής:</h3>
 <input type="text" name="constr_date"/><br />
@@ -739,6 +749,30 @@ while($row = mysql_fetch_array($categories))
 <option value="nolimit" selected>Πάνω από 500</option>
 </select>
 </h3>
+
+<h3>Όροφος</h3>
+
+<?php
+for($i=0; $i<11; $i++)
+{
+	if($i==0)
+	{
+	?>
+		<input type="checkbox" name="Afloor[]" value="<?php echo "0" ?>" />Ισόγειο
+	<?php
+	}
+	else if($i==10)
+	{?>
+		<input type="checkbox" name="Afloor[]" value="<?php echo "666" ?>" />10+
+	<?php
+	}
+	else
+	{?>
+		<input type="checkbox" name="Afloor[]" value="<?php echo $i ?>" /><?php echo $i."ος" ?>
+	<?php
+	}
+}
+?>
 
 
 <h3>Έτος κατασκευής από:<select name="etos_katask">

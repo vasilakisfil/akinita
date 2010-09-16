@@ -7,7 +7,8 @@
 
 //including required files
 include('includes.php');
-
+//metavlhth pou krataei ton orofo tou akinhtou
+$Afloor=$_POST['Afloor'];
 
 try
 {
@@ -23,7 +24,7 @@ try
 	}
 	//elegxoume an h dieu8unsh einai swsta kataxwrhmenh kai an einai thn kratame se mia topikh metavlhth,alliws petagetai e3airesh
 	if(!filledOut($_POST['address'])||$_POST['address']=="Οδος-Αριθμος") throw new Exception('Prepei na balete dieu8unsh');
-	else $address=$_POST['address'];
+	else $address=trim($_POST['address']);
 	//omoiws elegxoume an h kathgoria einai epilegmenh
 	if(!isset($_POST['category'])) throw new Exception('Prepei na valete kathgoria');
 	else $category=$_POST['category'];
@@ -36,11 +37,12 @@ try
 	//telos elegxoume an to etos kataskeuhs einai swsta kataxwrhmeno
 	if(!filledOut($_POST['constr_date'])) throw new Exception('Prepei na valete etos kataskeuhs');
 	else $constrDate=$_POST['constr_date'];
-	if(filledOut($_POST['comments'])) $comments=$_POST['comments'];
+	if(filledOut($_POST['comments'])) $comments=trim($_POST['comments']);
+	
 
 	//dhmiourgoume mia metavlhth $message pou ousiastika 8a krataei to query pou 8a stalei sthn vash
 	//h metavlhth ananewnetai sumfwna me tis times pou exei dwsei o xrhsths kata thn kataxwrhsh ths aggelias
-	$message="INSERT INTO property(address,price,offer_type,area,comments,constr_date,user_id,propState) VALUES ('$address',$price,'$typos',$area,'$comments',$constrDate,'$val_user','F');";
+	$message="INSERT INTO property(address,price,offer_type,area,Afloor,comments,constr_date,user_id,propState) VALUES ('$address',$price,'$typos',$area,$Afloor,'$comments',$constrDate,'$val_user','F');";
 	//h metavlhth $selectProp krataei to query pou vriskei thn aggelia pou molis kataxwrh8hke gia mellontikh xrhsh
 	$selectProp="select *from property where address='$address' and price=$price and offer_type='$typos' and area=$area and constr_date=$constrDate;";
 	//h metavlhth $selectCat krataei to query pou vriskei thn katagoria pou kataxwrh8hke to akihto gia mellontikh xrhsh

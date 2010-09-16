@@ -112,6 +112,19 @@ try
 					$message.=" and property.area<$value";
 				}
 			}
+			//elegxoume gia tous orofous pou 8elei o xrhsths na anazhthsei
+			if(isset($_POST['Afloor']))
+			{
+				$message=$message." and";
+				$Afloor=$_POST['Afloor'];
+				$message.=" (";
+				foreach($Afloor as $fl)
+				{
+					$message.=" property.Afloor='$fl' or";
+				}
+				$message=substr($message,0,-2);
+				$message.=" )";
+			}
 			//elegxoume gia to etos kataskeuhs 8ELEI FTIA3IMO AUTO
 			if(isset($_POST['etos_katask']))
 			{
@@ -150,6 +163,7 @@ try
 	check_valid_user(1);
 	dispHeader('');
 	//echo $message;
+	echo $message;
 	propertySearch($message,"Delete");
 	dispFooter();
 

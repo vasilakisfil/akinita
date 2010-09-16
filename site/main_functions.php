@@ -673,6 +673,9 @@ function showProperty($propId)
 	
 	//emfanish twn apotelesmatwn
 	$row = mysql_fetch_assoc($result1);
+	if($row['Afloor']==0) $Floor="Ισογειο";
+	else if($row['Afloor']==666) $Floor="10+";
+	else $Floor=$row['Afloor']."ος";
 	//Titlos kai eikona-koumpi back
 	echo "<div class='header-bar-full'><h1 class='blue'>".$row['category'].", ".$row['address']."</h1></div>
 	<a href='javascript:history.go(-1)'><img border='0' alt='Πισω στις αγγελίες' src='images/btn-back-to-properties.gif' /></a>" ;
@@ -714,6 +717,7 @@ function showProperty($propId)
    	echo "<div class='propDetailSubInfo'>
 				<div class='propDetailAmenities'><strong>Από Χρήστη: </strong>".$row['user_id']."</div>
 				<div class='propDetailAmenities'><strong>Τιμή: </strong>".$row['price']."</div>
+				<div class='propDetailAmenities'><strong>Οροφος: </strong>".$Floor."</div>
 				<div class='clearDiv'>&nbsp;</div>
 			</div>";
     echo "<div class='propDetailSubInfo whitebg'>
@@ -763,7 +767,10 @@ function showProperty($propId)
 		while($Imrow = mysql_fetch_array($resImg))
 		{
 				echo "<br />";
+				//emfanish fwtografias
 				echo "<img src=\"".$Imrow['filename']."\" alt=\"photo\" />";
+				//emfanish tou description
+				echo "<p>".$Imrow['description']."</p>";
 				//an eimaste sthn epe3ergasia ths aggelias emfanizoume epilogh gia diagrafh ths ka8e eikonas..
 				$server=$_SERVER['SCRIPT_NAME'];
 				$edit="editProperty.php";

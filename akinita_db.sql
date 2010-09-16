@@ -41,6 +41,7 @@ create table property
 	cordX varchar(20),
 	cordY varchar(20),
 	region char(100),
+	Afloor int,
 	views int(10) default '0',
 	comments text,
 	modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
