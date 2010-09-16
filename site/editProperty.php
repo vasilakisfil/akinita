@@ -116,17 +116,17 @@ try{
 	//elegxoume an uparxei to file ston global pinaka $_FILES
 	if (array_key_exists('file', $_FILES))
 	{
-		$message="you uploaded a file !!!\n";
+		$phMessage="you uploaded a file !!!\n";
 		//elegxoume an kata thn diadikasia upload proekupse kapoio sfalma
 		if ($_FILES["file"]["error"] > 0)
 		{
 			throw new Exception("Error: " . $_FILES["file"]["error"] . "<br />");
 		}
 		//apo8hkeuoume ta enhmerwtika munhmata
-		$message.="Upload: " . $_FILES["file"]["name"] . "<br />";
-		$message.="Type: " . $_FILES["file"]["type"] . "<br />";
-		$message.="Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
-		$message.="Stored in: " . $_FILES["file"]["tmp_name"];
+		$phMessage.="Upload: " . $_FILES["file"]["name"] . "<br />";
+		$phMessage.="Type: " . $_FILES["file"]["type"] . "<br />";
+		$phMessage.="Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
+		$phMessage.="Stored in: " . $_FILES["file"]["tmp_name"];
 		//pername se local metavlhtes tis global metavlhtes tou pinaka $_FILES
 		$uploadName=$_FILES["file"]["name"];
 		$mimeType=$_FILES["file"]["type"];
@@ -166,20 +166,21 @@ try{
 		//edw apo8hkeuoume to destination pou 8a paei h eikona apo ekei pou einai temporary apo8hkeumenh
 		$destination=$pwd.$middle.$filename;
 		//enhmerwtika mhnhmata
-		$message.="<br /> Destination directory: ".$destination;
-		$message.="<br /> Source directory: ".$stored;
-		$message.="<br /> filename: ".$filename;
+		$phMessage.="<br /> Destination directory: ".$destination;
+		$phMessage.="<br /> Source directory: ".$stored;
+		$phMessage.="<br /> filename: ".$filename;
 
 		//edw eisagoume slashes se special characters(px directory) prin apo8hkeutei to akinhto sthn vash..
 		$filename=addslashes($filename);
 		//enhmerwtiko munhma
-		$message.="<br /> Actual filename that is insert into database: ".$filename;
+		$phMessage.="<br /> Actual filename that is insert into database: ".$filename;
 		//to query gia thn eisagwgh twn dedomenwn ths eikonas sthn vash..
 		$insert="insert into images (prop_id,filename,mime_type,image_size,description) values ($propId,'$filename','$mimeType',$size,'$description')";
 		//antigrafoume thn eikona apo ekei pou einai proswrina apo8hkeumenh sto directory pou kratame oles tis fwtografies
 		if(!copy($stored,$destination)) throw new Exception("Failed to copy the file...");
 		//ekteloume telos to query
 		db_excecute($insert,"insert image");
+		$message="Η εικόνα καταχωρήθηκε.";
 			
 	}
 	//elegxoume an exei epilextei na diagrafei mia eikona
