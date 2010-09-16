@@ -77,6 +77,33 @@ try
 			db_insert('fac_prop','prop_id','fac_id',$prop['prop_id'],$fac['fac_id']);
 		}
 	}
+	$pwd=getcwd();
+	//windows pattern
+	$pattern="/\\\/";
+	//linux pattern
+	$pattern2="/\//";
+	//elegxoume gia windows directory
+	if(preg_match($pattern,$pwd)>0)
+	{
+		$photosD="photos\\".$prop['prop_id']."\\";
+		$middle="\\";
+	}
+	//elegxoume gia linux directory
+	else if(preg_match($pattern2,$pwd)>0)
+	{
+		$photosD="photos/".$prop['prop_id']."/";
+		$middle="/";
+	}
+	//an den einai tipota apo ta 2 e3agoume error(ligo api8ano..)
+	else throw new Exception("Could not identify server's Operating System");
+	$folder=$photosD;
+	$directory=$pwd.$middle.$folder;
+	if(!mkdir($directory)) throw new Exception("Could not create folder.You cannot upload images.Contact with the Adminstrator");
+	
+	
+	
+	
+	
 	dispHeader('Κατασώρηση Αγγελίας');
 	echo "H aggelia sas kataxwrh8hke epituxws...<br />";
 	dispFooter();

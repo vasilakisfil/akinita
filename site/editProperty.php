@@ -143,13 +143,13 @@ try{
 		//elegxoume gia windows directory
 		if(preg_match($pattern,$pwd)>0)
 		{
-			$photosD="photos\\";
+			$photosD="photos\\".$propId."\\";
 			$middle="\\";
 		}
 		//elegxoume gia linux directory
 		else if(preg_match($pattern2,$pwd)>0)
 		{
-			$photosD="photos/";
+			$photosD="photos/".$propId."/";
 			$middle="/";
 		}
 		//an den einai tipota apo ta 2 e3agoume error(ligo api8ano..)
