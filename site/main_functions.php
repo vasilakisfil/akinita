@@ -798,12 +798,7 @@ function showProperty($propId)
 function propertySearch($message,$Ftype=NULL)
 {
 	global $type;
-	//sundesh sth vash
-	$conn=db_connect();
-	//ektelesh tou query
-	$result = mysql_query("$message");
-	//kleisimo ths vashs
-	mysql_close($conn);
+	$result = db_excecute("$message","");
 	//emfanish twn dedomenwn
 	echo "<form name=actionProp action=".$_SERVER['REQUEST_URI']." method=post>";
 	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1>

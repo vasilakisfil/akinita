@@ -163,7 +163,6 @@ try
 	check_valid_user(1);
 	dispHeader('');
 	//echo $message;
-	echo $message;
 	propertySearch($message,"Delete");
 	dispFooter();
 
