@@ -133,27 +133,11 @@ try{
 		$size=($_FILES["file"]["size"] / 1024);
 		$stored=$_FILES["file"]["tmp_name"];
 		//anaktoume to parwn directory
-		//auto ginetai giati emeis douleuoume se windows alla o server einai se linux opou sto linux ta directorys einai
-		// me / enw sta windows einai \. Etsi prepei na e3akrivwsoume o server se ti susthma vrisketai (windows 'h linux)
 		$pwd=getcwd();
-		//windows pattern
-		$pattern="/\\\/";
-		//linux pattern
-		$pattern2="/\//";
-		//elegxoume gia windows directory
-		/*if(preg_match($pattern,$pwd)>0)
-		{
-			$photosD="photos\\".$propId."\\";
-			$middle="\\";
-		}
-		//elegxoume gia linux directory
-		else if(preg_match($pattern2,$pwd)>0)
-		{*/
-			$photosD="photos/".$propId."/";
-			$middle="/";
-		//}
-		//an den einai tipota apo ta 2 e3agoume error(ligo api8ano..)
-		//else throw new Exception("Could not identify server's Operating System");
+		//+++++++++++++++++++++++++++++++++++++++++++
+		//+++++++++++++++++++++++++++++++++++++++++++
+		$photosD="photos/".$propId."/";
+		$middle="/";
 		//proetoimasia gia thn kataxwrhsh sthn vash...
 		//vriskoume ton ari8mo twn hdh apo8hkeumenwn eikonwn gia auto to akinhto(pure tropos onomasias eikonas)
 		$findRows="select * from images where prop_id=$propId";
