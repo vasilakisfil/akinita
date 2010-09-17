@@ -828,8 +828,15 @@ function propertySearch($message,$Ftype=NULL)
 				<strong>Προς:</strong>Πώληση<br />
 				<strong>Εμφανίσεις:</strong> 1
 			</div>
-			<div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>
-		</div>";
+		    <div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>";
+			if(isset($type) && $type=="Admin")
+		{
+			if($Ftype=="Delete") echo "<strong>Διαγραφή?</strong> 
+			<input type=checkbox name=delProperty[] value=".$row[0]." />";
+			else if ($Ftype=="Accept") echo "<strong>Αποδοχή?</strong><input type=checkbox name=accProperty[] value=".$row[0]." />";
+			else if ($Ftype=="Favourites") echo "<strong>Προσθήκη?</strong><input type=checkbox name=remProperty[] value=".$row[0]." />";
+		} 
+		echo"</div>";
 		
 			}
 			else if($row[$i]=="L")
@@ -839,8 +846,15 @@ function propertySearch($message,$Ftype=NULL)
 				<strong>Προς:</strong>Ενοικίαση<br />
 				<strong>Εμφανίσεις:</strong> 1
 			</div>
-			<div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>
-		</div>";
+			<div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>";
+			if(isset($type) && $type=="Admin")
+		{
+			if($Ftype=="Delete") echo "<strong>Διαγραφή?</strong> 
+			<input type=checkbox name=delProperty[] value=".$row[0]." />";
+			else if ($Ftype=="Accept") echo "<strong>Αποδοχή?</strong><input type=checkbox name=accProperty[] value=".$row[0]." />";
+			else if ($Ftype=="Favourites") echo "<strong>Προσθήκη?</strong><input type=checkbox name=remProperty[] value=".$row[0]." />";
+		} 
+		echo"</div>";
 		
 			}
 			
@@ -867,13 +881,7 @@ function propertySearch($message,$Ftype=NULL)
 		
 		}
 		
-		if(isset($type) && $type=="Admin")
-		{
-			if($Ftype=="Delete") echo "<div class='propListingDeposit'>Διαγραφή? 
-			<input type=checkbox name=delProperty[] value=".$row[0]." /> </div>";
-			else if ($Ftype=="Accept") echo "Αποδοχή?<input type=checkbox name=accProperty[] value=".$row[0]." />";
-			else if ($Ftype=="Favourites") echo "Προσθήκη?<input type=checkbox name=remProperty[] value=".$row[0]." />";
-		} 
+		
 		echo "</div>";
 	}
 	
