@@ -3,7 +3,9 @@
 *
 *****************************************************************************************/
 
-
+/******
+Ta parakato einai vasika stoixeia morfopoihshs pou efarmozontai se oli tin selida
+******/
 body {
 
 margin:0;
@@ -35,7 +37,9 @@ select,
 input,
 textarea {font:11px verdana,sans-serif;vertical-align:middle;}
 
-
+/******
+To panw kommati tis selidas , to periexomeno olis tis selidas kai ta logo
+******/
 a.logo,
 #navigation a,
 a.continue-reading,
@@ -82,7 +86,11 @@ h1 {margin:0;}
 	}
 .current strong {color:#ffc20e;}
 
-
+/******
+To menu pou vazisetai se relative-absolute position kai z-index logiki oi eikones menou einai dio se mia me height tis eikonas
+nai einai oso einai i kathe mia x2. Etsi dilonoume to miso heigh kai emfanizetai mono i mia eikona i alli den emfanizetai..
+otan eimaiste hover me to podiki i eikona anevenei pros ta panw emfanizetai to katw miso kai to ypoloipo krivetai. 
+******/
 ul {
 	margin:0;
 	padding:0;
@@ -112,7 +120,8 @@ ul {
 #navigation #logout {width:145px;background:url(images/btn-logout.gif);} 
 	
 /* telos mpara menou */
-/*
+
+/* Afta exoun na kanoun me tin palia emfanisi prin perikoposoume to site kai afairethikan
 #visuals {
 	background:#fff;
 	padding:20px 44px 20px 45px;
@@ -462,74 +471,74 @@ text-shadow:1px 1px 1px #fff;
 	padding-bottom:3px;
 	}
 
-.content-box-762 {
+.content-box-1 {
 	width:762px;
 	height:auto;
 	margin-left: 27px;
 	}
-.content-box-762-top {
+.content-box-1-top {
 	width:762px;
 	height:6px;
 	background:url(images/content-box-762-top.png) no-repeat left top;
 	}
-.content-box-762-middle {
+.content-box-1-middle {
 	width:762px;
 	color:#323232;
 	line-height:14px;
 	background: url(images/content-box-762-middle.png) repeat-y left top;
 	}
-.content-box-762-content {
+.content-box-1-content {
 	padding:15px 20px 15px 20px;
 	}
-.content-box-762-bottom {
+.content-box-1-bottom {
 	width:762px;
 	height:7px;
 	background:url(images/content-box-762-bottom.png) no-repeat left top;
 	}
 	
-.content-box-599 {
+.content-box-2 {
 	width:599px;
 	height:auto;
 	}
-.content-box-599-top {
+.content-box-2-top {
 	width:599px;
 	height:6px;
 	background:url(images/content-box-599-top.png) no-repeat left top;
 	}
-.content-box-599-middle {
+.content-box-2-middle {
 	width:599px;
 	color:#323232;
 	line-height:14px;
 	background: url(images/content-box-599-middle.png) repeat-y left top;
 	}
-.content-box-599-content {
+.content-box-2-content {
 	padding:15px 20px 15px 20px;
 	}
-.content-box-599-bottom {
+.content-box-2-bottom {
 	width:599px;
 	height:7px;
 	background:url(images/content-box-599-bottom.png) no-repeat left top;
 	}
 
-.content-box-450 {
+.content-box-3 {
 	width:450px;
 	height:auto;
 	}
-.content-box-450-top {
+.content-box-3-top {
 	width:450px;
 	height:6px;
 	background:url(images/content-box-450-top.png) no-repeat left top;
 	}
-.content-box-450-middle {
+.content-box-3-middle {
 	width:450px;
 	color:#323232;
 	line-height:14px;
 	background: url(images/content-box-450-middle.png) repeat-y left top;
 	}
-.content-box-450-content {
+.content-box-3-content {
 	padding:15px 20px 15px 20px;
 	}
-.content-box-450-bottom {
+.content-box-3-bottom {
 	width:450px;
 	height:7px;
 	background:url(images/content-box-450-bottom.png) no-repeat left top;
@@ -767,6 +776,19 @@ background:transparent url(images/button.gif) no-repeat top left;
   color:#FFFFFF;
   font:bold 12px Georgia, "Times New Roman", Times;
   cursor:pointer;
+}
+
+#button-2{
+background:transparent url(images/btn-back.png) no-repeat top left;
+  padding-bottom:2px;
+  padding-right:20px;  
+  border:none;
+  width:250px;
+  height:42px;
+  color:#333;
+  text-decoration:none;
+  font:bold 11px Georgia, "Times New Roman", Times;
+  cursor:pointer;
 }	
 	
 .leftColumn60 {
@@ -865,78 +887,98 @@ background:transparent url(images/button.gif) no-repeat top left;
 	background-color: #FFC20E;
 	}
 
-/* Contact Office Listing */
-.contactListingBox {
-	width: 573px;
-	height: 112px;
-	margin: 0px auto;
-	background: url('images/bgContactListing.png') no-repeat;
+/* view Users and user profile attributes*/
+#userCoreInfo {
+	width: auto;
+	height: 29px;
+	background: #1d262c url('images/bg-detail-blue.gif') repeat-x;
 	}
-.contactListingNegTopPad {
-	margin-top: -3px;
-	}
-.contactListingPhoto {
-	float: left;
-	display: inline;
-	width: 125px;
-	height: 87px;
-	margin-left: 12px;
-	margin-top: 12px;
-	border: 1px solid #b8b79c;
-	}
-.contactListingPhoto img {
-	border: 1px solid #fff;
-	}
-.contactListingCoreInfo {
-	float: left;
-	display: inline;
-	width: 228px;
-	height: 65px;
-	margin-top: 25px;
-	margin-left: 12px;
-	}
-.contactListingTitle {
-	font-size: 16px;
+#userProfileName {
+	padding-top: 10px;
+	padding-left: 15px;
+	font-size: 14px;
 	font-weight: bold;
 	color: #ffc20e;
 	}
-.contactListingLocation {
+#userProfileWhite {
 	font-size: 14px;
 	font-weight: bold;
 	color: #fff;
+	
 	}
-.contactListingCallToAction {
+.userProfileSubInfo {
+	clear: both;
+	background-color: #f3f3f3;
+	}
+.whitebg {
+	background-color: #fff;
+	}
+.userProfileInfo {
 	float: left;
 	display: inline;
-	width: 188px;
-	height: 65px;
-	margin-top: 20px;
-	text-align: center;
+	margin-left: 10px;
+	padding: 8px;
+	width: 183px;
 	}
-.contactListingPhone {
-	font-size: 16px;
-	font-weight: bold;
-	color: #26475d;
-	text-align: center;
-	margin-bottom: 5px;
+/*Merikes classes kai ids gia tin show all users selida */
+#userElements{
+	width: auto;
+	height: 59px;
+	color: #333;
+	text-align:center;
+	background: #D5E1DD;
 	}
-.contactListingFax {
-	font-size: 12px;
-	font-weight: normal;
-	color: #26475d;
-	text-align: center;
-	}
-.contactListingEmail {
-	font-size: 12px;
-	font-weight: bold;
-	color: #26475d;
-	text-align: center;
-	margin-top: 10px;
-	}
-
-
-
-
+#userElements-2{
+	width: auto;
+	height: 59px;
+	color: #333;
+	text-align:center;
+	background: #F7F3E8;
+	}	
+#userData{
+background-color:#F7F3E8;
+text-align:center;
+}	
+#userData-2{
+background-color:#D5E1DD;
+text-align:center;
+}	
+#button-edit{
+background:transparent url(images/btn-gen.png) no-repeat top left;
+  padding-bottom:2px;
+  border:none;
+  width:68px;
+  height:33px;
+  color:#fff;
+  text-decoration:none;
+  text-align:center;
+  font:bold 11px Georgia, "Times New Roman", Times;
+  cursor:pointer;
+}
+#button-delete{
+background:transparent url(images/btn-gen.png) no-repeat top left;
+  padding-bottom:2px; 
+  border:none;
+  width:68px;
+  height:33px;
+  color:#fff;
+  text-decoration:none;
+  text-align:center;
+  font:bold 11px Georgia, "Times New Roman", Times;
+  cursor:pointer;
+}
+#button-view{
+background:transparent url(images/btn-gen.png) no-repeat top left;
+  padding-bottom:2px; 
+  border:none;
+  width:68px;
+  height:33px;
+  color:#fff;
+  text-decoration:none;
+  text-align:center;
+  font:bold 11px Georgia, "Times New Roman", Times;
+  cursor:pointer;
+}
 
 
 

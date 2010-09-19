@@ -13,7 +13,7 @@ try
 	//anaktoume to username tou xrhsth pou 8eloume na doume to profil
 	$user=strval($_GET['user']);
 
-	dispHeader("Profil of user $user");
+	dispHeader('');
 	//h sunarthsh showUserProfile($user) emfanizei to profil tou xrhsth $user
 	showUserProfile($user);
 	dispFooter();

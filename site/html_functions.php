@@ -200,10 +200,10 @@ function dispRegForm()
 
 <div id="sub-header">Συμπληρώστε τα στοιχεία σας στην παρακάτω <span class="yellow">Φόρμα Εγγραφής</span></div>
 
-<div class="content-box-762">
-<div class="content-box-762-top"></div>
-<div class="content-box-762-middle">
-<div class="content-box-762-content"> <div align="center">
+<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content"> <div align="center">
 <div id="contactForm">
 <form method="post" onsubmit="return validRegForm()"  action="signup_new.php"  >
 
@@ -262,7 +262,7 @@ function dispRegForm()
 </div>
  </div>
 </div>
-<div class="content-box-762-bottom">&nbsp;</div>
+<div class="content-box-1-bottom">&nbsp;</div>
 </div>
 
 <?php
@@ -582,10 +582,10 @@ $facilities=db_excecute($message,'select2');
 
 <div id="sub-header"><span class="yellow">Φόρμα Καταχώρησης Ακινήτου</span></div>
 
-<div class="content-box-762">
-<div class="content-box-762-top"></div>
-<div class="content-box-762-middle">
-<div class="content-box-762-content"> <div align="left">
+<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content"> <div align="left">
 
 <h3>Διαθέσιμο προς:</h3>
 <form method="post" action="homeAdvertiseNew.php">
@@ -659,7 +659,7 @@ Enter Comments Here
 </div>
  </div>
 </div>
-<div class="content-box-762-bottom">&nbsp;</div>
+<div class="content-box-1-bottom">&nbsp;</div>
 </div>
 
 <?php
@@ -684,10 +684,10 @@ $facilities=db_excecute($message,'select2');
 <div class='header-bar-full'><h1 class='blue'>Αναζήτηση Ακινήτων</h1></div>
 <h4>Συμπληρώστε με τα δικά σας κριτήρια την παρακάτω φόρμα για να αναζητήσετε αγγελίες που σας ενδιαφέρουν.</h4>
 <div id="sub-header"><span class="yellow">Φόρμα Αναζήτησης Ακινήτων</span></div>
-<div class="content-box-762">
-<div class="content-box-762-top"></div>
-<div class="content-box-762-middle">
-<div class="content-box-762-content"> <div align="left">
+<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content"> <div align="left">
 <h3>Διαθέσιμες ενέργειες:</h3>
 <form method="post" action="homeSearchRes.php">
 
@@ -844,7 +844,7 @@ while($row = mysql_fetch_array($facilities))
 </div>
 
 
-<div class="content-box-762-bottom">&nbsp;</div>
+<div class="content-box-1-bottom">&nbsp;</div>
  </div>
 
 <?php

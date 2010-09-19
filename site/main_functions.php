@@ -114,31 +114,42 @@ function dispCurrUsers()
   //an uparxoun xrhstes tote emfanise tous
   if (mysql_num_rows($result)>0)
   {
-		echo "<table border='1'>
-		<tr>
-		<th>username</th>
-		<th>email</th>
+		echo "<div class='header-bar-full'><h1 class='blue'>Οι εγγεγραμμένοι χρήστες</h1></div>
+		<div id='sub-header'>Παρακάτω βλέπετε όλους εγγεγραμμένους <span class='yellow'>χρήστες</span></div>
+		<div class='content-box-1'>
+<div class='content-box-1-top'></div>
+<div class='content-box-1-middle'>
+<div class='content-box-1-content'> <div align='left'>
+		
+		<table border='0' cellspacing='0' >
+		<tr id='userElements' >
+		<th>Username</th>
+		<th id='userElements-2'>Email</th>
 		<th>Τύπος χρήστη</th>
-		<th>Διαγραφή</th>
+		<th id='userElements-2'>Διαγραφή</th>
 		<th>Επεξεργασία Χρήστη</th>
-		<th>Προβολή προφίλ Χρήστη</th>
+		<th id='userElements-2'>Προβολή προφίλ Χρήστη</th>
 		</tr>";
 
 		while($row = mysql_fetch_array($result))
 		  {
-			  echo "<tr>";
-			  echo "<td>" . $row['username'] . "</td>";
-			  echo "<td>" . $row['email'] . "</td>";
+			  echo "<tr id='userData'>";
+			  echo "<td><strong>" . $row['username'] . "</strong></td>";
+			  echo "<td id='userData-2'>" . $row['email'] . "</td>";
 			  echo "<td>" . $row['user_type'] . "</td>";
-			  echo "<td> <form name=\"input\" action=\"delUser.php?user=".$row['username']."\" method=\"post\">
-			        <input type=\"submit\" value=\"Delete\" /></form> </td>";
-			  echo "<td> <form name=\"input\" action=\"editUser.php?user=".$row['username']."\" method=\"post\">
-			        <input type=\"submit\" value=\"Edit\" /></form> </td>";
-			  echo "<td> <form name=\"input\" action=\"profUser.php?user=".$row['username']."\" method=\"post\">
-			        <input type=\"submit\" value=\"View\" /></form> </td>";
+			  echo "<td id='userData-2'> <form name=\"input\"  action=\"delUser.php?user=".$row['username']."\" method=\"post\">
+			        <input type=\"submit\" id='button-delete' value=\"Delete\" /></form> </td>";
+			  echo "<td> <form name=\"input\"  action=\"editUser.php?user=".$row['username']."\" method=\"post\">
+			        <input type=\"submit\" id='button-edit' value=\"Edit\" /></form> </td>";
+			  echo "<td id='userData-2'> <form name=\"input\"  action=\"profUser.php?user=".$row['username']."\" method=\"post\">
+			        <input type=\"submit\" id='button-view' value=\"View\" /></form> </td>";
 			  echo "</tr>";
 		  }
-		echo "</table>";
+		echo "</table>
+		</div></div>
+</div>
+<div class='content-box-1-bottom'>&nbsp;</div>
+ </div>";
 		//kai epestrepse
 		return true;
   }
@@ -146,6 +157,7 @@ function dispCurrUsers()
   else throw new Exception('Σφάλμα:Δεν ήταν δυνατή η εύρεση χρηστών στο σύστημα!');
 
 }
+
 
 /************************************************
 * Auth h sunarthsh emfanizei oles tis kathgories
@@ -594,49 +606,75 @@ function showUserProfile($user)
 	//ektelesh tou query
 	$result = mysql_query("SELECT * FROM users where username='$user'");
 	//emfanish twn dedomenwn
-	echo "<table border='1'>
-	<tr>
-	<th>username</th>
-	<th>Email</th>
-	<th>Όνομα</th>
-	<th>Επίθετο</th>
-	<th>Τύπος Χρήστη</th>
-	</tr>";
+	echo "<div class='header-bar-full'><h1 class='blue'>Το προφίλ του χρήστη $user</h1></div>
+	<input type='button' id='button-2' name='back' value='<< Πισω στην προηγουμενη' onclick='javascript:history.go(-1)' />
+	<div id='sub-header'>Παρακάτω βλέπετε όλες τις πληροφορίες που αφορoύν τον χρήστη <span class='yellow'>$user</span></div>";
+	
+echo "<div class='content-box-1'>
+<div class='content-box-1-top'></div>
+<div class='content-box-1-middle'>
+<div class='content-box-1-content'> <div align='left'>";
+
+			
 
 	while($row = mysql_fetch_array($result))
 	{
-		echo "<tr>";
-		echo "<td>" . $row['username'] . "</td>";
-		echo "<td>" . $row['email'] . "</td>";
-		echo "<td>" . $row['name'] . "</td>";
-		echo "<td>" . $row['surname'] . "</td>";
-		echo "<td>" . $row['user_type'] . "</td>";
-		echo "</tr>";
+		
+		echo "<div id='userCoreInfo'>
+	<div id='userProfileName'><span id='userProfileWhite'>Username: </span>".$row['username']."</div>
+	</div>	
+	
+<div class='userProfileSubInfo whitebg'>
+				<div class='userProfileInfo'><strong>Email: </strong>".$row['email']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>
+<div class='userProfileSubInfo'>
+				<div class='userProfileInfo'><strong>Όνομα: </strong>".$row['name']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>
+<div class='userProfileSubInfo whitebg'>
+				<div class='userProfileInfo'><strong>Επίθετο: </strong>".$row['surname']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>
+<div class='userProfileSubInfo'>
+				<div class='userProfileInfo'><strong>Τύπος Χρήστη: </strong>".$row['user_type']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>";
+		
 	}
-	echo "</table>";
+	
 	
 	$result = mysql_query("SELECT * FROM telephone where user_id='$user'");
 
-	echo "<table border='1'>
-	<tr>
-	<th>username</th>
-	<th>Κινητό1</th>
-	<th>Κινητο2</th>
-	<th>Τηλέφωνο σπιτιού</th>
-	<th>Άλλο τηλέφωνο</th>
-	</tr>";
+	
 
 	while($row = mysql_fetch_array($result))
 	{
-		echo "<tr>";
-		echo "<td>" . $row['user_id'] . "</td>";
-		echo "<td>" . $row['mobile1'] . "</td>";
-		echo "<td>" . $row['mobile2'] . "</td>";
-		echo "<td>" . $row['home'] . "</td>";
-		echo "<td>" . $row['other'] . "</td>";
-		echo "</tr>";
+	echo "<div class='userProfileSubInfo whitebg'>
+				<div class='userProfileInfo'><strong>Κινητό 1: </strong>".$row['mobile1']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>
+<div class='userProfileSubInfo'>
+				<div class='userProfileInfo'><strong>Κινητό 2: </strong>".$row['mobile2']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>
+<div class='userProfileSubInfo whitebg'>
+				<div class='userProfileInfo'><strong>Σταθερό Τηλέφωνο: </strong>".$row['home']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>
+<div class='userProfileSubInfo'>
+				<div class='userProfileInfo'><strong>Άλλο τηλέφωνο: </strong>".$row['other']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>";			
+	
+		
+		
 	}
-	echo "</table>";
+	echo "
+	</div></div>
+</div>
+<div class='content-box-1-bottom'>&nbsp;</div>
+ </div>";
 	//kleisimo ths vashs
 	mysql_close($conn);
 	
