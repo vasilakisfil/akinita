@@ -142,6 +142,7 @@ function dispMainPage()
 	<input type="image" src="images/btn-go.png" value="Βρές!"  />
 	</form>
 </div>
+
 	
 	
 
@@ -688,13 +689,22 @@ $facilities=db_excecute($message,'select2');
 <div class="content-box-1-top"></div>
 <div class="content-box-1-middle">
 <div class="content-box-1-content"> <div align="left">
-<h3>Διαθέσιμες ενέργειες:</h3>
-<form method="post" action="homeSearchRes.php">
+<h3>Διαθέσιμες ενέργειες: </h3>
+<span id="ajaxDiv">
+<?php
+$query="select * from property;";
+$result=db_excecute($query,"ajax_quary");
+$rows=mysql_num_rows($result);
+//echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+echo "Διαθέσιμες Aγγελίες: &nbsp;$rows<br />";
+?>
+</span>
+<form method="post" action="homeSearchRes.php" name="myform" id="myform" onclick="searchForm()">
 
 <!--<fieldset id="typos">-->
-<input type="checkbox" id="sell" name="typos[]" value="s" onclick="validSearch()" /> Πώληση
-<input type="checkbox" id="lent" name="typos[]" value="l" onclick="validSearch()" /> Ενοικίαση
-<!--</fieldset>--><span id="typos">&nbsp; &nbsp; &nbsp; Πρεπει να επιλέξετε αναγκαστικά...</span>
+<input type="checkbox" id="sell" name="typos[]" value="s"  /> Πώληση
+<input type="checkbox" id="lent" name="typos[]" value="l"  /> Ενοικίαση
+<!--</fieldset>--><span id="typos">&nbsp; &nbsp; &nbsp; Καλό είναι να επιλέξετε να βρείτε αυτό που θέλετε πιο γρήγορα</span>
 
 
  

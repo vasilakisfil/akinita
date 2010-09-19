@@ -39,10 +39,11 @@ try
 			$message="select distinct property.prop_id,address,price,offer_type,area,views,category from property,categories,cat_prop,fac_prop,facilities";
 
 			//pros8etoume to keyword where
-			$message.=" where property.propState='T' and";
+			$message.=" where property.propState='T'";
 			//elegxoume an exei epilex8ei tupos akinhtou kai analoga pros8etoume ton typo sto query(thn metavlhth $message dld)
 			if(isset($_POST['typos']))
 			{
+				$message.=" and";
 				$typos=$_POST['typos'];
 				$message.=" (";
 				foreach ($typos as $typ)
@@ -53,7 +54,6 @@ try
 				$message.=" )";
 			}
 			//an den exei epilex8ei petame exception
-			else throw new Exception('Den epile3ate ti tupo 8elete\(pwlhsh \'h enoikiash\)');
 			//elegxoume an exei epilex8ei kathgoria
 			if(isset($_POST['category']))
 			{

@@ -1,6 +1,6 @@
 ﻿
 /****************************************************************************************
-*				SUNARTHSEIS JAVASCRIPT GENIKOU SKOPOY
+*					SUNARTHSEIS JAVASCRIPT GENIKOU SKOPOY
 *
 *****************************************************************************************/
 
@@ -96,7 +96,7 @@ function emailValidator(elem, helperMsg){
 
 
 /****************************************************************************************
-*				SUNARTHSEIS ELEGXOU GIA TO REGISTRATION FORM
+*					SUNARTHSEIS ELEGXOU GIA TO REGISTRATION FORM
 *
 *****************************************************************************************/
 
@@ -367,9 +367,15 @@ function validRegForm()
 
 
 /****************************************************************************************
-*				SUNARTHSEIS ELEGXOU GIA TO FORMA ANAZHTHSHS
+*					SUNARTHSEIS ELEGXOU GIA TO FORMA ANAZHTHSHS
 *
 *****************************************************************************************/
+function searchForm()
+{
+	validSearch();
+	get(document.getElementById('myform'));
+
+}
 
 function validSearch()
 {
@@ -384,7 +390,62 @@ function validSearch()
 	}
 	else
 	{
-		typos.innerHTML='<span style="color:red">&nbsp; &nbsp; &nbsp; Χ</span>';
+		typos.innerHTML='<span">&nbsp; &nbsp; &nbsp; Καλό είναι να επιλέξετε να βρείτε αυτό που θέλετε πιο γρήγορα</span>';
 	}
 }
 
+/****************************************************************************************
+*					SUNARTHSEIS GIA THN AJAX
+*
+*****************************************************************************************/
+
+function get(obj)
+{
+	var ajaxDiv = document.getElementById('ajaxDiv');
+	var getstr = "?";
+	for (i=0; i<obj.childNodes.length; i++)
+	{
+		if (obj.childNodes[i].tagName == "INPUT")
+		{
+			if (obj.childNodes[i].type == "checkbox")
+			{
+					if (obj.childNodes[i].checked)
+					{
+						getstr += obj.childNodes[i].name + "=" + obj.childNodes[i].value + "&";
+					}
+			}
+		}   
+		if (obj.childNodes[i].tagName == "SELECT")
+		{
+			var sel = obj.childNodes[i];
+			getstr += sel.name + "=" + sel.options[sel.selectedIndex].value + "&";
+		}
+	}
+	//ajaxDiv.innerHTML=getstr;
+	loadXMLDoc(getstr);
+
+}
+
+function loadXMLDoc(param)
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("ajaxDiv").innerHTML="Διαθέσιμες Αγγελίες:"+xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","ajax.php"+param,true);
+//http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//http.setRequestHeader("Content-length", params.length);
+//http.setRequestHeader("Connection", "close");
+xmlhttp.send();
+}
