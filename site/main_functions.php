@@ -779,11 +779,17 @@ function showProperty($propId)
 		//don't change == !!!
 		if(stripos($server,$edit)!==FALSE)
 		{
-			dispURL("viewProperty.php?propId=$propId","Προβολή Αγγελίας");
+			echo "<form>
+           <input type='button' id='button-big' value='Προβολή' onclick=\"window.location.href='viewProperty.php?propId=$propId'\">
+           </form>";
+			
 		}
 		else if(stripos($server,$view)!==FALSE)
 		{
-			dispURL("editProperty.php?propId=$propId","Επεξεργασία Αγγελίας");
+		   echo "<form>
+           <input type='button' id='button-big' value='Επεξεργασία' onclick=\"window.location.href='editProperty.php?propId=$propId'\">
+           </form>";
+			
 		}
 	}
 	
