@@ -143,6 +143,14 @@ function dispMainPage()
 	</form>
 </div>
 
+<?php
+$query="select * from property;";
+$result=db_excecute($query,"ajax_quary");
+$rows=mysql_num_rows($result);
+//echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+echo "Διαθέσιμες Aγγελίες: &nbsp;$rows<br />";
+?>
+
 	
 	
 
