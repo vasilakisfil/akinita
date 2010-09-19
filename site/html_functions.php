@@ -699,7 +699,7 @@ $rows=mysql_num_rows($result);
 echo "Διαθέσιμες Aγγελίες: &nbsp;$rows<br />";
 ?>
 </span>
-<form method="post" action="homeSearchRes.php" name="myform" id="myform" onclick="searchForm()">
+<form method="post" action="homeSearchRes.php" name="myform" id="myform" onclick="searchForm()" >
 
 <!--<fieldset id="typos">-->
 <input type="checkbox" id="sell" name="typos[]" value="s"  /> Πώληση
@@ -719,9 +719,9 @@ while($row = mysql_fetch_array($categories))
 
  
 
-<h3>Τιμή<br />
+<h3>Τιμή</h3><br />
 
-από:<select name="low_price">
+από:<select name="low_price" >
 <option value="nolimit" >Χωρις Οριο</option>
 <option value="50000">50.000</option>
 <option value="75000">75.000</option>
@@ -754,7 +754,7 @@ while($row = mysql_fetch_array($categories))
 </select>
 </h3>
 
-<h3>Eμβαδό<br />
+<h3>Eμβαδό</h3><br />
 
 από:<select name="low_area">
 <option value="nolimit">Κάτω από 50</option>
@@ -814,7 +814,9 @@ for($i=0; $i<11; $i++)
 ?>
 
 
-<h3>Έτος κατασκευής από:<select name="etos_katask">
+<h3>Έτος κατασκευής από:</h3>
+
+<select name="etos_katask">
 <option value="2010">2010</option>
 <option value="2009">2009</option>
 <option value="2008">2008</option>

@@ -32,6 +32,49 @@ if(isset($_GET['category']))
 	$message=substr($message,0,-2);
 	$message.=" )";
 }
+//elegxoume gia thn elaxisth timh
+if(isset($_GET['low_price']))
+{
+	$value=$_GET['low_price'];
+	//an h elaxisth timh einai to "nolimit" dld den exei epilex8ei elaxisth timh den kanoume kati
+	//alliws eisagoume ton periorismo sto query
+	if($value!="nolimit")
+	{
+		$message.=" and property.price>=$value";
+	}
+}
+if(isset($_GET['high_price']))
+{
+	$value=$_GET['high_price'];
+	//an h megisth timh einai to "nolimit" dld den exei epilex8ei megisth timh den kanoume kati
+	//alliws eisagoume ton periorismo sto query
+	if($value!="nolimit")
+	{
+		$message.=" and property.price<=$value";
+	}
+}
+//elegxoume gia elaxisto emvadon
+if(isset($_GET['low_area']))
+{
+	$value=$_GET['low_area'];
+	//an to elaxisto emvadon einai to "nolimit" dld den exei epilex8ei elaxisto emvadon den kanoume kati
+	//alliws eisagoume ton periorismo sto query
+	if($value!="nolimit")
+	{
+		$message.=" and property.area>$value";
+	}
+}
+//elegxoume gia megisto emvadon
+if(isset($_GET['high_area']))
+{
+	$value=$_GET['high_area'];
+	//an to megisto emvadon einai to "nolimit" dld den exei epilex8ei megisto emvadon den kanoume kati
+	//alliws eisagoume ton periorismo sto query
+	if($value!="nolimit")
+	{
+		$message.=" and property.area<$value";
+	}
+}
 if(isset($_GET['Afloor']))
 {
 	$message=$message." and";
@@ -45,11 +88,11 @@ if(isset($_GET['Afloor']))
 	$message.=" )";
 }
 //elegxoume an exoun eisax8ei paroxwn
-if(isset($_POST['facilities']))
+if(isset($_GET['facilities']))
 {
 	//an expoun epilex8ei eisagoume tous periorisoume paroxwn mesa se mia paren8esh
 	$message=$message." and";
-	$facility=$_POST['facilities'];
+	$facility=$_GET['facilities'];
 	$message.=" (";
 	foreach ($facility as $fac)
 	{

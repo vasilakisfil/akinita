@@ -417,12 +417,15 @@ function get(obj)
 		}   
 		if (obj.childNodes[i].tagName == "SELECT")
 		{
+			//alert("aleeert");
 			var sel = obj.childNodes[i];
 			getstr += sel.name + "=" + sel.options[sel.selectedIndex].value + "&";
 		}
+		//alert(obj.childNodes[i].tagName);
 	}
 	//ajaxDiv.innerHTML=getstr;
 	loadXMLDoc(getstr);
+	//document.getElementById("testDiv").innerHTML=getstr;
 
 }
 
