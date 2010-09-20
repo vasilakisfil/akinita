@@ -386,6 +386,17 @@ text-shadow:1px 1px 1px #fff;
 	padding: 13px 13px 0 13px;
 	background:url(images/bg-sub-header.png) no-repeat left top;
 	}
+#sub-header-left {
+	width:762px;
+	height:40px;
+	color:#fff;
+	text-align:left;
+	font-size:12px;
+	font-weight:bold;
+	margin-left:27px;
+	padding: 13px 13px 0 13px;
+	background:url(images/bg-sub-header.png) no-repeat left top;
+	}	
 	
 #sub-header-599 {
 	width:762px;

@@ -36,13 +36,19 @@ if ($username && $passwd)
     // unsuccessful login
     dispHeader('');
     echo "<div class='header-bar-full'><h1 class='blue'>Κεντρική σελίδα Σύνδεσης</h1></div> 
-	       <h3>Δεν ήταν δυνατή η φόρτωση της σελίδας. </h3> 
+	       <div class='content-box-1'>
+<div class='content-box-1-top'></div>
+<div class='content-box-1-middle'>
+<div class='content-box-1-content'> <div align='left'>
+		   <h3>Δεν ήταν δυνατή η φόρτωση της σελίδας. </h3> 
           <h4 class='blue-tip-text'>Το username ή το password που δώσατε ήταν λάθος.</h4><br />";
 		  echo $e->getMessage();
     dispURL('login.php', 'Ξαναπροσπαθείστε');
 	echo "<br /><br />Δεν ειστε δεν είστε μέλος? Κάντε τώρα";
 	dispURL('signup.php', 'Εγγραφή');
-    dispFooter();
+    echo "</div></div></div>
+<div class='content-box-1-bottom'>&nbsp;</div>";
+	dispFooter();
     exit;
   }      
 }
@@ -57,7 +63,12 @@ if (isset($_SESSION['user_type']))
 	//an o xrhsths einai "Admin" emfanise tis katallhles epiloges
 	if($type=="Admin")
 	{
-		echo "<h4>Είστε συνδεδεμένος ως διαχειριστής</h4>";
+		echo "<div id='sub-header-left'>Καλώς Όρισες <span class='yellow'>$val_user</span>!</div>
+		<div class='content-box-1'>
+<div class='content-box-1-top'></div>
+<div class='content-box-1-middle'>
+<div class='content-box-1-content'> <div align='left'>
+		<h4>Είστε συνδεδεμένος ως διαχειριστής</h4>";
 		dispURL("editUser.php?user=".$val_user,"Επεξεργασία του προφίλ μου");
 		echo "<br />";
 		dispURL("displayUsers.php","Εμφάνιση των χρηστών");
@@ -74,13 +85,20 @@ if (isset($_SESSION['user_type']))
 	//alliws emfanise mono tis epiloges tou aplou xrhsth
 	else
 	{
-		echo "<br />";
+		
+		echo "<div id='sub-header-left'>Καλώς Όρισες <span class='yellow'>$val_user</span>!</div>
+		<div class='content-box-1'>
+<div class='content-box-1-top'></div>
+<div class='content-box-1-middle'>
+<div class='content-box-1-content'> <div align='left'>";
 		dispURL("editUser.php?user=".$val_user,"Επεξεργασία του προφίλ μου");
 		echo "<br />";
 		dispURL("favAdvs.php","Προβολή των Αγαπημένων μου αγγελιών");
 		echo "<br />";
 	}
     dispURL("logout.php","Αποσύνδεση");
+	 echo "</div></div></div>
+<div class='content-box-1-bottom'>&nbsp;</div>";
 }
 //an h session metavlhth user_type den exei te8ei auto shmainei oti eite to login den egine swsta eite oti o xrhsths hr8e
 //se auth th selida xwris e3ousiodothsh
