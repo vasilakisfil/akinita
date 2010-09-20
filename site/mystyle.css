@@ -869,6 +869,30 @@ background:transparent url(images/btn-back.png) no-repeat top left;
 	background: transparent;
 	border: 0px;
 	}
+.fieldLabel-reg {
+	float: left;
+	display: inline;
+	clear: left;
+	width: 167px;
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 3px;
+	text-align: left;
+	}
+.fieldInput-reg {
+	float: left;
+	display: inline;
+	width: 190px;
+	margin-left: -40px;
+	text-align: left;
+	}
+.fieldInput-reg input, .fieldInput-reg textarea, .fieldInput-reg select {
+	border: 1px solid #b8b69d;
+	padding: 3px;
+	}
+.fieldInput-reg input, .fieldInput-reg textarea {
+	width: 187px;
+	}
 
 /* Property Samples Styles */
 .propSampleBox {
@@ -1031,7 +1055,18 @@ background:transparent url(images/button.gif) no-repeat top left;
   font:bold 11px Georgia, "Times New Roman", Times;
   cursor:pointer;
 }
-
+#button-log{
+background:transparent url(images/btn-gen.png) no-repeat top left;
+  
+  padding-bottom:2px; 
+  border:none;
+  width:68px;
+  height:33px;
+  color:#fff;
+  text-decoration:none;
+  text-align:center;
+  font:bold 11px Georgia, "Times New Roman", Times;
+  cursor:pointer;
 
 
 /****************************************************************************************

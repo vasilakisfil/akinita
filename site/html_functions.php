@@ -202,15 +202,27 @@ function dispLoginBox()
 {
 ?>
 	<div class='header-bar-full'><h1 class="blue">Κεντρικη Σελιδας Συνδεσης</h1></div>
+	<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content"> <div align="left">
 	<h3>Είσαι μέλος;Κάνε τώρα Log In!</h3>
-	<form method="post" action="member.php">
-		Όνομα Χρήστη: <input type="text" name="username"/><br />
-		Κωδικός Χρήστη: <input type="password" name="password" /><br />
-		<input type="submit" value="Log in" />
-	</form>
+	
+	<form " method="post" action="member.php">
+	<span class="fieldLabel-reg">Όνομα Χρήστη: </span>
+	<div class="fieldInput-reg"><input id="" type="text" name="username"/></div><br />
+	<span class="fieldLabel-reg">Κωδικός Χρήστη: </span>
+	<div class="fieldInput-reg"><input type="password" name="password" /></div><br />
+	<input class="fieldLabel-reg" id="button-log" type="submit" value="Log in" />
+	</form><br/><br/><br/>
 
 	<h3>Δεν είσαι μέλος;</h3>
 	<a href="signup.php">Εγγράψου τώρα δωρεάν!</a>
+	</div>
+ </div>
+</div>
+<div class="content-box-1-bottom">&nbsp;</div>
+</div>
 <?php
 }
 
