@@ -731,11 +731,11 @@ function showProperty($propId)
 		echo "<div id='propDetailLeftBox'>
 		<div id='propDetailPhoto'><img name='mainphoto' src=\"".$Imrow['filename']."\" width='311px' height='215px' alt='no photo' /></div> 
 		
-		<div id='propDetailThumbs' style='height:120px;'>";
+		<div id='propDetailThumbs' style='height:auto;'>";
 		mysql_data_seek($resImg,0);
 		while($Imrow = mysql_fetch_array($resImg))
 		{
-			echo "<div class='propDetailThumb propDetailRight'><img src=\"".$Imrow['filename']."\" width='80px' height='50px' onmouseover=\"document.mainphoto.src='".$Imrow['filename']."'\" alt='' /></div>";
+			echo "<div class='propDetailThumb propDetailRight'><img src=\"".$Imrow['filename']."\" width='97px' height='60px' onmouseover=\"document.mainphoto.src='".$Imrow['filename']."'\" alt='' /></div>";
 		}
 	}
 	else
@@ -743,7 +743,7 @@ function showProperty($propId)
 		echo "<div id='propDetailLeftBox'>
 		<div id='propDetailPhoto'><img name='mainphoto' src='images/no_photo.gif' width='311px' height='215px' alt='no photo' /></div> 
 		
-		<div id='propDetailThumbs' style='height:120px;'>";
+		<div id='propDetailThumbs' style='height:0px;'>";
 	}
 		
 echo "	

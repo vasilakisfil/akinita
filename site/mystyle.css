@@ -697,6 +697,7 @@ padding-bottom=25px;
 	}
 .propDetailRight {
 	margin-right: 4px;
+	margin-top:2px;
 	}
 .propDetailClear {
 	clear: left;
@@ -708,6 +709,7 @@ padding-bottom=25px;
 	clear: both;
 	width: 120px;
 	margin: 30px auto;
+	padding-top:20px;
 	text-align: center;
 	}
 #propDetailRequestInfo {
