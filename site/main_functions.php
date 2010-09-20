@@ -725,16 +725,27 @@ function showProperty($propId)
 	diastaseis pou fenontai sta width kai height. by default an den anevasoume fotos i no_photo.gif einai i stadar... 
 	prepei kati na kanoume na mpainoun oi dikes mas...
 	************************/
-	echo "<div id='propDetailLeftBox'>
-	
-	<div id='propDetailPhoto'><img name='mainphoto' src='images/100.jpg' width='311px' height='215px' alt='no photo' /></div> 
-	
-	<div id='propDetailThumbs' style='height:120px;'>
-
-	<div class='propDetailThumb propDetailRight'><img src='images/101.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='images/101.jpg'\" alt='' /></div>
-	<div class='propDetailThumb propDetailRight'><img src='images/102.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='images/102.jpg'\" alt='' /></div>
-	<div class='propDetailThumb propDetailRight'><img src='images/103.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='images/103.jpg'\" alt='' /></div>
-	<div class='propDetailThumb propDetailRight'><img src='images/104.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='images/104.jpg'\" alt='' /></div>
+	if(mysql_num_rows($resImg)>0)
+	{
+		$Imrow = mysql_fetch_array($resImg);
+		echo "<div id='propDetailLeftBox'>
+		<div id='propDetailPhoto'><img name='mainphoto' src=\"".$Imrow['filename']."\" width='311px' height='215px' alt='no photo' /></div> 
+		
+		<div id='propDetailThumbs' style='height:120px;'>";
+		while($Imrow = mysql_fetch_array($resImg))
+		{
+			echo "<div class='propDetailThumb propDetailRight'><img src=\"".$Imrow['filename']."\" width='80px' height='50px' onmouseover=\"document.mainphoto.src='images/101.jpg'\" alt='' /></div>";
+		}
+	}
+	else
+	{
+		echo "<div id='propDetailLeftBox'>
+		<div id='propDetailPhoto'><img name='mainphoto' src='images/no_photo.gif' width='311px' height='215px' alt='no photo' /></div> 
+		
+		<div id='propDetailThumbs' style='height:120px;'>";
+	}
+		
+echo "	
 </div>
 	
 	<div id='propDetailGoogleMap'><img src='images/btn-google-map.gif' alt='Google Map' /></div>
@@ -825,7 +836,7 @@ function showProperty($propId)
 
 	echo "</div></div> <div class='clearDiv'>&nbsp;</div> </div></div>";
 	//emfanizoume tis fwtografies...
-	if(mysql_num_rows($resImg)>0)
+	/*if(mysql_num_rows($resImg)>0)
 	{
 		while($Imrow = mysql_fetch_array($resImg))
 		{
@@ -847,7 +858,7 @@ function showProperty($propId)
 				}
 				echo "<br />";
 		}
-	}
+	}*/
 }
 
 /************************************************
