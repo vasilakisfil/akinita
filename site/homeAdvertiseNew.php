@@ -104,8 +104,11 @@ try
 	
 	
 	
-	dispHeader('Κατασώρηση Αγγελίας');
-	echo "H aggelia sas kataxwrh8hke epituxws...<br />";
+	dispHeader('');
+	echo "<div class='header-bar-full'><h1 class='blue'>Η αγγελία σας καταχωρήθηκε με επιτυχία!</h1></div>
+	<h4>Η Αγγελία σας καταχωρήθηκε και τώρα είναι υπο έγκριση από τους διαχειριστές</h4>
+	<h5>Η Aγγελία σας θα εμφανιστεί σε λίγα λεπτά</h5>
+	<a href='main.php'>Πισω στην αρχική</a>";
 	dispFooter();
 	
 }
