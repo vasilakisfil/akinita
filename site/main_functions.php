@@ -887,6 +887,17 @@ function propertySearch($message,$Ftype=NULL)
 
 	 while($row = mysql_fetch_array($result,MYSQL_NUM))
 	{
+		$q="select * from images where prop_id=".$row[0];
+		$res=db_excecute($q,"search images");
+		if(mysql_num_rows($res)>0)
+		{
+			$rowIm = mysql_fetch_array($res);
+			$image=$rowIm['filename'];
+		}
+		else
+		{
+			$image="images/no_photo.gif";
+		}
 		echo "<div class='propListingBox'>";
 		for($i=0; $i<7; $i++)
 		{
@@ -918,7 +929,7 @@ function propertySearch($message,$Ftype=NULL)
 				<strong>Εμφανίσεις:</strong> 1
 			</div>
 			<div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>";
-			if(isset($type) && $type=="Admin")
+		if(isset($type) && $type=="Admin")
 		{
 			if($Ftype=="Delete") echo "<strong>Διαγραφή?</strong> 
 			<input type=checkbox name=delProperty[] value=".$row[0]." />";
@@ -932,7 +943,7 @@ function propertySearch($message,$Ftype=NULL)
 		
 			if ($i==1)
 			{
-				echo" <div class='propListingPhoto'><a href='' title='View Photo'><img src='images/no_photo.gif' 
+				echo" <div class='propListingPhoto'><a href='' title='View Photo'><img src='".$image."' 
 				width='125px' height='87px' alt='photo' /></a></div>
 				<div class='propListingCoreInfo'>
 					<div class='propListingAddress'>"."$row[1]"."</div>
