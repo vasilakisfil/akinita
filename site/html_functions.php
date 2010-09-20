@@ -117,9 +117,10 @@ else
 	<div class="content">
 		<div class="copyright">All Content &copy; 2010 Earth Project. All Rights Reserved.</div>
 		<ul>
-			<li><a href="">Privacy Policy</a></li>
-			<li><a href="">Terms &amp; Conditions</a></li>
-			<li class="last"><a href="" target="_blank">Site by MKF</a></li>
+			<li><span>Site by</span></li>
+			<li><span>Klisiaris</span></li>
+			<li><span>Karathanou</span></li>
+			<li class="last"><span>Vasilakis</span></li>
 		</ul>
 	</div>
 </div>
