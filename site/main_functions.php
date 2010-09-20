@@ -720,8 +720,23 @@ function showProperty($propId)
 	// to kedriko division poy perexei ola ta stoixeia
 	echo "<div id='propDetailBoxContainer'> <div id='propDetailBox'>";
 	//to deksi tmima
+	/********************* Loipon olo to paixnidi me tis fotos stin emfanisi tou ginetai edw sto deksi tmima.
+	Sygkekrimena sto division me id propDetailPhoto. apo to attribute img i photo mas kaleitai kai parnei akrivws tis
+	diastaseis pou fenontai sta width kai height. by default an den anevasoume fotos i no_photo.gif einai i stadar... 
+	prepei kati na kanoume na mpainoun oi dikes mas...
+	************************/
 	echo "<div id='propDetailLeftBox'>
-	<div id='propDetailPhoto'><img name='no photo' src='images/no_photo.gif' width='311px' height='215px' alt='no photo' /></div> 
+	
+	<div id='propDetailPhoto'><img name='mainphoto' src='photos/6/100.jpg' width='311px' height='215px' alt='no photo' /></div> 
+	
+	<div id='propDetailThumbs' style='height:120px;'>
+
+	<div class='propDetailThumb propDetailRight'><img src='photos/6/101.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='photos/6/101.jpg'\" alt='' /></div>
+	<div class='propDetailThumb propDetailRight'><img src='photos/6/102.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='photos/6/102.jpg'\" alt='' /></div>
+	<div class='propDetailThumb propDetailRight'><img src='photos/6/103.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='photos/6/103.jpg'\" alt='' /></div>
+	<div class='propDetailThumb propDetailRight'><img src='photos/6/104.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='photos/6/104.jpg'\" alt='' /></div>
+</div>
+	
 	<div id='propDetailGoogleMap'><img src='images/btn-google-map.gif' alt='Google Map' /></div>
 	<span style='color:fff; text-align:right;'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 	Εδω θα μπει ο χάρτης</span><br />
