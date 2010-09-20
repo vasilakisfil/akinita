@@ -727,14 +727,14 @@ function showProperty($propId)
 	************************/
 	echo "<div id='propDetailLeftBox'>
 	
-	<div id='propDetailPhoto'><img name='mainphoto' src='photos/6/100.jpg' width='311px' height='215px' alt='no photo' /></div> 
+	<div id='propDetailPhoto'><img name='mainphoto' src='images/100.jpg' width='311px' height='215px' alt='no photo' /></div> 
 	
 	<div id='propDetailThumbs' style='height:120px;'>
 
-	<div class='propDetailThumb propDetailRight'><img src='photos/6/101.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='photos/6/101.jpg'\" alt='' /></div>
-	<div class='propDetailThumb propDetailRight'><img src='photos/6/102.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='photos/6/102.jpg'\" alt='' /></div>
-	<div class='propDetailThumb propDetailRight'><img src='photos/6/103.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='photos/6/103.jpg'\" alt='' /></div>
-	<div class='propDetailThumb propDetailRight'><img src='photos/6/104.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='photos/6/104.jpg'\" alt='' /></div>
+	<div class='propDetailThumb propDetailRight'><img src='images/101.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='images/101.jpg'\" alt='' /></div>
+	<div class='propDetailThumb propDetailRight'><img src='images/102.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='images/102.jpg'\" alt='' /></div>
+	<div class='propDetailThumb propDetailRight'><img src='images/103.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='images/103.jpg'\" alt='' /></div>
+	<div class='propDetailThumb propDetailRight'><img src='images/104.jpg' width='80px' height='50px' onmouseover=\"document.mainphoto.src='images/104.jpg'\" alt='' /></div>
 </div>
 	
 	<div id='propDetailGoogleMap'><img src='images/btn-google-map.gif' alt='Google Map' /></div>
