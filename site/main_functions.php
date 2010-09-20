@@ -732,9 +732,10 @@ function showProperty($propId)
 		<div id='propDetailPhoto'><img name='mainphoto' src=\"".$Imrow['filename']."\" width='311px' height='215px' alt='no photo' /></div> 
 		
 		<div id='propDetailThumbs' style='height:120px;'>";
+		$Imrow--;
 		while($Imrow = mysql_fetch_array($resImg))
 		{
-			echo "<div class='propDetailThumb propDetailRight'><img src=\"".$Imrow['filename']."\" width='80px' height='50px' onmouseover=\"document.mainphoto.src='images/101.jpg'\" alt='' /></div>";
+			echo "<div class='propDetailThumb propDetailRight'><img src=\"".$Imrow['filename']."\" width='80px' height='50px' onmouseover=\"document.mainphoto.src='".$Imrow['filename']."'\" alt='' /></div>";
 		}
 	}
 	else
