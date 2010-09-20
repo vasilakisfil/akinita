@@ -428,21 +428,6 @@ text-shadow:1px 1px 1px #fff;
 	padding-left: 20px;
 	background:url(images/bg-zip-search-box.png) no-repeat left top;
 	}
-
-#zip-search-box {
-	float: right;
-	display: inline;
-	width:306px;
-	height:60px;
-	color:#fff;
-	font-size:12px;
-	font-weight:bold;
-	margin-right: 6px;
-	padding-top: 13px;
-	padding-left: 20px;
-	background:url(images/bg-zip-search-box.png) no-repeat left top;
-	}
-	
 .town-input-box {
 	display: inline;
 	color:#323232;
@@ -457,7 +442,20 @@ text-shadow:1px 1px 1px #fff;
 	padding-bottom:3px;
 	}
 
-.zip-input-box {
+#search-box {
+	float: right;
+	display: inline;
+	width:306px;
+	height:60px;
+	color:#fff;
+	font-size:12px;
+	font-weight:bold;
+	margin-right: 6px;
+	padding-top: 13px;
+	padding-left: 20px;
+	background:url(images/bg-zip-search-box.png) no-repeat left top;
+	}
+.input-box {
 	display: inline;
 	width:75px;
 	color:#323232;

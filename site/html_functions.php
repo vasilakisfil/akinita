@@ -136,9 +136,11 @@ function dispMainPage()
 {
 ?>
 <div class='header-bar-full'><h1 class="blue">Καλως ορίσατε στο Project Ακίνητα!</h1></div>
-<div id="zip-search-box">
+<div id="search-box">
 	<form method="post" action="homeSearchRes.php">
-	<span class="yellow">Γρήγορη </span> Αναζήτηση:&nbsp;&nbsp;<input type="text" maxlength="30" size="15" class="zip-input-box" name="mainQuery" value="Ψαχτήρι" />
+	<span class="yellow">Γρήγορη </span> Αναζήτηση:&nbsp;&nbsp;<input type="text" maxlength="30" size="15" class="input-box" 
+	name="mainQuery" value="Ψαχτήρι..." 
+	onfocus="if (this.value == 'Ψαχτήρι...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Ψαχτήρι...';}" />
 	<input type="image" src="images/btn-go.png" value="Βρές!"  />
 	</form>
 </div>
