@@ -367,6 +367,8 @@ text-shadow:1px 1px 1px #fff;
 	color:#d8d9b8;
 	}
 
+.center{text-align:center;}
+	
 #sub-header {
 	width:762px;
 	height:40px;
@@ -480,7 +482,7 @@ text-shadow:1px 1px 1px #fff;
 	text-align:center;
 	font-size:12px;
 	font-weight:bold;
-	margin-right: 5px;
+	margin-left: 25px;
 	padding-top: 20px;
 	padding-left: 0px;
 	margin-top:-10px;

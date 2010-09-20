@@ -156,12 +156,41 @@ echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη
 <div class="content-box-1-middle">
 <div class="content-box-1-content"> <div align="center">
 	
-	<h2>EDW MPAINEI TO GOOGLE MAPS</h2>
+	<h2>Εδώ θα μπει ο χάρτης του google maps.</h2>
+	<h5>Θα έχει τη πόλη της πάτρας και πάνω πινέζες απο όλες τις καταχωρήσεις</h5>
+</div>
+ </div>
+</div>
+<div class="content-box-1-bottom">&nbsp;</div>
+</div><br/><br/><br/>
+
+<div id="sub-header"><span class="yellow">Τελευταίες </span>Αγγελίες</div>
+<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content"> <div align="center">
+	
+	<h4>Εδώ θα μπούν οι πιο καινουργιες αγγελιες μάλλον με το μεγαλύτερο ID</h4>
+</div>
+ </div>
+</div>
+<div class="content-box-1-bottom">&nbsp;</div>
+</div><br/><br/><br/>	
+
+<div id="sub-header"><span class="yellow">Δημοφιλέστερες </span>Αγγελίες</div>
+<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content"> <div align="center">
+	
+	<h4>Εδώ οι δημοφιλέστερες δλδ με περισσοτερο views</h4>
 </div>
  </div>
 </div>
 <div class="content-box-1-bottom">&nbsp;</div>
 </div>	
+
+	
 <?php
 }	
 	
