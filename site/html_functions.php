@@ -908,7 +908,7 @@ while($row = mysql_fetch_array($facilities))
 
 <br /><br />
 
-<input type="submit" value="Bρες τώρα !!">
+<input id="button-big" type="submit" value="Bρες τώρα !!">
 </form>
 </div></div>
 </div>
