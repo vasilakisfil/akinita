@@ -637,7 +637,9 @@ $facilities=db_excecute($message,'select2');
 <input type="radio" name="typos" value="enoikiash" /> Ενοικίαση
 
 <h3>Διεύθυνση Ακινήτου:</h3>
-<textarea rows="2" cols="25" wrap="physical" name="address">Οδος-Αριθμος</textarea>
+<textarea rows="2" cols="25" wrap="physical" 
+onfocus="if (this.value == 'Οδος-Αριθμος') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Οδος-Αριθμος';}" 
+name="address">Οδος-Αριθμος</textarea>
 
 <h3>Κατηγορία ακινήτου:</h3>
 <?php
@@ -684,9 +686,9 @@ while($row = mysql_fetch_array($facilities))
 }?>
 
 <h3>Σχόλια:</h3>
-<textarea rows="5" cols="40" wrap="physical" name="comments">
-Enter Comments Here
-</textarea>
+<textarea rows="5" cols="40" wrap="physical" name="comments" 
+onfocus="if (this.value == 'Βάλτε εδώ σχόλια') {this.value = '';}" 
+onblur="if (this.value == '') {this.value = 'Βάλτε εδώ σχόλια';}" >Βάλτε εδώ σχόλια</textarea>
 
 <br />
 <br />
