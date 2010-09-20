@@ -144,20 +144,24 @@ function dispMainPage()
 	<input type="image" src="images/btn-go.png" value="Βρές!"  />
 	</form>
 </div>
-
 <?php
 $query="select * from property;";
 $result=db_excecute($query,"ajax_quary");
 $rows=mysql_num_rows($result);
 //echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-echo "Διαθέσιμες Aγγελίες: &nbsp;$rows<br />";
+echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη στιγμή: <span class='yellow'>&nbsp;$rows</span></div><br /><br /><br />";
 ?>
-
+<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content"> <div align="center">
 	
-	
-
 	<h2>EDW MPAINEI TO GOOGLE MAPS</h2>
-	
+</div>
+ </div>
+</div>
+<div class="content-box-1-bottom">&nbsp;</div>
+</div>	
 <?php
 }	
 	
