@@ -19,9 +19,8 @@ if(isset($_POST['typos'])) $typos=$_POST['typos']; else $typos=NULL;
 if(isset($_POST['category'])) $category=$_POST['category']; else $category=NULL;
 if(isset($_POST['delete'])) $delete=$_POST['imgId']; else $delete=NULL;
 if(isset($_POST['add'])) $add=$_POST['add']; else $add=NULL;
-if(isset($_POST['description'])) $description=$_POST['description']; else $description="";
 if(isset($_POST['file_count'])) $file_count=$_POST['file_count']; else $file_count=0;
-if(isset($_POST['counter'])) $counter=$_POST['counter']; else $counter=666;
+if(isset($_POST['description'])) $description=($_POST['description']); else $description="";
 
 //arxikopoihsh tou $message
 $message="";
@@ -165,6 +164,7 @@ try{
 				//enhmerwtiko munhma
 				$phMessage.="<br /> Actual filename that is insert into database: ".$filename;
 				//to query gia thn eisagwgh twn dedomenwn ths eikonas sthn vash..
+				$description=$description[$i];
 				$insert="insert into images (prop_id,filename,mime_type,image_size,description) values ($propId,'$filename','$mimeType',$size,'$description')";
 				//antigrafoume thn eikona apo ekei pou einai proswrina apo8hkeumenh sto directory pou kratame oles tis fwtografies
 				//echo $phMessage;
