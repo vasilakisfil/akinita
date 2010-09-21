@@ -606,25 +606,20 @@ while($row = mysql_fetch_array($result))
 <input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
-<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>" enctype="multipart/form-data"> 
+
+ <form method="POST" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>" enctype="multipart/form-data">
 <fieldset>
 <legend>Προσθήκη Φωτογραφίας</legend>
-Περιγραφή(προαιρετικό)<input type="text" name="description" />
-<input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-<input name="new_file" type="file" id="new_file"> 
-<input name="upload" type="submit" class="box" id="upload" value=" Upload ">
-</fieldset>
-</form>
- <form method="POST" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>" enctype="multipart/form-data">
     <input type="hidden" name="file_count" id="file_count" value="0" />
     <table id="files_table" border="0" cellpadding="0" cellspacing="0">
         <tr id="new_file_row">
             <td>
-				<input type="text" name="description[0]" /><input type="file" name="new_file[0]" id="new_file[0]" readonly="readonly" onchange="add_new_file(this)" />
+				Περιγραφή(giati toso megala???)<input type="text" name="description[0]" /><input type="file" name="new_file[0]" id="new_file[0]" readonly="readonly" onchange="add_new_file(this)" />
             </td>
         </tr>
     </table>
 <input name="upload" type="submit" class="box" id="upload" value=" Upload ">
+</fieldset>
 </form>
 <?php
 }

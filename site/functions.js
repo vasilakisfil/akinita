@@ -472,7 +472,7 @@ function add_new_file(field)
     var row = table.insertRow(table.rows.length);
     row.id = "inserted_file["+count+"]";
     var cell0 = row.insertCell(0);
-    cell0.innerHTML = '<input type="text" name="description['+count+']" /><input type="text" disabled="disabled" name="inserted_file['+count+']" value="'+file_name+'" /><input type="button" name="delete['+count+']" value="Delete" onclick="delete_inserted(this)"';
+    cell0.innerHTML = 'Περιγραφή(giati toso megala???)<input type="text" name="description['+count+']" /><input type="text" disabled="disabled" name="inserted_file['+count+']" value="'+file_name+'" /><input type="button" name="delete['+count+']" value="Delete" onclick="delete_inserted(this)"';
     
     // Increment count of the number of files uploaded.
     ++count;
@@ -481,7 +481,7 @@ function add_new_file(field)
     var row = table.insertRow(table.rows.length);
     row.id = "new_file_row";
     var cell0 = row.insertCell(0);
-    cell0.innerHTML = '<input type="text" name="description['+count+']" /><input type="file" name="new_file['+count+']" id="new_file['+count+']" readonly="readonly" onchange="add_new_file(this)" />';    
+    cell0.innerHTML = 'Περιγραφή(giati toso megala???)<input type="text" name="description['+count+']" /><input type="file" name="new_file['+count+']" id="new_file['+count+']" readonly="readonly" onchange="add_new_file(this)" />';    
     
     // Update the value of the file hidden input tag holding the count of files uploaded.
     document.getElementById('file_count').value = count;

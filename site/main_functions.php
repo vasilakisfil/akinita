@@ -689,6 +689,10 @@ function showProperty($propId)
 {
 	global $val_user;
 	global $type;
+	
+	$edit="editProperty.php";
+	$view="viewProperty.php";
+	$server=$_SERVER['SCRIPT_NAME'];
 
 	//query pou vriskei oles tis fwtografies tou akinhtou
 	$selImages="select * from images where prop_id=$propId";
@@ -799,9 +803,6 @@ echo "
 	//elegxoume an to akinhto einai tou xrhsth 'h an o xrhsths einai admin gia na emfanistei to link gia epe3ergasia..
 	if($val_user==$row['user_id'] || ($type=="Admin"))
 	{
-		$edit="editProperty.php";
-		$view="viewProperty.php";
-		$server=$_SERVER['SCRIPT_NAME'];
 		//elegxoume an eimaste sto editProperty 'h sto viewProperty
 		//don't change == !!!
 		if(stripos($server,$edit)!==FALSE)
@@ -836,8 +837,21 @@ echo "
 		   <span style='font-size: 10pt; font-family: Maiandra GD'>".$row['comments']."</span> ";
 
 	echo "</div></div> <div class='clearDiv'>&nbsp;</div> </div></div>";
+
+}
+
+function showPropPhotosDel($propId)
+{
+
+	global $val_user;
+	global $type;
+
+	//query pou vriskei oles tis fwtografies tou akinhtou
+	$selImages="select * from images where prop_id=$propId";
+	$resImg=db_excecute($selImages,"selImages:");
 	//emfanizoume tis fwtografies...
-	/*if(mysql_num_rows($resImg)>0)
+
+	if(mysql_num_rows($resImg)>0)
 	{
 		while($Imrow = mysql_fetch_array($resImg))
 		{
@@ -859,7 +873,7 @@ echo "
 				}
 				echo "<br />";
 		}
-	}*/
+	}
 }
 
 /************************************************

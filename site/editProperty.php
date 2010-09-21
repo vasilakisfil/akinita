@@ -201,6 +201,7 @@ try{
 	echo "<br /><br />";
 	//..kai tis epiloges gia thn allagh tou profil
 	dispPropOptions($propId);
+	showPropPhotosDel($propId);
 
 	//echo "<img src=\"photos\\1-1-house-canada.jpg\" alt=\"Big Boat\" />";
 	dispFooter();
