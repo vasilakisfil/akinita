@@ -739,7 +739,7 @@ function showProperty($propId)
 		mysql_data_seek($resImg,0);
 		while($Imrow = mysql_fetch_array($resImg))
 		{
-			echo "<div class='propDetailThumb propDetailRight'><img src=\"".$Imrow['filename']."\" width='97px' height='60px' onmouseover=\"document.mainphoto.src='".$Imrow['filename']."'\" alt='' /></div>";
+			echo "<div class='propDetailThumb propDetailRight'><a href=\"".$Imrow['filename']."\"><img src=\"".$Imrow['filename']."\" width='97px' height='60px' onmouseover=\"document.mainphoto.src='".$Imrow['filename']."'\" alt='' /></a></div>";
 		}
 	}
 	else
@@ -857,7 +857,7 @@ function showPropPhotosDel($propId)
 		{
 				echo "<br />";
 				//emfanish fwtografias
-				echo "<img src=\"".$Imrow['filename']."\" alt=\"photo\" />";
+				echo "<img src=\"".$Imrow['filename']."\" alt=\"photo\" width='311px' height='215px' />";
 				//emfanish tou description
 				echo "<p>".$Imrow['description']."</p>";
 				//an eimaste sthn epe3ergasia ths aggelias emfanizoume epilogh gia diagrafh ths ka8e eikonas..
