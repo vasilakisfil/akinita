@@ -513,3 +513,18 @@ function delete_inserted(field)
     // Update the value of the file hidden input tag holding the count of files uploaded.
     //document.getElementById('file_count').value = count;
 }
+
+
+function mouseOver(source,description)
+{
+	document.getElementById("mainphoto").src=source;
+	document.getElementById("switch").innerHTML=description;
+
+}
+
+
+
+
+
+
+
