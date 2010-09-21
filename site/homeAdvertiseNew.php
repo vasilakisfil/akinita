@@ -38,7 +38,11 @@ try
 	//telos elegxoume an to etos kataskeuhs einai swsta kataxwrhmeno
 	if(!filledOut($_POST['constr_date'])) throw new Exception('Prepei na valete etos kataskeuhs');
 	else $constrDate=$_POST['constr_date'];
-	if(filledOut($_POST['comments'])) $comments=trim($_POST['comments']);
+	if(filledOut($_POST['comments']))
+	{
+		$comments=trim($_POST['comments']);
+		if($comments="Βάλτε εδώ σχόλια") $comments="";
+	}
 	
 
 	//dhmiourgoume mia metavlhth $message pou ousiastika 8a krataei to query pou 8a stalei sthn vash

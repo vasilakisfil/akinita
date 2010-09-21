@@ -906,37 +906,39 @@ function propertySearch($message,$Ftype=NULL)
 			if($row[$i]=="S")
 			{
 				echo"<div class='propListingSubInfo'>
-			<div class='propListingAmenities'>
-				<strong>Προς:</strong>Πώληση<br />
-				<strong>Εμφανίσεις:</strong> 1
-			</div>
-		    <div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>";
-			if(isset($type) && $type=="Admin")
-		{
-			if($Ftype=="Delete") echo "<strong>Διαγραφή?</strong> 
-			<input type=checkbox name=delProperty[] value=".$row[0]." />";
-			else if ($Ftype=="Accept") echo "<strong>Αποδοχή?</strong><input type=checkbox name=accProperty[] value=".$row[0]." />";
-			else if ($Ftype=="Favourites") echo "<strong>Προσθήκη?</strong><input type=checkbox name=remProperty[] value=".$row[0]." />";
-		} 
-		echo"</div>";
+				<div class='propListingAmenities'>
+					<strong>Προς:</strong>Πώληση<br />
+					<strong>Εμφανίσεις:</strong> 1
+				</div>
+				<div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>";
+				if(isset($type))
+				{
+					if($Ftype=="Delete" && $type=="Admin") echo "<strong>Διαγραφή?</strong> 
+					<input type=checkbox name=delProperty[] value=".$row[0]." />";
+					else if($Ftype=="UserDelete") echo "<strong>Διαγραφή?</strong> 
+					<input type=checkbox name=delProperty[] value=".$row[0]." />";
+					else if ($Ftype=="Accept" && $type=="Admin") echo "<strong>Αποδοχή?</strong><input type=checkbox name=accProperty[] value=".$row[0]." />";
+				} 
+				echo"</div>";
 		
 			}
 			else if($row[$i]=="L")
 			{
 				echo"<div class='propListingSubInfo'>
-			<div class='propListingAmenities'>
+				<div class='propListingAmenities'>
 				<strong>Προς:</strong>Ενοικίαση<br />
 				<strong>Εμφανίσεις:</strong> 1
-			</div>
-			<div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>";
-		if(isset($type) && $type=="Admin")
-		{
-			if($Ftype=="Delete") echo "<strong>Διαγραφή?</strong> 
-			<input type=checkbox name=delProperty[] value=".$row[0]." />";
-			else if ($Ftype=="Accept") echo "<strong>Αποδοχή?</strong><input type=checkbox name=accProperty[] value=".$row[0]." />";
-			else if ($Ftype=="Favourites") echo "<strong>Προσθήκη?</strong><input type=checkbox name=remProperty[] value=".$row[0]." />";
-		} 
-		echo"</div>";
+				</div>
+				<div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>";
+				if(isset($type))
+				{
+					if($Ftype=="Delete" && $type=="Admin") echo "<strong>Διαγραφή?</strong> 
+					<input type=checkbox name=delProperty[] value=".$row[0]." />";
+					else if($Ftype=="UserDelete") echo "<strong>Διαγραφή?</strong> 
+					<input type=checkbox name=delProperty[] value=".$row[0]." />";
+					else if ($Ftype=="Accept" && $type=="Admin") echo "<strong>Αποδοχή?</strong><input type=checkbox name=accProperty[] value=".$row[0]." />";
+				} 
+				echo"</div>";
 		
 			}
 			
@@ -967,11 +969,11 @@ function propertySearch($message,$Ftype=NULL)
 		echo "</div>";
 	}
 	
-	if(isset($type) && $type=="Admin")
+	if(isset($type) )
 	{
-		if($Ftype=="Delete") echo "<input type=submit value=Διαγραφή />";
-		else if($Ftype=="Accept") echo "<input type=submit value=Έγκριση />";
-		else if($Ftype=="Favourites") echo "<input type=submit value=Αφαίρεση />";
+		if($Ftype=="Delete" && $type=="Admin") echo "<input type=submit value=Διαγραφή />";
+		if($Ftype=="UserDelete" ) echo "<input type=submit value=Διαγραφή />";
+		else if($Ftype=="Accept" && $type=="Admin") echo "<input type=submit value=Έγκριση />";
 	} 
 echo"<div id='details-header'><div class='details-header-pagination'><strong>Σελίδα</strong> <a href=''><<</a> <strong>1</strong> 
      <a href=''>2</a> <a href=''>3</a> <a href=''>4</a> <a href=''>5</a> <a href=''>6</a> <a href=''>7</a> <a href=''>8</a> <a href=''>>></a>  

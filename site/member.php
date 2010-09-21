@@ -81,6 +81,8 @@ if (isset($_SESSION['user_type']))
 		echo "<br />";
 		dispURL("favAdvs.php","Προβολή των Αγαπημένων μου αγγελιών");
 		echo "<br />";
+		dispURL("myProperties.php","Προβολή των δικών μου αγγελιών");
+		echo "<br />";
 	}
 	//alliws emfanise mono tis epiloges tou aplou xrhsth
 	else
@@ -94,6 +96,8 @@ if (isset($_SESSION['user_type']))
 		dispURL("editUser.php?user=".$val_user,"Επεξεργασία του προφίλ μου");
 		echo "<br />";
 		dispURL("favAdvs.php","Προβολή των Αγαπημένων μου αγγελιών");
+		echo "<br />";
+		dispURL("myProperties.php","Προβολή των δικών μου αγγελιών");
 		echo "<br />";
 	}
     dispURL("logout.php","Αποσύνδεση");

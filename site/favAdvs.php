@@ -10,6 +10,7 @@ if(isset($_POST['remProperty'])) $remProp=$_POST['remProperty']; else $remProp=N
 
 try
 {
+	check_valid_user();
 	if(isset($remProp))
 	{
 		foreach($remProp as $prop)
