@@ -452,3 +452,64 @@ xmlhttp.open("GET","ajax.php"+param,true);
 //http.setRequestHeader("Connection", "close");
 xmlhttp.send();
 }
+
+function add_new_file(field)
+{
+    // Get the number of files previously uploaded.
+    var count = parseInt(document.getElementById('file_count').value);
+    
+    // Get the name of the file that has just been uploaded.
+    var file_name = document.getElementById("new_file["+count+"]").value;
+    
+    // Hide the file upload control containing the information about the picture that was just uploaded.
+    document.getElementById('new_file_row').style.display = "none";
+    document.getElementById('new_file_row').id = "new_file_row["+count+"]";
+    
+    // Get a reference to the table containing the uploaded pictures.        
+    var table = document.getElementById('files_table');
+    
+    // Insert a new row with the file name and a delete button.
+    var row = table.insertRow(table.rows.length);
+    row.id = "inserted_file["+count+"]";
+    var cell0 = row.insertCell(0);
+    cell0.innerHTML = '<input type="text" name="description['+count+']" /><input type="text" disabled="disabled" name="inserted_file['+count+']" value="'+file_name+'" /><input type="button" name="delete['+count+']" value="Delete" onclick="delete_inserted(this)"';
+    
+    // Increment count of the number of files uploaded.
+    ++count;
+    
+    // Insert a new file upload control in the table.
+    var row = table.insertRow(table.rows.length);
+    row.id = "new_file_row";
+    var cell0 = row.insertCell(0);
+    cell0.innerHTML = '<input type="text" name="description['+count+']" /><input type="file" name="new_file['+count+']" id="new_file['+count+']" readonly="readonly" onchange="add_new_file(this)" />';    
+    
+    // Update the value of the file hidden input tag holding the count of files uploaded.
+    document.getElementById('file_count').value = count;
+}
+
+function delete_inserted(field)
+{
+
+    // Get the field name.
+    var name = field.name;
+    
+    // Extract the file id from the field name.
+    var id = name.substr(name.indexOf('[') + 1, name.indexOf(']') - name.indexOf('[') - 1);
+    
+    // Hide the row displaying the uploaded file name.
+    document.getElementById("inserted_file["+id+"]").style.display = "none";
+        
+    // Get a reference to the uploaded file control.
+    var control1 = document.getElementById("new_file["+id+"]");
+    // Get a reference to the uploaded file control.
+    var control1 = document.getElementById("new_file["+id+"]");
+    
+    // Remove the new file control.
+    control1.parentNode.removeChild(control1);
+
+    // Get the number of files previously uploaded.
+    //var count = parseInt(document.getElementById('file_count').value);
+    //--count;
+    // Update the value of the file hidden input tag holding the count of files uploaded.
+    //document.getElementById('file_count').value = count;
+}

@@ -20,6 +20,8 @@ if(isset($_POST['category'])) $category=$_POST['category']; else $category=NULL;
 if(isset($_POST['delete'])) $delete=$_POST['imgId']; else $delete=NULL;
 if(isset($_POST['add'])) $add=$_POST['add']; else $add=NULL;
 if(isset($_POST['description'])) $description=$_POST['description']; else $description="";
+if(isset($_POST['file_count'])) $file_count=$_POST['file_count']; else $file_count=0;
+if(isset($_POST['counter'])) $counter=$_POST['counter']; else $counter=666;
 
 //arxikopoihsh tou $message
 $message="";
@@ -114,59 +116,66 @@ try{
 		$message="Η τιμή του ακινήτο άλλαξε!";
 	}
 	//elegxoume an uparxei to file ston global pinaka $_FILES
-	if (array_key_exists('file', $_FILES))
-	{
-		$phMessage="you uploaded a file !!!\n";
-		//elegxoume an kata thn diadikasia upload proekupse kapoio sfalma
-		if ($_FILES["file"]["error"] > 0)
+		for($i=0; $i<$file_count; $i++)
 		{
-			throw new Exception("Error: " . $_FILES["file"]["error"] . "<br />");
-		}
-		//apo8hkeuoume ta enhmerwtika munhmata
-		$phMessage.="Upload: " . $_FILES["file"]["name"] . "<br />";
-		$phMessage.="Type: " . $_FILES["file"]["type"] . "<br />";
-		$phMessage.="Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
-		$phMessage.="Stored in: " . $_FILES["file"]["tmp_name"];
-		//pername se local metavlhtes tis global metavlhtes tou pinaka $_FILES
-		$uploadName=$_FILES["file"]["name"];
-		$mimeType=$_FILES["file"]["type"];
-		$size=($_FILES["file"]["size"] / 1024);
-		$stored=$_FILES["file"]["tmp_name"];
-		//anaktoume to parwn directory
-		$pwd=getcwd();
-		//+++++++++++++++++++++++++++++++++++++++++++
-		//+++++++++++++++++++++++++++++++++++++++++++
-		$photosD="photos/".$propId."/";
-		$middle="/";
-		//proetoimasia gia thn kataxwrhsh sthn vash...
-		//vriskoume ton ari8mo twn hdh apo8hkeumenwn eikonwn gia auto to akinhto(pure tropos onomasias eikonas)
-		$findRows="select * from images where prop_id=$propId";
-		//ekteloume to query
-		$result=db_excecute($findRows,"exists");
-		//vriskoume ton ari8mo twn seirwn
-		$rows=mysql_num_rows($result);
-		//onomazoume to arxeio analoga me ton ari8mo twn seirwn kai to id ths aggelias
-		$filename=$photosD.$propId."-".$rows."-".$_FILES["file"]["name"];
-		//edw apo8hkeuoume to destination pou 8a paei h eikona apo ekei pou einai temporary apo8hkeumenh
-		$destination=$pwd.$middle.$filename;
-		//enhmerwtika mhnhmata
-		$phMessage.="<br /> Destination directory: ".$destination;
-		$phMessage.="<br /> Source directory: ".$stored;
-		$phMessage.="<br /> filename: ".$filename;
-
-		//edw eisagoume slashes se special characters(px directory) prin apo8hkeutei to akinhto sthn vash..
-		$filename=addslashes($filename);
-		//enhmerwtiko munhma
-		$phMessage.="<br /> Actual filename that is insert into database: ".$filename;
-		//to query gia thn eisagwgh twn dedomenwn ths eikonas sthn vash..
-		$insert="insert into images (prop_id,filename,mime_type,image_size,description) values ($propId,'$filename','$mimeType',$size,'$description')";
-		//antigrafoume thn eikona apo ekei pou einai proswrina apo8hkeumenh sto directory pou kratame oles tis fwtografies
-		if(!copy($stored,$destination)) throw new Exception("Failed to copy the file...");
-		//ekteloume telos to query
-		db_excecute($insert,"insert image");
-		$message="Η εικόνα καταχωρήθηκε.";
+			if(isset($_FILES["new_file"]["error"][$i]))
+			{
+				$phMessage="you uploaded a file !!!\n";
+				//elegxoume an kata thn diadikasia upload proekupse kapoio sfalma
+				if ($_FILES["new_file"]["error"][$i] > 0)
+				{
+					throw new Exception("Errorr: " . $_FILES["new_file"]["error"][$i] . "<br />");
+				}
+				//apo8hkeuoume ta enhmerwtika munhmata
+				$phMessage.="Upload: " . $_FILES["new_file"]["name"][$i] . "<br />";
+				$phMessage.="Type: " . $_FILES["new_file"]["type"][$i] . "<br />";
+				$phMessage.="Size: " . ($_FILES["new_file"]["size"][$i] / 1024) . " Kb<br />";
+				$phMessage.="Stored in: " . $_FILES["new_file"]["tmp_name"][$i];
+				//pername se local metavlhtes tis global metavlhtes tou pinaka $_FILES
+				$uploadName=$_FILES["new_file"]["name"][$i];
+				$mimeType=$_FILES["new_file"]["type"][$i];
+				$size=($_FILES["new_file"]["size"][$i] / 1024);
+				$stored=$_FILES["new_file"]["tmp_name"][$i];
+				//anaktoume to parwn directory
+				$pwd=getcwd();
+				//+++++++++++++++++++++++++++++++++++++++++++
+				//+++++++++++++++++++++++++++++++++++++++++++
+				$photosD="photos/".$propId."/";
+				$middle="/";
+				//proetoimasia gia thn kataxwrhsh sthn vash...
+				//vriskoume ton ari8mo twn hdh apo8hkeumenwn eikonwn gia auto to akinhto(pure tropos onomasias eikonas)
+				$findRows="select * from images where prop_id=$propId";
+				//ekteloume to query
+				$result=db_excecute($findRows,"exists");
+				//vriskoume ton ari8mo twn seirwn
+				$rows=mysql_num_rows($result);
+				//onomazoume to arxeio analoga me ton ari8mo twn seirwn kai to id ths aggelias
+				$filename=$photosD.$propId."-".$rows."-".$_FILES["new_file"]["name"][$i];
+				//edw apo8hkeuoume to destination pou 8a paei h eikona apo ekei pou einai temporary apo8hkeumenh
+				$destination=$pwd.$middle.$filename;
+				//enhmerwtika mhnhmata
+				$phMessage.="<br /> Destination directory: ".$destination;
+				$phMessage.="<br /> Source directory: ".$stored;
+				$phMessage.="<br /> filename: ".$filename;
+				$phMessage.="<br /> file_count: ".$file_count;
+				$phMessage.="<br /> description: ".$description[$i];
+				//echo $phMessage;
+				//edw eisagoume slashes se special characters(px directory) prin apo8hkeutei to akinhto sthn vash..
+				$filename=addslashes($filename);
+				//enhmerwtiko munhma
+				$phMessage.="<br /> Actual filename that is insert into database: ".$filename;
+				//to query gia thn eisagwgh twn dedomenwn ths eikonas sthn vash..
+				$insert="insert into images (prop_id,filename,mime_type,image_size,description) values ($propId,'$filename','$mimeType',$size,'$description')";
+				//antigrafoume thn eikona apo ekei pou einai proswrina apo8hkeumenh sto directory pou kratame oles tis fwtografies
+				//echo $phMessage;
+				//exit;
+				if(!copy($stored,$destination)) throw new Exception("Failed to copy the file...");
+				//ekteloume telos to query
+				db_excecute($insert,"insert image");
+				$message="Η εικόνα $uploadName καταχωρήθηκε.";
+			}
 			
-	}
+		}
 	//elegxoume an exei epilextei na diagrafei mia eikona
 	if($delete)
 	{
