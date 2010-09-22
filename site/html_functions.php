@@ -614,7 +614,7 @@ while($row = mysql_fetch_array($result))
     <table id="files_table" border="0" cellpadding="0" cellspacing="0">
         <tr id="new_file_row">
             <td>
-				Περιγραφή(giati toso megala???)<input type="text" name="description[0]" /><input type="file" name="new_file[0]" id="new_file[0]" readonly="readonly" onchange="add_new_file(this)" />
+				<input type="text" value="Περιγραφή" name="description[0]" /><input type="file" name="new_file[0]" id="new_file[0]" readonly="readonly" onchange="add_new_file(this)" />
             </td>
         </tr>
     </table>

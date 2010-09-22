@@ -734,7 +734,7 @@ function showProperty($propId)
 		$Imrow = mysql_fetch_array($resImg);
 		echo "<div id='propDetailLeftBox'>
 		<div id='propDetailPhoto'><img name='mainphoto' id=\"mainphoto\" src=\"".$Imrow['filename']."\" width='311px' height='215px' alt='no photo' /></div>";
-		echo "<div id=switch>Description here</div>";
+		echo "<div id=switch style=\"color:#ffc20e\">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;".$Imrow['description']."</div>";
 		
 		echo "<div id='propDetailThumbs' style='height:auto;'>";
 		mysql_data_seek($resImg,0);

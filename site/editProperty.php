@@ -164,7 +164,8 @@ try{
 				//enhmerwtiko munhma
 				$phMessage.="<br /> Actual filename that is insert into database: ".$filename;
 				//to query gia thn eisagwgh twn dedomenwn ths eikonas sthn vash..
-				$description_=$description[$i];
+				$description_=trim($description[$i]);
+				if($description_=="Περιγραφή") $description_="";
 				$insert="insert into images (prop_id,filename,mime_type,image_size,description) values ($propId,'$filename','$mimeType',$size,'$description_')";
 				//antigrafoume thn eikona apo ekei pou einai proswrina apo8hkeumenh sto directory pou kratame oles tis fwtografies
 				//echo $phMessage;
