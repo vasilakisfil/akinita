@@ -898,7 +898,7 @@ function propertySearch($message,$Ftype=NULL,$page)
 	
 	//emfanish twn dedomenwn
 	echo "<form name=actionProp action=".$_SERVER['REQUEST_URI']." method=post>";
-	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1>";
+	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1></div>";
 
 	echo $print['up'];
 	 
@@ -1016,7 +1016,7 @@ function getThePages($page,$pages)
 		$page_[$i]=$_SERVER['SCRIPT_NAME']."?page=".$i;
 	}
 
-	$print['up'].="</div><div id='details-header'> <strong>Σελίδα</strong> ";
+	$print['up'].="<div id='details-header'> <strong>Σελίδα</strong> ";
 	$print['down'].="<div id='details-header'><div class='details-header-pagination'><strong>Σελίδα</strong>";
 
 	if($pages<=8)
