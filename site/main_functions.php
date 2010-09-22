@@ -883,16 +883,17 @@ function showPropPhotosDel($propId)
 *************************************************/
 function propertySearch($message,$Ftype=NULL,$page)
 {
+	$view=5;
 	global $type;
 	$result = db_excecute("$message","");
 	$numRows=mysql_num_rows($result);
 	//echo $numRows."<br />";
-	$pages=($numRows/5);
+	$pages=($numRows/$view);
 	if($pages>(int)$pages)
 	{
 		$pages=(int)$pages+1;
 	}
-
+	
 	$print=getThePages($page,$pages);
 	
 	//emfanish twn dedomenwn
@@ -901,15 +902,16 @@ function propertySearch($message,$Ftype=NULL,$page)
 
 	echo $print['up'];
 	 
-	 echo "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+	 echo "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 	 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 	 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	 <span>Εμφανίζονται <strong>1-xx</strong> από <strong>xxx</strong> Αποτελέσματα</span> 
+	 <span>Εμφανίζονται <strong>".($view*($page-1)+1)."-".($view*($page))."</strong> από <strong>".$numRows."</strong> Αποτελέσματα</span> 
 	
 	</div>";
-	mysql_data_seek($result,($page-1)*5);
+	mysql_data_seek($result,($page-1)*$view);
 	$counter=0;
-	 while(($row = mysql_fetch_array($result,MYSQL_NUM)) && ($counter<5))
+	 while(($row = mysql_fetch_array($result,MYSQL_NUM)) && ($counter<$view))
 	{
 		$counter++;
 		$q="select * from images where prop_id=".$row[0];
@@ -1003,6 +1005,7 @@ function propertySearch($message,$Ftype=NULL,$page)
 	echo "</div></div>";
 }
 
+
 function getThePages($page,$pages)
 {
 	$print['up']="";
@@ -1016,40 +1019,94 @@ function getThePages($page,$pages)
 	$print['up'].="</div><div id='details-header'> <strong>Σελίδα</strong> ";
 	$print['down'].="<div id='details-header'><div class='details-header-pagination'><strong>Σελίδα</strong>";
 
-	$flag=0;
-	for($i=1; $i<=$pages; $i++)
+	if($pages<=8)
 	{
-		/*if($page==1)
+		$flag=0;
+		for($i=1; $i<=$pages; $i++)
 		{
-			$temp.="<<<strong>1</strong>";
+			if($page==1 && $flag==0)
+			{
+				$temp.="<<<strong>1</strong>";
+				$flag=1;
+			}
+			else if($page>1 && $flag==0)
+			{
+				if($page==2) $temp.="<a href='".$page_[1]."'><<</a><a href='".$page_[1]."'>1</a>";
+				else $temp.="<a href='".$page_[$page-1]."'><<</a><a href='".$page_[1]."'>1</a>";
+				$flag=1;
+			}
+			else if($i==$page)
+			{
+				$temp.="<strong>".$page."</strong>";
+			}
+			else $temp.="<a href='".$page_[$i]."'>".($i)."</a>";
 		}
-		else if($page==$pages)
-		{
-			$temp.="<strong>".$page."</strong>>>";
-		}
-		else if($i==$page)
-		{
-			$temp.="<strong>".$page."</strong>";
-		}*/
-		if($page==1 && $flag==0)
-		{
-			$temp.="<<<strong>1</strong>";
-			$flag=1;
-		}
-		else if($page>1 && $flag==0)
-		{
-			if($page==2) $temp.="<a href='".$page_[1]."'><<</a><a href='".$page_[1]."'>1</a>";
-			else $temp.="<a href='".$page_[$page-1]."'><<</a><a href='".$page_[1]."'>1</a>";
-			$flag=1;
-		}
-		else if($i==$page)
-		{
-			$temp.="<strong>".$page."</strong>";
-		}
-		else $temp.="<a href='".$page_[$i]."'>".($i)."</a>";
+		if($page==$pages) $temp.=">>";
+		else $temp.="<a href='".$page_[$page+1]."'>>></a>";
 	}
-	if($page==$pages) $temp.=">>";
-	else $temp.="<a href='".$page_[$page+1]."'>>></a>";
+	else
+	{
+		if($page<4)
+		{
+			$flag=0;
+			for($i=1; $i<=5; $i++)
+			{
+				if($page==1 && $flag==0)
+				{
+					$temp.="<<<strong>1</strong>";
+					$flag=1;
+				}
+				else if($page>1 && $flag==0)
+				{
+					$temp.="<a href='".$page_[$page-1]."'><<</a><a href='".$page_[1]."'>1</a>";
+					$flag=1;
+				}
+				else if($i==$page)
+				{
+					$temp.="<strong>".$page."</strong>";
+				}
+				else $temp.="<a href='".$page_[$i]."'>".($i)."</a>";
+			}
+			$temp.="...<a href='".$page_[$pages-1]."'>".($pages-1)."</a><a href='".$page_[$pages]."'>".$pages."</a>";
+			$temp.="<a href='".$page_[$page+1]."'>>></a>";
+		}
+		else if($page==4)
+		{
+			$temp.="<a href='".$page_[3]."'><<</a><a href='".$page_[1]."'>1</a><a href='".$page_[2]."'>2</a><a href='".$page_[3]."'>3</a>";
+			$temp.="<strong>4</strong><a href='".$page_[5]."'>5</a>...<a href='".$page_[$pages-1]."'>".($pages-1)."</a><a href='".$page_[$pages]."'>".$pages."</a>";
+			$temp.="<a href='".$page_[$page+1]."'>>></a>";
+		}
+		else if(($page>4) && ($page<($pages-3)))
+		{
+			$temp.="<a href='".$page_[$page-1]."'><<</a><a href='".$page_[1]."'>1</a>...<a href='".$page_[$page-1]."'>".($page-1)."</a>";
+			$temp.="<strong>".$page."</strong><a href='".$page_[$page+1]."'>".($page+1)."</a>...<a href='".$page_[$pages-1]."'>".($pages-1)."</a><a href='".$page_[$pages]."'>".$pages."</a>";
+			$temp.="<a href='".$page_[$page+1]."'>>></a>";
+		}
+		else if($page==$pages-3)
+		{
+			$temp.="<a href='".$page_[$pages-4]."'><<</a><a href='".$page_[1]."'>1</a><a href='".$page_[2]."'>2</a>...<a href='".$page_[$page-1]."'>".($page-1)."</a>";
+			$temp.="<strong>".$page."</strong><a href='".$page_[$pages-2]."'>".($pages-2)."</a><a href='".$page_[$pages-1]."'>".($pages-1)."</a>";
+			$temp.="<a href='".$page_[$pages]."'>".$pages."</a><a href='".$page_[$page+1]."'>>></a>";
+		}
+		else if($page > $pages-4)
+		{
+			$flag=0;
+			$temp.="<a href='".$page_[$page-1]."'><<</a><a href='".$page_[1]."'>1</a><a href='".$page_[2]."'>2</a>...";
+			for($i=$pages-4; $i<=$pages; $i++)
+			{
+				if($page==$pages && $i==$pages)
+				{
+					$temp.="<strong>".$pages."</strong>>>";
+					
+				}
+				else if($i==$page) $temp.="<strong>".$page."</strong>";
+				else $temp.="<a href='".$page_[$i]."'>".($i)."</a>";
+			}
+			if($page!=$pages) $temp.="<a href='".$page_[$page+1]."'>>></a>";
+			//else 
+		}
+	}
+			
 		
 
 	 $print['up'].=$temp;
