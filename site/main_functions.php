@@ -885,20 +885,16 @@ function propertySearch($message,$Ftype=NULL,$page)
 {
 	global $type;
 	$result = db_excecute("$message","");
-	$numRows=mysql_num_rows($result)+1;
+	$numRows=mysql_num_rows($result);
 	//echo $numRows."<br />";
-	$pages=($numRows/3);
+	$pages=($numRows/5);
 	if($pages>(int)$pages)
 	{
 		$pages=(int)$pages+1;
 	}
-	//echo $page."<br />";
-	//echo $_SESSION['prevPage']."<br />".$_SESSION['query'];
-	$pages=4;
-	//exit;
+
 	$print=getThePages($page,$pages);
-	//echo $print['up']."<br />".$print['down'];
-	//exit;
+	
 	//emfanish twn dedomenwn
 	echo "<form name=actionProp action=".$_SERVER['REQUEST_URI']." method=post>";
 	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1>";
@@ -988,9 +984,7 @@ function propertySearch($message,$Ftype=NULL,$page)
 				<div class='propListingRent'>Τιμή:"."$row[2]"."€</div>
 				<div class='propListingViewDetail'><a href='viewProperty.php?propId=$row[0]' title='View Details' >
 				<img src='images/btnPropListingViewDetail.gif' alt='View Detail'/></a></div> </div>";
-			}
-		
-		
+			}		
 		
 		}
 		
@@ -1019,32 +1013,44 @@ function getThePages($page,$pages)
 		$page_[$i]=$_SERVER['SCRIPT_NAME']."?page=".$i;
 	}
 
-	$print['up'].="</div><div id='details-header'> <strong>Σελίδα</strong>";
+	$print['up'].="</div><div id='details-header'> <strong>Σελίδα</strong> ";
 	$print['down'].="<div id='details-header'><div class='details-header-pagination'><strong>Σελίδα</strong>";
 
-	if($pages<=4)
+	$flag=0;
+	for($i=1; $i<=$pages; $i++)
 	{
-			if($page==1)
-			{
-				$temp.=" <<<strong>1</strong>";
-				$temp.="<a href='".$page_[$page+1]."'>2</a><a href='".$page_[$page+2]."'>3</a><a href='".$page_[$page+3]."'>4</a><a href='".$page_[$page+1]."'>>></a>";
-			}
-			if($page==2)
-			{
-				$temp.="<a href='".$page_[$page-1]."'><<</a><a href='".$page_[$page-1]."'>1</a>";
-				$temp.="<strong>2</strong><a href='".$page_[$page+1]."'>3</a><a href='".$page_[$page+2]."'>4</a><a href='".$page_[$page+1]."'>>></a>";
-			}
-			if($page==3)
-			{
-				$temp.="<a href='".$page_[$page-1]."'><<</a><a href='".$page_[$page-2]."'>1</a>";
-				$temp.="<a href='".$page_[$page-1]."'>2</a><strong>3</strong><a href='".$page_[$page+1]."'>4</a><a href='".$page_[$page+1]."'>>></a>";
-			}
-			if($page==4)
-			{
-				$temp.="<a href='".$page_[$page-1]."'><<</a><a href='".$page_[$page-3]."'>1</a>";
-				$temp.="<a href='".$page_[$page-2]."'>2</a><a href='".$page_[$page-1]."'>3</a><strong>3</strong>>>";
-			}
+		/*if($page==1)
+		{
+			$temp.="<<<strong>1</strong>";
 		}
+		else if($page==$pages)
+		{
+			$temp.="<strong>".$page."</strong>>>";
+		}
+		else if($i==$page)
+		{
+			$temp.="<strong>".$page."</strong>";
+		}*/
+		if($page==1 && $flag==0)
+		{
+			$temp.="<<<strong>1</strong>";
+			$flag=1;
+		}
+		else if($page>1 && $flag==0)
+		{
+			if($page==2) $temp.="<a href='".$page_[1]."'><<</a><a href='".$page_[1]."'>1</a>";
+			else $temp.="<a href='".$page_[$page-1]."'><<</a><a href='".$page_[1]."'>1</a>";
+			$flag=1;
+		}
+		else if($i==$page)
+		{
+			$temp.="<strong>".$page."</strong>";
+		}
+		else $temp.="<a href='".$page_[$i]."'>".($i)."</a>";
+	}
+	if($page==$pages) $temp.=">>";
+	else $temp.="<a href='".$page_[$page+1]."'>>></a>";
+		
 
 	 $print['up'].=$temp;
 	 $print['down'].=$temp;
@@ -1070,6 +1076,31 @@ function db_insertProperty($message)
 	mysql_close($conn);
 
 }
+
+/****************************************************************************************
+*			BECAREFUL WITH THIS FUNCTION !!!!
+*
+*****************************************************************************************/
+function createProperties()
+{
+
+	$link=db_connect();
+	for($i=0; $i<100; $i++)
+	{
+		$message="insert into property (address,price,offer_type,area,constr_date,Afloor,propState,user_id) values
+				('aliartou$i',19000,'S',27,1991,4,'T','vasilakis')";
+		mysql_query($message);
+		$message="insert into cat_prop (prop_id,cat_id) values (".mysql_insert_id().",2)";
+		mysql_query($message);
+	}
+	//echo $message;
+	//exit;
+
+
+	
+
+}
+
 ?>
 
 	 

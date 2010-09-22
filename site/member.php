@@ -83,6 +83,12 @@ if (isset($_SESSION['user_type']))
 		echo "<br />";
 		dispURL("myProperties.php","Προβολή των δικών μου αγγελιών");
 		echo "<br />";
+		echo "
+			<form method=\"post\" action=\"member.php\" >
+			<input type=\"submit\" name=\"pageTest\" value=\"Test pages!\" \>
+			</form>
+			";
+		if(isset($_POST['pageTest'])) createProperties();
 	}
 	//alliws emfanise mono tis epiloges tou aplou xrhsth
 	else
