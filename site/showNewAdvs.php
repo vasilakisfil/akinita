@@ -22,7 +22,7 @@ try
 		}
 	}
 	dispHeader('Νέες αγγελίες');
-	$message="select distinct property.prop_id,address,price,offer_type,area,constr_date,views,category,property.user_id,property.propState from property,categories,cat_prop";
+	$message="select distinct property.prop_id,address,price,offer_type,area,views,category from property,categories,cat_prop";
 	$message.=" where property.propState='F' and";
 	$message.=" property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id";
 	$message=$message.";";

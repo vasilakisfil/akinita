@@ -1045,12 +1045,7 @@ function getThePages($page,$pages)
 				$temp.="<a href='".$page_[$page-2]."'>2</a><a href='".$page_[$page-1]."'>3</a><strong>3</strong>>>";
 			}
 		}
-			//"<a href=''><<</a> <strong>1</strong> 
-		//<a href=''>2</a> <a href=''>3</a> <a href=''>4</a> <a href=''>5</a> <a href=''>6</a> <a href=''>7</a> <a href=''>8</a> <a href=''>>></a>";
-	//*/
-	//$print['up'].="</div>
-	//<div id='details-header'> <strong>Σελίδα</strong> <a href=''><<</a> <strong>1</strong> 
-     //<a href='".$page_[2]."'>2</a> <a href='".$page_[3]."'>3</a> <a href='".$page_[4]."'>4</a> <a href=''>5</a> <a href=''>6</a> <a href=''>7</a> <a href=''>8</a> <a href=''>>></a>";
+
 	 $print['up'].=$temp;
 	 $print['down'].=$temp;
 

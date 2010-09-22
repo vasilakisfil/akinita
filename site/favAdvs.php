@@ -21,16 +21,17 @@ try
 	}
 	$select="select * from fav_prop where user_id='$val_user'";
 	$result=db_excecute($select,"select");
+	$message="select distinct property.prop_id,address,price,offer_type,area,views,category from property,categories,cat_prop where (";
 	if(mysql_num_rows($result)>0)
 	{
-		$message="select * from property where (";
 		while($row=mysql_fetch_assoc($result))
 		{
-			$message.=" prop_id=".$row['prop_id']." or";
+			$message.=" property.prop_id=".$row['prop_id']." or";
 		}
 		$message=substr($message,0,-2);
 		$message.=" )";
 	}
+	$message.=" and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id";
 	//echo $message;
 	check_valid_user();
 	dispHeader('Οι Αγαπημένες μου αγγελίες');
