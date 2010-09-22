@@ -10,6 +10,7 @@ include('includes.php');
 try
 {
 	//elegxoume an o xrhsths einai swsta sundedemenos, an den einai ton emfanizoume ws guest
+	$_SESSION['prevPage']="homeSearch.php";
 	check_valid_user(1);
 	dispHeader('');
 	//h sunarthsh dispHomeSearch() emfanizei thn forma anazhthshs aggeliwn

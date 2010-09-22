@@ -881,27 +881,41 @@ function showPropPhotosDel($propId)
 * Auth h sunarthsh emfanizei oles tis aggelies
 * analoga me to query $message pou exei dw8ei.
 *************************************************/
-function propertySearch($message,$Ftype=NULL)
+function propertySearch($message,$Ftype=NULL,$page)
 {
 	global $type;
 	$result = db_excecute("$message","");
+	$numRows=mysql_num_rows($result)+1;
+	//echo $numRows."<br />";
+	$pages=($numRows/3);
+	if($pages>(int)$pages)
+	{
+		$pages=(int)$pages+1;
+	}
+	//echo $page."<br />";
+	//echo $_SESSION['prevPage']."<br />".$_SESSION['query'];
+	$pages=4;
+	//exit;
+	$print=getThePages($page,$pages);
+	//echo $print['up']."<br />".$print['down'];
+	//exit;
 	//emfanish twn dedomenwn
 	echo "<form name=actionProp action=".$_SERVER['REQUEST_URI']." method=post>";
-	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1>
+	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1>";
 
-</div>
-	<div id='details-header'> <strong>Σελίδα</strong> <a href=''><<</a> <strong>1</strong> 
-     <a href=''>2</a> <a href=''>3</a> <a href=''>4</a> <a href=''>5</a> <a href=''>6</a> <a href=''>7</a> <a href=''>8</a> <a href=''>>></a> 
-	 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	echo $print['up'];
+	 
+	 echo "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 	 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 	 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 	 <span>Εμφανίζονται <strong>1-xx</strong> από <strong>xxx</strong> Αποτελέσματα</span> 
 	
 	</div>";
-	
-
-	 while($row = mysql_fetch_array($result,MYSQL_NUM))
+	mysql_data_seek($result,($page-1)*5);
+	$counter=0;
+	 while(($row = mysql_fetch_array($result,MYSQL_NUM)) && ($counter<5))
 	{
+		$counter++;
 		$q="select * from images where prop_id=".$row[0];
 		$res=db_excecute($q,"search images");
 		if(mysql_num_rows($res)>0)
@@ -989,10 +1003,59 @@ function propertySearch($message,$Ftype=NULL)
 		if($Ftype=="Delete" && $type=="Admin") echo "<input type=submit value=Διαγραφή />";
 		if($Ftype=="UserDelete" ) echo "<input type=submit value=Διαγραφή />";
 		else if($Ftype=="Accept" && $type=="Admin") echo "<input type=submit value=Έγκριση />";
-	} 
-echo"<div id='details-header'><div class='details-header-pagination'><strong>Σελίδα</strong> <a href=''><<</a> <strong>1</strong> 
-     <a href=''>2</a> <a href=''>3</a> <a href=''>4</a> <a href=''>5</a> <a href=''>6</a> <a href=''>7</a> <a href=''>8</a> <a href=''>>></a>  
-	</div></div>";
+	}
+	
+	echo $print['down'];
+	echo "</div></div>";
+}
+
+function getThePages($page,$pages)
+{
+	$print['up']="";
+	$print['down']="";
+	$temp="";
+	for($i=1; $i<=$pages; $i++)
+	{
+		$page_[$i]=$_SERVER['SCRIPT_NAME']."?page=".$i;
+	}
+
+	$print['up'].="</div><div id='details-header'> <strong>Σελίδα</strong>";
+	$print['down'].="<div id='details-header'><div class='details-header-pagination'><strong>Σελίδα</strong>";
+
+	if($pages<=4)
+	{
+			if($page==1)
+			{
+				$temp.=" <<<strong>1</strong>";
+				$temp.="<a href='".$page_[$page+1]."'>2</a><a href='".$page_[$page+2]."'>3</a><a href='".$page_[$page+3]."'>4</a><a href='".$page_[$page+1]."'>>></a>";
+			}
+			if($page==2)
+			{
+				$temp.="<a href='".$page_[$page-1]."'><<</a><a href='".$page_[$page-1]."'>1</a>";
+				$temp.="<strong>2</strong><a href='".$page_[$page+1]."'>3</a><a href='".$page_[$page+2]."'>4</a><a href='".$page_[$page+1]."'>>></a>";
+			}
+			if($page==3)
+			{
+				$temp.="<a href='".$page_[$page-1]."'><<</a><a href='".$page_[$page-2]."'>1</a>";
+				$temp.="<a href='".$page_[$page-1]."'>2</a><strong>3</strong><a href='".$page_[$page+1]."'>4</a><a href='".$page_[$page+1]."'>>></a>";
+			}
+			if($page==4)
+			{
+				$temp.="<a href='".$page_[$page-1]."'><<</a><a href='".$page_[$page-3]."'>1</a>";
+				$temp.="<a href='".$page_[$page-2]."'>2</a><a href='".$page_[$page-1]."'>3</a><strong>3</strong>>>";
+			}
+		}
+			//"<a href=''><<</a> <strong>1</strong> 
+		//<a href=''>2</a> <a href=''>3</a> <a href=''>4</a> <a href=''>5</a> <a href=''>6</a> <a href=''>7</a> <a href=''>8</a> <a href=''>>></a>";
+	//*/
+	//$print['up'].="</div>
+	//<div id='details-header'> <strong>Σελίδα</strong> <a href=''><<</a> <strong>1</strong> 
+     //<a href='".$page_[2]."'>2</a> <a href='".$page_[3]."'>3</a> <a href='".$page_[4]."'>4</a> <a href=''>5</a> <a href=''>6</a> <a href=''>7</a> <a href=''>8</a> <a href=''>>></a>";
+	 $print['up'].=$temp;
+	 $print['down'].=$temp;
+
+	 return (array)$print;
+	 
 }
 
 /************************************************

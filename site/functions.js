@@ -443,7 +443,8 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-    document.getElementById("ajaxDiv").innerHTML="Διαθέσιμες Αγγελίες:"+xmlhttp.responseText;
+		var rows=xmlhttp.responseText;
+		document.getElementById("ajaxDiv").innerHTML='Διαθέσιμες Αγγελίες:'+rows;
     }
   }
 xmlhttp.open("GET","ajax.php"+param,true);
@@ -452,7 +453,7 @@ xmlhttp.open("GET","ajax.php"+param,true);
 //http.setRequestHeader("Connection", "close");
 xmlhttp.send();
 }
-
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function add_new_file(field)
 {
     // Get the number of files previously uploaded.

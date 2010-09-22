@@ -754,15 +754,14 @@ $facilities=db_excecute($message,'select2');
 <div class="content-box-1-middle">
 <div class="content-box-1-content"> <div align="left">
 
-<span id="ajaxDiv">
 <?php
 $query="select * from property;";
 $result=db_excecute($query,"ajax_quary");
 $rows=mysql_num_rows($result);
 //echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-echo "<span class='blue-small'>Διαθέσιμες Aγγελίες:</span> &nbsp;$rows<br />";
+echo "<span id=\"ajaxDiv\" class='blue-small'>Διαθέσιμες Aγγελίες: $rows</span><br />";
 ?>
-</span>
+
 <h3>Διαθέσιμες ενέργειες: </h3>
 <form method="post" action="homeSearchRes.php" name="myform" id="myform" onclick="searchForm()" >
 

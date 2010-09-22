@@ -12,7 +12,8 @@
 	//elegxoume an h session metavlhth valis_user exei te8ei kai an exei te8ei 8etoume sthn topikh metavlhth $val_user thn timh
 	//ths metavlhths $_SESSION['valid_user']
 	if(isset($_SESSION['valid_user'])) $val_user=$_SESSION['valid_user'];
-	
+	if(isset($_SESSION['prevPage'])) $prevPage=$_SESSION['prevPage']; else $prevPage=NULL;
+	if(isset($_SESSION['query'])) $query=$_SESSION['query']; else $prevPage=NULL;
 	
 	//kanoume include to arxeio html_functions.php pou periexei tis sunarthseis pou emfanizoun ton vasiko html kwdika
 	require_once('html_functions.php');

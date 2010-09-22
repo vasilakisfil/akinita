@@ -7,6 +7,7 @@
 //including required files
 include('includes.php');
 if(isset($_POST['remProperty'])) $remProp=$_POST['remProperty']; else $remProp=NULL;
+if(isset($_GET['page'])) $page=$_GET['page']; else $page=1;
 
 try
 {
@@ -34,7 +35,7 @@ try
 	check_valid_user();
 	dispHeader('Οι Αγαπημένες μου αγγελίες');
 	if(!(mysql_num_rows($result)>0)) echo "<br /> Δεν έχετε βάλει καμία αγγελία στις αγαπημένες σας!<br />";
-	else propertySearch($message,"Favourites");
+	else propertySearch($message,"Favourites",$page);
 	dispFooter();
 }
 catch(Exception $e)
