@@ -11,11 +11,11 @@ insert into users (username,password,email,user_type) values
 
 insert into telephone (mobile1,user_id) values
 ('6932735244','vasilakis'),
-('3983742883','guest'),
-('3928423987','vassis'),
-('9823428838','mits'),
-('9823479283','konstantina'),
-('6666666666','alex');
+('6983742883','guest'),
+('6978423987','vassis'),
+('6983428838','mits'),
+('6923479283','konstantina'),
+('6946666666','alex');
 
 /*
 insert into property (prop_id,address,price,offer_type,area,user_id,propState) values
@@ -28,10 +28,28 @@ insert into property (prop_id,address,price,offer_type,area,user_id,propState) v
 */
 
 insert into facilities (fac_id,facility) values
-(1,'Μπανιέρα'),
-(2,'Air-Codition'),
-(3,'Ντουζ'),
-(4,'Επιπλωμενο');
+(1,'Θέση Στάθμευσης'),
+(2,'Αυτόνομη Θέρμανση'),
+(3,'Ανελκυστήρας'),
+(4,'Μπανιέρα'),
+(5,'Air-Codition'),
+(6,'Ντουζ'),
+(7,'Τζάκι'),
+(8,'Jacuzzi'),
+(9,'Πόρτα Ασφαλείας'),
+(10,'Πισίνα'),
+(11,'Μεγάλη Βεράντα'),
+(12,'Επιπλωμένο'),
+(13,'Σε ήσυχη περιοχή'),
+(14,'Με θέα'),
+(15,'Κοντά σε Στάση'),
+(16,'Προσόψεως'),
+(17,'Σύγχρονη Διαρρύθμιση')
+(18,'Διαμπερές'),
+(19,'Φωτεινό'),
+(20,'Πολυτελές'),
+(21,'Νεόδμητο'),
+(22,'Ανακαινισμένο'),;
 /*
 insert into fac_prop (prop_id,fac_id) values
 (2,1),
@@ -46,7 +64,12 @@ insert into categories (cat_id,category) values
 (1,'Studio'),
 (2,'Γκαρσονιέρα'),
 (3,'Δυάρι'),
-(4,'Τριάρι');
+(4,'Τριάρι'),
+(5,'Τεσσάρι'),
+(6,'Πεντάρι'),
+(7,'Μεζονέτα'),
+(8,'Μονοκατοικία'),
+(9,'Οικόπεδο');
 /*
 insert into cat_prop (prop_id,cat_id) values
 (5,1),
