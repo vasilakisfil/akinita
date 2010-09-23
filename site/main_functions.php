@@ -900,10 +900,9 @@ function propertySearch($message,$Ftype=NULL,$page)
 	echo "<form name=actionProp action=".$_SERVER['REQUEST_URI']." method=post>";
 	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1></div>";
 
-	 echo "<div id='advs-perpage-box'>
-	<form method='' action=''>
-	Αγγελίες <span class='yellow'>ανα σελίδα</span> 
-	<select class='advsperpage-input-box' name='pages' style='font-weight:normal;'>
+	 echo "<form method='' action=''>
+	Αγγελίες ανα σελίδα 
+	<select name='pages' style='font-weight:normal;'>
 	<option value=''>Αγγελίες ανα σελίδα</option>
 	<option value='5'>5</option>
 	<option value='10'>10</option>
@@ -914,9 +913,8 @@ function propertySearch($message,$Ftype=NULL,$page)
 	<option value='35'>35</option>
 	<option value='40'>40</option>
     </select>
-	<input type='submit' id='button-view' value='Δείξε' name='show' />
-	</form>
-</div>";
+	<input type='submit' value='Δείξε' name='show' />
+	</form>";
 
 echo $print['up'];
 	
