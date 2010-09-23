@@ -431,29 +431,33 @@ function get(obj)
 
 function loadXMLDoc(param)
 {
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-		var rows=xmlhttp.responseText;
-		document.getElementById("ajaxDiv").innerHTML='Διαθέσιμες Αγγελίες:'+rows;
-    }
-  }
-xmlhttp.open("GET","ajax.php"+param,true);
-//http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//http.setRequestHeader("Content-length", params.length);
-//http.setRequestHeader("Connection", "close");
-xmlhttp.send();
+	if (window.XMLHttpRequest)
+	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			var rows=xmlhttp.responseText;
+			document.getElementById("ajaxDiv").innerHTML='Διαθέσιμες Αγγελίες:'+rows;
+		}
+	}
+	xmlhttp.open("GET","ajax.php"+param,true);
+	//http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	//http.setRequestHeader("Content-length", params.length);
+	//http.setRequestHeader("Connection", "close");
+	xmlhttp.send();
 }
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/****************************************************************************************
+* 				SUNARTHSEIS GIA TA MULTIPLE FILES UPLOAD
+*
+*****************************************************************************************/
+//eisagei ena kainourgio field gia upload me description
 function add_new_file(field)
 {
     // Get the number of files previously uploaded.
@@ -487,7 +491,7 @@ function add_new_file(field)
     // Update the value of the file hidden input tag holding the count of files uploaded.
     document.getElementById('file_count').value = count;
 }
-
+//diagrafei ena hdh uparxon field gia anevasma arxeiou
 function delete_inserted(field)
 {
 
@@ -515,7 +519,9 @@ function delete_inserted(field)
     //document.getElementById('file_count').value = count;
 }
 
-
+/****************************************************************************************
+*****************************************************************************************/
+//auth h sunarthsh einai gia tis fwtografies kai ta description tous (kai gamw ta comments re pousth mou)
 function mouseOver(source,description)
 {
 	document.getElementById("mainphoto").src=source;

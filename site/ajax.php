@@ -123,11 +123,5 @@ else
 	echo $rows;
 }
 
-/*
-$query="select * from users where password=$user_id";
-$result=db_excecute($query,'ajax query');
-$rows=mysql_num_rows($result);
-
-echo "ante gamhsou....rows: $rows ";*/
 
 ?>
