@@ -427,6 +427,15 @@ text-shadow:1px 1px 1px #fff;
 	padding: 13px 13px 0 13px;
 	background:url(images/bg-details-header.png) no-repeat left top;
 	}
+
+.details-header-right {
+	margin-right: 30px;
+	text-align: right;
+	font-size: 12px;
+	font-weight: normal;
+	margin-top:-13px;
+	}
+	
 .details-header-pagination {
 	margin-right: 30px;
 	text-align: right;
@@ -434,10 +443,10 @@ text-shadow:1px 1px 1px #fff;
 	font-weight: normal;
 	}
 	
-#town-search-box {
+#advs-perpage-box {
 	float: left;
 	display: inline;
-	width:306px;
+	width:396px;
 	height:60px;
 	color:#fff;
 	font-size:12px;
@@ -445,9 +454,9 @@ text-shadow:1px 1px 1px #fff;
 	margin-left: 26px;
 	padding-top: 13px;
 	padding-left: 20px;
-	background:url(images/bg-zip-search-box.png) no-repeat left top;
+	background:url(images/bg-search-box.png) no-repeat left top;
 	}
-.town-input-box {
+.advsperpage-input-box {
 	display: inline;
 	color:#323232;
 	font-size:12px;
@@ -637,6 +646,13 @@ text-shadow:1px 1px 1px #fff;
 	font-weight: bold;
 	color: #ffc20e;
 	}
+.propListingAddress a {
+	font-size: 14px;
+	font-weight: bold;
+	color: #ffc20e;
+	text-decoration:none;
+	}
+	
 .propListingLocation {
 	font-size: 14px;
 	font-weight: bold;

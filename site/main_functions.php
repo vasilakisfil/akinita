@@ -900,13 +900,28 @@ function propertySearch($message,$Ftype=NULL,$page)
 	echo "<form name=actionProp action=".$_SERVER['REQUEST_URI']." method=post>";
 	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1></div>";
 
-	echo $print['up'];
-	 
+	 echo "<div id='advs-perpage-box'>
+	<form method='' action=''>
+	Αγγελίες <span class='yellow'>ανα σελίδα</span> 
+	<select class='advsperpage-input-box' name='pages' style='font-weight:normal;'>
+	<option value=''>Αγγελίες ανα σελίδα</option>
+	<option value='5'>5</option>
+	<option value='10'>10</option>
+	<option value='15'>15</option>
+	<option value='20'>20</option>
+	<option value='25'>25</option>
+	<option value='30'>30</option>
+	<option value='35'>35</option>
+	<option value='40'>40</option>
+    </select>
+	<input type='submit' id='button-view' value='Δείξε' name='show' />
+	</form>
+</div> <br/><br/><br/><br/>";
 
-	 echo "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	 <span>Εμφανίζονται <strong>".($view*($page-1)+1)."-".($view*($page))."</strong> από <strong>".$numRows."</strong> Αποτελέσματα</span> 
+echo $print['up'];
+	
+	echo "<div class='details-header-right'>
+	 Εμφανίζονται <strong>".($view*($page-1)+1)."-".($view*($page))."</strong> από <strong>".$numRows."</strong> Αποτελέσματα</div> 
 	
 	</div>";
 	mysql_data_seek($result,($page-1)*$view);
