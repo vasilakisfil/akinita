@@ -495,7 +495,23 @@ function db_insert($table,$column1,$column2,$data1,$data2)
 	mysql_close($conn);
 }
 
-function db_delete($table,$column1,$column2,$data1,$data2)
+function db_delete1($table,$column1,$data1)
+{
+	//sundesh sth vash
+	$conn=db_connect();
+	//ektelesh tou query
+	$message="DELETE FROM $table WHERE $column1=$data1";
+	//echo "<br />".$message; //debugging purpose
+	$result = mysql_query("$message");
+	if (!$result)
+	{
+		throw new Exception('Δεν ήταν δυνατή η εκτέλεση του DELETE1.');
+	}
+	//kleisimo ths vashs
+	mysql_close($conn);
+}
+
+function db_delete2($table,$column1,$column2,$data1,$data2)
 {
 	//sundesh sth vash
 	$conn=db_connect();
@@ -505,7 +521,7 @@ function db_delete($table,$column1,$column2,$data1,$data2)
 	$result = mysql_query("$message");
 	if (!$result)
 	{
-		throw new Exception('Δεν ήταν δυνατή η εκτέλεση του DELETE.');
+		throw new Exception('Δεν ήταν δυνατή η εκτέλεση του DELETE2.');
 	}
 	//kleisimo ths vashs
 	mysql_close($conn);

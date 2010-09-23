@@ -574,9 +574,14 @@ if($type_=="Admin")
 function dispPropOptions($propId)
 {
 $message="select * from categories;";
-$result=db_excecute($message,'select');
+$categories=db_excecute($message,'select');
 $message="select * from facilities;";
 $facilities=db_excecute($message,'select2');
+$message="select * from property where prop_id=".$propId;
+$property=db_excecute($message,'select3');
+$propRow = mysql_fetch_array($property);
+$facOfProp="select * from fac_prop where prop_id=".$propId;
+$facOfPropResult=db_excecute($facOfProp,"facOfProp");
 ?>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
@@ -589,9 +594,9 @@ $facilities=db_excecute($message,'select2');
 <fieldset>
 <legend>Αλλαγή Κατηγορίας</legend>
 <?php
-while($row = mysql_fetch_array($result))
+while($catRow = mysql_fetch_array($categories))
 {?>
-	<input type="radio" name="category" value="<?php echo $row['category']?>" /> <?php echo $row['category']?>	
+	<input type="radio" name="category" value="<?php echo $catRow['category']?>" /> <?php echo $catRow['category']?>	
 <?php
 }?>
 <input type="submit" name="submit" value="Αλλαγή"/>
@@ -655,11 +660,42 @@ while($row = mysql_fetch_array($result))
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή Παροχων</legend>
-(δεν δουλεύει):<input type="text" name="newFacilities"/>
+<?php
+while($row = mysql_fetch_array($facilities))
+{
+	if(mysql_num_rows($facOfPropResult)>0)
+	{
+		while($exRow = mysql_fetch_array($facOfPropResult))
+		{
+			if($row['fac_id']==$exRow['fac_id'])
+			{?>
+				<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" checked="yes" /> <?php echo $row['facility']?>	
+			<?php
+			}
+			else
+			{?>
+				<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>			
+			<?php
+			}
+		}
+		mysql_data_seek($facOfPropResult,0);
+	}
+	else
+	{?>
+		<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>
+	<?php
+	}
+}?>
 <input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
-
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
+<fieldset>
+<legend>Αλλαγή Πληροφοριών</legend>
+<textarea rows="2" cols="80" wrap="physical" name="comments"  ><?php echo $propRow['comments']; ?></textarea>
+<input type="submit" name="submit" value="Αλλαγή"/>
+</fieldset>
+</form>
  <form method="POST" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>" enctype="multipart/form-data">
 <fieldset>
 <legend>Προσθήκη Φωτογραφίας</legend>
@@ -758,7 +794,7 @@ while($row = mysql_fetch_array($facilities))
 }?>
 
 <h3>Σχόλια:</h3>
-<textarea rows="5" cols="40" wrap="physical" name="comments" 
+<textarea rows="5" cols="80" wrap="physical" name="comments" 
 onfocus="if (this.value == 'Βάλτε εδώ σχόλια') {this.value = '';}" 
 onblur="if (this.value == '') {this.value = 'Βάλτε εδώ σχόλια';}" >Βάλτε εδώ σχόλια</textarea>
 

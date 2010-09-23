@@ -41,7 +41,7 @@ try
 	if(filledOut($_POST['comments']))
 	{
 		$comments=trim($_POST['comments']);
-		if($comments="Βάλτε εδώ σχόλια") $comments="";
+		if($comments=="Βάλτε εδώ σχόλια") $comments="";
 	}
 	
 
@@ -73,7 +73,6 @@ try
 		foreach($facilities as $fac)
 		{
 			$selectFac="select *from facilities where facility='$fac';";
-			echo "$selectFac <br />";
 			//afou vroume to id ths paroxhs mesw tou onomatos ths
 			$fac_id=db_excecute($selectFac,'select3');
 			$fac=mysql_fetch_array($fac_id);
