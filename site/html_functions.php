@@ -170,8 +170,35 @@ echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη
 <div class="content-box-1-top"></div>
 <div class="content-box-1-middle">
 <div class="content-box-1-content"> <div align="center">
+<?php
+$query="select distinct property.prop_id,address,price,offer_type,area,views,category from property,categories,cat_prop 
+        where property.propState='T' and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id 
+		ORDER BY prop_id DESC;";
+$result=db_excecute($query,"mainLastProp");
+for($i=0; $i<5; $i++)
+{
+	$row = mysql_fetch_array($result);
+	$q="select * from images where prop_id=".$row[0];
+	$res=db_excecute($q,"search images");
+	if(mysql_num_rows($res)>0)
+	{
+		$rowIm = mysql_fetch_array($res);
+		$image=$rowIm['filename'];
+	}
+	else
+	{
+		$image="images/no_photo.gif";
+	}
+echo" <div class='propListingPhoto'><a href='' title='View Photo'><img src='".$image."' 
+				width='125px' height='87px' alt='photo' /></a></div>";
+	echo "Διευθυνση:".$row[1]." Τιμή: ".$row[2]." Κατηγορία: ".$row[6]." ";
+	if($row[3]=='S') echo "Πωληση"; else echo "Ενοικίαση";
+	echo "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+}
+
+?>
 	
-	<h4>Εδώ θα μπούν οι πιο καινουργιες αγγελιες μάλλον με το μεγαλύτερο ID</h4>
+	
 </div>
  </div>
 </div>
@@ -184,7 +211,33 @@ echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη
 <div class="content-box-1-middle">
 <div class="content-box-1-content"> <div align="center">
 	
-	<h4>Εδώ οι δημοφιλέστερες δλδ με περισσοτερο views</h4>
+<?php
+$query="select distinct property.prop_id,address,price,offer_type,area,views,category from property,categories,cat_prop 
+        where property.propState='T' and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id 
+		ORDER BY views DESC;";
+$result=db_excecute($query,"mainLastProp");
+for($i=0; $i<5; $i++)
+{
+	$row = mysql_fetch_array($result);
+	$q="select * from images where prop_id=".$row[0];
+	$res=db_excecute($q,"search images");
+	if(mysql_num_rows($res)>0)
+	{
+		$rowIm = mysql_fetch_array($res);
+		$image=$rowIm['filename'];
+	}
+	else
+	{
+		$image="images/no_photo.gif";
+	}
+echo" <div class='propListingPhoto'><a href='' title='View Photo'><img src='".$image."' 
+				width='125px' height='87px' alt='photo' /></a></div>";
+	echo "Διευθυνση:".$row[1]." Τιμή: ".$row[2]." Κατηγορία: ".$row[6]." ";
+	if($row[3]=='S') echo "Πωληση"; else echo "Ενοικίαση";
+	echo "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+}
+
+?>
 </div>
  </div>
 </div>

@@ -164,7 +164,6 @@ try
 			}
 		}
 	}
-
 	if(isset($message)) $_SESSION['message']=$message;
 	else $message=$_SESSION["message"];
 	//elegxoume an o xrhsths einai swsta sundedemenos
