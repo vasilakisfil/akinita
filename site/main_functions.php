@@ -916,7 +916,7 @@ function propertySearch($message,$Ftype=NULL,$page)
     </select>
 	<input type='submit' id='button-view' value='Δείξε' name='show' />
 	</form>
-</div> <br/><br/><br/><br/>";
+</div>";
 
 echo $print['up'];
 	
