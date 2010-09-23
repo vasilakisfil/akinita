@@ -23,6 +23,7 @@ if(isset($_POST['file_count'])) $file_count=$_POST['file_count']; else $file_cou
 if(isset($_POST['description'])) $description=$_POST['description']; else $description="";
 if(isset($_POST['comments'])) $comments=$_POST['comments']; else $comments=NULL;
 if(isset($_POST['facilities'])) $facilities=$_POST['facilities']; else $facilities=NULL;
+if(isset($_POST['deleteProperty'])) $deleteProperty=$_POST['deleteProperty']; else $deleteProperty=NULL;
 
 //arxikopoihsh tou $message
 $message="";
@@ -217,20 +218,30 @@ try{
 		db_delete("images","image_id","prop_id",$delete,$propId);
 	}
 
+	if(isset($deleteProperty))
+	{
 	
-	//sto telos emfanizoume pali thn aggelia me tis allages kai ena munhma ti alla3e...
-	dispHeader("Eπεξεργασία αγγελίας $propId");
-	//tην αγγελία..
-	showProperty($propId);
-	echo "<br />";
-	echo $message;
-	echo "<br /><br />";
-	//..kai tis epiloges gia thn allagh tou profil
-	dispPropOptions($propId);
-	showPropPhotosDel($propId);
-
-	//echo "<img src=\"photos\\1-1-house-canada.jpg\" alt=\"Big Boat\" />";
-	dispFooter();
+		db_del_prop($propId);
+	
+		dispHeader("Διαγραφή αγγελίας");
+		echo "<br /><br /> Η αγγελία διαγράφτηκε";
+		dispFooter();
+	}
+	else
+	{
+		//sto telos emfanizoume pali thn aggelia me tis allages kai ena munhma ti alla3e...
+		dispHeader("Eπεξεργασία αγγελίας");
+		//tην αγγελία..
+		showProperty($propId);
+		echo "<br />";
+		echo $message;
+		echo "<br /><br />";
+		//..kai tis epiloges gia thn allagh tou profil
+		dispPropOptions($propId);
+		showPropPhotosDel($propId);
+		//echo "<img src=\"photos\\1-1-house-canada.jpg\" alt=\"Big Boat\" />";
+		dispFooter();
+	}
 }
 catch(Exception $e)
 {

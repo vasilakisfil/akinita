@@ -710,6 +710,13 @@ while($row = mysql_fetch_array($facilities))
 <input name="upload" type="submit" class="box" id="upload" value=" Upload ">
 </fieldset>
 </form>
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
+<fieldset>
+<legend>Διαγραφή αγγελίας</legend>
+Αν θέλετε να διαγράψετε την αγγελία πατήστε εδώ: <input type="submit" name="deleteProperty" value="Διαγραφή"/>
+</fieldset>
+</form>
+
 <?php
 }
 
