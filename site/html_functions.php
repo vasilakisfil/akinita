@@ -189,10 +189,10 @@ for($i=0; $i<5; $i++)
 	{
 		$image="images/no_photo.gif";
 	}
-echo" <div class='propListingPhoto'><a href='' title='View Photo'><img src='".$image."' 
+	echo "<div class='propListingPhoto'><a href='viewProperty.php?propId=".$row[0]."' title='View Photo'><img src='".$image."' 
 				width='125px' height='87px' alt='photo' /></a></div>";
-	echo "Διευθυνση:".$row[1]." Τιμή: ".$row[2]." Κατηγορία: ".$row[6]." ";
-	if($row[3]=='S') echo "Πωληση"; else echo "Ενοικίαση";
+	echo "<a href='viewProperty.php?propId=".$row[0]."' title='View property'>Διευθυνση:".$row[1]." Τιμή: ".$row[2]." Κατηγορία: ".$row[6]." ";
+	if($row[3]=='S') echo "Πωληση"; else echo "Ενοικίαση</a>";
 	echo "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
 }
 
@@ -230,10 +230,10 @@ for($i=0; $i<5; $i++)
 	{
 		$image="images/no_photo.gif";
 	}
-echo" <div class='propListingPhoto'><a href='' title='View Photo'><img src='".$image."' 
+echo" <div class='propListingPhoto'><a href='viewProperty.php?propId=".$row[0]."' title='View property'><img src='".$image."' 
 				width='125px' height='87px' alt='photo' /></a></div>";
-	echo "Διευθυνση:".$row[1]." Τιμή: ".$row[2]." Κατηγορία: ".$row[6]." ";
-	if($row[3]=='S') echo "Πωληση"; else echo "Ενοικίαση";
+	echo "<a href='viewProperty.php?propId=".$row[0]."' title='View property'>Διευθυνση:".$row[1]." Τιμή: ".$row[2]." Κατηγορία: ".$row[6]." ";
+	if($row[3]=='S') echo "Πωληση"; else echo "Ενοικίαση</a>";
 	echo "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
 }
 

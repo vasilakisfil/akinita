@@ -972,10 +972,10 @@ function propertySearch($message,$Ftype=NULL,$page)
 		
 			if ($i==1)
 			{
-				echo" <div class='propListingPhoto'><a href='' title='View Photo'><img src='".$image."' 
+				echo" <div class='propListingPhoto'><a href='viewProperty.php?propId=".$row[0]."' title='View Photo'><img src='".$image."' 
 				width='125px' height='87px' alt='photo' /></a></div>
 				<div class='propListingCoreInfo'>
-					<div class='propListingAddress'>"."$row[1]"."</div>
+					<div class='propListingAddress'>"."<a href='viewProperty.php?propId=".$row[0]."' title='View Photo'>".$row[1]."</a></div>
 					<div class='propListingLocation'>Τύπος:"."$row[6]"."<br />Πάτρα</div>
 				</div>";
 			}
