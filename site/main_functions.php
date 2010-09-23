@@ -881,9 +881,9 @@ function showPropPhotosDel($propId)
 * Auth h sunarthsh emfanizei oles tis aggelies
 * analoga me to query $message pou exei dw8ei.
 *************************************************/
-function propertySearch($message,$Ftype=NULL,$page)
+function propertySearch($message,$Ftype=NULL,$page,$results=15)
 {
-	$view=5;
+	$view=$results;
 	global $type;
 	$result = db_excecute("$message","");
 	$numRows=mysql_num_rows($result);
@@ -897,27 +897,33 @@ function propertySearch($message,$Ftype=NULL,$page)
 	$print=getThePages($page,$pages);
 	
 	//emfanish twn dedomenwn
-	echo "<form name=actionProp action=".$_SERVER['REQUEST_URI']." method=post>";
+
 	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1></div>";
 
-	 echo "<form method='' action=''>
+	 echo "<form method='post' action=\"".$_SERVER['REQUEST_URI']."\">
 	Αγγελίες ανα σελίδα 
-	<select name='pages' style='font-weight:normal;'>
-	<option value=''>Αγγελίες ανα σελίδα</option>
-	<option value='5'>5</option>
-	<option value='10'>10</option>
-	<option value='15'>15</option>
-	<option value='20'>20</option>
-	<option value='25'>25</option>
-	<option value='30'>30</option>
-	<option value='35'>35</option>
-	<option value='40'>40</option>
-    </select>
+	<select name='results' style='font-weight:normal;'>";
+	$add=5;
+	$val=$add;
+	for($i=0; $i<8; $i++)
+	{
+		if($val==$view)
+		{
+			echo "<option value=\"".$val."\" selected>".$val."</option>";
+		}
+		else
+		{
+			echo "<option value=\"".$val."\" >".$val."</option>";
+		}
+		if($val==25) $add=25;
+		$val+=$add;
+	}
+    echo "</select>
 	<input type='submit' value='Δείξε' name='show' />
 	</form>";
 
-echo $print['up'];
-	
+	echo $print['up'];
+	echo "<form name=actionProp action=".$_SERVER['REQUEST_URI']." method=post>";
 	echo "<div class='details-header-right'>
 	 Εμφανίζονται <strong>".($view*($page-1)+1)."-".($view*($page))."</strong> από <strong>".$numRows."</strong> Αποτελέσματα</div> 
 	
@@ -1015,7 +1021,7 @@ echo $print['up'];
 	}
 	
 	echo $print['down'];
-	echo "</div></div>";
+	echo "</form></div></div>";
 }
 
 
