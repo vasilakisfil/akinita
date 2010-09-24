@@ -26,10 +26,18 @@ try
 	//elegxoume an h dieu8unsh einai swsta kataxwrhmenh kai an einai thn kratame se mia topikh metavlhth,alliws petagetai e3airesh
 	if(!filledOut($_POST['address'])||$_POST['address']=="Οδος-Αριθμος") throw new Exception('Prepei na balete dieu8unsh');
 	else $address=trim($_POST['address']);
-	if(isset($_POST['coordinates'])) $coordinates=$_POST['coordinates'];
-	else
+	$flag=false;
+	if(isset($_POST['latitude']) && $_POST['latitude']!="0")
 	{
-		$coordinates=NULL;
+		if(isset($_POST['longitude']) && $_POST['longitude']!="0")
+		{
+			$latitude=$_POST['latitude'];
+			$longitude=$_POST['longitude'];
+			$flag=true;
+		}
+	}
+	if($flag==false)
+	{
 		throw new Exception('Υπήρξε ένα πρόβλημα με το google maps κατά την καταχώρηση.Παρακαλούμε προσπαθήστε ξανά.');
 	}
 	//omoiws elegxoume an h kathgoria einai epilegmenh
@@ -53,7 +61,8 @@ try
 
 	//dhmiourgoume mia metavlhth $message pou ousiastika 8a krataei to query pou 8a stalei sthn vash
 	//h metavlhth ananewnetai sumfwna me tis times pou exei dwsei o xrhsths kata thn kataxwrhsh ths aggelias
-	$message="INSERT INTO property(address,price,offer_type,area,region,Afloor,comments,constr_date,coordinates,user_id,propState) VALUES ('$address',$price,'$typos',$area,'$region',$Afloor,'$comments',$constrDate,'$coordinates','$val_user','F');";
+	$message="INSERT INTO property(address,price,offer_type,area,region,Afloor,comments,constr_date,latitude,longitude,user_id,propState) 
+	VALUES ('$address',$price,'$typos',$area,'$region',$Afloor,'$comments',$constrDate,$latitude,$longitude,'$val_user','F');";
 	//h metavlhth $selectProp krataei to query pou vriskei thn aggelia pou molis kataxwrh8hke gia mellontikh xrhsh
 	$selectProp="select *from property where address='$address' and price=$price and offer_type='$typos' and area=$area and constr_date=$constrDate;";
 	//h metavlhth $selectCat krataei to query pou vriskei thn katagoria pou kataxwrh8hke to akihto gia mellontikh xrhsh

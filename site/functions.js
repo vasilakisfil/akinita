@@ -657,7 +657,8 @@ function codeAddress()
 			map.setCenter(results[0].geometry.location);
 			locat=results[0].geometry.location;
 			document.getElementById("submitForm").disabled=false;
-			document.getElementById("coordinates").value=results[0].geometry.location;
+			document.getElementById("latitude").value=results[0].geometry.location.lat();
+			document.getElementById("longitude").value=results[0].geometry.location.lng();
 			var marker = new google.maps.Marker({
 			map: map, 
 			position: results[0].geometry.location
@@ -669,6 +670,5 @@ function codeAddress()
 			alert("Geocode was not successful for the following reason: " + status);
 		}
 	});
-	alert(locat);
 }
 

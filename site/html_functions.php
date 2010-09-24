@@ -779,7 +779,8 @@ name="address">Οδος-Αριθμος</textarea>-->
 </div>
 <div class='map'  id='map_canvas' style='width:311px; height:250px;'></div>
 
-<input id="coordinates" name="coordinates" type="hidden" value="0" />
+<input id="latitude" name="latitude" type="text" value="0" />
+<input id="longitude" name="longitude" type="text" value="0" />
 
 <h3>Κατηγορία ακινήτου:</h3>
 <?php
