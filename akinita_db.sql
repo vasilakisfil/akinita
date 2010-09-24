@@ -38,8 +38,8 @@ create table property
 	offer_type ENUM('S','L'),   -- <-----
 	area int(10) not null,
 	constr_date int(4),
-	cordX varchar(20),
-	cordY varchar(20),
+	latitude float(10,7),
+	longitude float(10,7),
 	region char(100),
 	Afloor int,
 	views int(10) default '0',
