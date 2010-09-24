@@ -29,16 +29,6 @@ function dispHeader($header,$num=1)
     src="http://maps.google.com/maps/api/js?sensor=true&language=el">
 </script>
 <script type="text/javascript">
-  function initialize() {
-    var latlng = new google.maps.LatLng(38.243573, 21.735764);
-    var myOptions = {
-      zoom: 12,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.HYBRID
-    };
-    var map = new google.maps.Map(document.getElementById("map_canvas"),
-        myOptions);
-  }
 
 </script>
 <title>Akinita.gr</title>
@@ -684,24 +674,27 @@ while($catRow = mysql_fetch_array($categories))
 <fieldset>
 <legend>Αλλαγή Παροχων</legend>
 <?php
+$flag=false;
 while($row = mysql_fetch_array($facilities))
 {
 	if(mysql_num_rows($facOfPropResult)>0)
 	{
 		while($exRow = mysql_fetch_array($facOfPropResult))
 		{
-			if($row['fac_id']==$exRow['fac_id'])
-			{?>
-				<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" checked="yes" /> <?php echo $row['facility']?>	
-			<?php
-			}
-			else
-			{?>
-				<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>			
-			<?php
-			}
+			if($row['fac_id']==$exRow['fac_id']) $flag=true;
+		}
+		if($flag==true)
+		{?>
+			<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" checked="yes" /> <?php echo $row['facility']?>	
+		<?php
+		}
+		else
+		{?>
+			<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>			
+		<?php
 		}
 		mysql_data_seek($facOfPropResult,0);
+		$flag=false;
 	}
 	else
 	{?>
@@ -775,9 +768,18 @@ $facilities=db_excecute($message,'select2');
 <input type="radio" name="typos" value="enoikiash" /> Ενοικίαση
 
 <h3>Διεύθυνση Ακινήτου:</h3>
-<textarea rows="2" cols="25" wrap="physical" 
+<!--<textarea rows="2" cols="25" wrap="physical" 
 onfocus="if (this.value == 'Οδος-Αριθμος') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Οδος-Αριθμος';}" 
-name="address">Οδος-Αριθμος</textarea>
+name="address">Οδος-Αριθμος</textarea>-->
+<div>
+    <input id="address" name="address" type="textbox" 
+	onfocus="if (this.value == 'Οδος-Αριθμος') {this.value = '';}"
+	onblur="if (this.value == '') {this.value = 'Οδος-Αριθμος';}" value="Οδος-Αριθμος" />
+    <input type="button" value="Βρές την!" accesskey="u" onclick="codeAddress()" />
+</div>
+<div class='map'  id='map_canvas' style='width:311px; height:250px;'></div>
+
+<input id="coordinates" name="coordinates" type="hidden" value="0" />
 
 <h3>Κατηγορία ακινήτου:</h3>
 <?php
@@ -834,7 +836,7 @@ onblur="if (this.value == '') {this.value = 'Βάλτε εδώ σχόλια';}" 
 <br />
 <br />
 
-<input type="submit" value="Kαταχώρηση">
+<input type="submit" disabled="true" id="submitForm" value="Kαταχώρηση">
 <div class="clearDiv">&nbsp;</div>
 </form>
 
