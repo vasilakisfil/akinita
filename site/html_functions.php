@@ -25,9 +25,25 @@ function dispHeader($header,$num=1)
 <script type="text/javascript" src="functions.js"></script>
 <link rel="stylesheet" type="text/css" href="mystyle.css" />
 <link rel="shortcut icon" href="images/imasters.gif" />
+<script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=true&language=el">
+</script>
+<script type="text/javascript">
+  function initialize() {
+    var latlng = new google.maps.LatLng(38.243573, 21.735764);
+    var myOptions = {
+      zoom: 12,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+  }
+
+</script>
 <title>Akinita.gr</title>
 </head>
-<body>
+<body onload="initialize()" onunload="GUnload()">
 <div id="main">
 <div id="header">
 
@@ -156,9 +172,7 @@ echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη
 <div class="content-box-1-top"></div>
 <div class="content-box-1-middle">
 <div class="content-box-1-content"> <div align="center">
-	
-	<h2>Εδώ θα μπει ο χάρτης του google maps.</h2>
-	<h5>Θα έχει τη πόλη της πάτρας και πάνω πινέζες απο όλες τις καταχωρήσεις</h5>
+<div id="map_canvas" style="width: 720px; height: 500px"></div>
 </div>
  </div>
 </div>
