@@ -18,22 +18,20 @@ require_once('includes.php');
 function dispHeader($header,$num=1)
 {
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <script type="text/javascript" src="functions.js"></script>
 <link rel="stylesheet" type="text/css" href="mystyle.css" />
 <link rel="shortcut icon" href="images/imasters.gif" />
-<script type="text/javascript"
-    src="http://maps.google.com/maps/api/js?sensor=true&language=el">
-</script>
-<script type="text/javascript">
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;language=el" >
 
 </script>
 <title>Akinita.gr</title>
 </head>
-<body onload="initialize()" onunload="GUnload()">
+<body>
 <div id="main">
 <div id="header">
 
@@ -142,6 +140,7 @@ else
 function dispMainPage()
 {
 ?>
+
 <div class='header-bar-full'><h1 class="blue">Καλως ορίσατε στο Project Ακίνητα!</h1></div>
 <div id="search-box">
 	<form method="post" action="homeSearchRes.php">
@@ -162,7 +161,7 @@ echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη
 <div class="content-box-1-top"></div>
 <div class="content-box-1-middle">
 <div class="content-box-1-content"> <div align="center">
-<div id="map_canvas" style="width: 720px; height: 500px"></div>
+<div id="mainMap" style="width: 720px; height: 500px"></div>
 </div>
  </div>
 </div>
@@ -175,16 +174,36 @@ echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη
 <div class="content-box-1-middle">
 <div class="content-box-1-content"> <div align="center">
 <ul id="mainPageAdvsLayout">
+<script type="text/javascript" >
+	var map=initializeMain(12);
+</script>
 <?php
-$query="select distinct property.prop_id,address,price,offer_type,area,views,category from property,categories,cat_prop 
+$query="select distinct property.prop_id,address,price,offer_type,category,latitude,longitude from property,categories,cat_prop 
         where property.propState='T' and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id 
 		ORDER BY prop_id DESC;";
 $result=db_excecute($query,"mainLastProp");
-for($i=0; $i<5; $i++)
+
+if(mysql_num_rows($result)<=10) $max=mysql_num_rows($result);
+else $max=10;
+for($i=0; $i<$max; $i++)
 {
+
 	$row = mysql_fetch_array($result);
+	//echo $row[5]." ".$row[6];
+	echo " <script type=\"text/javascript\" >
+	var myLatlng = new google.maps.LatLng(".$row[5].",".$row[6].");
+
+	var marker = new google.maps.Marker({
+	 position: myLatlng,
+	 title:\"Hello World!\"
+	});
+  
+	// To add the marker to the map, call setMap();
+	marker.setMap(map);
+	</script>";
+	
 	$q="select * from images where prop_id=".$row[0];
-	$res=db_excecute($q,"search images");
+	$res=db_excecute($q,"search images1");
 	if(mysql_num_rows($res)>0)
 	{
 		$rowIm = mysql_fetch_array($res);
@@ -197,7 +216,7 @@ for($i=0; $i<5; $i++)
 	echo "<li><a href='viewProperty.php?propId=".$row[0]."' title='View Photo'><img src='".$image."' 
 				width='125px' height='95px' alt='photo' /></a>";
 	
-	echo "<a href='viewProperty.php?propId=".$row[0]."' title='View property'>Κατηγορία: ".$row[6]."<br/>
+	echo "<a href='viewProperty.php?propId=".$row[0]."' title='View property'>Κατηγορία: ".$row[4]."<br/>
 	Διευθυνση: ".$row[1]."<br/> Τιμή: ".$row[2]."<br/> 
 	 ";
 	if($row[3]=='S') echo "Πωλειται"; else echo "Ενοικιάζεται</a>";
@@ -221,15 +240,15 @@ for($i=0; $i<5; $i++)
 <div class="content-box-1-content"> <div align="center">
 <ul id="mainPageAdvsLayout">	
 <?php
-$query="select distinct property.prop_id,address,price,offer_type,area,views,category from property,categories,cat_prop 
+$query="select distinct property.prop_id,address,price,offer_type,category from property,categories,cat_prop 
         where property.propState='T' and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id 
 		ORDER BY views DESC;";
 $result=db_excecute($query,"mainLastProp");
-for($i=0; $i<5; $i++)
+for($i=0; $i<$max; $i++)
 {
 	$row = mysql_fetch_array($result);
 	$q="select * from images where prop_id=".$row[0];
-	$res=db_excecute($q,"search images");
+	$res=db_excecute($q,"search images2");
 	if(mysql_num_rows($res)>0)
 	{
 		$rowIm = mysql_fetch_array($res);
@@ -242,7 +261,7 @@ for($i=0; $i<5; $i++)
 echo "<li><a href='viewProperty.php?propId=".$row[0]."' title='View Photo'><img src='".$image."' 
 				width='125px' height='95px' alt='photo' /></a>";
 	
-	echo "<a href='viewProperty.php?propId=".$row[0]."' title='View property'>Κατηγορία: ".$row[6]."<br/>
+	echo "<a href='viewProperty.php?propId=".$row[0]."' title='View property'>Κατηγορία: ".$row[4]."<br/>
 	Διευθυνση: ".$row[1]."<br/> Τιμή: ".$row[2]."<br/> 
 	 ";
 	if($row[3]=='S') echo "Πωλειται"; else echo "Ενοικιάζεται</a>";
@@ -301,7 +320,7 @@ function dispURL($url, $name)
 {
   // output URL as link and br
 ?>
-  <a href="<?php echo $url;?>"><?php echo $name;?></a>
+  <a href="<?php echo $url;?>"><?php echo $name; ?></a>
 <?php
 }
 
@@ -751,6 +770,10 @@ $result=db_excecute($message,'select');
 $message="select * from facilities;";
 $facilities=db_excecute($message,'select2');
 ?>
+
+
+
+
 <div class='header-bar-full'><h1 class="blue">Καταχώρηση Νέας Αγγελίας</h1></div>
 
 <h4>Συμπληρώστε τα στοιχεία του ακινήτου σας στην παρακάτω φόρμα για να δημοσιευθεί στο site μας.</h4>
@@ -768,16 +791,17 @@ $facilities=db_excecute($message,'select2');
 <input type="radio" name="typos" value="enoikiash" /> Ενοικίαση
 
 <h3>Διεύθυνση Ακινήτου:</h3>
-<!--<textarea rows="2" cols="25" wrap="physical" 
-onfocus="if (this.value == 'Οδος-Αριθμος') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Οδος-Αριθμος';}" 
-name="address">Οδος-Αριθμος</textarea>-->
+<div id="mainMap" style="width: 290px; height: 200px"></div>
+<script type="text/javascript" >
+	initializeMain(13);
+</script>
 <div>
-    <input id="address" name="address" type="textbox" 
+    <input id="address" name="address" type="text" 
 	onfocus="if (this.value == 'Οδος-Αριθμος') {this.value = '';}"
 	onblur="if (this.value == '') {this.value = 'Οδος-Αριθμος';}" value="Οδος-Αριθμος" />
-    <input type="button" value="Βρές την!" accesskey="u" onclick="codeAddress()" />
+    <input type="button" value="Βρές την!" onclick="codeAddress()" />
 </div>
-<div class='map'  id='map_canvas' style='width:311px; height:250px;'></div>
+
 
 <input id="latitude" name="latitude" type="text" value="0" />
 <input id="longitude" name="longitude" type="text" value="0" />
@@ -827,7 +851,7 @@ while($row = mysql_fetch_array($facilities))
 }?>
 
 <h3>Σχόλια:</h3>
-<textarea rows="5" cols="80" wrap="physical" name="comments" 
+<textarea rows="5" cols="80" name="comments" 
 onfocus="if (this.value == 'Βάλτε εδώ σχόλια') {this.value = '';}" 
 onblur="if (this.value == '') {this.value = 'Βάλτε εδώ σχόλια';}" >Βάλτε εδώ σχόλια</textarea>
 
@@ -837,7 +861,7 @@ onblur="if (this.value == '') {this.value = 'Βάλτε εδώ σχόλια';}" 
 <br />
 <br />
 
-<input type="submit" disabled="true" id="submitForm" value="Kαταχώρηση">
+<input type="submit" id="submitForm" value="Kαταχώρηση" disabled="disabled" />
 <div class="clearDiv">&nbsp;</div>
 </form>
 
@@ -848,6 +872,8 @@ onblur="if (this.value == '') {this.value = 'Βάλτε εδώ σχόλια';}" 
 </div>
 <div class="content-box-1-bottom">&nbsp;</div>
 </div>
+
+
 
 <?php
 }

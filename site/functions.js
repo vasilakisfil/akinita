@@ -533,28 +533,29 @@ function mouseOver(source,description)
 *					SUNARTHSEIS GIA TO GOOGLE MAPS
 *
 *****************************************************************************************/
-var map;
+
 var markersArray = [];
+var map;
 var geocoder;
 
 var beaches = [
   ['Bondi Beach', 38.243573, 21.735764, 4],
 ];
 
-function initialize() {
+function initializeMain(zooom) {
   geocoder = new google.maps.Geocoder();
   var myLatLng = new google.maps.LatLng(38.243573, 21.735764);
   var mapOptions = {
-    zoom: 12,
+    zoom: zooom,
     center: myLatLng,
     mapTypeId: google.maps.MapTypeId.HYBRID
   };
-  map =  new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+ map = new google.maps.Map(document.getElementById("mainMap"), mapOptions);
 		
  /* google.maps.event.addListener(map, 'click', function(event) {
     addMarker(event.latLng);
   });*/
- var image = new google.maps.MarkerImage('images/GMicon1.png',
+ /*var image = new google.maps.MarkerImage('images/GMicon1.png',
       // This marker is 20 pixels wide by 32 pixels tall.
       new google.maps.Size(20, 32),
       // The origin for this image is 0,0.
@@ -562,8 +563,11 @@ function initialize() {
       // The anchor for this image is the base of the flagpole at 0,32.
       new google.maps.Point(0, 32));
 	  
-		setMarkers(map,beaches);
+		setMarkers(map,beaches);*/
+		return map;
 }
+
+
 function setMarkers(map, locations) {
   // Add markers to the map
 
@@ -649,9 +653,8 @@ function deleteOverlays() {
 
 function codeAddress()
 {
-	var locat;
 	var address = document.getElementById("address").value+' Πάτρα';
-	locat=geocoder.geocode( { 'address': address}, function(results, status) {
+	geocoder.geocode( { 'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK)
 		{
 			map.setCenter(results[0].geometry.location);

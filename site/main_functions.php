@@ -705,6 +705,8 @@ function showProperty($propId)
 {
 	global $val_user;
 	global $type;
+	$lat;
+	$long;
 	
 	$edit="editProperty.php";
 	$view="viewProperty.php";
@@ -731,6 +733,8 @@ function showProperty($propId)
 	
 	//emfanish twn apotelesmatwn
 	$row = mysql_fetch_assoc($result1);
+	$lan=$row['latitude'];
+	$long=$row['longitude'];
 	if($row['Afloor']==0) $Floor="Ισογειο";
 	else if($row['Afloor']==666) $Floor="10+";
 	else $Floor=$row['Afloor']."ος";
@@ -770,10 +774,8 @@ function showProperty($propId)
 echo "	
 </div>
 	
-	<div id='propDetailGoogleMap'><img src='images/btn-google-map.gif' alt='Google Map' /></div>
-	<span style='color:fff; text-align:right;'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	Εδω θα μπει ο χάρτης</span><br />
-	 <div class='map'  id='map_canvas' style='width:311px; height:250px;'></div>
+
+	 <div class='map'  id='mainMap' style='width:311px; height:250px;'></div>
 	</div>";
 	// to aristero tmima
 	echo "<div id='propDetailRightBox'>";
@@ -853,7 +855,19 @@ echo "
 		   <strong>Περιγραφή του ακινήτου:</strong></span></span><br/>
 		   <span style='font-size: 10pt; font-family: Maiandra GD'>".$row['comments']."</span> ";
 
-	echo "</div></div> <div class='clearDiv'>&nbsp;</div> </div></div>";
+	echo "</div></div> <div class='clearDiv'>&nbsp;</div> </div></div>
+		<script type=\"text/javascript\" >
+			initializeMain(13);
+			var myLatLng = new google.maps.LatLng(".$lan.",".$long.");
+			map.setCenter(myLatLng);
+			var marker = new google.maps.Marker({
+			position: myLatLng,
+			title:\"Hello World!\"
+			});
+
+			// To add the marker to the map, call setMap();
+			marker.setMap(map);
+		</script>";
 
 }
 
