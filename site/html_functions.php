@@ -184,6 +184,7 @@ echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη
 <div class="content-box-1-top"></div>
 <div class="content-box-1-middle">
 <div class="content-box-1-content"> <div align="center">
+<ul id="mainPageAdvsLayout">
 <?php
 $query="select distinct property.prop_id,address,price,offer_type,area,views,category from property,categories,cat_prop 
         where property.propState='T' and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id 
@@ -203,14 +204,18 @@ for($i=0; $i<5; $i++)
 	{
 		$image="images/no_photo.gif";
 	}
-	echo "<div class='propListingPhoto'><a href='viewProperty.php?propId=".$row[0]."' title='View Photo'><img src='".$image."' 
-				width='125px' height='87px' alt='photo' /></a></div>";
-	echo "<a href='viewProperty.php?propId=".$row[0]."' title='View property'>Διευθυνση:".$row[1]." Τιμή: ".$row[2]." Κατηγορία: ".$row[6]." ";
-	if($row[3]=='S') echo "Πωληση"; else echo "Ενοικίαση</a>";
-	echo "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+	echo "<li><a href='viewProperty.php?propId=".$row[0]."' title='View Photo'><img src='".$image."' 
+				width='125px' height='95px' alt='photo' /></a>";
+	
+	echo "<a href='viewProperty.php?propId=".$row[0]."' title='View property'>Κατηγορία: ".$row[6]."<br/>
+	Διευθυνση: ".$row[1]."<br/> Τιμή: ".$row[2]."<br/> 
+	 ";
+	if($row[3]=='S') echo "Πωλειται"; else echo "Ενοικιάζεται</a>";
+	echo "</li>";
 }
 
 ?>
+</ul>	
 	
 	
 </div>
@@ -224,7 +229,7 @@ for($i=0; $i<5; $i++)
 <div class="content-box-1-top"></div>
 <div class="content-box-1-middle">
 <div class="content-box-1-content"> <div align="center">
-	
+<ul id="mainPageAdvsLayout">	
 <?php
 $query="select distinct property.prop_id,address,price,offer_type,area,views,category from property,categories,cat_prop 
         where property.propState='T' and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id 
@@ -244,14 +249,18 @@ for($i=0; $i<5; $i++)
 	{
 		$image="images/no_photo.gif";
 	}
-echo" <div class='propListingPhoto'><a href='viewProperty.php?propId=".$row[0]."' title='View property'><img src='".$image."' 
-				width='125px' height='87px' alt='photo' /></a></div>";
-	echo "<a href='viewProperty.php?propId=".$row[0]."' title='View property'>Διευθυνση:".$row[1]." Τιμή: ".$row[2]." Κατηγορία: ".$row[6]." ";
-	if($row[3]=='S') echo "Πωληση"; else echo "Ενοικίαση</a>";
-	echo "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+echo "<li><a href='viewProperty.php?propId=".$row[0]."' title='View Photo'><img src='".$image."' 
+				width='125px' height='95px' alt='photo' /></a>";
+	
+	echo "<a href='viewProperty.php?propId=".$row[0]."' title='View property'>Κατηγορία: ".$row[6]."<br/>
+	Διευθυνση: ".$row[1]."<br/> Τιμή: ".$row[2]."<br/> 
+	 ";
+	if($row[3]=='S') echo "Πωλειται"; else echo "Ενοικιάζεται</a>";
+	echo "</li>";
 }
 
 ?>
+</ul>
 </div>
  </div>
 </div>

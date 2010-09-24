@@ -1082,8 +1082,36 @@ background:transparent url(images/btn-gen.png) no-repeat top left;
   text-decoration:none;
   text-align:center;
   font:bold 11px Georgia, "Times New Roman", Times;
-  cursor:pointer;
+  cursor:pointer;}
 
+    /*******Teleytaies kai pio dimofilis eggelies*******/
+ul#mainPageAdvsLayout,
+    ul#mainPageAdvsLayout li {
+       margin: 0;
+        padding: 0;
+		}
+
+    ul#mainPageAdvsLayout li {
+      display:inline-block;
+		text-align:center;
+        width: 143px;
+        min-height: 150px;
+        background: #eee;
+		vertical-align: top;
+    }
+	
+	ul#mainPageAdvsLayout img {
+     border: 1px solid #b8b79c;
+	 
+	margin-top: 2px;
+    }
+	
+	ul#mainPageAdvsLayout a {
+     font-size:12px;
+font:11px Georgia, "Times New Roman", Times;
+text-align:center;
+text-decoration:none;
+    }
 
 /****************************************************************************************
 *						Ta attributes gia thn forma anazhthshs!
