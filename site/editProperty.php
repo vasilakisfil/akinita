@@ -228,8 +228,10 @@ try{
 		$result=db_excecute($selectFile,"selectFile");
 		//eisagoume to apotelesma se enan assoc array
 		$row = mysql_fetch_array($result);
+		$pwd=getcwd();
+		$filename=$pwd."/".$row['filename'];
 		//diagrafoume to arxeio !
-		if(unlink($row['filename'])==false) throw new Exception("Δεν ήταν δυνατή η διαγραφή του αρχείου".$row['filename']);
+		if(unlink($filename)==false) throw new Exception("Δεν ήταν δυνατή η διαγραφή του αρχείου".$row['filename']);
 		//kai telika diagrafoume ta stoixeia apo thn vash..
 		db_delete("images","image_id","prop_id",$delete,$propId);
 	}
