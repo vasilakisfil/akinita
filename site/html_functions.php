@@ -219,7 +219,7 @@ for($i=0; $i<$max; $i++)
 	echo "<a href='viewProperty.php?propId=".$row[0]."' title='View property'>Κατηγορία: ".$row[4]."<br/>
 	Διευθυνση: ".$row[1]."<br/> Τιμή: ".$row[2]."<br/> 
 	 ";
-	if($row[3]=='S') echo "Πωλειται"; else echo "Ενοικιάζεται</a>";
+	if($row[3]=='S') echo "Πωλειται</a>"; else echo "Ενοικιάζεται</a>";
 	echo "</li>";
 }
 
