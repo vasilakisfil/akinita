@@ -715,7 +715,7 @@ function showProperty($propId)
 	//query pou vriskei oles tis fwtografies tou akinhtou
 	$selImages="select * from images where prop_id=$propId";
 	$resImg=db_excecute($selImages,"selImages:");
-	
+
 	//query pou vriskei ola ta spitia me to sugkekrimeno $prop_id
 	$message1="SELECT property.* , categories.category FROM property,categories,cat_prop where property.prop_id=$propId ";
 	$message1.= "and categories.cat_id=cat_prop.cat_id and property.prop_id=cat_prop.prop_id;";
@@ -733,6 +733,9 @@ function showProperty($propId)
 	
 	//emfanish twn apotelesmatwn
 	$row = mysql_fetch_assoc($result1);
+	$userQuery="select * from telephone where user_id='".$row['user_id']."'";
+	$userRes=db_excecute($userQuery,"userQuery");
+	$userRow=mysql_fetch_assoc($userRes);
 	$lan=$row['latitude'];
 	$long=$row['longitude'];
 	if($row['Afloor']==0) $Floor="Ισογειο";
@@ -773,8 +776,6 @@ function showProperty($propId)
 		
 echo "	
 </div>
-	
-
 	 <div class='map'  id='mainMap' style='width:311px; height:250px;'></div>
 	</div>";
 	// to aristero tmima
@@ -810,6 +811,12 @@ echo "
    	echo "<div class='propDetailSubInfo whitebg'>			
 				<div class='propDetailAmenities'><strong>Οροφος: </strong>".$Floor."</div>
 				<div class='propDetailAmenities'><strong>Περιοχή: </strong>".$row['region']."</div>
+				<div class='clearDiv'>&nbsp;</div>
+			</div>";
+	$userLink="profUser.php?user=".$row['user_id'];
+   	echo "<div class='propDetailSubInfo whitebg'>			
+				<div class='propDetailAmenities'><strong>Χρήστης: </strong><a href=\"".$userLink."\">".$row['user_id']."</a></div>
+				<div class='propDetailAmenities'><strong>Επικοινωνία: </strong>".$userRow['mobile1']."</div>
 				<div class='clearDiv'>&nbsp;</div>
 			</div>";
     echo "<div class='propDetailSubInfo'>
