@@ -219,7 +219,7 @@ for($i=0; $i<$max; $i++)
 	//echo $row[5]." ".$row[6];
 	echo " <script type=\"text/javascript\" >
 	var myLatlng = new google.maps.LatLng(".$row[5].",".$row[6].");
-	var image = new google.maps.MarkerImage('images/houseflag.png');
+	var image = new google.maps.MarkerImage('images/houseflagb.png');
 	var shadow = new google.maps.MarkerImage('images/houseflagsdw.png',
       // The shadow image is larger in the horizontal dimension
       // while the position and offset are the same as for the main image.
