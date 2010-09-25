@@ -151,7 +151,7 @@ function dispMainPage()
 	</form>
 </div>
 <?php
-$query="select * from property;";
+$query="select * from property where propState='T';";
 $result=db_excecute($query,"ajax_quary");
 $rows=mysql_num_rows($result);
 //echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
@@ -618,8 +618,15 @@ $facOfPropResult=db_excecute($facOfProp,"facOfProp");
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή διεύθυνσης</legend>
-Νέα διεύθυνση:<input type="text" name="newAddress"/>
-<input type="submit" name="submit" value="Αλλαγή"/>
+<div>
+    <input id="newAddress" name="newAddress" type="text" 
+	onfocus="if (this.value == 'Οδος-Αριθμος') {this.value = '';}"
+	onblur="if (this.value == '') {this.value = 'Οδος-Αριθμος';}" value="Οδος-Αριθμος" />
+    <input type="button" value="Βρές την!" onclick="codeAddressEdit()" />
+</div>
+<input id="submitEdit" type="submit" name="submit" value="Αλλαγή" disabled />
+<input id="latitude" name="latitude" type="hidden" value="0" />
+<input id="longitude" name="longitude" type="hidden" value="0" />
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
@@ -803,8 +810,8 @@ $facilities=db_excecute($message,'select2');
 </div>
 
 
-<input id="latitude" name="latitude" type="text" value="0" />
-<input id="longitude" name="longitude" type="text" value="0" />
+<input id="latitude" name="latitude" type="hidden" value="0" />
+<input id="longitude" name="longitude" type="hidden" value="0" />
 
 <h3>Κατηγορία ακινήτου:</h3>
 <?php
@@ -903,7 +910,7 @@ $facilities=db_excecute($message,'select2');
 <div class="content-box-1-content"> <div align="left">
 
 <?php
-$query="select * from property;";
+$query="select * from property where propState='T';";
 $result=db_excecute($query,"ajax_quary");
 $rows=mysql_num_rows($result);
 //echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";

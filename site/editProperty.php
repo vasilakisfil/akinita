@@ -74,6 +74,22 @@ try{
 	//an o xrhsths exei eisagei kainourgia dieu8unsh
 	if(isset($newAddress))
 	{
+		$flag=false;
+		if(isset($_POST['latitude']) && $_POST['latitude']!="0")
+		{
+			if(isset($_POST['longitude']) && $_POST['longitude']!="0")
+			{
+				$latitude=$_POST['latitude'];
+				$longitude=$_POST['longitude'];
+				$flag=true;
+			}
+		}
+		if($flag==false)
+		{
+			throw new Exception('Υπήρξε ένα πρόβλημα με το google maps κατά την καταχώρηση.Παρακαλούμε προσπαθήστε ξανά.');
+		}
+		db_update("property","prop_id","latitude",$propId,$latitude);
+		db_update("property","prop_id","longitude",$propId,$longitude);
 		//ananewnoume thn dieu8unsh
 		db_update("property","prop_id","address",$propId,"'$newAddress'");
 		//apo8hkeuoume to enhmerwtiko mhnuma

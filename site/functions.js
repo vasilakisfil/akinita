@@ -665,8 +665,36 @@ function codeAddress()
 			var marker = new google.maps.Marker({
 			map: map, 
 			position: results[0].geometry.location
+
 			
 		});
+		}
+		else
+		{
+			alert("Geocode was not successful for the following reason: " + status);
+		}
+	});
+}
+
+function codeAddressEdit()
+{
+	var address = document.getElementById("newAddress").value+' Πάτρα';
+	geocoder.geocode( { 'address': address}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK)
+		{
+			map.setCenter(results[0].geometry.location);
+			locat=results[0].geometry.location;
+			document.getElementById("submitEdit").disabled=false;
+			document.getElementById("latitude").value=results[0].geometry.location.lat();
+			document.getElementById("longitude").value=results[0].geometry.location.lng();
+			var marker = new google.maps.Marker({
+			map: map, 
+			position: results[0].geometry.location
+
+			
+			});
+		
+			marker.setMap(map);
 		}
 		else
 		{
