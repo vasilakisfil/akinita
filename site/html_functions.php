@@ -213,10 +213,19 @@ for($i=0; $i<$max; $i++)
 	//echo $row[5]." ".$row[6];
 	echo " <script type=\"text/javascript\" >
 	var myLatlng = new google.maps.LatLng(".$row[5].",".$row[6].");
-
+	image='images/houseflag.png';
+	shadow='images/houseflagsdw.png';
+	var shadow = new google.maps.MarkerImage('images/houseflagsdw.png',
+      // The shadow image is larger in the horizontal dimension
+      // while the position and offset are the same as for the main image.
+      new google.maps.Size(32, 32),
+      new google.maps.Point(0, 0),
+      new google.maps.Point(0, 20));
 	var marker = new google.maps.Marker({
 	 position: myLatlng,
-	 title:\"Hello World!\"
+	 title:\"Hello World!\",
+	 icon: image,
+	 shadow: shadow	 
 	});
   
 	// To add the marker to the map, call setMap();
@@ -261,13 +270,33 @@ for($i=0; $i<$max; $i++)
 <div class="content-box-1-content"> <div align="center">
 <ul id="mainPageAdvsLayout">	
 <?php
-$query="select distinct property.prop_id,address,price,offer_type,category from property,categories,cat_prop 
+$query="select distinct property.prop_id,address,price,offer_type,category,latitude,longitude from property,categories,cat_prop 
         where property.propState='T' and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id 
 		ORDER BY views DESC;";
 $result=db_excecute($query,"mainLastProp");
 for($i=0; $i<$max; $i++)
 {
 	$row = mysql_fetch_array($result);
+	echo " <script type=\"text/javascript\" >
+	var myLatlng = new google.maps.LatLng(".$row[5].",".$row[6].");
+	image='images/houseflag2.png';
+	shadow='images/houseflagsdw.png';
+	var shadow = new google.maps.MarkerImage('images/houseflagsdw.png',
+      // The shadow image is larger in the horizontal dimension
+      // while the position and offset are the same as for the main image.
+      new google.maps.Size(32, 32),
+      new google.maps.Point(0, 0),
+      new google.maps.Point(0, 20));
+	var marker = new google.maps.Marker({
+	 position: myLatlng,
+	 title:\"Hello World!\",
+	 icon: image,
+	 shadow: shadow	 
+	});
+  
+	// To add the marker to the map, call setMap();
+	marker.setMap(map);
+	</script>";
 	$q="select * from images where prop_id=".$row[0];
 	$res=db_excecute($q,"search images2");
 	if(mysql_num_rows($res)>0)

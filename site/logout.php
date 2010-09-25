@@ -15,12 +15,12 @@ if(isset($oldUser))
 	{
 		unset($_SESSION['valid_user']);
 		session_destroy();
-		sleep(5);
+		sleep(3);
 		header( 'Location: main.php' );
 	}
 	else if(isset($nologout))
 	{
-		sleep(3);
+		sleep(1);
 		header( 'Location: main.php' );
 	}
 	else
