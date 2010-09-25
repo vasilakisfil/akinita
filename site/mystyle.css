@@ -721,6 +721,7 @@ padding-bottom=25px;
 	float: left;
 	display: inline;
 	width: 325px;
+	min-height:680px;
 	margin-left: 7px;
 	background: #1d262c url('images/bg-detail-blue.gif') repeat-x;
 	}
@@ -773,6 +774,7 @@ padding-bottom=25px;
 	float: left;
 	display: inline;
 	width: 424px;
+	min-height:680px;
 	border-left: 1px solid #fff;
 	background: #fff url('images/bg-detail-white.gif') bottom center repeat-x;
 	}

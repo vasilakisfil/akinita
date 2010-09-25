@@ -772,7 +772,7 @@ function showProperty($propId)
 	<a href='javascript:history.go(-1)'><img border='0' alt='Πισω στις αγγελίες' src='images/btn-back-to-properties.gif' /></a>" ;
 	// to kedriko division poy perexei ola ta stoixeia
 	echo "<div id='propDetailBoxContainer'> <div id='propDetailBox'>";
-	//to deksi tmima
+	//to aristero tmima
 	/********************* Loipon olo to paixnidi me tis fotos stin emfanisi tou ginetai edw sto deksi tmima.
 	Sygkekrimena sto division me id propDetailPhoto. apo to attribute img i photo mas kaleitai kai parnei akrivws tis
 	diastaseis pou fenontai sta width kai height. by default an den anevasoume fotos i no_photo.gif einai i stadar... 
@@ -802,13 +802,13 @@ function showProperty($propId)
 		
 echo "	
 </div>
-	 <div class='map'  id='mainMap' style='width:311px; height:250px;'></div>
+	 <div class='map'  id='mainMap' style='width:311px; height:300px; margin-left:7px;' ></div><br/><br/>
 	</div>";
-	// to aristero tmima
+	// to deksi tmima
 	echo "<div id='propDetailRightBox'>";
 	echo "<div id='propDetailCoreInfo'>
-	<div id='propDetailAddress'>".$row['address']."</div>
-	<div id='propDetailLocation'>Πάτρα</div></div>";
+	<div id='propDetailAddress'>".$row['category']."</div>
+	<div id='propDetailLocation'>".$row['address']."</div></div>";
 	
 	echo "<div class='propDetailSubInfo whitebg'>
 				<div class='propDetailAmenities'><strong>Τύπος Προσφοράς: </strong>";
@@ -840,12 +840,12 @@ echo "
 				<div class='clearDiv'>&nbsp;</div>
 			</div>";
 	$userLink="profUser.php?user=".$row['user_id'];
-   	echo "<div class='propDetailSubInfo whitebg'>			
+   	echo "<div class='propDetailSubInfo'>			
 				<div class='propDetailAmenities'><strong>Χρήστης: </strong><a href=\"".$userLink."\">".$row['user_id']."</a></div>
 				<div class='propDetailAmenities'><strong>Επικοινωνία: </strong>".$userRow['mobile1']."</div>
 				<div class='clearDiv'>&nbsp;</div>
 			</div>";
-    echo "<div class='propDetailSubInfo'>
+    echo "<div class='propDetailSubInfo whitebg'>
 				<div class='propDetailAmenities'><strong>Προσθήκη στα Αγαπημένα?:</strong></div>
 				<div class='propDetailAmenities'>
 				<form method=post action=".$_SERVER['REQUEST_URI']."><input type=submit class=button name=add value=$fav!
@@ -859,16 +859,24 @@ echo "
 		//don't change == !!!
 		if(stripos($server,$edit)!==FALSE)
 		{
-			echo "<form>
+			echo "<div class='propDetailSubInfo'>
+				<div class='propDetailAmenities'><strong>Προβολή Αγγελιας?:</strong></div>
+				<div class='propDetailAmenities'>
+			<form>
            <input type='button' id='button-big' value='Προβολή' onclick=\"window.location.href='viewProperty.php?propId=$propId'\">
-           </form>";
+           </form></div><div class='clearDiv'>&nbsp;</div>
+			</div>";
 			
 		}
 		else if(stripos($server,$view)!==FALSE)
 		{
-		   echo "<form>
+		   echo "<div class='propDetailSubInfo'>
+				<div class='propDetailAmenities'><strong>Επεξεργασία Αγγελιας?:</strong></div>
+				<div class='propDetailAmenities'>
+		   <form>
            <input type='button' id='button-big' value='Επεξεργασία' onclick=\"window.location.href='editProperty.php?propId=$propId'\">
-           </form>";
+           </form></div><div class='clearDiv'>&nbsp;</div>
+			</div>";
 			
 		}
 	}
