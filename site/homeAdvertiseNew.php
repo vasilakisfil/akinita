@@ -117,6 +117,7 @@ try
 	$folder=$photosD;
 	$directory=$pwd.$middle.$folder;
 	echo $directory;
+	exit;
 	if(!mkdir($directory)) throw new Exception("Could not create folder.You cannot upload images.Contact with the Adminstrator");
 	
 	
