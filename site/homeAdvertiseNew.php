@@ -116,6 +116,7 @@ try
 	else throw new Exception("Could not identify server's Operating System");
 	$folder=$photosD;
 	$directory=$pwd.$middle.$folder;
+	echo $directory;
 	if(!mkdir($directory)) throw new Exception("Could not create folder.You cannot upload images.Contact with the Adminstrator");
 	
 	
