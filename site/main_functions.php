@@ -941,7 +941,6 @@ function showPropPhotosDel($propId)
 					echo "<form method=\"post\" action=".$_SERVER['REQUEST_URI'].">";
 					echo "<input type=hidden value=".$Imrow['image_id']." name=imgId>";
 					echo "<input type=submit name=\"delete\" value=\"Διαγραφή\" /></form>";
-					echo "</form>";
 				}
 				echo "<br />";
 		}

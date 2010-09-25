@@ -68,18 +68,18 @@ try
 	//h metavlhth $selectCat krataei to query pou vriskei thn katagoria pou kataxwrh8hke to akihto gia mellontikh xrhsh
 	$selectCat="select *from categories where category='$category';";
 
+	$link=db_connect();
 	//eisagoume to akinhto sthn vash
-	db_excecute($message,'excec_insert');
+	mysql_query($message);
 	//vriskoume to akinhto pou molis eisagame
-	$prop_id=db_excecute($selectProp,'select1');
+	$prop_id=mysql_insert_id();
+	mysql_close($link);
 	//vriskoume thn kathgoria tou akinhtou pou molis eisagame
 	$cat_id=db_excecute($selectCat,'select2');
-	//h metavlhth $prop twra krataei enan susxetiko pinaka me ola ta stoixeia tou apotelesmatos tou $prop_id
-	$prop=mysql_fetch_array($prop_id);
 	//enw h metavlhth $cat krataei enan susxetiko pinaka me ola ta stoixeia tou apotelesatos tou $cat_id
 	$cat=mysql_fetch_array($cat_id);
 	//eisagoume twra sto pinaka cat_prop to id tou akinhtou mazi me to id ths kathgorias mesw twn susxetikwn pinakwn
-	db_insert('cat_prop','prop_id','cat_id',$prop['prop_id'],$cat['cat_id']);
+	db_insert('cat_prop','prop_id','cat_id',$prop_id,$cat['cat_id']);
 	//elegxoume an o xrhsths exei epile3ei kai paroxes gia to akinito
 	if(isset($_POST['facilities']))
 	{
@@ -92,7 +92,7 @@ try
 			$fac_id=db_excecute($selectFac,'select3');
 			$fac=mysql_fetch_array($fac_id);
 			//eisagoume ston pinaka fac_prop to id tou akinhtou kai to id ths paroxhs
-			db_insert('fac_prop','prop_id','fac_id',$prop['prop_id'],$fac['fac_id']);
+			db_insert('fac_prop','prop_id','fac_id',$prop_id,$fac['fac_id']);
 		}
 	}
 	$pwd=getcwd();
@@ -103,13 +103,13 @@ try
 	//elegxoume gia windows directory
 	if(preg_match($pattern,$pwd)>0)
 	{
-		$photosD="photos\\".$prop['prop_id']."\\";
+		$photosD="photos\\".$prop_id."\\";
 		$middle="\\";
 	}
 	//elegxoume gia linux directory
 	else if(preg_match($pattern2,$pwd)>0)
 	{
-		$photosD="photos/".$prop['prop_id']."/";
+		$photosD="photos/".$prop_id."/";
 		$middle="/";
 	}
 	//an den einai tipota apo ta 2 e3agoume error(ligo api8ano..)
