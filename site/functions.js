@@ -547,6 +547,7 @@ function initializeMain(zooom) {
   var myLatLng = new google.maps.LatLng(38.243573, 21.735764);
   var mapOptions = {
     zoom: zooom,
+	scrollwheel: false,
     center: myLatLng,
     mapTypeId: google.maps.MapTypeId.HYBRID
   };
