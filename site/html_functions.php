@@ -160,9 +160,9 @@ echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη
 <div class="content-box-1">
 <div class="content-box-1-top"></div>
 <div class="content-box-1-middle">
-<div class="content-box-1-content"> <div align="center">
+<div class="content-box-1-content">
 <div id="mainMap" style="width: 720px; height: 500px"></div>
-</div>
+
  </div>
 </div>
 <div class="content-box-1-bottom">&nbsp;</div>
