@@ -30,6 +30,7 @@ if ($username && $passwd)
 	//epishs kataxwrhse to sthn session metavlhth user_type
 	$_SESSION['user_type'] = $type_;
 	$type=$_SESSION['user_type'];
+	header('Location: main.php');
   }
   catch(Exception $e)
   {

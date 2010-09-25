@@ -160,9 +160,15 @@ function dispLogout()
 *************************************************/
 function dispMainPage()
 {
+
+if(isset($_SESSION['valid_user']))
+{
 ?>
 
-<div class='header-bar-full'><h1 class="blue">Καλως ορίσατε στο Project Ακίνητα!</h1></div>
+<div class='header-bar-full'><h1 class="blue"> Καλως όρισες <?php echo $_SESSION['valid_user']; ?></h1></div>
+<?php
+}
+else echo "<div class='header-bar-full'><h1 class=\"blue\"> Καλως όρισες στο project Akinita!</h1></div>"; ?>
 <div id="search-box">
 	<form method="post" action="homeSearchRes.php">
 	<span class="yellow">Γρήγορη </span> Αναζήτηση:&nbsp;&nbsp;<input type="text" maxlength="30" size="15" class="input-box" 
@@ -213,8 +219,7 @@ for($i=0; $i<$max; $i++)
 	//echo $row[5]." ".$row[6];
 	echo " <script type=\"text/javascript\" >
 	var myLatlng = new google.maps.LatLng(".$row[5].",".$row[6].");
-	image='images/houseflag.png';
-	shadow='images/houseflagsdw.png';
+	var image = new google.maps.MarkerImage('images/houseflag.png');
 	var shadow = new google.maps.MarkerImage('images/houseflagsdw.png',
       // The shadow image is larger in the horizontal dimension
       // while the position and offset are the same as for the main image.
