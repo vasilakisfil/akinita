@@ -964,13 +964,14 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 		$pages=(int)$pages+1;
 	}
 	
-	$print=getThePages($page,$pages);
+	$print=getThePages($page,$pages,$view);
 	
 	//emfanish twn dedomenwn
 
 	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1></div>";
 
-	 echo "<form id='advs-perpage-box' method='post' action=\"".$_SERVER['REQUEST_URI']."\">
+	$actionUrl=$_SERVER['SCRIPT_NAME']."?page=".$page."&amp;results=".$view;
+	 echo "<form id='advs-perpage-box' method='get' action=\"".$actionUrl."\">
 	Αγγελίες <span class='yellow'>ανα σελίδα </span> 
 	<select name='results' class='advsperpage-input-box' style='font-weight:normal;'>";
 	$add=5;
@@ -979,7 +980,7 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 	{
 		if($val==$view)
 		{
-			echo "<option value=\"".$val."\" selected>".$val."</option>";
+			echo "<option value=\"".$val."\" selected=\"selected\" >".$val."</option>";
 		}
 		else
 		{
@@ -993,7 +994,7 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 	</form>";
 
 	echo $print['up'];
-	echo "<form name=actionProp action=".$_SERVER['REQUEST_URI']." method=post>";
+	echo "<form name=actionProp action=\"".$actionUrl."\" method=post>";
 	echo "<div class='details-header-right'>
 	 Εμφανίζονται <strong>".($view*($page-1)+1)."-".($view*($page))."</strong> από <strong>".$numRows."</strong> Αποτελέσματα</div> 
 	
@@ -1050,9 +1051,9 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 				{
 					if($Ftype=="Delete" && $type=="Admin") echo "<strong>Διαγραφή?</strong> 
 					<input type=checkbox name=delProperty[] value=".$row[0]." />";
-					else if($Ftype=="UserDelete") echo "<strong>Διαγραφή?</strong> 
+					if($Ftype=="UserDelete") echo "<strong>Διαγραφή?</strong> 
 					<input type=checkbox name=delProperty[] value=".$row[0]." />";
-					else if ($Ftype=="Accept" && $type=="Admin") echo "<strong>Αποδοχή?</strong><input type=checkbox name=accProperty[] value=".$row[0]." />";
+					if ($Ftype=="Accept" && $type=="Admin") echo "<strong>Αποδοχή?</strong><input type=checkbox name=accProperty[] value=".$row[0]." />";
 				} 
 				echo"</div>";
 		
@@ -1087,22 +1088,22 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 	{
 		if($Ftype=="Delete" && $type=="Admin") echo "<input type=submit value=Διαγραφή />";
 		if($Ftype=="UserDelete" ) echo "<input type=submit value=Διαγραφή />";
-		else if($Ftype=="Accept" && $type=="Admin") echo "<input type=submit value=Έγκριση />";
+		if($Ftype=="Accept" && $type=="Admin") echo "<input type=submit value=Έγκριση />";
 	}
 	
 	echo $print['down'];
-	echo "</form></div></div>";
+	echo "</div></div>";
 }
 
 
-function getThePages($page,$pages)
+function getThePages($page,$pages,$results)
 {
 	$print['up']="";
 	$print['down']="";
 	$temp="";
 	for($i=1; $i<=$pages; $i++)
 	{
-		$page_[$i]=$_SERVER['SCRIPT_NAME']."?page=".$i;
+		$page_[$i]=$_SERVER['SCRIPT_NAME']."?page=".$i."&amp;results=".$results;
 	}
 
 	$print['up'].="<div id='details-header'> <strong>Σελίδα</strong> ";

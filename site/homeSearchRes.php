@@ -12,7 +12,7 @@ if(isset($_POST['mainQuery'])) $mainQuery=$_POST['mainQuery']; else $mainQuery=N
 //H metavlhth $message krataei to query pou 8a stalei sthn vash
 //sthn arxh thn arxikopoioume me to vasiko query, dld epilegoume olous tous pinakes kai ta stoixeia pou 8eloume
 if(isset($_GET['page'])) $page=$_GET['page']; else $page=1;
-if(isset($_POST['results'])) $results=$_POST['results']; else $results=15;
+if(isset($_GET['results'])) $results=$_GET['results']; else $results=15;
   
 try
 {

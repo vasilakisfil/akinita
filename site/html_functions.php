@@ -19,7 +19,8 @@ function dispHeader($header,$num=1)
 {
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -183,8 +184,8 @@ $query="select distinct property.prop_id,address,price,offer_type,category,latit
 		ORDER BY prop_id DESC;";
 $result=db_excecute($query,"mainLastProp");
 
-if(mysql_num_rows($result)<=10) $max=mysql_num_rows($result);
-else $max=10;
+if(mysql_num_rows($result)<=5) $max=mysql_num_rows($result);
+else $max=5;
 for($i=0; $i<$max; $i++)
 {
 
