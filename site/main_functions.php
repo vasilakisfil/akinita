@@ -898,7 +898,7 @@ echo "
 
 	echo "</div></div> <div class='clearDiv'>&nbsp;</div> </div></div>
 		<script type=\"text/javascript\" >
-			initializeMain(13);
+			initializeMain(16);
 			var myLatLng = new google.maps.LatLng(".$lan.",".$long.");
 			map.setCenter(myLatLng);
 			var marker = new google.maps.Marker({
