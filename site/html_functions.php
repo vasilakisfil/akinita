@@ -619,6 +619,12 @@ $facOfPropResult=db_excecute($facOfProp,"facOfProp");
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή διεύθυνσης</legend>
+Eπιλογές για τα Markers:
+<select>
+  <option onclick="clearOverlays();">Απόκρυψη</option>
+  <option onclick="showOverlays();">Εμφάνιση</option>
+  <option onclick="deleteOverlays();">Διαγραφή</option>
+</select>
 <div>
     <input id="newAddress" name="newAddress" type="text" 
 	onfocus="if (this.value == 'Οδος-Αριθμος') {this.value = '';}"
@@ -799,6 +805,12 @@ $facilities=db_excecute($message,'select2');
 <input type="radio" name="typos" value="enoikiash" /> Ενοικίαση
 
 <h3>Διεύθυνση Ακινήτου:</h3>
+Eπιλογές για τα Markers:
+<select>
+  <option onclick="clearOverlays();">Απόκρυψη</option>
+  <option onclick="showOverlays();">Εμφάνιση</option>
+  <option onclick="deleteOverlays();">Διαγραφή</option>
+</select>
 <div id="mainMap" style="width: 290px; height: 200px"></div>
 <script type="text/javascript" >
 	initializeMain(13);
