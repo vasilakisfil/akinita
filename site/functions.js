@@ -365,7 +365,22 @@ function validRegForm()
 
 }
 
+/****************************************************************************************
+*					SUNARTHSEIS ELEGXOU GIA THN APOSUNDESH
+*
+*****************************************************************************************/
+function dispLogoutMsg()
+{
+	var logoutSpan = document.getElementById('logoutSpan');
+	logoutSpan.innerHTML="Γίνεται η αποσύνδεσή σας..Σε λίγο θα μεταφερθείτε στην αρχική σελίδα.";
 
+}
+function dispNoLogoutMsg()
+{
+	var logoutSpan = document.getElementById('logoutSpan');
+	logoutSpan.innerHTML="Θα μεταφερθείτε στην αρχική σελίδα.";
+
+}
 /****************************************************************************************
 *					SUNARTHSEIS ELEGXOU GIA TO FORMA ANAZHTHSHS
 *

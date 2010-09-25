@@ -131,6 +131,26 @@ else
 </div>
   </body>
   </html>
+<?php 
+}
+
+/************************************************
+* Auth h sunarthsh emfanizei tis epiloges tou xrhsth
+* otan epilegei na aposunde8ei
+*************************************************/
+function dispLogout()
+{
+?>
+	<br />
+	<br />
+	Σίγουρα θέλετε να αποσυνδεθείτε;
+	<br />
+	<br />
+	
+	<form method="post" action="logout.php" >
+	<input type="submit" name="logout" value="Ναι θέλω !" onclick="dispLogoutMsg()" /><input type="submit" name="nologout" value="Το μετάνιωσα" onclick="dispNoLogoutMsg()" />
+	<div id="logoutSpan"></div>
+	</form>
 <?php
 }
 
@@ -295,7 +315,7 @@ function dispLoginBox()
 <div class="content-box-1-content"> <div align="left">
 	<h3>Είσαι μέλος;Κάνε τώρα Log In!</h3>
 	
-	<form " method="post" action="member.php">
+	<form  method="post" action="member.php">
 	<span class="fieldLabel-reg">Όνομα Χρήστη: </span>
 	<div class="fieldInput-reg"><input id="" type="text" name="username"/></div><br />
 	<span class="fieldLabel-reg">Κωδικός Χρήστη: </span>
