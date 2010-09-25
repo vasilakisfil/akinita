@@ -971,9 +971,9 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 
 	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1></div>";
 
-	 echo "<form method='post' action=\"".$_SERVER['REQUEST_URI']."\">
-	Αγγελίες ανα σελίδα 
-	<select name='results' style='font-weight:normal;'>";
+	 echo "<form id='advs-perpage-box' method='post' action=\"".$_SERVER['REQUEST_URI']."\">
+	Αγγελίες <span class='yellow'>ανα σελίδα </span> 
+	<select name='results' class='advsperpage-input-box' style='font-weight:normal;'>";
 	$add=5;
 	$val=$add;
 	for($i=0; $i<8; $i++)
@@ -990,7 +990,7 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 		$val+=$add;
 	}
     echo "</select>
-	<input type='submit' value='Δείξε' name='show' />
+	<input type='submit' id='button-view' value='Δείξε' name='show' />
 	</form>";
 
 	echo $print['up'];

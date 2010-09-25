@@ -444,30 +444,28 @@ text-shadow:1px 1px 1px #fff;
 	}
 	
 #advs-perpage-box {
-	float: left;
 	display: inline;
-	width:396px;
-	height:60px;
 	color:#fff;
 	font-size:12px;
 	font-weight:bold;
-	margin-left: 26px;
-	padding-top: 13px;
-	padding-left: 20px;
-	background:url(images/bg-search-box.png) no-repeat left top;
-	}
-.advsperpage-input-box {
-	display: inline;
-	color:#323232;
-	font-size:12px;
-	font-weight:bold;
-	background-color:#b8b79c;
 	border:solid;
 	border-width:1px;
 	border-color:#eff0e3;
-	padding-left:4px;
-	padding-top: 3px;
-	padding-bottom:3px;
+	margin-left: 30px;
+	padding: 8px 13px 9px 13px;
+	background:#002245;
+	}
+.advsperpage-input-box {
+	display: inline;
+	color:#333;
+	font-size:12px;
+	background-color:#fff8dc;
+	border:solid;
+	border-width:1px;
+	border-color:#eff0e3;
+	padding-left:1px;
+	padding-top: 1px;
+	padding-bottom:2px;
 	}
 
 #search-box {
