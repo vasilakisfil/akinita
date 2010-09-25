@@ -26,7 +26,7 @@ function dispHeader($header,$num=1)
 <head>
 <script type="text/javascript" src="functions.js"></script>
 <link rel="stylesheet" type="text/css" href="mystyle.css" />
-<link rel="shortcut icon" href="images/imasters.gif" />
+<link rel="shortcut icon" href="images/homeico.gif" />
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;language=el" >
 
 </script>
