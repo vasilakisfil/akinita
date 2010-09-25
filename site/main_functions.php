@@ -537,7 +537,7 @@ function db_delete1($table,$column1,$data1)
 	mysql_close($conn);
 }
 
-function db_delete2($table,$column1,$column2,$data1,$data2)
+function db_delete($table,$column1,$column2,$data1,$data2)
 {
 	//sundesh sth vash
 	$conn=db_connect();
