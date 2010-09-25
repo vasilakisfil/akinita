@@ -9,21 +9,21 @@ include('includes.php');
   $old_user = $_SESSION['valid_user'];  
   unset($_SESSION['valid_user']);
   session_destroy();
+
+dispHeader('Αποσύνδεση');
+if (!empty($old_user))
+{
+	echo '<br /><br />Αποσυνδεθήκατε επιτυχώς.<br />';
+}
+else
+{
+// ama den htan sundedemenos alla hr8e se auth th selida kapws..
+	echo '<br /><br />Δεν ήσασταν συνδεδεμένοι οπότε η αποσύνδεσή σας απέτυχε.<br />'; 
+}
+
+echo "<br /><br /><a href=\"main.php\">Πίσω στην αρχική σελίδα</a>";
+
+dispFooter();
+
 ?>
-<html>
-<body>
-<h1>Log out</h1>
-<?php 
-  if (!empty($old_user))
-  {
-    echo 'Logged out.<br />';
-  }
-  else
-  {
-    // ama den htan sundedemenos alla hr8e se auth th selida kapws..
-    echo 'You were not logged in, and so have not been logged out.<br />'; 
-  }
-?> 
-<a href="login.php">Back to main page</a>
-</body>
-</html>
+
