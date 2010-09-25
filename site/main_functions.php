@@ -346,14 +346,40 @@ function db_del_user($user)
 }
 function db_del_prop($propId)
 {
+
+	$pwd=getcwd();
+	//windows pattern
+	$pattern="/\\\/";
+	//linux pattern
+	$pattern2="/\//";
+	//elegxoume gia windows directory
+	if(preg_match($pattern,$pwd)>0)
+	{
+		$photosD="photos\\".$propId."\\";
+		$middle="\\";
+	}
+	//elegxoume gia linux directory
+	else if(preg_match($pattern2,$pwd)>0)
+	{
+		$photosD="photos/".$propId."/";
+		$middle="/";
+	}
+	//an den einai tipota apo ta 2 e3agoume error(ligo api8ano..)
+	else throw new Exception("Could not identify server's Operating System");
+	$folder=$photosD;
+	$directory=$pwd.$middle.$folder;
+	rrmdir($directory);
+	
 	//sundesh sth vash
 	$conn=db_connect();
-	
+	//diagrafontai ola automata logw on update/delete pou exoun dhlw8ei stous pinakes sthn vash..
 	$result = mysql_query("delete from property where prop_id='$propId'");
 	if (!$result)
 	{
 		throw new Exception('Δεν ήταν δυνατή η εκτέλεση του DELETE3.');
 	}
+	
+	
 }
 
 /************************************************
@@ -1213,6 +1239,24 @@ function createProperties()
 	
 
 }
+
+
+/****************************************************************************************
+*		Sunarthsh pou diagrafei ena directory anadromika..
+*		Credits @ holger1 at NOSPAMzentralplan dot de (php.net)
+*****************************************************************************************/
+ function rrmdir($dir) { 
+   if (is_dir($dir)) { 
+     $objects = scandir($dir); 
+     foreach ($objects as $object) { 
+       if ($object != "." && $object != "..") { 
+         if (filetype($dir."/".$object) == "dir") rrmdir($dir."/".$object); else unlink($dir."/".$object); 
+       } 
+     } 
+     reset($objects); 
+     rmdir($dir); 
+   } 
+ }
 
 ?>
 
