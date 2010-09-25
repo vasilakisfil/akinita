@@ -15,7 +15,7 @@ if(isset($oldUser))
 	{
 		unset($_SESSION['valid_user']);
 		session_destroy();
-		sleep(3);
+		sleep(2);
 		header( 'Location: main.php' );
 	}
 	else if(isset($nologout))
