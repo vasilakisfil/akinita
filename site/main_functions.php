@@ -41,7 +41,8 @@ function login($username, $password)
 {
 	//sundesh sth vash
 	$conn = db_connect();
-
+	$username=mysql_real_escape_string($username);
+	$password=mysql_real_escape_string($password);
 	//ektelesh tou query gia na vre8ei o xrhsths
 	$result = mysql_query("SELECT user_type FROM users where username='$username' and password='$password'");
 
