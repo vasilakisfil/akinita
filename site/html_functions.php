@@ -166,10 +166,11 @@ if(isset($_SESSION['valid_user']))
 {
 ?>
 
-<div class='header-bar-full'><h1 class="blue"> Καλως όρισες <?php echo $_SESSION['valid_user']; ?>!</h1></div>
+<div class='header-bar-full'><h1 class="blue"> Καλως όρισες <span class="underlined"><?php echo $_SESSION['valid_user']; ?></span> στο 
+project Akinita!</h1></div>
 <?php
 }
-else echo "<div class='header-bar-full'><h1 class=\"blue\"> Καλως όρισες στο project Akinita!</h1></div>"; ?>
+else echo "<div class='header-bar-full'><h1 class=\"blue\"> Καλως όρισατε στο project Akinita!</h1></div>"; ?>
 <div id="search-box">
 	<form method="post" action="homeSearchRes.php">
 	<span class="yellow">Γρήγορη </span> Αναζήτηση:&nbsp;&nbsp;<input type="text" maxlength="30" size="15" class="input-box" 

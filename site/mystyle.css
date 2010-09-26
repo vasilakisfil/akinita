@@ -372,7 +372,11 @@ text-shadow:1px 1px 1px #fff;
 .beige {
 	color:#d8d9b8;
 	}
-
+.underlined {
+	text-decoration:underline;
+	font-weight:bold;
+	}
+	
 .center{text-align:center;}
 	
 #sub-header {
