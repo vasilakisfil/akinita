@@ -951,7 +951,7 @@ while($row = mysql_fetch_array($result))
 <?php
 while($row = mysql_fetch_array($facilities))
 {?>
-	<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>	
+	<?php echo $row['facility']?> <input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> 	
 <?php
 }?>
 
