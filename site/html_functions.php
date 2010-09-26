@@ -215,10 +215,10 @@ else $max=5;
 for($i=0; $i<$max; $i++)
 {
 	$row = mysql_fetch_array($result);
-	$m="<a href=\"viewProperty.php?propId=".$row[0]."\" > Κατηγορία: ".$row[4]."<br /> Διευθυνση: ".$row[1]." <br /> Τιμή: ".$row[2]."";
+	$m="<div style=\" overflow: hidden;\" <a href=\"viewProperty.php?propId=".$row[0]."\" >".$row[4]."<br />  ".$row[1]." <br /> ".$row[2]."";
 	//$m="Κατηγορία: ".$row[4]." Διευθυνση: ".$row[1]." Τιμή: ".$row[2]."";
 	if($row[3]=='S')  $m.="<br /> Πωλειται</a>"; else $m.="<br /> Ενοικιάζεται</a>";
-	
+	$m.="</div>";
 
 
 	//echo $row[5]." ".$row[6];
@@ -231,23 +231,22 @@ for($i=0; $i<$max; $i++)
       new google.maps.Size(32, 32),
       new google.maps.Point(0, 0),
       new google.maps.Point(0, 20));
-	var marker = new google.maps.Marker({
+	var marker1".$i." = new google.maps.Marker({
 	 position: myLatlng,
 	 title:\"".$row[1]."\",
 	 icon: image,
 	 shadow: shadow	 
 	});
 	// To add the marker to the map, call setMap();
-	marker.setMap(map);
+	marker1".$i.".setMap(map);
 	
 
 	var message='".$m."';
-	var infowindow = new google.maps.InfoWindow(
+	var infowindow1".$i." = new google.maps.InfoWindow(
 	  { content: message,
-		size: new google.maps.Size(50,50)
 	  });
-	google.maps.event.addListener(marker, 'click', function() {
-	infowindow.open(map,marker);
+	google.maps.event.addListener(marker1".$i.", 'click', function() {
+	infowindow1".$i.".open(map,marker1".$i.");
 	});
 	
 	</script>";
@@ -297,9 +296,10 @@ $result=db_excecute($query,"mainLastProp");
 for($i=0; $i<$max; $i++)
 {
 	$row = mysql_fetch_array($result);
-	$m="<a href=\"viewProperty.php?propId=".$row[0]."\" > Κατηγορία: ".$row[4]."<br /> Διευθυνση: ".$row[1]." <br /> Τιμή: ".$row[2]."";
+	$m="<div style=\" overflow: hidden;\" <a href=\"viewProperty.php?propId=".$row[0]."\" >".$row[4]." ".$row[1]." ".$row[2]."";
 	//$m="Κατηγορία: ".$row[4]." Διευθυνση: ".$row[1]." Τιμή: ".$row[2]."";
 	if($row[3]=='S')  $m.="<br /> Πωλειται</a>"; else $m.="<br /> Ενοικιάζεται</a>";
+	$m.="</div>";
 	
 	echo " <script type=\"text/javascript\" >
 	var myLatlng = new google.maps.LatLng(".$row[5].",".$row[6].");
@@ -311,7 +311,7 @@ for($i=0; $i<$max; $i++)
       new google.maps.Size(32, 32),
       new google.maps.Point(0, 0),
       new google.maps.Point(0, 20));
-	var marker = new google.maps.Marker({
+	var marker2".$i." = new google.maps.Marker({
 	 position: myLatlng,
 	 title:\"".$row[1]."\",
 	 icon: image,
@@ -319,18 +319,18 @@ for($i=0; $i<$max; $i++)
 	});
   
 	// To add the marker to the map, call setMap();
-	marker.setMap(map);
+	marker2".$i.".setMap(map);
 	
-	var message='".$m."';
-	var infowindow = new google.maps.InfoWindow(
+	message='".$m."';
+	var infowindow2".$i." = new google.maps.InfoWindow(
 	  { content: message,
-		size: new google.maps.Size(50,50)
 	  });
-	google.maps.event.addListener(marker, 'click', function() {
-	infowindow.open(map,marker);
+	google.maps.event.addListener(marker2".$i.", 'click', function() {
+	infowindow2".$i.".open(map,marker2".$i.");
 	});
 	
-	</script>";	$q="select * from images where prop_id=".$row[0];
+	</script>";
+	$q="select * from images where prop_id=".$row[0];
 	$res=db_excecute($q,"search images2");
 	if(mysql_num_rows($res)>0)
 	{
