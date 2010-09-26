@@ -215,7 +215,7 @@ else $max=5;
 for($i=0; $i<$max; $i++)
 {
 	$row = mysql_fetch_array($result);
-	$m="<div style=\" overflow: hidden;\" <a href=\"viewProperty.php?propId=".$row[0]."\" >".$row[4]."<br />  ".$row[1]." <br /> ".$row[2]."";
+	$m="<div style=\" overflow: hidden;\" <a href=\"viewProperty.php?propId=".$row[0]."\" >".$row[4]."<br />  ".$row[1]." <br /> ".$row[2]."€";
 	//$m="Κατηγορία: ".$row[4]." Διευθυνση: ".$row[1]." Τιμή: ".$row[2]."";
 	if($row[3]=='S')  $m.="<br /> Πωλειται</a>"; else $m.="<br /> Ενοικιάζεται</a>";
 	$m.="</div>";
@@ -296,7 +296,7 @@ $result=db_excecute($query,"mainLastProp");
 for($i=0; $i<$max; $i++)
 {
 	$row = mysql_fetch_array($result);
-	$m="<div style=\" overflow: hidden;\" <a href=\"viewProperty.php?propId=".$row[0]."\" >".$row[4]." ".$row[1]." ".$row[2]."";
+	$m="<div style=\" overflow: hidden;\" <a href=\"viewProperty.php?propId=".$row[0]."\" >".$row[4]." ".$row[1]." ".$row[2]."€";
 	//$m="Κατηγορία: ".$row[4]." Διευθυνση: ".$row[1]." Τιμή: ".$row[2]."";
 	if($row[3]=='S')  $m.="<br /> Πωλειται</a>"; else $m.="<br /> Ενοικιάζεται</a>";
 	$m.="</div>";
