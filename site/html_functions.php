@@ -96,10 +96,10 @@ function dispFooter()
 </div>
 </div>
 <ul id="bottom-navigation">
+        <li class="rss-icon"><a  href="generateRSS.php"><img src="images/rssIcon.png" /></a></li>
 		<li><a href="main.php">Αρχική</a></li>
 		<li><a href="homeSearch.php">Αναζήτηση</a></li>
 		<li><a href="homeAdvertise.php">Καταχώρηση</a></li>
-		<li><a href="generateRSS.php">RSS feed</a></li>
 		<li><a href="member.php">Κεντρική</a></li>
 		<li><a href="" target="_blank">Επικοινωνία</a></li>
 <?php

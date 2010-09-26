@@ -244,8 +244,7 @@ a.continue-reading {
 	height:33px;
 	background:url(images/btn-continue-reading.gif);
 	}
-	
-	
+		
 #bottom-navigation {
 	text-align:center;
 	background:#fff;
@@ -260,6 +259,12 @@ a.continue-reading {
 	background:url(images/delimiter.gif) no-repeat right;
 	}
 #bottom-navigation .last a {background:none;}
+
+#bottom-navigation .rss-icon a {
+background:none;
+float:left;
+margin-top:-3px;}
+
 #footer {
 	width:100%;
 	background:#1d262c;
