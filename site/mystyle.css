@@ -919,6 +919,15 @@ background:transparent url(images/btn-back.png) no-repeat top left;
 	width: 187px;
 	}
 
+.broken_list li {
+    list-style: none;
+    float: left;
+}
+.broken_list li ul li {
+    float: none;
+}
+	
+	
 /* Property Samples Styles */
 .propSampleBox {
 	width: 310px;

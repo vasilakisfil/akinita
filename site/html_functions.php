@@ -948,12 +948,15 @@ while($row = mysql_fetch_array($result))
 <input type="text" name="constr_date"/><br />
 
 <h3>Παροχές:</h3>
+<ul>
 <?php
 while($row = mysql_fetch_array($facilities))
 {?>
-	<?php echo $row['facility']?> <input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> 	
+	 <li>
+	 <input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>"/>	<?php echo $row['facility']?></li>
 <?php
 }?>
+</ul><br />
 
 <h3>Σχόλια:</h3>
 <textarea rows="5" cols="80" name="comments" 
