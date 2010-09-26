@@ -46,7 +46,7 @@ function dispHeader($header,$num=1)
 <li ><a href="homeSearch.php" id="search">Αναζήτηση</a></li>
 <li ><a href="homeAdvertise.php" id="kataxorisi">Καταχώρηση</a></li>
 <li ><a href="member.php" id="kedriki">Κεντρική</a></li>
-<li ><a href=""target="_blank" id="contact">Επικοινωνια</a></li>
+<li ><a href="contactUs.php"target="_blank" id="contact">Επικοινωνια</a></li>
 
 <?php
 //elegxoume an o xrhsths einai sudedemenos kai an einai emfanizoume perissoteres epiloges
@@ -1145,6 +1145,58 @@ while($row = mysql_fetch_array($facilities))
 <div class="content-box-1-bottom">&nbsp;</div>
  </div>
 
+<?php
+}
+
+function dispContactUs()
+{
+?>
+	  <div id="content">
+	    <div class="content-padding">
+		  <!-- to keimeno mas -->
+	      <h1>Επικοινωνία</h1>
+          <p>Θέλεις να ρωτήσεις κάτι ή αντιμετωπίζεις κάποιο πρόβλημα? Θέλεις να προτείνει κάποια αλλαγή ή απλά θες να μας δώσεις συγχαρητήρια
+              για την καταπληκτηκή δουλειά που κάναμε? Επικοινώνησε με κάποιον από τους διαχειριστές μέσω της παρακάτω φόρμας και θα σου 
+			  απαντήσουμε asp!!!</p>
+        </div> 		
+		<form method="post">
+		<fieldset id="contact">
+
+		<legend>   Contact Us</legend>
+		
+		<ol>
+		  <li>
+		    <label for="name">Ονομα</label>
+		    <input type="text" id="name" name="name" />
+		  </li>
+		  
+		  <li>
+		    <label for="email">Διευθυνση E-mail</label>
+		    <input type="text" id="email" name="email"/>
+		  </li>
+		  
+		  <li>
+		    <label for="subject">Να σταλθει στον</label>
+		    <select id="subject" name="subject">
+		      <option value="" selected="selected">-- developer --</option>
+		      <option value="fil">vasilakis@ceid.upatras.gr</option>
+		      <option value="mits">klisiaris@ceid.upatras.gr</option>
+		      <option value="all">Σε ολους</option>
+		    </select>
+		  </li>
+		  
+		  <li
+		    <label for="message">Μηνυμα</label>
+		    <textarea id="message" name"message" cols="40" rows="10"></textarea>
+		  </li>
+		  
+		  <li>
+		    <input type="submit" id="submit" name="submit" value="Send"/>
+		  </li>
+		<ol>
+		
+		</fieldset>
+		</form> </div>
 <?php
 }
 ?>
