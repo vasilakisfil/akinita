@@ -35,7 +35,7 @@ function dispHeader($header,$num=1)
 <body>
 <div id="main">
 <div id="header">
-
+<h1><a href="main.php" class="logo"></a></h1>
 
 
 
@@ -166,7 +166,7 @@ if(isset($_SESSION['valid_user']))
 {
 ?>
 
-<div class='header-bar-full'><h1 class="blue"> Καλως όρισες <?php echo $_SESSION['valid_user']; ?></h1></div>
+<div class='header-bar-full'><h1 class="blue"> Καλως όρισες <?php echo $_SESSION['valid_user']; ?>!</h1></div>
 <?php
 }
 else echo "<div class='header-bar-full'><h1 class=\"blue\"> Καλως όρισες στο project Akinita!</h1></div>"; ?>
