@@ -90,6 +90,16 @@ if (isset($_SESSION['user_type']))
 			</form>
 			";
 		if(isset($_POST['pageTest'])) createProperties();
+		echo "
+			<form method=\"post\" action=\"member.php\" >
+			<input type=\"submit\" name=\"emailTest\" value=\"Test email!\" \>
+			</form>
+			";
+		if(isset($_POST['emailTest']))
+		{
+			sendEmail();
+			echo "Mail Send!";
+		}
 	}
 	//alliws emfanise mono tis epiloges tou aplou xrhsth
 	else
