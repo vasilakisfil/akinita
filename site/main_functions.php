@@ -1271,18 +1271,25 @@ function sendEmail()
 {
 
 // The message
-$message = "Line 1\nLine 2\nLine 3";
+$message = "This message has to do with android phones";
 
 // In case any of our lines are larger than 70 characters, we should use wordwrap()
 $message = wordwrap($message, 70);
 
 // Send
-mail('filpiranesi@hotmail.com', 'My Subject', $message);
-
+$ret=mail('vasilakisfil@gmail.com', 'Android phones', $message);
+echo "--->".$ret."<br />";
 echo "Mail Send!";
 
 }
 
+function mail_utf8($to, $subject = '(No subject)', $message = '', $header = '')
+{
+
+	$header_ = 'MIME-Version: 1.0' . "\r\n" . 'Content-type: text/plain; charset=UTF-8' . "\r\n";
+	$ret=mail($to, '=?UTF-8?B?'.base64_encode($subject).'?=', $message, $header_ . $header);
+	return $ret;
+}
 
 ?>
 

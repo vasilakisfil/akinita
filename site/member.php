@@ -90,15 +90,22 @@ if (isset($_SESSION['user_type']))
 			</form>
 			";
 		if(isset($_POST['pageTest'])) createProperties();
+		
 		echo "
 			<form method=\"post\" action=\"member.php\" >
+			<input type=\"text\" name=\"email\" value=\"email\" />
+			<input type=\"text\" name=\"subjEmail\" value=\"Θέμα\" />
+			<input type=\"text\" name=\"textEmail\" value=\"Κείμενο\" />
 			<input type=\"submit\" name=\"emailTest\" value=\"Test email!\" \>
 			</form>
 			";
 		if(isset($_POST['emailTest']))
 		{
-			sendEmail();
-			echo "Mail Send!";
+			$headers = 'From: webmaster@AkinitaProject.gr' . "\r\n" .
+			'Reply-To: webmaster@vasilakis.com' . "\r\n" .
+			'X-Mailer: PHP/' . phpversion();
+			$ret=mail_utf8($_POST['email'], $_POST['subjEmail'], $_POST['textEmail'], $headers);
+			if($ret==true) echo "Το mail αποσάλθηκε!<br />";
 		}
 	}
 	//alliws emfanise mono tis epiloges tou aplou xrhsth

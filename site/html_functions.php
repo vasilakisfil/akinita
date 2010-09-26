@@ -32,7 +32,7 @@ function dispHeader($header,$num=1)
 </script>
 <title>Akinita.gr</title>
 </head>
-<body>
+<body onload="initialize()" onunload="GUnload()">
 <div id="main">
 <div id="header">
 <h1><a href="main.php" class="logo"></a></h1>
@@ -368,6 +368,7 @@ echo "<li><a href='viewProperty.php?propId=".$row[0]."' title='View Photo'><img 
 /*************************************************
 * auth h sunarthsh dhmiourgei thn forma gia to
 * login gia thn sundesh enos xrhsth
+
 **************************************************/
 function dispLoginBox()
 {
