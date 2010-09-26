@@ -1178,8 +1178,9 @@ function dispContactUs()
 		    <label for="subject">Να σταλθει στον</label>
 		    <select id="subject" name="subject">
 		      <option value="" selected="selected">-- developer --</option>
-		      <option value="fil">vasilakis@ceid.upatras.gr</option>
 		      <option value="mits">klisiaris@ceid.upatras.gr</option>
+		      <option value="fil">vasilakis@ceid.upatras.gr</option>
+		      <option value="mits">karathanou@ceid.upatras.gr</option>
 		      <option value="all">Σε ολους</option>
 		    </select>
 		  </li>
