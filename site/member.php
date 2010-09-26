@@ -102,10 +102,11 @@ if (isset($_SESSION['user_type']))
 		if(isset($_POST['emailTest']))
 		{
 			$headers = 'From: webmaster@AkinitaProject.gr' . "\r\n" .
-			'Reply-To: webmaster@vasilakis.com' . "\r\n" .
+			'Reply-To: webmaster@AkinitaProject.gr' . "\r\n" .
 			'X-Mailer: PHP/' . phpversion();
 			$ret=mail_utf8($_POST['email'], $_POST['subjEmail'], $_POST['textEmail'], $headers);
 			if($ret==true) echo "Το mail αποσάλθηκε!<br />";
+			else echo "Το mail δεν αποσάλθηκε!<br />";
 		}
 	}
 	//alliws emfanise mono tis epiloges tou aplou xrhsth
