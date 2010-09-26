@@ -214,8 +214,13 @@ if(mysql_num_rows($result)<=5) $max=mysql_num_rows($result);
 else $max=5;
 for($i=0; $i<$max; $i++)
 {
-
 	$row = mysql_fetch_array($result);
+	$m="<a href=\"viewProperty.php?propId=".$row[0]."\" > Κατηγορία: ".$row[4]."<br /> Διευθυνση: ".$row[1]." <br /> Τιμή: ".$row[2]."";
+	//$m="Κατηγορία: ".$row[4]." Διευθυνση: ".$row[1]." Τιμή: ".$row[2]."";
+	if($row[3]=='S')  $m.="<br /> Πωλειται</a>"; else $m.="<br /> Ενοικιάζεται</a>";
+	
+
+
 	//echo $row[5]." ".$row[6];
 	echo " <script type=\"text/javascript\" >
 	var myLatlng = new google.maps.LatLng(".$row[5].",".$row[6].");
@@ -228,13 +233,23 @@ for($i=0; $i<$max; $i++)
       new google.maps.Point(0, 20));
 	var marker = new google.maps.Marker({
 	 position: myLatlng,
-	 title:\"Hello World!\",
+	 title:\"".$row[1]."\",
 	 icon: image,
 	 shadow: shadow	 
 	});
-  
 	// To add the marker to the map, call setMap();
 	marker.setMap(map);
+	
+
+	var message='".$m."';
+	var infowindow = new google.maps.InfoWindow(
+	  { content: message,
+		size: new google.maps.Size(50,50)
+	  });
+	google.maps.event.addListener(marker, 'click', function() {
+	infowindow.open(map,marker);
+	});
+	
 	</script>";
 	
 	$q="select * from images where prop_id=".$row[0];
@@ -282,6 +297,10 @@ $result=db_excecute($query,"mainLastProp");
 for($i=0; $i<$max; $i++)
 {
 	$row = mysql_fetch_array($result);
+	$m="<a href=\"viewProperty.php?propId=".$row[0]."\" > Κατηγορία: ".$row[4]."<br /> Διευθυνση: ".$row[1]." <br /> Τιμή: ".$row[2]."";
+	//$m="Κατηγορία: ".$row[4]." Διευθυνση: ".$row[1]." Τιμή: ".$row[2]."";
+	if($row[3]=='S')  $m.="<br /> Πωλειται</a>"; else $m.="<br /> Ενοικιάζεται</a>";
+	
 	echo " <script type=\"text/javascript\" >
 	var myLatlng = new google.maps.LatLng(".$row[5].",".$row[6].");
 	image='images/houseflag2.png';
@@ -294,15 +313,24 @@ for($i=0; $i<$max; $i++)
       new google.maps.Point(0, 20));
 	var marker = new google.maps.Marker({
 	 position: myLatlng,
-	 title:\"Hello World!\",
+	 title:\"".$row[1]."\",
 	 icon: image,
 	 shadow: shadow	 
 	});
   
 	// To add the marker to the map, call setMap();
 	marker.setMap(map);
-	</script>";
-	$q="select * from images where prop_id=".$row[0];
+	
+	var message='".$m."';
+	var infowindow = new google.maps.InfoWindow(
+	  { content: message,
+		size: new google.maps.Size(50,50)
+	  });
+	google.maps.event.addListener(marker, 'click', function() {
+	infowindow.open(map,marker);
+	});
+	
+	</script>";	$q="select * from images where prop_id=".$row[0];
 	$res=db_excecute($q,"search images2");
 	if(mysql_num_rows($res)>0)
 	{
