@@ -926,7 +926,20 @@ background:transparent url(images/btn-back.png) no-repeat top left;
 .broken_list li ul li {
     float: none;
 }
-	
+.field-input-gen{
+display: inline;
+	width:160px;
+	color:#323232;
+	font-family:Georgia, Arial, "Times New Roman", Times;
+	font-size:13px;
+	font-weight:regular;
+	background-color:#D5E1DD;
+	border:solid;
+	border-width:1px;
+	border-color:#26465c;
+	padding-left:4px;
+	padding-bottom:3px;
+}	
 	
 /* Property Samples Styles */
 .propSampleBox {
@@ -1016,7 +1029,7 @@ background:transparent url(images/btn-back.png) no-repeat top left;
 	padding: 8px;
 	width: 183px;
 	}
-/*Merikes classes kai ids gia tin show all users selida */
+/*Merikes classes kai ids gia tin show all users selida genikotera gia tables  */
 #userElements{
 	width: auto;
 	height: 59px;

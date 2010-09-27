@@ -179,18 +179,23 @@ function dispCategoriesSettings()
 	//an uparxoun kathgories sto susthma emfanise tes..
 	if (mysql_num_rows($result)>0)
 	{
+		echo "<div id='sub-header'>Εδώ μπορείτε να προσθεσετε ή αφαιρέσετε <span class='yellow'>κατηγορίες</span>.</div>
+	<div class='content-box-1'>
+<div class='content-box-1-top'></div>
+<div class='content-box-1-middle'>
+<div class='content-box-1-content'> <div align='left'> ";
 		echo "<form name=\"deleteCat\" action=\"editCategories.php \"method=\"post\">";
-		echo "<table border='1'>
-		<tr>
-		<th>κατηγορια</th>
-		<th><input type=\"submit\" value=\"Delete\" /></th>
+		echo "<table border='0' cellspacing='0'>
+		<tr id='userElements'>
+		<th >Κατηγορία</th>
+		<th id='userElements-2'><input type=\"submit\" id=\"button-delete\" value=\"Delete\" /></th>
 		</tr>";
 
 		while($row = mysql_fetch_array($result))
 		{
 			echo "<tr>";
-			echo "<td>" . $row['category'] . "</td>";
-			echo "<td><input type=\"checkbox\" name=\"category[]\" value=\"".$row['category']."\" /> </td>";
+			echo "<td id='userData'>" . $row['category'] . "</td>";
+			echo "<td id='userData-2'><input type=\"checkbox\" name=\"category[]\" value=\"".$row['category']."\" /> </td>";
 			echo "</tr>";
 		}
 		echo "</table>";
@@ -202,8 +207,11 @@ function dispCategoriesSettings()
 	//emfanise thn epilogh gia thn pros8hkh mias kathgorias
 	echo "<br />";
 	echo "Εισάγεται καινούργια κατηγορία:<form name=\"category\" action=\"editCategories.php\" method=\"post\">
-		<input type=\"text\" name=\"newCat\" />
-		<input type=\"submit\" value=\"Εισαγωγή\" /></form>";
+		<input type=\"text\" class=\"field-input-gen\" name=\"newCat\" />
+		<input type=\"submit\" class=\"button\" value=\"Εισαγωγή\" /></form>
+		</div></div></div>
+<div class='content-box-1-bottom'>&nbsp;</div>
+ </div>";
 
 }
 
@@ -227,18 +235,23 @@ function dispFacilitiesSettings()
 	//an uparxoun paroxes sto susthma emfanise tes
 	if (mysql_num_rows($result)>0)
 	{
-		echo "<form name=\"deleteFac\" action=\"editFacilities.php\"method=\"post\">";
-		echo "<table border='1'>
+		echo "<div id='sub-header'>Εδώ μπορείτε να προσθεσετε ή αφαιρέσετε <span class='yellow'>παροχές</span>.</div>
+	<div class='content-box-1'>
+<div class='content-box-1-top'></div>
+<div class='content-box-1-middle'>
+<div class='content-box-1-content'> <div align='left'> 
+		<form name=\"deleteFac\" action=\"editFacilities.php\"method=\"post\">";
+		echo "<table border='1' cellspacing='0'>
 		<tr>
-		<th>παροχή</th>
-		<th><input type=\"submit\" value=\"Delete\" /></th>
+		<th id='userElements'>Παροχή</th>
+		<th id='userElements-2'><input type=\"submit\" id=\"button-delete\" value=\"Delete\" /></th>
 		</tr>";
 
 		while($row = mysql_fetch_array($result))
 		{
 			echo "<tr>";
-			echo "<td>" . $row['facility'] . "</td>";
-			echo "<td><input type=\"checkbox\" name=\"facility[]\" value=\"".$row['facility']."\" /> </td>";
+			echo "<td id='userData'>" . $row['facility'] . "</td>";
+			echo "<td id='userData-2'><input type=\"checkbox\" name=\"facility[]\" value=\"".$row['facility']."\" /> </td>";
 			echo "</tr>";
 		}
 		echo "</table>";
@@ -249,8 +262,11 @@ function dispFacilitiesSettings()
 
 	echo "<br />";
 	echo "Εισάγετε καινούργια παροχή:<form name=\"facility\" action=\"editFacilities.php\" method=\"post\">
-		<input type=\"text\" name=\"newFac\" />
-		<input type=\"submit\" value=\"Εισαγωγή\" /></form>";
+		<input type=\"text\" class=\"field-input-gen\" name=\"newFac\" />
+		<input type=\"submit\" class=\"button\" value=\"Εισαγωγή\" /></form>
+		</div></div></div>
+<div class='content-box-1-bottom'>&nbsp;</div>
+ </div>";
 
 }
 
