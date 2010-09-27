@@ -46,7 +46,7 @@ function dispHeader($header,$num=1)
 <li ><a href="homeSearch.php" id="search">Αναζήτηση</a></li>
 <li ><a href="homeAdvertise.php" id="kataxorisi">Καταχώρηση</a></li>
 <li ><a href="member.php" id="kedriki">Κεντρική</a></li>
-<li ><a href="contactUs.php"target="_blank" id="contact">Επικοινωνια</a></li>
+<li ><a href="contactUs.php" id="contact">Επικοινωνια</a></li>
 
 <?php
 //elegxoume an o xrhsths einai sudedemenos kai an einai emfanizoume perissoteres epiloges

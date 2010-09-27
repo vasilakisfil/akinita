@@ -122,7 +122,7 @@ function dispCurrUsers()
 <div class='content-box-1-middle'>
 <div class='content-box-1-content'> <div align='left'>
 		
-		<table border='0' cellspacing='0' >
+		<table border='1' cellspacing='0' >
 		<tr id='userElements' >
 		<th>Username</th>
 		<th id='userElements-2'>Email</th>
@@ -186,7 +186,7 @@ function dispCategoriesSettings()
 <div class='content-box-1-middle'>
 <div class='content-box-1-content'> <div align='left'> ";
 		echo "<form name=\"deleteCat\" action=\"editCategories.php \"method=\"post\">";
-		echo "<table border='0' cellspacing='0'>
+		echo "<table border='1' cellspacing='0'>
 		<tr id='userElements'>
 		<th >Κατηγορία</th>
 		<th id='userElements-2'><input type=\"submit\" id=\"button-delete\" value=\"Delete\" /></th>
@@ -236,7 +236,8 @@ function dispFacilitiesSettings()
 	//an uparxoun paroxes sto susthma emfanise tes
 	if (mysql_num_rows($result)>0)
 	{
-		echo "<div id='sub-header'>Εδώ μπορείτε να προσθεσετε ή αφαιρέσετε <span class='yellow'>παροχές</span>.</div>
+		echo " <div class='header-bar-full'><h1 class='blue'>Προβολή και Επεξεργασία Παροχών</h1></div>
+		<div id='sub-header'>Εδώ μπορείτε να προσθεσετε ή αφαιρέσετε <span class='yellow'>παροχές</span>.</div>
 	<div class='content-box-1'>
 <div class='content-box-1-top'></div>
 <div class='content-box-1-middle'>
