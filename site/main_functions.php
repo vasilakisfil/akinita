@@ -179,7 +179,8 @@ function dispCategoriesSettings()
 	//an uparxoun kathgories sto susthma emfanise tes..
 	if (mysql_num_rows($result)>0)
 	{
-		echo "<div id='sub-header'>Εδώ μπορείτε να προσθεσετε ή αφαιρέσετε <span class='yellow'>κατηγορίες</span>.</div>
+		echo "<div class='header-bar-full'><h1 class='blue'>Προβολή και Επεξεργασία Κατηγοριών</h1></div>
+		<div id='sub-header'>Εδώ μπορείτε να προσθεσετε ή αφαιρέσετε <span class='yellow'>κατηγορίες</span>.</div>
 	<div class='content-box-1'>
 <div class='content-box-1-top'></div>
 <div class='content-box-1-middle'>
