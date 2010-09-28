@@ -25,7 +25,7 @@ if(isset($oldUser))
 	}
 	else
 	{
-		dispHeader('Αποσύνδεση');
+		dispHeader('');
 		dispLogout();
 		dispFooter();
 	}

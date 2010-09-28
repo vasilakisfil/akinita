@@ -142,16 +142,22 @@ else
 function dispLogout()
 {
 ?>
-	<br />
-	<br />
-	Σίγουρα θέλετε να αποσυνδεθείτε;
-	<br />
-	<br />
+	<div class='header-bar-full'><h1 class="blue">Σελίδα Αποσύνδεσης</h1></div>
+	<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content">
+	<h3>Σίγουρα θέλετε να αποσυνδεθείτε;</h3>
 	
 	<form method="post" action="logout.php" >
-	<input type="submit" name="logout" value="Ναι θέλω !" onclick="dispLogoutMsg()" /><input type="submit" name="nologout" value="Το μετάνιωσα" onclick="dispNoLogoutMsg()" />
-	<div id="logoutSpan"></div>
-	</form>
+	<input type="submit" id="button-big" name="logout" value="Ναι θέλω !" onclick="dispLogoutMsg()" />
+	<input type="submit" id="button-big" name="nologout" value="Το μετάνιωσα" onclick="dispNoLogoutMsg()" />
+	<br/>
+	<div id="logoutSpan"></div><br/>
+	</form></div>
+</div>
+<div class="content-box-1-bottom">&nbsp;</div>
+</div>
 <?php
 }
 
