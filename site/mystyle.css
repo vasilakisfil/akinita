@@ -918,7 +918,9 @@ background:transparent url(images/btn-back.png) no-repeat top left;
 .fieldInput-reg input, .fieldInput-reg textarea {
 	width: 187px;
 	}
-
+.broken_list{
+overflow: hidden;
+}
 .broken_list li {
     list-style: none;
     float: left;
@@ -926,6 +928,7 @@ background:transparent url(images/btn-back.png) no-repeat top left;
 .broken_list li ul li {
     float: none;
 }
+
 .field-input-gen{
 display: inline;
 	width:160px;

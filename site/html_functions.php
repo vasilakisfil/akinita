@@ -955,37 +955,36 @@ while($row = mysql_fetch_array($result))
 <input type="text" name="constr_date"/><br />
 
 <h3>Παροχές:</h3>
-<ul>
+<div class="broken_list">
+<ul class="broken_list">
+<li style="width: 30%;"><ul>
 <?php
 for($i=0; $i<($lists+$mod); $i++)
 {
 	$row = mysql_fetch_array($facilities);
 ?>
-	 <li>
-	<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>	
+	 <li><input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?></li>	
 <?php
 }
-?> </ul><br />
-<ul><?php
+?> </ul></li>
+<li style="width: 30%;"><ul><?php
 for($i=0; $i<$lists; $i++)
 {
 	$row = mysql_fetch_array($facilities);
 ?>
-	 <li>
-	<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>	
+	 <li><input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?></li>	
 <?php
 }
-?> </ul><br />
-<ul><?php
+?> </ul></li>
+<li style="width: 30%;"><ul><?php
 for($i=0; $i<$lists; $i++)
 {
 	$row = mysql_fetch_array($facilities);
 ?>
-	 <li>
-	<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>	
+	 <li><input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?></li>	
 <?php
 }
-?></ul><br />
+?></ul></li></ul></div> <br />
 
 
 <h3>Σχόλια:</h3>
@@ -1194,40 +1193,36 @@ for($i=0; $i<11; $i++)
 
 
 <h3>Παροχές:</h3>
-<ul>
+<div class="broken_list">
+<ul class="broken_list">
+<li style="width: 30%;"><ul>
 <?php
 for($i=0; $i<($lists+$mod); $i++)
 {
 	$row = mysql_fetch_array($facilities);
 ?>
-	 <li>
-	<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>	
+	 <li><input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?></li>	
 <?php
 }
-?> </ul><br />
-<ul><?php
+?> </ul></li>
+<li style="width: 30%;"><ul><?php
 for($i=0; $i<$lists; $i++)
 {
 	$row = mysql_fetch_array($facilities);
 ?>
-	 <li>
-	<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>	
+	 <li><input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?></li>		
 <?php
 }
-?> </ul><br />
-<ul><?php
+?> </ul></li>
+<li style="width: 30%;"><ul><?php
 for($i=0; $i<$lists; $i++)
 {
 	$row = mysql_fetch_array($facilities);
 ?>
-	 <li>
-	<input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?>	
+	 <li><input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?></li>		
 <?php
 }
-?></ul><br />
-
-
-<br /><br />
+?></ul></li></ul></div><br />
 
 <input id="button-big" type="submit" value="Bρες τώρα !!">
 </form>
