@@ -121,9 +121,9 @@ else
 </div>
   <div id="footer">
 	<div class="content">
-		<div class="copyright">All Content &copy; 2010 Earth Project. All Rights Reserved.</div>
+		<div class="theend">Προγραμματισμός &amp; Συστήματα στον Παγκόσμιο Ιστό 2010. The Earth Project</div>
 		<ul>
-			<li><span>Site by</span></li>
+			<li><span>Developed by</span></li>
 			<li><span>Klisiaris</span></li>
 			<li><span>Karathanou</span></li>
 			<li class="last"><span>Vasilakis</span></li>
