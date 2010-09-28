@@ -248,7 +248,7 @@ try{
 	else
 	{
 		//sto telos emfanizoume pali thn aggelia me tis allages kai ena munhma ti alla3e...
-		dispHeader("Eπεξεργασία αγγελίας");
+		dispHeader("Eπεξεργασία αγγελίας",'2');
 		//tην αγγελία..
 		showProperty($propId);
 		echo "<br />";

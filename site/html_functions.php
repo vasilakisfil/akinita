@@ -515,13 +515,18 @@ $other=db_checkNULL("telephone","user_id","other",$user);
 
 if($type_=="User")
 { ?>
+	<div id="sub-header">Επεξεργασία <span class="yellow">Προφίλ</span></div>
+<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content">
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Change your password</legend>
-	Old Password:<input type="password" name="oldPassword"/>
-	New Password:<input type="password" name="newPassword1"/>
-	New Password:<input type="password" name="newPassword2"/>
-	<input type="submit" name="submit" value="Αλλαγή"/>
+	Old Password:<input class="field-input-gen" type="password" name="oldPassword"/><br/><br/>
+	New Password:<input class="field-input-gen" type="password" name="newPassword1"/>
+	New Password:<input class="field-input-gen" type="password" name="newPassword2"/>
+	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 <?php
@@ -529,12 +534,17 @@ if($type_=="User")
 else
 {
 ?>
+	<div id="sub-header">Επεξεργασία <span class="yellow">Προφίλ</span></div>
+<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content">
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Change usesrs password</legend>
-	New Password:<input type="password" name="newPassword1"/>
-	New Password:<input type="password" name="newPassword2"/>
-	<input type="submit" name="submit" value="Αλλαγή"/>
+	<legend>Change users password</legend>
+	New Password:<input class="field-input-gen" type="password" name="newPassword1"/>
+	New Password:<input class="field-input-gen" type="password" name="newPassword2"/>
+	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 <?php
@@ -544,16 +554,16 @@ else
 <form method="post" action="editUser.php?user=<?php echo $user; ?>">
 <fieldset>
 <legend>Change your email</legend>
-New Email:<input type="text" name="newEmail"/>
-<input type="submit" name="submit" value="Αλλαγή"/>
+New Email:<input class="field-input-gen" type="text" name="newEmail"/>
+<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 
 <form method="post" action="editUser.php?user=<?php echo $user; ?>">
 <fieldset>
 <legend>Change your mobile1 number</legend>
-New Number:<input type="text" name="newMob1"/>
-<input type="submit" name="submit" value="Αλλαγή"/>
+New Number:<input class="field-input-gen" type="text" name="newMob1"/>
+<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <?php
@@ -563,8 +573,8 @@ if($name==true)
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Enter your firstname</legend>
-	Your Firstname:<input type="text" name="newName"/>
-	<input type="submit" name="submit" value="Αλλαγή"/>
+	Your Firstname:<input class="field-input-gen" type="text" name="newName"/>
+	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -575,8 +585,8 @@ else
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Change your firstname</legend>
-	Your Firstname:<input type="text" name="newName"/>
-	<input type="submit" name="submit" value="Αλλαγή"/>
+	Your Firstname:<input class="field-input-gen" type="text" name="newName"/>
+	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -587,8 +597,8 @@ if($surname==true)
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Enter your lastname</legend>
-	Your Lastname:<input type="text" name="newLast"/>
-	<input type="submit" name="submit" value="Αλλαγή"/>
+	Your Lastname:<input class="field-input-gen" type="text" name="newLast"/>
+	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -599,8 +609,8 @@ else
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Change your lasttname</legend>
-	Your Lastname:<input type="text" name="newLast"/>
-	<input type="submit" name="submit" value="Αλλαγή"/>
+	Your Lastname:<input class="field-input-gen" type="text" name="newLast"/>
+	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -611,8 +621,8 @@ if($mobile2==true)
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Enter your mobile2</legend>
-	New Number:<input type="text" name="newMob2"/>
-	<input type="submit" name="submit" value="Αλλαγή"/>
+	New Number:<input class="field-input-gen" type="text" name="newMob2"/>
+	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -623,8 +633,8 @@ else
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Change your mobile2</legend>
-	New Number:<input type="text" name="newMob2"/>
-	<input type="submit" name="submit" value="Αλλαγή"/>
+	New Number:<input class="field-input-gen" type="text" name="newMob2"/>
+	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -635,8 +645,8 @@ if($home==true)
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Enter your home number</legend>
-	New Number:<input type="text" name="newHome"/>
-	<input type="submit" name="submit" value="Αλλαγή"/>
+	New Number:<input class="field-input-gen" type="text" name="newHome"/>
+	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -647,8 +657,8 @@ else
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Change your home number</legend>
-	New Number:<input type="text" name="newHome"/>
-	<input type="submit" name="submit" value="Αλλαγή"/>
+	New Number:<input class="field-input-gen" type="text" name="newHome"/>
+	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -659,10 +669,13 @@ if($other==true)
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Enter your other number</legend>
-	New Number:<input type="text" name="newOthr"/>
-	<input type="submit" name="submit" value="Αλλαγή"/>
+	New Number:<input class="field-input-gen" type="text" name="newOthr"/>
+	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 	</fieldset>
-	</form>
+	</form></div>
+</div>
+<div class="content-box-1-bottom">&nbsp;</div>
+</div>
 	<?php
 }
 else
@@ -671,23 +684,33 @@ else
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Change your other number</legend>
-	New Number:<input type="text" name="newOthr"/>
-	<input type="submit" name="submit" value="Αλλαγή"/>
+	New Number:<input class="field-input-gen" type="text" name="newOthr"/>
+	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
 	</fieldset>
-	</form>
+	</form></div>
+</div>
+<div class="content-box-1-bottom">&nbsp;</div>
+</div>
 	<?php
 }
 if($type_=="Admin")
 {
 ?>
+	<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content">
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
 	<legend>Make the user:</legend>
 	<input type="radio" name="privilege" value="Admin" /> Admin<br />
 	<input type="radio" name="privilege" value="User" /> User<br />
-	<input type="submit" name="submit" value="submit"/>
+	<input type="submit" id="button-view" name="submit" value="submit"/>
 	</fieldset>
-	</form>
+	</form></div>
+</div>
+<div class="content-box-1-bottom">&nbsp;</div>
+</div>
 <?php 
 }
 
@@ -705,17 +728,22 @@ $propRow = mysql_fetch_array($property);
 $facOfProp="select * from fac_prop where prop_id=".$propId;
 $facOfPropResult=db_excecute($facOfProp,"facOfProp");
 ?>
+<div id="sub-header"><span class="yellow">Επεξεργασία </span>Αγγελίας</div>
+<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content">
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή διεύθυνσης</legend>
 Eπιλογές για τα Markers:
-<select>
+<select  class="field-gen">
   <option onclick="clearOverlays();">Απόκρυψη</option>
   <option onclick="showOverlays();">Εμφάνιση</option>
   <option onclick="deleteOverlays();">Διαγραφή</option>
 </select>
 <div>
-    <input id="newAddress" name="newAddress" type="text" 
+    <input id="newAddress"  class="field-gen" name="newAddress" type="text" 
 	onfocus="if (this.value == 'Οδος-Αριθμος') {this.value = '';}"
 	onblur="if (this.value == '') {this.value = 'Οδος-Αριθμος';}" value="Οδος-Αριθμος" />
     <input type="button" value="Βρές την!" onclick="codeAddressEdit()" />
@@ -748,14 +776,14 @@ while($catRow = mysql_fetch_array($categories))
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή εμβαδού</legend>
-Νέο εμβαδόν:<input type="text" name="newArea"/>
+Νέο εμβαδόν:<input type="text" class="field-input-gen" name="newArea"/>
 <input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή ορόφου</legend>
-<select name="newAfloor">
+<select class="field-gen" name="newAfloor">
 <option value="0" >Ισόγειο</option>
 <option value="1">1ος</option>
 <option value="2">2ος</option>
@@ -774,21 +802,21 @@ while($catRow = mysql_fetch_array($categories))
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή Περιοχής</legend>
-Νέα Περιοχή:<input type="text" name="newRegion"/>
+Νέα Περιοχή:<input class="field-input-gen" type="text" name="newRegion"/>
 <input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή έτους κατασκευής</legend>
-Νέα έτος:<input type="text" name="newConstrDate"/>
+Νέα έτος:<input class="field-input-gen" type="text" name="newConstrDate"/>
 <input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή τιμής</legend>
-Νέα τιμή:<input type="text" name="newPrice"/>
+Νέα τιμή:<input class="field-input-gen" type="text" name="newPrice"/>
 <input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
@@ -830,7 +858,7 @@ while($row = mysql_fetch_array($facilities))
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή Πληροφοριών</legend>
-<textarea rows="2" cols="80" wrap="physical" name="comments"  ><?php echo $propRow['comments']; ?></textarea>
+<textarea class="field-textarea-gen" rows="2" cols="80" wrap="physical" name="comments"  ><?php echo $propRow['comments']; ?></textarea>
 <input type="submit" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
@@ -841,7 +869,10 @@ while($row = mysql_fetch_array($facilities))
     <table id="files_table" border="0" cellpadding="0" cellspacing="0">
         <tr id="new_file_row">
             <td>
-				<input type="text" value="Περιγραφή" name="description[0]" id="description[0]" /><input type="file" name="new_file[0]" id="new_file[0]" readonly="readonly" onchange="add_new_file(this)" />
+				<input type="text" class="field-gen" value="Περιγραφή" name="description[0]" id="description[0]" 
+				onfocus="if (this.value == 'Περιγραφή') {this.value = '';}"
+	onblur="if (this.value == '') {this.value = 'Περιγραφή';}"/>
+				<input type="file" class="field-gen" name="new_file[0]" id="new_file[0]" readonly="readonly" onchange="add_new_file(this)" />
             </td>
         </tr>
     </table>
@@ -853,7 +884,10 @@ while($row = mysql_fetch_array($facilities))
 <legend>Διαγραφή αγγελίας</legend>
 Αν θέλετε να διαγράψετε την αγγελία πατήστε εδώ: <input type="submit" name="deleteProperty" value="Διαγραφή"/>
 </fieldset>
-</form>
+</form> </div>
+</div>
+<div class="content-box-1-bottom">&nbsp;</div>
+</div>
 
 <?php
 }
