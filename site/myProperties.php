@@ -42,7 +42,7 @@ try
 		echo "<div id='sub-header'><span class='yellow'>Εγκεκριμένες </span>Αγγελίες</div>";
 		if(!(mysql_num_rows($resultT)>0)) echo "<br /> Δεν έχετε καμία εγκεκριμένη δική σας αγγελία!<br />";
 		else propertySearch($messageT,"UserDelete");
-		echo "<div id='sub-header'><span class='yellow'>Προς Αναμονή </span>Αγγελίες</div>";
+		echo "<div id='sub-header'><span class='yellow'>Σε Αναμονή προς Έγκριση </span>Αγγελίες</div>";
 		if(!(mysql_num_rows($resultF)>0)) echo "<br /> Δεν έχετε καμία δική σας αγγελία που είναι προς έγκριση!<br />";
 		else propertySearch($messageF,"UserDelete");	
 	}
