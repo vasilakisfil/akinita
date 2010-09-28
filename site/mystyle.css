@@ -981,7 +981,7 @@ overflow: hidden;
     float: none;
 }
 
-/******Geniki Klasi gia input box**********/
+/******Geniki Klasi gia input field kai text area**********/
 
 .field-input-gen{
 display: inline;
@@ -990,15 +990,40 @@ display: inline;
 	font-family:Georgia, Arial, "Times New Roman", Times;
 	font-size:13px;
 	font-weight:regular;
-	background-color:#D5E1DD;
+	background-color:#F5F1DE;
 	border:solid;
 	border-width:1px;
 	border-color:#26465c;
 	padding-left:4px;
 	padding-bottom:3px;
 }	
-	
+.field-textarea-gen{
+display: inline;
+	color:#323232;
+	font-family:Georgia, Arial, "Times New Roman", Times;
+	font-size:13px;
+	font-weight:regular;
+	background-color:#F5F1DE;
+	border:solid;
+	border-width:1px;
+	border-color:#26465c;
+	padding-left:4px;
+	padding-bottom:3px;	
+}
 
+.field-gen{
+display: inline;
+	color:#323232;
+	font-family:Georgia, Arial, "Times New Roman", Times;
+	font-size:13px;
+	font-weight:regular;
+	background-color:#F5F1DE;
+	border:solid;
+	border-width:1px;
+	border-color:#26465c;
+	padding-left:2px;
+	padding-bottom:1px;	
+}
 /* view Users and user profile attributes*/
 #userCoreInfo {
 	width: auto;

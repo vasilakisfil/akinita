@@ -199,7 +199,7 @@ echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη
  </div>
 </div>
 <div class="content-box-1-bottom">&nbsp;</div>
-</div><br/><br/><br/>
+</div><br/><br/>
 
 <div id="sub-header"><span class="yellow">Τελευταίες </span>Αγγελίες</div>
 <div class="content-box-1">
@@ -286,7 +286,7 @@ for($i=0; $i<$max; $i++)
  </div>
 </div>
 <div class="content-box-1-bottom">&nbsp;</div>
-</div><br/><br/><br/>	
+</div><br/><br/>	
 
 <div id="sub-header"><span class="yellow">Δημοφιλέστερες </span>Αγγελίες</div>
 <div class="content-box-1">
@@ -898,7 +898,7 @@ $mod=$num%3;
 
 <h3>Διεύθυνση Ακινήτου:</h3>
 Eπιλογές για τα Markers:
-<select>
+<select class="field-gen">
   <option onclick="clearOverlays();">Απόκρυψη</option>
   <option onclick="showOverlays();">Εμφάνιση</option>
   <option onclick="deleteOverlays();">Διαγραφή</option>
@@ -908,10 +908,10 @@ Eπιλογές για τα Markers:
 	initializeMain(13);
 </script>
 <div>
-    <input id="address" name="address" type="text" 
+    <input class="field-input-gen" id="address" name="address" type="text" 
 	onfocus="if (this.value == 'Οδος-Αριθμος') {this.value = '';}"
 	onblur="if (this.value == '') {this.value = 'Οδος-Αριθμος';}" value="Οδος-Αριθμος" />
-    <input type="button" value="Βρές την!" onclick="codeAddress()" />
+    <input type="button" id="button-big" value="Βρές την!" onclick="codeAddress()" />
 </div>
 
 
@@ -927,17 +927,17 @@ while($row = mysql_fetch_array($result))
 }?>
 
 <h3>Περιοχή</h3>
-<input type="text" name="region"/><br />
+<input class="field-input-gen" type="text" name="region"/><br />
 
 <h3>Τιμή</h3>
-<input type="text" name="price"/><br />
+<input class="field-input-gen" type="text" name="price"/><br />
 
 
 <h3>Eμβαδό</h3>
-<input type="text" name="area"/><br />
+<input class="field-input-gen" type="text" name="area"/><br />
 
 <h3>Όροφος</h3>
-<select name="Afloor">
+<select class="field-gen" name="Afloor">
 <option value="0" >Ισόγειο</option>
 <option value="1">1ος</option>
 <option value="2">2ος</option>
@@ -952,7 +952,7 @@ while($row = mysql_fetch_array($result))
 </select>
 
 <h3>Έτος κατασκευής:</h3>
-<input type="text" name="constr_date"/><br />
+<input class="field-input-gen" type="text" name="constr_date"/><br />
 
 <h3>Παροχές:</h3>
 <div class="broken_list">
@@ -988,7 +988,7 @@ for($i=0; $i<$lists; $i++)
 
 
 <h3>Σχόλια:</h3>
-<textarea rows="5" cols="80" name="comments" 
+<textarea  class="field-textarea-gen" rows="5" cols="80" name="comments" 
 onfocus="if (this.value == 'Βάλτε εδώ σχόλια') {this.value = '';}" 
 onblur="if (this.value == '') {this.value = 'Βάλτε εδώ σχόλια';}" >Βάλτε εδώ σχόλια</textarea>
 
@@ -998,7 +998,7 @@ onblur="if (this.value == '') {this.value = 'Βάλτε εδώ σχόλια';}" 
 <br />
 <br />
 
-<input type="submit" id="submitForm" value="Kαταχώρηση" disabled="disabled" />
+<input type="submit" id="submitForm"  value="Kαταχώρηση" disabled="disabled" />
 <div class="clearDiv">&nbsp;</div>
 </form>
 
