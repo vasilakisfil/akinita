@@ -30,7 +30,7 @@ try{
 	if(!$oldPas&&!$pas1&&!$pas2&&!$newMail&&!$newMob1&&!$newName&&!$newLast&&!$newMob2&&!$newHome&&!$newOthr&&!$priv)
 	{
 		//apla emfanize to header..
-		dispHeader("User Profile $user");
+		dispHeader('');
 		//..to profil tou xrhsth..
 		showUserProfile($user);
 		echo "<br /><br />";
@@ -67,7 +67,7 @@ try{
 			//an kapoio apo ta 3 den exei kataxwrh8ei peta exception
 			else if(($oldPas && (!$pas1 || !$pas2)) || ($pas1 && (!$oldPas || !$pas2)) || ($pas2 && (!$oldPas || !$pas1)))
 			{
-				throw new Exception('Δεν έχετε συμπληρώσει σωστά την φόρμα.Παρακαλούμε προσπαθείστε ξανά.');
+				throw new Exception('Δεν έχετε συμπληρώσει σωστά την φόρμα.Παρακαλούμε προσπαθήστε ξανά.');
 			}
 		}
 		//an o xrhsths einai admin
@@ -93,7 +93,7 @@ try{
 			//an kapoio apo ta 2 den exei kataxwrh8ei swsta peta exception
 			else if((!$pas1 && $pas2) || ($pas1 && !$pas2))
 			{
-				throw new Exception('Δεν έχετε συμπληρώσει σωστά την φόρμα.Παρακαλούμε προσπαθείστε ξανά.');
+				throw new Exception('Δεν έχετε συμπληρώσει σωστά την φόρμα.Παρακαλούμε προσπαθήστε ξανά.');
 			}
 		}
 		//an to pedio gia to email einai kataxwrhmeno
@@ -101,7 +101,7 @@ try{
 		{
 			//eleg3e an to email einai valid kai an den einai peta exception
 			$ret=valid_email($newMail);
-			if($ret==false) throw new Exception('Το email που δώσατε δεν είναι έγκυρο.Παρακαλούμε προσπαθείστε ξανά.');
+			if($ret==false) throw new Exception('Το email που δώσατε δεν είναι έγκυρο.Παρακαλούμε προσπαθήστε ξανά.');
 			//an einai ananewse to email tou xrhsth
 			db_update("users","username","email","'$user'","'$newMail'");
 			if($val_user!=$user) $message="To email του χρηστη $user άλλαξε!";
