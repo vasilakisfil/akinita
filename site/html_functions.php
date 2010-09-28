@@ -32,7 +32,7 @@ function dispHeader($header,$num=1)
 </script>
 <title>Akinita.gr</title>
 </head>
-<body onload="initialize()" onunload="GUnload()">
+<body>
 <div id="main">
 <div id="header">
 <h1><a href="main.php" class="logo"></a></h1>
@@ -392,10 +392,10 @@ function dispLoginBox()
 	
 	<form  method="post" action="member.php">
 	<span class="fieldLabel-reg">Όνομα Χρήστη: </span>
-	<div class="fieldInput-reg"><input id="" type="text" name="username"/></div><br />
+	<div class="fieldInput-reg"><input id="username" type="text" name="username"/></div><br />
 	<span class="fieldLabel-reg">Κωδικός Χρήστη: </span>
-	<div class="fieldInput-reg"><input type="password" name="password" /></div><br />
-	<input class="fieldLabel-reg" id="button-log" type="submit" value="Log in" />
+	<div class="fieldInput-reg"><input type="password" id="pwd" name="password" /></div><br />
+	<input class="fieldLabel-reg" id="button-log" type="submit" value="Log in" onclick="loginCheck()" />
 	</form><br/><br/><br/>
 
 	<h3>Δεν είσαι μέλος;</h3>
@@ -443,7 +443,7 @@ function dispRegForm()
 <div class="content-box-1-middle">
 <div class="content-box-1-content"> <div align="center">
 <div id="contactForm">
-<form method="post" onsubmit="return validRegForm()"  action="signup_new.php"  >
+<form method="post" onsubmit="validRegForm()"  action="signup_new.php"  >
 
 <h4 class="blue-tip-text">Τα πεδία με αστερίσκο* είναι υποχρεωτικά.</h4><br/>
 
@@ -463,23 +463,23 @@ function dispRegForm()
 <h3>Στοιχεία επικοινωνίας</h3>
 
 <div class="fieldLabel" style="font-weight:bold;">Διεύθυνση E-mail*: </div> 
-<div class="fieldInput"><input type="text" name="mail" id="mail" onkeyup="return RTemailValidator()" />
+<div class="fieldInput"><input type="text" name="mail" id="mail" onkeyup="RTemailValidator()" />
 <span id="email"></span></div> <br />
 
 <div class="fieldLabel">Τηλέφωνο σπιτιού: </div> 
-<div class="fieldInput"><input type="text" name="homephone" id="homephone" onchange="RTisNumeric(homephone,shome)" />
+<div class="fieldInput"><input type="text" name="homephone" id="homephone" onkeyup="RTisNumeric('homephone','shome');" />
 <span id="shome"></span></div><br/>
 
 <div class="fieldLabel" style="font-weight:bold;">Αριθμός κινητού*: </div> 
-<div class="fieldInput"><input type="text" name="mob1phone" id="mob1phone" onkeyup="RTisNumeric(mob1phone,smob1)" />
+<div class="fieldInput"><input type="text" name="mob1phone" id="mob1phone" onkeyup="RTisNumeric('mob1phone','smob1')" />
 <span id="smob1"></span></div><br/>
 
 <div class="fieldLabel">Αριθμός κινητού 2:</div>  
-<div class="fieldInput"><input type="text" name="mob2phone" id="mob2phone" onchange="RTisNumeric(mob2phone,smob2)" />
+<div class="fieldInput"><input type="text" name="mob2phone" id="mob2phone" onchange="RTisNumeric('mob2phone','smob2')" />
 <span id="smob2"></span></div><br/>
 
 <div class="fieldLabel">Άλλος αριθμός: </div> 
-<div class="fieldInput"><input type="text" name="othrnumber" id="othrnumber" onchange="RTisNumeric(othrnumber,othr)"  />
+<div class="fieldInput"><input type="text" name="othrnumber" id="othrnumber" onchange="RTisNumeric('othrnumber','othr')"  />
 <span id="othr"></span></div><br/>
 
 <div class="fieldLabel">Όνομα: </div> 

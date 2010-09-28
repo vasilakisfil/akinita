@@ -93,8 +93,18 @@ function emailValidator(elem, helperMsg){
 		return false;
 	}
 }
+/****************************************************************************************
+*					SUNARTHSEIS ELEGXOU GIA TO REGISTRATION FORM
+*
+*****************************************************************************************/
+function loginCheck()
+{
+	var user = document.getElementById('username');
+	var pwd = document.getElementById('pwd');
 
-
+	notEmpty(user, 'helperMsg');
+	notEmpty(pwd, 'helperMsg');
+}
 /****************************************************************************************
 *					SUNARTHSEIS ELEGXOU GIA TO REGISTRATION FORM
 *
@@ -167,16 +177,17 @@ function RTemailValidator()
 //sunarthsh pou elegxei an ena pedio periexei mono ari8mous  REAL TIME
 function RTisNumeric(elem,span){
 
-	//var smob1 = document.getElementById("smob1");
+	var smob1 = document.getElementById(elem);
+	var shome = document.getElementById(span);
 	
 	var numericExpression = /^[0-9]+$/;
-	if(elem.value.match(numericExpression))
+	if(smob1.value.match(numericExpression))
 	{
-		span.innerHTML = '<span style="color:green">Αποδεκτό τηλέφωνο!</span>';
+		shome.innerHTML = '<span style="color:green">Αποδεκτό τηλέφωνο!</span>';
 	}
 	else
 	{
-		span.innerHTML = '<span style="color:red">Μη αποδεκτό τηλέφωνο!</span>';
+		shome.innerHTML = '<span style="color:red">Μη αποδεκτό τηλέφωνο!</span>';
 	}
 }
 
