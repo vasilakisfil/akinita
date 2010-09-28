@@ -1073,9 +1073,13 @@ while($row = mysql_fetch_array($categories))
 
 <h3>Τιμή</h3><br />
 
-από:<select name="low_price" >
+από:<select class="field-gen" name="low_price" >
 <option value="nolimit" >Χωρις Οριο</option>
+<option value="30000">30.000</option>
+<option value="40000">40.000</option>
 <option value="50000">50.000</option>
+<option value="50000">50.000</option>
+<option value="60000">60.000</option>
 <option value="75000">75.000</option>
 <option value="100000">100.000</option>
 <option value="150000">150.000</option>
@@ -1089,8 +1093,10 @@ while($row = mysql_fetch_array($categories))
 <option value="1000000">1.000.000</option>
 </select>
 
-έως:<select name="high_price">
+έως:<select class="field-gen" name="high_price">
+<option value="40000">40.000</option>
 <option value="50000">50.000</option>
+<option value="60000">60.000</option>
 <option value="75000">75.000</option>
 <option value="100000">100.000</option>
 <option value="150000">150.000</option>
@@ -1108,8 +1114,10 @@ while($row = mysql_fetch_array($categories))
 
 <h3>Eμβαδό</h3><br />
 
-από:<select name="low_area">
-<option value="nolimit">Κάτω από 50</option>
+από:<select class="field-gen" name="low_area">
+<option value="nolimit">Κάτω από 20</option>
+<option value="30">30</option>
+<option value="40">40</option>
 <option value="50">50</option>
 <option value="60">60</option>
 <option value="70">70</option>
@@ -1124,7 +1132,9 @@ while($row = mysql_fetch_array($categories))
 <option value="500">500</option>
 </select>
 
-έως:<select name="high_area">
+έως:<select class="field-gen" name="high_area">
+<option value="30">30</option>
+<option value="40">40</option>
 <option value="50">50</option>
 <option value="60">60</option>
 <option value="70">70</option>
@@ -1168,7 +1178,7 @@ for($i=0; $i<11; $i++)
 
 <h3>Έτος κατασκευής από:</h3>
 
-<select name="etos_katask">
+<select class="field-gen" name="etos_katask">
 <option value="2010">2010</option>
 <option value="2009">2009</option>
 <option value="2008">2008</option>
