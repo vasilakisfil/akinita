@@ -31,17 +31,18 @@ try
 	$resultF=db_excecute($messageF,"myProperty2");
 	//echo $message;
 	check_valid_user();
-	dispHeader('Οι δικές μου αγγελίες');
+	dispHeader('');
+	echo "<div class='header-bar-full'><h1 class='blue'>Οι δικές μου Αγγελίες</h1></div>";
 	if(!(mysql_num_rows($resultT)>0) && !(mysql_num_rows($resultF)>0))
 	{
 		echo "<br /> Δεν έχετε καμία δική σας σας!<br />";
 	}
 	else
 	{
-		echo "<h2>Εγκεκριμένες Αγγελίες</h2>";
+		echo "<div id='sub-header'><span class='yellow'>Εγκεκριμένες </span>Αγγελίες</div>";
 		if(!(mysql_num_rows($resultT)>0)) echo "<br /> Δεν έχετε καμία εγκεκριμένη δική σας αγγελία!<br />";
 		else propertySearch($messageT,"UserDelete");
-		echo "<h2>Προς αναμονή Αγγελίες</h2>";
+		echo "<div id='sub-header'><span class='yellow'>Προς Αναμονή </span>Αγγελίες</div>";
 		if(!(mysql_num_rows($resultF)>0)) echo "<br /> Δεν έχετε καμία δική σας αγγελία που είναι προς έγκριση!<br />";
 		else propertySearch($messageF,"UserDelete");	
 	}
