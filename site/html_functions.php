@@ -1239,52 +1239,61 @@ for($i=0; $i<$lists; $i++)
 function dispContactUs()
 {
 ?>
-	  <div id="content">
-	    <div class="content-padding">
+	  <div class='header-bar-full'><h1 class='blue'>Σελίδα Επικοινωνίας</h1></div>
+<p style="font-weight:bold; font-size:11px;">Θέλεις να ρωτήσεις κάτι ή αντιμετωπίζεις κάποιο πρόβλημα?
+Η αγγελία σου αργεί υπερβολικά να εγκριθεί? Για οποιοδήποτε πρόβλημα συμπλήρωσε την παρακάτω φόρμα και 
+επικοινώνησε με κάποιον από τους διαχειριστές. Θα σου απαντήσουμε asp!!!</p>
+<div id="sub-header">Φόρμα <span class="yellow">Επικοινωνίας</span></div>
+<div class="content-box-1">
+<div class="content-box-1-top"></div>
+<div class="content-box-1-middle">
+<div class="content-box-1-content"> <div align="center">
+	  
 		  <!-- to keimeno mas -->
-          <p>Θέλεις να ρωτήσεις κάτι ή αντιμετωπίζεις κάποιο πρόβλημα? Θέλεις να προτείνει κάποια αλλαγή ή απλά θες να μας δώσεις συγχαρητήρια
-              για την καταπληκτηκή δουλειά που κάναμε? Επικοινώνησε με κάποιον από τους διαχειριστές μέσω της παρακάτω φόρμας και θα σου 
-			  απαντήσουμε asp!!!</p>
-        </div> 		
+       <fieldset>   <legend><strong>Contact Us</strong></legend>
+        <div id="contactForm-con">		
 		<form method="post">
-		<fieldset id="contact">
-
-		<legend>   Contact Us</legend>
 		
-		<ol>
-		  <li>
-		    <label for="name">Ονομα</label>
-		    <input type="text" id="name" name="name" />
-		  </li>
+		
+
+		
+		
+		
+		    <div class="fieldLabel-con" style="font-weight:bold;><label for="name">Ονομα</label></div>
+		    <div class="fieldInput-con"><input class="fieldInput" type="text" id="name" name="name" /></div>
 		  
-		  <li>
-		    <label for="email">Διευθυνση E-mail</label>
-		    <input type="text" id="email" name="email"/>
-		  </li>
 		  
-		  <li>
-		    <label for="subject">Να σταλθει στον</label>
-		    <select id="subject" name="subject">
+		
+		    <div class="fieldLabel-con" style="font-weight:bold;><label for="email">Διευθυνση E-mail</label></div>
+		    <div class="fieldInput-con"><input class="fieldInput" type="text" id="email" name="email"/></div>
+		  
+		  
+		  
+		    <div class="fieldLabel-con" style="font-weight:bold;><label for="subject">Να σταλθει στον</label></div>
+		    <div class="fieldInput-con"><select name="subject">
 		      <option value="" selected="selected">-- developer --</option>
 		      <option value="mits">klisiaris@ceid.upatras.gr</option>
 		      <option value="fil">vasilakis@ceid.upatras.gr</option>
 		      <option value="mits">karathanou@ceid.upatras.gr</option>
 		      <option value="all">Σε ολους</option>
-		    </select>
-		  </li>
+		    </select></div>
+		 
 		  
-		  <li
-		    <label for="message">Μηνυμα</label>
-		    <textarea id="message" name"message" cols="40" rows="10"></textarea>
-		  </li>
 		  
-		  <li>
-		    <input type="submit" id="submit" name="submit" value="Send"/>
-		  </li>
-		<ol>
+		    <div class="fieldLabel-con" style="font-weight:bold;><label for="message">Μηνυμα</label></div>
+		    <div class="fieldInput-con"><textarea name"message" cols="40" rows="10"></textarea></div>
+		  
+		  <div class="fieldLabel-con"></div>
+<div style="text-align:center; float:left; padding-left:134px;"><input type="submit" id="button-log" name="submit" value="Send"/></div>
+		 
+		 <div class="clearDiv">&nbsp;</div>   
+		  
 		
-		</fieldset>
-		</form> </div>
+		
+		</form> </div>  </fieldset>
+		</div></div></div>
+<div class="content-box-1-bottom">&nbsp;</div>
+ </div>
 <?php
 }
 ?>

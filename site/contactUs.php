@@ -4,7 +4,7 @@
 include('includes.php');
 
 
-dispHeader('Σελιδα επικοινωνίας');
+dispHeader('');
 dispContactUs();
 dispFooter();
 
