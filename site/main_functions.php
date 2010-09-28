@@ -987,7 +987,7 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 	
 	//emfanish twn dedomenwn
 
-	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1></div>";
+	
 
 	$actionUrl=$_SERVER['SCRIPT_NAME']."?page=".$page."&amp;results=".$view;
 	 echo "<form id='advs-perpage-box' method='get' action=\"".$actionUrl."\">

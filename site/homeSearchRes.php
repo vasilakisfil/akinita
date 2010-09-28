@@ -169,6 +169,7 @@ try
 	check_valid_user(1);
 	dispHeader('');
 	//echo $message;
+	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1></div>";
 	$result=db_excecute($message,"searchRes");
 	if(mysql_num_rows($result)==0) echo "Δεν υπάρχουν αγγελίες με τα κριτήρια που επιλέξατε!";
 	else propertySearch($message,"Delete",$page,$results);
