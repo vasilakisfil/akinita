@@ -1116,7 +1116,19 @@ background:transparent url(images/btn-gen.png) no-repeat top left;
   font:bold 11px Georgia, "Times New Roman", Times;
   cursor:pointer;
 }
-
+#button-view2{
+background:transparent url(images/btn-gen.png) no-repeat top left;
+  padding-bottom:2px; 
+  border:none;
+  width:68px;
+  height:33px;
+  color:#fff;
+  float:right;
+  text-decoration:none;
+  text-align:center;
+  font:bold 11px Georgia, "Times New Roman", Times;
+  cursor:pointer;
+}
 #button-big{
 background:transparent url(images/button.gif) no-repeat top left;
   padding-left:0px;

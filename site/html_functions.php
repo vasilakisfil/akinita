@@ -526,7 +526,7 @@ if($type_=="User")
 	Old Password:<input class="field-input-gen" type="password" name="oldPassword"/><br/><br/>
 	New Password:<input class="field-input-gen" type="password" name="newPassword1"/>
 	New Password:<input class="field-input-gen" type="password" name="newPassword2"/>
-	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 <?php
@@ -544,7 +544,7 @@ else
 	<legend>Change users password</legend>
 	New Password:<input class="field-input-gen" type="password" name="newPassword1"/>
 	New Password:<input class="field-input-gen" type="password" name="newPassword2"/>
-	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 <?php
@@ -555,7 +555,7 @@ else
 <fieldset>
 <legend>Change your email</legend>
 New Email:<input class="field-input-gen" type="text" name="newEmail"/>
-<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 
@@ -563,7 +563,7 @@ New Email:<input class="field-input-gen" type="text" name="newEmail"/>
 <fieldset>
 <legend>Change your mobile1 number</legend>
 New Number:<input class="field-input-gen" type="text" name="newMob1"/>
-<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <?php
@@ -574,7 +574,7 @@ if($name==true)
 	<fieldset>
 	<legend>Enter your firstname</legend>
 	Your Firstname:<input class="field-input-gen" type="text" name="newName"/>
-	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -586,7 +586,7 @@ else
 	<fieldset>
 	<legend>Change your firstname</legend>
 	Your Firstname:<input class="field-input-gen" type="text" name="newName"/>
-	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -598,7 +598,7 @@ if($surname==true)
 	<fieldset>
 	<legend>Enter your lastname</legend>
 	Your Lastname:<input class="field-input-gen" type="text" name="newLast"/>
-	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -610,7 +610,7 @@ else
 	<fieldset>
 	<legend>Change your lasttname</legend>
 	Your Lastname:<input class="field-input-gen" type="text" name="newLast"/>
-	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -622,7 +622,7 @@ if($mobile2==true)
 	<fieldset>
 	<legend>Enter your mobile2</legend>
 	New Number:<input class="field-input-gen" type="text" name="newMob2"/>
-	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -634,7 +634,7 @@ else
 	<fieldset>
 	<legend>Change your mobile2</legend>
 	New Number:<input class="field-input-gen" type="text" name="newMob2"/>
-	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -646,7 +646,7 @@ if($home==true)
 	<fieldset>
 	<legend>Enter your home number</legend>
 	New Number:<input class="field-input-gen" type="text" name="newHome"/>
-	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -658,7 +658,7 @@ else
 	<fieldset>
 	<legend>Change your home number</legend>
 	New Number:<input class="field-input-gen" type="text" name="newHome"/>
-	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
 	<?php
@@ -670,7 +670,7 @@ if($other==true)
 	<fieldset>
 	<legend>Enter your other number</legend>
 	New Number:<input class="field-input-gen" type="text" name="newOthr"/>
-	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form></div>
 </div>
@@ -685,7 +685,7 @@ else
 	<fieldset>
 	<legend>Change your other number</legend>
 	New Number:<input class="field-input-gen" type="text" name="newOthr"/>
-	<input type="submit" id="button-view" name="submit" value="Αλλαγή"/>
+	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form></div>
 </div>
@@ -746,7 +746,7 @@ Eπιλογές για τα Markers:
     <input id="newAddress"  class="field-gen" name="newAddress" type="text" 
 	onfocus="if (this.value == 'Οδος-Αριθμος') {this.value = '';}"
 	onblur="if (this.value == '') {this.value = 'Οδος-Αριθμος';}" value="Οδος-Αριθμος" />
-    <input type="button" value="Βρές την!" onclick="codeAddressEdit()" />
+    <input type="button" id="button-big" id="button-big" value="Βρές την!" onclick="codeAddressEdit()" />
 </div>
 <input id="submitEdit" type="submit" name="submit" value="Αλλαγή" disabled />
 <input id="latitude" name="latitude" type="hidden" value="0" />
@@ -762,7 +762,7 @@ while($catRow = mysql_fetch_array($categories))
 	<input type="radio" name="category" value="<?php echo $catRow['category']?>" /> <?php echo $catRow['category']?>	
 <?php
 }?>
-<input type="submit" name="submit" value="Αλλαγή"/>
+<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
@@ -770,14 +770,14 @@ while($catRow = mysql_fetch_array($categories))
 <legend>Αλλαγή τύπου προσφοράς</legend>
 <input type="radio" name="typos" value="pwlhsh" /> Πώληση
 <input type="radio" name="typos" value="enoikiash" /> Ενοικίαση
-<input type="submit" name="submit" value="Αλλαγή"/>
+<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή εμβαδού</legend>
 Νέο εμβαδόν:<input type="text" class="field-input-gen" name="newArea"/>
-<input type="submit" name="submit" value="Αλλαγή"/>
+<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
@@ -796,28 +796,28 @@ while($catRow = mysql_fetch_array($categories))
 <option value="9">9ος</option>
 <option value="666">10+</option>
 </select>
-<input type="submit" name="submit" value="Αλλαγή"/>
+<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή Περιοχής</legend>
 Νέα Περιοχή:<input class="field-input-gen" type="text" name="newRegion"/>
-<input type="submit" name="submit" value="Αλλαγή"/>
+<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή έτους κατασκευής</legend>
 Νέα έτος:<input class="field-input-gen" type="text" name="newConstrDate"/>
-<input type="submit" name="submit" value="Αλλαγή"/>
+<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή τιμής</legend>
 Νέα τιμή:<input class="field-input-gen" type="text" name="newPrice"/>
-<input type="submit" name="submit" value="Αλλαγή"/>
+<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
@@ -852,14 +852,14 @@ while($row = mysql_fetch_array($facilities))
 	<?php
 	}
 }?>
-<input type="submit" name="submit" value="Αλλαγή"/>
+<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Αλλαγή Πληροφοριών</legend>
 <textarea class="field-textarea-gen" rows="2" cols="80" wrap="physical" name="comments"  ><?php echo $propRow['comments']; ?></textarea>
-<input type="submit" name="submit" value="Αλλαγή"/>
+<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
  <form method="POST" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>" enctype="multipart/form-data">
@@ -872,17 +872,17 @@ while($row = mysql_fetch_array($facilities))
 				<input type="text" class="field-gen" value="Περιγραφή" name="description[0]" id="description[0]" 
 				onfocus="if (this.value == 'Περιγραφή') {this.value = '';}"
 	onblur="if (this.value == '') {this.value = 'Περιγραφή';}"/>
-				<input type="file" class="field-gen" name="new_file[0]" id="new_file[0]" readonly="readonly" onchange="add_new_file(this)" />
+				<input type="file"  name="new_file[0]" id="new_file[0]" readonly="readonly" onchange="add_new_file(this)" />
             </td>
         </tr>
     </table>
-<input name="upload" type="submit" class="box" id="upload" value=" Upload ">
+<input name="upload" type="submit" id="button-big" class="box" id="upload" value=" Upload ">
 </fieldset>
 </form>
 <form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']."?propId=$propId"; ?>">
 <fieldset>
 <legend>Διαγραφή αγγελίας</legend>
-Αν θέλετε να διαγράψετε την αγγελία πατήστε εδώ: <input type="submit" name="deleteProperty" value="Διαγραφή"/>
+Αν θέλετε να διαγράψετε την αγγελία πατήστε εδώ: <input type="submit" id="button-big" name="deleteProperty" value="Διαγραφή"/>
 </fieldset>
 </form> </div>
 </div>
