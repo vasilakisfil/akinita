@@ -1047,7 +1047,7 @@ $query="select * from property where propState='T';";
 $result=db_excecute($query,"ajax_quary");
 $rows=mysql_num_rows($result);
 //echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-echo "<span id=\"ajaxDiv\" class='blue-small'>Διαθέσιμες Aγγελίες: $rows</span><br />";
+echo "<span id=\"ajaxDiv\" class='blue-small'>Βρέθηκαν:&nbsp $rows &nbspΑγγελίες</span><br />";
 ?>
 
 <h3>Διαθέσιμες ενέργειες: </h3>

@@ -459,7 +459,7 @@ function loadXMLDoc(param)
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			var rows=xmlhttp.responseText;
-			document.getElementById("ajaxDiv").innerHTML='Διαθέσιμες Αγγελίες:'+rows;
+			document.getElementById("ajaxDiv").innerHTML='Βρέθηκαν:'+rows+'&nbsp Αγγελίες';
 		}
 	}
 	xmlhttp.open("GET","ajax.php"+param,true);
