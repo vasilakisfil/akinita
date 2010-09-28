@@ -193,9 +193,8 @@ echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη
 
 <div id="mainMap" style="width: 720px; height: 500px"></div>
 <div align="left"><br/><p class="blue-tip-text" style="text-align:left;"><img src="images/homeico.gif" style="float:left; margin-top:4px;"/>
- &nbsp;  Με το πράσινο σπιτάκι συμβολίζονται οι Πιο Πρόσφατες αγγελίες
-<br/><img src="images/homeico2.gif" style="float:left; align:center; margin-top:4px;"/> &nbsp;  Με το πράσινο σπιτάκι
-συμβολίζονται οι Δημοφιλέστερες αγγελίες</p>
+ &nbsp;  Κόκκινο σπιτάκι - Πιο Πρόσφατες αγγελίες
+<br/><img src="images/homeico2.gif" style="float:left; align:center; margin-top:4px;"/> &nbsp;  Πράσινο σπιτάκι - Δημοφιλέστερες αγγελίες</p>
 </div>
  </div>
 </div>
