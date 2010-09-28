@@ -34,7 +34,8 @@ try
 	$message.=" and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id";
 	//echo $message;
 	check_valid_user();
-	dispHeader('Οι Αγαπημένες μου αγγελίες');
+	dispHeader('');
+	echo "<div class='header-bar-full'><h1 class='blue'>Οι Αγαπημένες μου Αγγελίες</h1></div>";
 	if(!(mysql_num_rows($result)>0)) echo "<br /> Δεν έχετε βάλει καμία αγγελία στις αγαπημένες σας!<br />";
 	else propertySearch($message,"Favourites",$page);
 	dispFooter();
