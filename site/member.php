@@ -84,19 +84,17 @@ if (isset($_SESSION['user_type']))
 		echo "<br />";
 		dispURL("myProperties.php","Προβολή των δικών μου αγγελιών");
 		echo "<br />";
-		echo "
-			<form method=\"post\" action=\"member.php\" >
-			<input type=\"submit\" name=\"pageTest\" value=\"Test pages!\" \>
-			</form>
-			";
-		if(isset($_POST['pageTest'])) createProperties();
+		//if(isset($_POST['pageTest'])) createProperties();
 		
 		echo "
 			<form method=\"post\" action=\"member.php\" >
+			<fieldset>
+			<legend>Αποστολή email από το akinita.gr</legend>
 			<input type=\"text\" name=\"email\" value=\"email\" />
-			<input type=\"text\" name=\"subjEmail\" value=\"Θέμα\" />
-			<input type=\"text\" name=\"textEmail\" value=\"Κείμενο\" />
-			<input type=\"submit\" name=\"emailTest\" value=\"Test email!\" \>
+			<input type=\"text\" name=\"subjEmail\" value=\"Θέμα\" /><br />
+			<textarea name=\"textEmail\"  rows=\"2\" cols=\"41\">Κείμενο</textarea>
+			<input type=\"submit\" name=\"emailTest\" value=\"Send email!\" \>
+			</fieldset>
 			</form>
 			";
 		if(isset($_POST['emailTest']))

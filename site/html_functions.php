@@ -967,7 +967,7 @@ while($row = mysql_fetch_array($result))
 }?>
 
 <h3>Περιοχή</h3>
-<input class="field-input-gen" type="text" name="region" id="perioxh" onkeyup="isAlphabet('perioxh','Η περιοχή δεν πρέπει να είναι αριθμός')"/><br />
+<input class="field-input-gen" type="text" name="region" id="perioxh" onkeyup="isAlphabet('perioxh','Η περιοχή δεν επιτρέπεται να περιέχει λατινικούς χαρακτήρες ή αριθμούς')"/><br />
 
 
 <h3>Τιμή</h3>

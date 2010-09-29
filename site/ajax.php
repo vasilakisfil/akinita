@@ -117,7 +117,7 @@ if($message!=$test)
 }
 else
 {
-	$query="select * from property;";
+	$query="select * from property where propState='T';";
 	$result=db_excecute($query,"ajax_quary");
 	$rows=mysql_num_rows($result);
 	echo $rows;
