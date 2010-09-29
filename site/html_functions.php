@@ -561,7 +561,7 @@ else
 <fieldset>
 <legend>Change your email</legend>
 New Email:<input class="field-input-gen" type="text" name="newEmail"/>
-<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
+<input type="submit" id="button-view2" name="submit" value="Αλλαγή" />
 </fieldset>
 </form>
 
@@ -967,14 +967,15 @@ while($row = mysql_fetch_array($result))
 }?>
 
 <h3>Περιοχή</h3>
-<input class="field-input-gen" type="text" name="region"/><br />
+<input class="field-input-gen" type="text" name="region" id="perioxh" onkeyup="isAlphabet('perioxh','Η περιοχή δεν πρέπει να είναι αριθμός')"/><br />
+
 
 <h3>Τιμή</h3>
-<input class="field-input-gen" type="text" name="price"/><br />
+<input class="field-input-gen" type="text" name="price" id="timh" onkeyup="isNumeric('timh','Η τιμή δεν πρέπει να περιέχει χαρακτήρα')"/><br />
 
 
 <h3>Eμβαδό</h3>
-<input class="field-input-gen" type="text" name="area"/><br />
+<input class="field-input-gen" type="text" name="area" id="emvado" onkeyup="isNumeric('emvado','To εμβαδό δεν πρέπει να περιέχει χαρακτήρα')"/><br />
 
 <h3>Όροφος</h3>
 <select class="field-gen" name="Afloor">
@@ -992,7 +993,7 @@ while($row = mysql_fetch_array($result))
 </select>
 
 <h3>Έτος κατασκευής:</h3>
-<input class="field-input-gen" type="text" name="constr_date"/><br />
+<input class="field-input-gen" type="text" name="constr_date" id="etos" onkeyup="isNumeric('etos','To έτος κατασκευής δεν πρέπει να περιέχει χαρακτήρα')" /><br />
 
 <h3>Παροχές:</h3>
 <div class="broken_list">

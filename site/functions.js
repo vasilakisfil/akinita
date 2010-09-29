@@ -25,6 +25,7 @@ function notEmpty(elem, helperMsg){
 
 //sunarthsh pou elegxei an ena pedio periexei mono ari8mous
 function isNumeric(elem, helperMsg){
+	var elem=document.getElementById(elem);
 	var numericExpression = /^[0-9]+$/;
 	if(elem.value.match(numericExpression)){
 		return true;
@@ -37,6 +38,9 @@ function isNumeric(elem, helperMsg){
 
 //sunarthsh pou elegxei an ena pedio periexei mono xarakthres
 function isAlphabet(elem, helperMsg){
+
+	var elem=document.getElementById(elem);
+
 	var alphaExp = /^[a-zA-Z]+$/;
 	if(elem.value.match(alphaExp)){
 		return true;
@@ -94,7 +98,7 @@ function emailValidator(elem, helperMsg){
 	}
 }
 /****************************************************************************************
-*					SUNARTHSEIS ELEGXOU GIA TO REGISTRATION FORM
+*					SUNARTHSEIS ELEGXOU GIA TO LOGIN
 *
 *****************************************************************************************/
 function loginCheck()
