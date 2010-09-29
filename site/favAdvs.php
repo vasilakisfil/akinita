@@ -36,7 +36,20 @@ try
 	check_valid_user();
 	dispHeader('');
 	echo "<div class='header-bar-full'><h1 class='blue'>Οι Αγαπημένες μου Αγγελίες</h1></div>";
-	if(!(mysql_num_rows($result)>0)) echo "<br /> Δεν έχετε βάλει καμία αγγελία στις αγαπημένες σας!<br />";
+	if(!(mysql_num_rows($result)>0)) echo "
+	<div class=\"content-box-1\">
+<div class=\"content-box-1-top\"></div>
+<div class=\"content-box-1-middle\">
+<div class=\"content-box-1-content\">
+<h3>Δεν έχετε βάλει καμία αγγελία στις αγαπημένες σας!</h3>
+	<p>Για να προσθεσετε μια αγγελία στις αγαπημένες απλά πατήστε το κουμπί Προσθήκη! στην λεπτομερή περιγραφή της αγγελιας που σας ενδιαφέρει.
+    Ετσι θα μπορείτε να έχετε άμεση πρόσβαση στις αγγελίες που θέλετε να παρακολουθείτε μέσω του προφίλ σας.</p>
+    <a href=member.php>Πίσω στο Προφίλ</a><br/>
+	<a href=main.php>Πίσω στην Αρχική</a>
+</div>
+</div>
+<div class=\"content-box-1-bottom\">&nbsp;</div>
+</div>	";
 	else propertySearch($message,"Favourites",$page);
 	dispFooter();
 }
