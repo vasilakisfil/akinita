@@ -1320,8 +1320,8 @@ function dispContactUs()
 		  
 		  
 		  
-		    <div class="fieldLabel-con" style="font-weight:bold;><label for="subject">Να σταλθει στον</label></div>
-		    <div class="fieldInput-con"><select name="subject">
+		    <div class="fieldLabel-con" style="font-weight:bold;">Να σταλθει στον</div>
+		    <div class="fieldInput-con"><select name="from">
 		      <option value="" selected="selected">-- developer --</option>
 		      <option value="mits">klisiaris@ceid.upatras.gr</option>
 		      <option value="fil">vasilakis@ceid.upatras.gr</option>
