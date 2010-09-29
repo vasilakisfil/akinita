@@ -40,12 +40,12 @@ function dispHeader($header,$num=1)
 
 
 
-<ul id="navigation">
+<ul id="menu">
 
 <li ><a href="main.php" id="home">Αρχική</a></li>
 <li ><a href="homeSearch.php" id="search">Αναζήτηση</a></li>
 <li ><a href="homeAdvertise.php" id="kataxorisi">Καταχώρηση</a></li>
-<li ><a href="member.php" id="kedriki">Κεντρική</a></li>
+<li ><a href="member.php" id="profil">Κεντρική</a></li>
 <li ><a href="contactUs.php" id="contact">Επικοινωνια</a></li>
 
 <?php

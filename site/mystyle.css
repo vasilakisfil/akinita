@@ -24,7 +24,7 @@ form {
 img {border:none;display:block;}
 a {
 	text-decoration:none;
-	color:#000;
+	color:#333;
 	}
 a:hover {
 	text-decoration:underline;
@@ -37,25 +37,31 @@ select,
 input,
 textarea {font:11px verdana,sans-serif;vertical-align:middle;}
 
+/****Telos ta vasika***********/
+
 /******
-To panw kommati tis selidas , to periexomeno olis tis selidas kai ta logo
+To panw kommati tis selidas aka header kai ta logo 
+******/
+
+/******
+Edw kanoume krifa ta attribute tou logo kai tou menu. 
+O logos einai oti theloume na xrisimopoihsoume eikones kai 
+oxi keimeno gia afta ta stoixeia omws theloume na yparxoun kai san keimeno mesa ston kodika html. Etsi ta apokriptoume.
 ******/
 a.logo,
-#navigation a,
-a.continue-reading,
-.header-bar h1 {
+#menu a{
 	text-indent:-9999px;
 	overflow:hidden;
 	display:block;
 	}
-	
+/**H main selida rithmiseis platous, min-height wste na min mazevetai pote ypervolika panw kai kapoia margins***/	
 #main {
 	width:940px;
 	margin:0 auto;
 	margin-top:-17px;
 	min-height:700px;
 	}
-	
+/*O header - rithmiseis**/	
 #header {
 	width:100%;
 	height:229px;
@@ -63,7 +69,7 @@ a.continue-reading,
 	position:relative;
 	
 	}
-	
+/***to logo mas - rithmiseis megethous kai theshs se sxesi me ton header - to background image einai kai to mono pou fenetai**/	
 a.logo {
 	width:366px;
 	height:117px;
@@ -74,17 +80,6 @@ a.logo {
 	}
 h1 {margin:0;}
 	
-.current {
-	background:#20333f;
-	position:absolute;
-	top:8px;
-	right:8px;
-	border:1px solid #b8b79c;
-	color:#fff;
-	padding:6px 10px;
-	display: none;
-	}
-.current strong {color:#ffc20e;}
 
 /******
 To menu pou vazisetai se relative-absolute position kai z-index logiki oi eikones menou einai dio se mia me height tis eikonas
@@ -96,60 +91,32 @@ ul {
 	padding:0;
 	list-style:none;
 	}
-#navigation {
+#menu {
 	position:absolute;
 	top:180px;
 	left:77px;
 	}
-#navigation a {
+#menu a {
 	height:49px;
 	}
-#navigation li {
+#menu li {
 	float:left;
 	margin:0 -8px;
 	}
-#navigation a.navTagSelected,
-#navigation a:hover {background-position:0 -49px !important;position:relative;}
-#navigation a.navTagSelected {z-index:99;}
-#navigation #home {width:145px;background:url(images/btn-home.gif);}
-#navigation #search {width:145px;background:url(images/btn-search.gif);}
-#navigation #kataxorisi {width:145px;background:url(images/btn-kataxorisi.gif);}
-#navigation #kedriki {width:145px;background:url(images/btn-profile.gif);}
-#navigation #contact {width:145px;background:url(images/btn-contact.gif);}
-#navigation #login {width:145px;background:url(images/btn-login.gif);} 
-#navigation #logout {width:145px;background:url(images/btn-logout.gif);} 
+#menu a.navTagSelected,
+#menu a:hover {background-position:0 -49px !important;position:relative;}
+#menu a.navTagSelected {z-index:99;}
+#menu #home {width:145px;background:url(images/btn-home.gif);}
+#menu #search {width:145px;background:url(images/btn-search.gif);}
+#menu #kataxorisi {width:145px;background:url(images/btn-kataxorisi.gif);}
+#menu #profil {width:145px;background:url(images/btn-profile.gif);}
+#menu #contact {width:145px;background:url(images/btn-contact.gif);}
+#menu #login {width:145px;background:url(images/btn-login.gif);} 
+#menu #logout {width:145px;background:url(images/btn-logout.gif);} 
 	
-/* telos mpara menou */
 
-/* Afta exoun na kanoun me tin palia emfanisi prin perikoposoume to site kai afairethikan
-#visuals {
-	background:#fff;
-	padding:20px 44px 20px 45px;
-	width:851px;
-	height:20px;
-	overflow:hidden;
-	}
-div.visuals {
-	float:left;
-	width:293px;
-	height:391px;
-	background:url(images/bg-visuals.gif) no-repeat;
-	padding:7px 0 0 15px;
-	}
-div.visual {
-	float:right;
-	width:511px;
-	height:381px;
-	background:url(images/bg-visual2.gif) no-repeat;
-	padding:17px 0 0 17px;
-	}
-*/	
 
-#middle {
-	width:940px;
-	overflow:hidden;
-	background:url(images/bg-middle.gif) repeat-y left;
-	}
+
 #middle-alt {
 	width:940px;
 	overflow:hidden;
@@ -370,7 +337,7 @@ text-shadow:1px 1px 1px #fff;
 	
 .white-small {
 	color:#ffffff;
-	size:10px;
+	font-size:10px;
 	font-weight:normal;
 	}
 	
@@ -497,7 +464,7 @@ text-shadow:1px 1px 1px #fff;
 	color:#323232;
 	font-family:Georgia, Arial, "Times New Roman", Times;
 	font-size:13px;
-	font-weight:regular;
+	font-weight:normal;
 	background-color:#F5F1DE;
 	border:solid;
 	border-width:1px;
@@ -710,7 +677,7 @@ text-shadow:1px 1px 1px #fff;
 .propCheckBox{
 font-size: 12px;
 color:#fff;
-padding-bottom=25px;
+padding-bottom:25px;
 }	
 
 #propDetailBoxContainer {
@@ -989,7 +956,7 @@ display: inline;
 	color:#323232;
 	font-family:Georgia, Arial, "Times New Roman", Times;
 	font-size:13px;
-	font-weight:regular;
+	font-weight:normal;
 	background-color:#F5F1DE;
 	border:solid;
 	border-width:1px;
@@ -1002,7 +969,7 @@ display: inline;
 	color:#323232;
 	font-family:Georgia, Arial, "Times New Roman", Times;
 	font-size:13px;
-	font-weight:regular;
+	font-weight:normal;
 	background-color:#F5F1DE;
 	border:solid;
 	border-width:1px;
@@ -1016,7 +983,7 @@ display: inline;
 	color:#323232;
 	font-family:Georgia, Arial, "Times New Roman", Times;
 	font-size:13px;
-	font-weight:regular;
+	font-weight:normal;
 	background-color:#F5F1DE;
 	border:solid;
 	border-width:1px;
