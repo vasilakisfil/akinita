@@ -29,6 +29,7 @@ if(isset($_POST['submit']))
 
 	dispHeader('');
 	echo $inf;
+	dispURL("main.php","Πίσω στην αρχική");
 	dispFooter();
 }
 else
