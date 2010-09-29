@@ -351,7 +351,7 @@ text-shadow:1px 1px 1px #fff;
 	
 .center{text-align:center;}
 
-
+/*****Telos Xromatwn**************/
 	
 #sub-header {
 	width:762px;
@@ -376,25 +376,7 @@ text-shadow:1px 1px 1px #fff;
 	background:url(images/bg-sub-header.png) no-repeat left top;
 	}	
 	
-#sub-header-599 {
-	width:762px;
-	height:40px;
-	color:#fff;
-	font-size:12px;
-	font-weight:bold;
-	padding: 13px 13px 0 13px;
-	background:url(images/bg-sub-header-599.png) no-repeat left top;
-	}
-	
-#sub-header-599-tall {
-	width:762px;
-	height:52px;
-	color:#fff;
-	font-size:12px;
-	font-weight:bold;
-	padding: 13px 13px 0 13px;
-	background:url(images/bg-sub-header-599-tall.png) no-repeat left top;
-	}
+
 	
 #details-header {
 	width:762px;
@@ -420,7 +402,12 @@ text-shadow:1px 1px 1px #fff;
 	font-size: 10px;
 	font-weight: normal;
 	}
-	
+
+/******************Parakato vriskontai ids kai klaseis gia ola ta ble megala koutia pou vriskontai sto site kai
+dexontai i emfanizoun dedomena***************************************/
+
+/**To kouti gia tis aggelies ana selida pou vgainei stin lista aggeliwn pou prokyptoun apo anazitisi
+to id afora to eksoteriko kouti edw i klassi einai gia to field**/	
 #advs-perpage-box {
 	display: inline;
 	color:#fff;
@@ -445,7 +432,8 @@ text-shadow:1px 1px 1px #fff;
 	padding-top: 1px;
 	padding-bottom:2px;
 	}
-
+/**To kouti gia tin grigori anazitisi pou vrisketai stin arxiki selida
+to id afora to eksoteriko kouti edw i klassi einai gia to field**/
 #search-box {
 	float: right;
 	display: inline;
@@ -474,7 +462,7 @@ text-shadow:1px 1px 1px #fff;
 	padding-left:4px;
 	padding-bottom:3px;
 	}
-	
+/**To kouti gia tis sinolikes aggelies tou site pou vrisketai stin arxiki**/	
 #availads-box {
 	float: left;
 	display: inline;
@@ -491,6 +479,12 @@ text-shadow:1px 1px 1px #fff;
 	background:url(images/bg-zip-search-box.png) no-repeat left top;
 	}
 	
+/*****Telos ta mple koutia me eisodo i eksodo pliroforias*******/
+	
+	/*******************Parakato einai to anoixto bez kouti panw sto opoio mpainei to 
+periexomeno twn perissoterwn selidwn sto site. Apoteleitai apo treis eikones top 
+middle kai bottom me tin middle na epektinetai me repeat-y oso xreiazetai. 
+Episis rythmizontai paddind platos klp**************************************************************/
 
 .content-box-1 {
 	width:762px;
@@ -517,28 +511,17 @@ text-shadow:1px 1px 1px #fff;
 	background:url(images/content-box-762-bottom.png) no-repeat left top;
 	}
 	
-
-#contact-info {
-	width:367px;
-	height:146px;
-	margin: 0 auto;
-	color:#fff;
-	font-size:11px;
-	padding-top:20px;
-	text-align:center;
-	background:url(images/bg-contact-info.png) no-repeat left top;
-	}
+/*******Telos tou content box*******************/
 	
-.staff-photo {
-	float:left;
-	width:206px;
-	height:244px;
-	margin-right:14px;
-	margin-bottom:5px;
-	}
 
 
-/* Property Listings Styles */
+
+/****************************************************************************************
+ Apo edw kai oso oi klaseis exoun einai tis morfis propKatiAllo 
+afouron tin lista me tis aggelies kai tin provoli aggelias me leptomereies *************
+***********************/
+
+
 .propListingBox {
 	width: 762px;
 	height: 112px;
@@ -751,41 +734,10 @@ padding-bottom:25px;
 	margin-bottom: 40px;
 	}
 
-.button{
-background:transparent url(images/button.gif) no-repeat top left;
-  padding-bottom:2px;
-  padding-right:20px;  
-  border:none;
-  width:126px;
-  height:33px;
-  color:#FFFFFF;
-  font:bold 12px Georgia, "Times New Roman", Times;
-  cursor:pointer;
-}
 
-#button-2{
-background:transparent url(images/btn-back.png) no-repeat top left;
-  padding-bottom:2px;
-  padding-right:20px;  
-  border:none;
-  width:250px;
-  height:42px;
-  color:#333;
-  text-decoration:none;
-  font:bold 11px Georgia, "Times New Roman", Times;
-  cursor:pointer;
-}	
-	
-.leftColumn60 {
-	float: left;
-	width: 60%;
-	}
-.rightColumn40 {
-	float: right;
-	width: 40%;
-	}
 
-/*************** Forma eggrafis kyriws*********************/	
+
+/***************Fields,textarea,klp gia Forma eggrafis sto site*********************/	
 #contactForm {
 	width: 370px;
 	margin: 0px auto;
@@ -822,8 +774,10 @@ margin-left:4px;
 	background: transparent;
 	border: 0px;
 	}
+/*************** Telos Forma eggrafis sto site*********************/
 
-/**************Log In********************/	
+
+/**************Log In page********************/	
 .fieldLabel-reg {
 	float: left;
 	display: inline;
@@ -853,7 +807,7 @@ margin-left:4px;
 
 }	
 
-/**************Contact Us********************/	
+/**************Fields, TextArea klp gia to Contact Us********************/	
 #contactForm-con {
 	width: 88%;
 	margin: 0px auto;
@@ -890,6 +844,7 @@ margin-left:4px;
 margin-left:4px;
 
 }	
+/**Telos Contact Us***/
 
 /*****Klaseis gia tis spasmenes sta 3 listes********************/	
 .broken_list{
@@ -902,6 +857,8 @@ overflow: hidden;
 .broken_list li ul li {
     float: none;
 }
+/*****Telos spasmenwn listwn***************/
+
 
 /******Geniki Klasi gia input field kai text area**********/
 
@@ -946,7 +903,10 @@ display: inline;
 	padding-left:2px;
 	padding-bottom:1px;	
 }
-/* view Users and user profile attributes*/
+/***Telos input kai textarea field****/
+
+/* Parakato einai i selida profil xristi. Xrisimopoihtai dio diaforetikes klaseis ennalax gia ta bg xrwmata twn plirwforiwn,
+ble bg gia to username kai rithmizontai apisis grammatoseires, padding, margin, xromata klp*/
 #userCoreInfo {
 	width: auto;
 	height: 29px;
@@ -979,7 +939,10 @@ display: inline;
 	padding: 8px;
 	width: 183px;
 	}
-/*Merikes classes kai ids gia tin show all users selida genikotera gia tables  */
+/****Telos profil xristi*****/
+	
+/*Merikes classes kai ids gia tin show all users selida genikotera gia tables me zebra style xromata. 
+Xrisomopoithikan episis stis paroxes kai tis katigories  */
 #userElements{
 	width: auto;
 	height: 59px;
@@ -1002,6 +965,38 @@ text-align:center;
 background-color:#D5E1DD;
 text-align:center;
 }	
+
+/***Telos oi klaseis gia tables***/
+
+
+/******Oles oi klaseis kai ta ids gia koumpia pou xrisimopoiithikan****************/
+
+.button{
+background:transparent url(images/button.gif) no-repeat top left;
+  padding-bottom:2px;
+  padding-right:20px;  
+  border:none;
+  width:126px;
+  height:33px;
+  color:#FFFFFF;
+  font:bold 12px Georgia, "Times New Roman", Times;
+  cursor:pointer;
+}
+
+#button-2{
+background:transparent url(images/btn-back.png) no-repeat top left;
+  padding-bottom:2px;
+  padding-right:20px;  
+  border:none;
+  width:250px;
+  height:42px;
+  color:#333;
+  text-decoration:none;
+  font:bold 11px Georgia, "Times New Roman", Times;
+  cursor:pointer;
+}	
+	
+
 #button-edit{
 background:transparent url(images/btn-gen.png) no-repeat top left;
   padding-bottom:2px;
@@ -1077,7 +1072,13 @@ background:transparent url(images/btn-gen.png) no-repeat top left;
   font:bold 11px Georgia, "Times New Roman", Times;
   cursor:pointer;}
 
-    /*******Teleytaies kai pio dimofilis eggelies*******/
+    /********Telos Koumpia************/
+	
+	
+/*******Teleytaies kai pio dimofilis eggelies. 
+Dilonoume oles tis aggelias tis listas display:inline-box gia tin orizontia diataksi. 
+Episis rithmizoume megethos foto grammatoseira klp*******/
+
 ul#mainPageAdvsLayout,
     ul#mainPageAdvsLayout li {
        margin: 0;
@@ -1106,8 +1107,6 @@ text-align:center;
 text-decoration:none;
     }
 
-/****************************************************************************************
-*						Ta attributes gia thn forma anazhthshs!
-*****************************************************************************************/
+/*********Telos stis teleftaies kai pio dimifilis aggelies*************/	
 
-/*#typos { border: ridge #fffff; width: 12em; }*/
+
