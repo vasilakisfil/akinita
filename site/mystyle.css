@@ -301,7 +301,7 @@ margin-top:-3px;}
 	}
 	
 
-
+/*Parakato yparxoun kapoies klaseis gia xromata kai typous grammatoseirwn*/
 a.blue-link {
 	color:#26465c;
 	font-size:13px;
@@ -350,6 +350,8 @@ text-shadow:1px 1px 1px #fff;
 	}
 	
 .center{text-align:center;}
+
+
 	
 #sub-header {
 	width:762px;
@@ -515,53 +517,6 @@ text-shadow:1px 1px 1px #fff;
 	background:url(images/content-box-762-bottom.png) no-repeat left top;
 	}
 	
-.content-box-2 {
-	width:599px;
-	height:auto;
-	}
-.content-box-2-top {
-	width:599px;
-	height:6px;
-	background:url(images/content-box-599-top.png) no-repeat left top;
-	}
-.content-box-2-middle {
-	width:599px;
-	color:#323232;
-	line-height:14px;
-	background: url(images/content-box-599-middle.png) repeat-y left top;
-	}
-.content-box-2-content {
-	padding:15px 20px 15px 20px;
-	}
-.content-box-2-bottom {
-	width:599px;
-	height:7px;
-	background:url(images/content-box-599-bottom.png) no-repeat left top;
-	}
-
-.content-box-3 {
-	width:450px;
-	height:auto;
-	}
-.content-box-3-top {
-	width:450px;
-	height:6px;
-	background:url(images/content-box-450-top.png) no-repeat left top;
-	}
-.content-box-3-middle {
-	width:450px;
-	color:#323232;
-	line-height:14px;
-	background: url(images/content-box-450-middle.png) repeat-y left top;
-	}
-.content-box-3-content {
-	padding:15px 20px 15px 20px;
-	}
-.content-box-3-bottom {
-	width:450px;
-	height:7px;
-	background:url(images/content-box-450-bottom.png) no-repeat left top;
-	}
 
 #contact-info {
 	width:367px;
