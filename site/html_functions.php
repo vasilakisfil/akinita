@@ -451,11 +451,11 @@ function dispRegForm()
 <div class="fieldInput"><input type="text" name="username" id="username" /></div><br />
 
 <div class="fieldLabel" style="font-weight:bold;">Κωδικός Χρήστη*:</div> 
-<div class="fieldInput"><input type="password" name="pwd" id="pwd" onkeyup="return RTpasswordChanged();" />
+<div class="fieldInput"><input type="password" name="pwd" id="pwd" onkeyup="RTpasswordChanged();" />
 <span id="strength"></span></div> <br />
 
 <div class="fieldLabel" style="font-weight:bold;">Επαλήθευση Κωδικού*:</div> 
-<div class="fieldInput"><input type="password" name="pwd2" id="pwd2" onkeyup="return RTequalPasswords();" />
+<div class="fieldInput"><input type="password" name="pwd2" id="pwd2" onkeyup="RTequalPasswords();" />
 <span id="equal"></span></div> <br /><br />
 
 <div class="fieldLabel">&nbsp;</div>

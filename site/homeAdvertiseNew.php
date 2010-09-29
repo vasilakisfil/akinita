@@ -16,7 +16,7 @@ try
 	//elegxoume an o xrhsths einai swsta sundedemenos
 	check_valid_user();
 	//elegxoume an exei epilegei ti tupos aggelias 8a einai (pwlhsh/enoikiash)
-	if(!isset($_POST['typos']))	throw new Exception('Prepei na balete enoikiash \'h pwlhsh');
+	if(!isset($_POST['typos']))	throw new Exception('Πρέπε αναγκαστικά να επιλέξετε πώληση ή ενοικίαση');
 	else
 	{
 		$typos=$_POST['typos'];
@@ -24,7 +24,7 @@ try
 		else $typos="L";
 	}
 	//elegxoume an h dieu8unsh einai swsta kataxwrhmenh kai an einai thn kratame se mia topikh metavlhth,alliws petagetai e3airesh
-	if(!filledOut($_POST['address'])||$_POST['address']=="Οδος-Αριθμος") throw new Exception('Prepei na balete dieu8unsh');
+	if(!filledOut($_POST['address'])||$_POST['address']=="Οδος-Αριθμος") throw new Exception('Πρέπει να βάλετε διεύθυνση');
 	else $address=trim($_POST['address']);
 	$flag=false;
 	if(isset($_POST['latitude']) && $_POST['latitude']!="0")
@@ -41,16 +41,16 @@ try
 		throw new Exception('Υπήρξε ένα πρόβλημα με το google maps κατά την καταχώρηση.Παρακαλούμε προσπαθήστε ξανά.');
 	}
 	//omoiws elegxoume an h kathgoria einai epilegmenh
-	if(!isset($_POST['category'])) throw new Exception('Prepei na valete kathgoria');
+	if(!isset($_POST['category'])) throw new Exception('Πρέπει να βάλετε κατηγορία');
 	else $category=$_POST['category'];
 	//omoiws elegxoume an h timh einai swsta kataxwrhmenh
-	if(!filledOut($_POST['price'])) throw new Exception('Prepei na valete timh');
+	if(!filledOut($_POST['price'])) throw new Exception('Πρέπει να βάλετε τιμή');
 	else $price=$_POST['price'];
 	//epishs elegxoume an to emvadon einai swsta kataxwrhmeno
-	if(!filledOut($_POST['area'])) throw new Exception('Prepei na valete emvadon');
+	if(!filledOut($_POST['area'])) throw new Exception('Πρέπει να βάλετε εμβαδόν');
 	else $area=$_POST['area'];
 	//telos elegxoume an to etos kataskeuhs einai swsta kataxwrhmeno
-	if(!filledOut($_POST['constr_date'])) throw new Exception('Prepei na valete etos kataskeuhs');
+	if(!filledOut($_POST['constr_date'])) throw new Exception('Πρέπει να βάλετε έτος κατασκευής');
 	else $constrDate=$_POST['constr_date'];
 	if(filledOut($_POST['comments']))
 	{
@@ -116,7 +116,7 @@ try
 	else throw new Exception("Could not identify server's Operating System");
 	$folder=$photosD;
 	$directory=$pwd.$middle.$folder;
-	if(!mkdir($directory)) throw new Exception("Could not create folder.You cannot upload images.Contact with the Adminstrator");
+	if(!mkdir($directory)) throw new Exception("Δεν ήταν δυνατόν να δημιουργηθεί φάκελος για το ακίνητο.Παρακαλούμε επικοινωνήστε με τους υπεύθυνους.");
 	
 	
 	dispHeader('');

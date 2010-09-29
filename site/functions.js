@@ -27,12 +27,15 @@ function notEmpty(elem, helperMsg){
 function isNumeric(elem, helperMsg){
 	var elem=document.getElementById(elem);
 	var numericExpression = /^[0-9]+$/;
-	if(elem.value.match(numericExpression)){
-		return true;
-	}else{
-		alert(helperMsg);
-		elem.focus();
-		return false;
+	if(elem.value.length!=0)
+	{
+		if(elem.value.match(numericExpression)){
+			return true;
+		}else{
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
 	}
 }
 
@@ -40,26 +43,34 @@ function isNumeric(elem, helperMsg){
 function isAlphabet(elem, helperMsg){
 
 	var elem=document.getElementById(elem);
-
-	var alphaExp = /^[a-zA-Z]+$/;
-	if(elem.value.match(alphaExp)){
-		return true;
-	}else{
-		alert(helperMsg);
-		elem.focus();
-		return false;
+	
+	//var alphaExp = /^[a-zA-Z]+$/;
+	var alphaExp = /^[αάβγδεέζηήθιίϊΐκλμνξοόπρσςτυύϋΰφχψωώ]+$/;
+	if(elem.value.length!=0)
+	{
+		if(elem.value.match(alphaExp)){
+			return true;
+		}else{
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
 	}
 }
 
 //sunarthsh pou elegxei an ena pedio periexei kai xarakthres kai noumera
 function isAlphanumeric(elem, helperMsg){
+	var elem=document.getElementById(elem);
 	var alphaExp = /^[0-9a-zA-Z]+$/;
-	if(elem.value.match(alphaExp)){
-		return true;
-	}else{
-		alert(helperMsg);
-		elem.focus();
-		return false;
+	if(elem.value.length!=0)
+	{
+		if(elem.value.match(alphaExp)){
+			return true;
+		}else{
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
 	}
 }
 
@@ -106,8 +117,8 @@ function loginCheck()
 	var user = document.getElementById('username');
 	var pwd = document.getElementById('pwd');
 
-	notEmpty(user, 'helperMsg');
-	notEmpty(pwd, 'helperMsg');
+	notEmpty(user, 'Πρέπει να βάλετε το username σας');
+	notEmpty(pwd, 'Πρέπει να βάλετε τον κωδικό σας');
 }
 /****************************************************************************************
 *					SUNARTHSEIS ELEGXOU GIA TO REGISTRATION FORM
