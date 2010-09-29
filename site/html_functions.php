@@ -1310,22 +1310,22 @@ function dispContactUs()
 		
 		
 		
-		    <div class="fieldLabel-con" style="font-weight:bold;><label for="name">Ονομα</label></div>
+		    <div class="fieldLabel-con" style="font-weight:bold;">Ονομα</label></div>
 		    <div class="fieldInput-con"><input class="fieldInput" type="text" id="name" name="name" /></div>
 		  
 		  
 		
-		    <div class="fieldLabel-con" style="font-weight:bold;><label for="email">Διευθυνση E-mail</label></div>
-		    <div class="fieldInput-con"><input class="fieldInput" type="text" id="email" name="email"/></div>
+		    <div class="fieldLabel-con" style="font-weight:bold;">Διευθυνση E-mail</label></div>
+		    <div class="fieldInput-con"><input class="fieldInput" type="text" id="email" name="fromEmail"/></div>
 		  
 		  
 		  
 		    <div class="fieldLabel-con" style="font-weight:bold;">Να σταλθει στον</div>
-		    <div class="fieldInput-con"><select name="from">
+		    <div class="fieldInput-con"><select name="to">
 		      <option value="" selected="selected">-- developer --</option>
-		      <option value="mits">klisiaris@ceid.upatras.gr</option>
-		      <option value="fil">vasilakis@ceid.upatras.gr</option>
-		      <option value="mits">karathanou@ceid.upatras.gr</option>
+		      <option value="klisiaris@ceid.upatras.gr">klisiaris@ceid.upatras.gr</option>
+		      <option value="vasilakis@ceid.upatras.gr">vasilakis@ceid.upatras.gr</option>
+		      <option value="karathanou@ceid.upatras.gr">karathanou@ceid.upatras.gr</option>
 		      <option value="all">Σε ολους</option>
 		    </select></div>
 		 
