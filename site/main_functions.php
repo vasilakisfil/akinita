@@ -1014,10 +1014,18 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 
 	echo $print['up'];
 	echo "<form name=actionProp action=\"".$actionUrl."\" method=post>";
-	echo "<div class='details-header-right'>
-	 Εμφανίζονται <strong>".($view*($page-1)+1)."-".($view*($page))."</strong> από <strong>".$numRows."</strong> Αποτελέσματα</div> 
-	
-	</div>";
+	if($pages!=1)
+	{
+		echo "<div class='details-header-right'>
+		Εμφανίζονται <strong>".($view*($page-1)+1)."-".($view*($page))."</strong> από <strong>".$numRows."</strong> Αποτελέσματα</div> 
+		</div>";
+	}
+	else
+	{
+		echo "<div class='details-header-right'>
+		Εμφανίζονται <strong>1-".$numRows."</strong> από <strong>".$numRows."</strong> Αποτελέσματα</div> 
+		</div>";
+	}
 	mysql_data_seek($result,($page-1)*$view);
 	$counter=0;
 	 while(($row = mysql_fetch_array($result,MYSQL_NUM)) && ($counter<$view))

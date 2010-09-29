@@ -8,6 +8,8 @@
 include('includes.php');
 if(isset($_POST['remProperty'])) $remProp=$_POST['remProperty']; else $remProp=NULL;
 if(isset($_POST['delProperty'])) $delProp=$_POST['delProperty']; else $delProp=NULL;
+if(isset($_GET['page'])) $page=$_GET['page']; else $page=1;
+if(isset($_GET['results'])) $results=$_GET['results']; else $results=15;
 
 try
 {
@@ -41,10 +43,10 @@ try
 	{
 		echo "<div id='sub-header'><span class='yellow'>Εγκεκριμένες </span>Αγγελίες</div>";
 		if(!(mysql_num_rows($resultT)>0)) echo "<br /> Δεν έχετε καμία εγκεκριμένη δική σας αγγελία!<br />";
-		else propertySearch($messageT,"UserDelete");
+		else propertySearch($messageT,"UserDelete",$page,$results);
 		echo "<div id='sub-header'><span class='yellow'>Σε Αναμονή προς Έγκριση </span>Αγγελίες</div>";
 		if(!(mysql_num_rows($resultF)>0)) echo "<br /> Δεν έχετε καμία δική σας αγγελία που είναι προς έγκριση!<br />";
-		else propertySearch($messageF,"UserDelete");	
+		else propertySearch($messageF,"UserDelete",$page,$results);	
 	}
 	dispFooter();
 }

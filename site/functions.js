@@ -45,7 +45,7 @@ function isAlphabet(elem, helperMsg){
 	var elem=document.getElementById(elem);
 	
 	//var alphaExp = /^[a-zA-Z]+$/;
-	var alphaExp = /^[αάβγδεέζηήθιίϊΐκλμνξοόπρσςτυύϋΰφχψωώ]+$/;
+	var alphaExp = /^[ΑαάΒβΓγΔδΕεέΖζΗηήΘθΙιίϊΐΚκΛλΜμΝνΞξΟοόΠπΡρΣσςΤτΥυύϋΰΦφΧχΨψΩωώ ]+$/;
 	if(elem.value.length!=0)
 	{
 		if(elem.value.match(alphaExp)){
