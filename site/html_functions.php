@@ -1303,7 +1303,7 @@ function dispContactUs()
 		  <!-- to keimeno mas -->
        <fieldset>   <legend><strong>Contact Us</strong></legend>
         <div id="contactForm-con">		
-		<form method="post">
+		<form method="post" action="contactUs.php">
 		
 		
 
@@ -1331,8 +1331,8 @@ function dispContactUs()
 		 
 		  
 		  
-		    <div class="fieldLabel-con" style="font-weight:bold;><label for="message">Μηνυμα</label></div>
-		    <div class="fieldInput-con"><textarea name"message" cols="40" rows="10"></textarea></div>
+		    <div class="fieldLabel-con" style="font-weight:bold;" > Μηνυμα </div>
+		    <div class="fieldInput-con"><textarea name="message" cols="40" rows="10"></textarea></div>
 		  
 		  <div class="fieldLabel-con"></div>
 <div style="text-align:center; float:left; padding-left:134px;"><input type="submit" id="button-log" name="submit" value="Send"/></div>
