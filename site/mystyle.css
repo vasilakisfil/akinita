@@ -81,31 +81,42 @@ a.logo {
 h1 {margin:0;}
 	
 
-/******
+/*********************************************************************************************************************************************
 To menu pou vazisetai se relative-absolute position kai z-index logiki oi eikones menou einai dio se mia me height tis eikonas
 nai einai oso einai i kathe mia x2. Etsi dilonoume to miso heigh kai emfanizetai mono i mia eikona i alli den emfanizetai..
 otan eimaiste hover me to podiki i eikona anevenei pros ta panw emfanizetai to katw miso kai to ypoloipo krivetai. 
-******/
-ul {
-	margin:0;
+***********************************************************************************************************************************/
+
+/****Edo arxikopoioume to menu id kai thetoume absolute position me sigkekrimeni thesi mesa sto site**********/
+#menu {
+    margin:0;
 	padding:0;
 	list-style:none;
-	}
-#menu {
 	position:absolute;
 	top:180px;
 	left:77px;
 	}
+
+/**Orizoume to ipsos tou koumpiou menou einai to miso apo tin eikona mas. Tha emfanistei to panw miso**/	
 #menu a {
 	height:49px;
 	}
+
+/***Orizoume float left sti li. Ta elements tis listas vgainoun apo ta aristera pros ta deksia se seira. Episis vazoume arnitiko margin
+arister kai deksia gia na einai ligo pio koda metaksi tous. ***/
 #menu li {
 	float:left;
 	margin:0 -8px;
 	}
-#menu a.navTagSelected,
+
+	/**Thetoume otan kanoume hover me to podiki tin bg-pos orizontia thesi sto -49px pou einai to miso tis photos mas. 
+Etsi i photos pou adiprosopevoun to menu anevenoun kata 49px pio panw kai emfanizetai to katw miso tous pou einai lefko.
+Thetoume position relative gia na emfanizontai se sxesi me tin bara menu pou exoume absolute kai oxi se akriveis theseis***/
+
 #menu a:hover {background-position:0 -49px !important;position:relative;}
-#menu a.navTagSelected {z-index:99;}
+
+/******Gia kathe menu button id orizoume to platos kai to bg-image**************/
+
 #menu #home {width:145px;background:url(images/btn-home.gif);}
 #menu #search {width:145px;background:url(images/btn-search.gif);}
 #menu #kataxorisi {width:145px;background:url(images/btn-kataxorisi.gif);}
@@ -115,7 +126,7 @@ ul {
 #menu #logout {width:145px;background:url(images/btn-logout.gif);} 
 	
 
-
+/*****Telos ta menu**************************************************************************************************/
 
 #middle-alt {
 	width:940px;
@@ -212,6 +223,8 @@ a.continue-reading {
 	background:url(images/btn-continue-reading.gif);
 	}
 		
+
+/*******To katw menu**************************************************************/		
 #bottom-navigation {
 	text-align:center;
 	background:#fff;
@@ -232,6 +245,9 @@ background:none;
 float:left;
 margin-top:-3px;}
 
+/*******Telos To katw menu**************************************************************/	
+
+/******O footer**************************************************************************/
 #footer {
 	width:100%;
 	background:#1d262c;
@@ -272,27 +288,6 @@ margin-top:-3px;}
 	}
 	
 	
-.sub-nav a {
-	display:block;
-	padding:14px 38px 12px 24px;
-	width:197px;
-	color:#fff;
-	font-weight:bold;
-	}
-.sub-nav a:hover,
-.sub-nav a.navTagSelected {
-	color:#000;
-	text-decoration:none;
-	background:url(images/bg-sub-nav.png) no-repeat left top;
-	}
-	
-.header-bar {
-	width:652px;
-	margin:0 -63px 20px -5px;
-	padding:0 0 9px 5px;
-	background:url(images/bg-header-bar.gif) no-repeat left bottom;
-	}
-	
 .header-bar-full {
 	width:883px;
 	margin:0 -63px 20px -5px;
@@ -301,7 +296,8 @@ margin-top:-3px;}
 	}
 	
 
-/*Parakato yparxoun kapoies klaseis gia xromata kai typous grammatoseirwn*/
+/*******************************************************************************************
+***************Parakato yparxoun kapoies klaseis gia xromata kai typous grammatoseirwn*********/
 a.blue-link {
 	color:#26465c;
 	font-size:13px;
@@ -351,7 +347,10 @@ text-shadow:1px 1px 1px #fff;
 	
 .center{text-align:center;}
 
-/*****Telos Xromatwn**************/
+/*******************Telos Xromatwn**************************************************/
+	
+/*************Ta lepta ble plaisia pou vriskontai se polles selides kai leitourgoun san defteres epikefalides***********************
+*******************************************************************************************************************/
 	
 #sub-header {
 	width:762px;
@@ -376,9 +375,10 @@ text-shadow:1px 1px 1px #fff;
 	background:url(images/bg-sub-header.png) no-repeat left top;
 	}	
 	
-
+/***********Ta plaisia pou periexoun ton arithmo aggeliwn ana selida kai tis sinolikes mas selides*************
+***************************************************************************************************************/
 	
-#details-header {
+#advsperpage-header {
 	width:762px;
 	height:40px;
 	color:#26475d;
@@ -388,7 +388,7 @@ text-shadow:1px 1px 1px #fff;
 	background:url(images/bg-details-header.png) no-repeat left top;
 	}
 
-.details-header-right {
+.advsperpage-header-right {
 	margin-right: 30px;
 	text-align: right;
 	font-size: 12px;
@@ -396,7 +396,7 @@ text-shadow:1px 1px 1px #fff;
 	margin-top:-13px;
 	}
 	
-.details-header-pagination {
+.advsperpage-header-pagebottom {
 	margin-right: 30px;
 	text-align: right;
 	font-size: 10px;

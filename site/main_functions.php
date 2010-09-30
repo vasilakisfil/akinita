@@ -1016,13 +1016,13 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 	echo "<form name=actionProp action=\"".$actionUrl."\" method=post>";
 	if($pages!=1)
 	{
-		echo "<div class='details-header-right'>
+		echo "<div class='advsperpage-header-right'>
 		Εμφανίζονται <strong>".($view*($page-1)+1)."-".($view*($page))."</strong> από <strong>".$numRows."</strong> Αποτελέσματα</div> 
 		</div>";
 	}
 	else
 	{
-		echo "<div class='details-header-right'>
+		echo "<div class='advsperpage-header-right'>
 		Εμφανίζονται <strong>1-".$numRows."</strong> από <strong>".$numRows."</strong> Αποτελέσματα</div> 
 		</div>";
 	}
@@ -1133,8 +1133,8 @@ function getThePages($page,$pages,$results)
 		$page_[$i]=$_SERVER['SCRIPT_NAME']."?page=".$i."&amp;results=".$results;
 	}
 
-	$print['up'].="<div id='details-header'> <strong>Σελίδα</strong> ";
-	$print['down'].="<div id='details-header'><div class='details-header-pagination'><strong>Σελίδα</strong>";
+	$print['up'].="<div id='advsperpage-header'> <strong>Σελίδα</strong> ";
+	$print['down'].="<div id='advsperpage-header'><div class='advsperpage-header-pagebottom'><strong>Σελίδα</strong>";
 
 	if($pages<=8)
 	{
