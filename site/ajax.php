@@ -88,6 +88,15 @@ if(isset($_GET['Afloor']))
 	$message=substr($message,0,-2);
 	$message.=" )";
 }
+//elegxoume gia to etos kataskeuhs 8ELEI FTIA3IMO AUTO
+if(isset($_GET['etos_katask']))
+{
+	$value=$_GET['etos_katask'];
+	if($value!="nolimit")
+	{
+		$message.=" and property.constr_date>$value";
+	}
+}
 //elegxoume an exoun eisax8ei paroxwn
 if(isset($_GET['facilities']))
 {

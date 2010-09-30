@@ -435,6 +435,13 @@ function validSearch()
 	}
 }
 
+function checkType()
+{
+	//var newSelect = document.getElementById("
+
+
+}
+
 /****************************************************************************************
 *					SUNARTHSEIS GIA THN AJAX
 *

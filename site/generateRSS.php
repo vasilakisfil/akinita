@@ -59,7 +59,7 @@ for($i=0; $i<$max; $i++)
 	$row = mysql_fetch_array($result);
 	echo "<item>";
 	echo "<title> ".$row[4]." ".$row[1]."</title>";
-	echo "<link>http://vasilakisfil.dyndns.org/earth/viewProperty.php?prop_id=".$row[0]."</link>";
+	echo "<link>http://vasilakisfil.dyndns.org/earth/viewProperty.php?propId=".$row[0]."</link>";
 	echo "</item>";
 }
 echo "</channel>
