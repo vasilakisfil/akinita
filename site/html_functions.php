@@ -99,7 +99,7 @@ function dispFooter()
 		<li><a href="main.php">Αρχική</a></li>
 		<li><a href="homeSearch.php">Αναζήτηση</a></li>
 		<li><a href="homeAdvertise.php">Καταχώρηση</a></li>
-		<li><a href="member.php">Κεντρική</a></li>
+		<li><a href="member.php">Προφίλ</a></li>
 		<li><a href="contactUs.php">Επικοινωνία</a></li>
 <?php
 //elegxoume an o xrhsths einai sudedemenos kai an einai emfanizoume perissoteres epiloges
