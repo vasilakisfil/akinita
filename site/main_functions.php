@@ -1304,7 +1304,7 @@ function createLProperties()
 {
 	
 	$link=db_connect();
-	for($i=10; $i<15; $i++)
+	for($i=1001; $i<1500; $i++)
 	{
 		$userMsg="insert into users (username,password,email) values ('user$i','password$i','user$i@gmail.com')";
 		mysql_query($userMsg);
