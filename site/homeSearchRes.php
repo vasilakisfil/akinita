@@ -23,7 +23,7 @@ try
 		$message.=" and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id and facilities.fac_id=fac_prop.fac_id and property.prop_id=fac_prop.prop_id";
 		//$message="se (property.address like '%$mainQuery%') or
 		$message=$message.";";
-		echo $message;
+		//echo $message;
 	}
 	else
 	{
@@ -170,7 +170,7 @@ try
 	dispHeader('');
 	//echo $message;
 	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1></div>";
-	echo $message;
+	//echo $message;
 	$result=db_excecute($message,"searchRes");
 	if(mysql_num_rows($result)==0) echo "Δεν υπάρχουν αγγελίες με τα κριτήρια που επιλέξατε!";
 	else propertySearch($message,"Delete",$page,$results);
