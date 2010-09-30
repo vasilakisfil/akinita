@@ -48,7 +48,7 @@ if ($username && $passwd)
 	echo "<br /><br />Δεν ειστε δεν είστε μέλος? Κάντε τώρα";
 	dispURL('signup.php', 'Εγγραφή');
     echo "</div></div></div>
-<div class='content-box-1-bottom'>&nbsp;</div>";
+<div class='content-box-1-bottom'>&nbsp;</div></div>";
 	dispFooter();
     exit;
   }      
@@ -109,8 +109,8 @@ if (isset($_SESSION['user_type']))
 			'Reply-To: webmaster@AkinitaProject.gr' . "\r\n" .
 			'X-Mailer: PHP/' . phpversion();
 			$ret=mail_utf8($_POST['email'], $_POST['subjEmail'], $_POST['textEmail'], $headers);
-			if($ret==true) echo "Το mail αποσάλθηκε!<br />";
-			else echo "Το mail δεν αποσάλθηκε!<br />";
+			if($ret==true) echo "Το mail αποστάλθηκε!<br />";
+			else echo "Το mail δεν αποστάλθηκε!<br />";
 		}
 	}
 	//alliws emfanise mono tis epiloges tou aplou xrhsth
@@ -131,7 +131,7 @@ if (isset($_SESSION['user_type']))
 	}
     dispURL("logout.php","Αποσύνδεση");
 	 echo "</div></div></div>
-<div class='content-box-1-bottom'>&nbsp;</div>";
+<div class='content-box-1-bottom'>&nbsp;</div></div>";
 }
 //an h session metavlhth user_type den exei te8ei auto shmainei oti eite to login den egine swsta eite oti o xrhsths hr8e
 //se auth th selida xwris e3ousiodothsh
