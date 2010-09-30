@@ -101,7 +101,7 @@ function dispFooter()
 		<li><a href="homeSearch.php">Αναζήτηση</a></li>
 		<li><a href="homeAdvertise.php">Καταχώρηση</a></li>
 		<li><a href="member.php">Κεντρική</a></li>
-		<li><a href="" target="_blank">Επικοινωνία</a></li>
+		<li><a href="contactUs.php">Επικοινωνία</a></li>
 <?php
 //elegxoume an o xrhsths einai sudedemenos kai an einai emfanizoume perissoteres epiloges
 if(isset($_SESSION['valid_user']))
