@@ -189,7 +189,7 @@ $query="select * from property where propState='T';";
 $result=db_excecute($query,"ajax_quary");
 $rows=mysql_num_rows($result);
 //echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη στιγμή: <span class='yellow'>&nbsp;$rows</span></div><br /><br /><br />";
+echo "<div id='availads-box'>Διαθέσιμες Αγγελιες αυτη τη στιγμή:<span class='yellow'>&nbsp;$rows</span></div><br /><br /><br />";
 ?>
 <div class="content-box-1">
 <div class="content-box-1-top"></div>
