@@ -1267,7 +1267,7 @@ function createProperties()
 		$lastId=++$arr['prop_id'];
 	}
 	else $lastId=0;
-	for($i=0; $i<20; $i++)
+	for($i=0; $i<1000; $i++)
 	{
 		$userMsg="insert into users (username,password,email) values ('user$i','password$i','user$i@gmail.com')";
 		mysql_query($userMsg);
