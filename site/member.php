@@ -87,10 +87,28 @@ if (isset($_SESSION['user_type']))
 		echo "<br />";
 		echo "
 			<form method=\"post\" action=\"member.php\" >
-			<input type=\"submit\" name=\"createProperties\" value=\"Δημιουργία Τυχαίων Ακινήτων!\" \>
+			<input type=\"submit\" name=\"testData\" value=\"Εμφάνιση των επιλογών για τα test data!\" \>
 			</form>
 			";
-		if(isset($_POST['createProperties'])) createProperties();
+		if(isset($_POST['testData']))
+		{
+			echo "
+				<fieldset>
+				<legend>Είσοδος των test data</legend>
+				Πρώτα εκτελείται το 1 και μετά το 2 και πάντα όταν η βάση είναι άδεια από test data !!
+				<form method=\"post\" action=\"member.php\" >
+				1.<input type=\"submit\" name=\"createSProperties\" value=\"Δημιουργία 1000 Τυχαίων Ακινήτων(πώληση)!\" \>
+				</form>
+				";
+			echo "
+				<form method=\"post\" action=\"member.php\" >
+				2.<input type=\"submit\" name=\"createLProperties\" value=\"Δημιουργία 500 Τυχαίων Ακινήτων(ενοικίαση)!\" \>
+				</form>
+				</fieldset>
+				";
+		}
+		if(isset($_POST['createSProperties'])) createSProperties();
+		if(isset($_POST['createLProperties'])) createLProperties();
 		
 		echo "
 			<form method=\"post\" action=\"member.php\" >
