@@ -77,10 +77,17 @@ try
 	// Send
 	$ret=mail_utf8($email, $subject, $message,$headers);
 
-	dispHeader('Registration successful',2);
-	echo "Your registration was successful. ".$ret."An email has been sent to you email account!Go to login page to enter into the system!";
-	dispURL('login.php', 'Go to login page');
-
+	dispHeader('');
+	echo "<div class='header-bar-full'><h1 class='blue'>Επιτυχής Εγγραφή</h1></div>
+	<div class='content-box-1'>
+        <div class='content-box-1-top'></div>
+        <div class='content-box-1-middle'>
+        <div class='content-box-1-content'>
+	<h3>Η εγγραφή σας πραγματοποιήθηκε με επιτυχία!</h3> ".$ret."Καλως Ορίσατε στο Ακινητα Project! <br/>
+	Μπορείτε πλεον να συνδεθείτε στο σύστημα μεσω της σελίδας σύνδεσης. <br/><br/>  ";
+	dispURL('login.php', 'Σελίδα Σύνδεσης');
+echo "</div></div>
+              <div class='content-box-1-bottom'>&nbsp;</div></div>";
 	// end page
 	dispFooter();
 }
