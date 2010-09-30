@@ -163,14 +163,14 @@ try{
 		if($priv=="Admin")
 		{
 			//tote kane to xrhsth Admin
-			db_update("users","username","user_type","'$user'","A");
+			db_update("users","username","user_type","'$user'","'A'");
 			$message="Ο χρήστης $user μόλις έγινε διαχειριστής!";
 		}
 		//alliws
 		else if($priv=="User")
 		{
 			//kane ton xrhsth User
-			db_update("users","username","user_type","'$user'","U");
+			db_update("users","username","user_type","'$user'","'U'");
 			$message="Ο χρήστης $user μόλις έγινε ταπεινός User!";
 		}
 		
