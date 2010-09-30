@@ -84,7 +84,13 @@ if (isset($_SESSION['user_type']))
 		echo "<br />";
 		dispURL("myProperties.php","Προβολή των δικών μου αγγελιών");
 		echo "<br />";
-		//if(isset($_POST['pageTest'])) createProperties();
+		echo "<br />";
+		echo "
+			<form method=\"post\" action=\"member.php\" >
+			<input type=\"submit\" name=\"createProperties\" value=\"Δημιουργία Τυχαίων Ακινήτων!\" \>
+			</form>
+			";
+		if(isset($_POST['createProperties'])) createProperties();
 		
 		echo "
 			<form method=\"post\" action=\"member.php\" >

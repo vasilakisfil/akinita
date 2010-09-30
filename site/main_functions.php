@@ -1257,21 +1257,73 @@ function db_insertProperty($message)
 *****************************************************************************************/
 function createProperties()
 {
-
+	
 	$link=db_connect();
-	for($i=0; $i<100; $i++)
+	$message="select * from property order by prop_id DESC";
+	$res=mysql_query($message);
+	if(mysql_num_rows($res)>0)
 	{
-		$message="insert into property (address,price,offer_type,area,constr_date,Afloor,propState,user_id) values
-				('aliartou$i',19000,'S',27,1991,4,'T','vasilakis')";
-		mysql_query($message);
-		$message="insert into cat_prop (prop_id,cat_id) values (".mysql_insert_id().",2)";
-		mysql_query($message);
+		$arr=mysql_fetch_array($res);
+		$lastId=++$arr['prop_id'];
 	}
-	//echo $message;
+	else $lastId=0;
+	for($i=0; $i<20; $i++)
+	{
+		$userMsg="insert into users (username,password,email) values ('user$i','password$i','user$i@gmail.com')";
+		mysql_query($userMsg);
+		$randProp=mt_rand(5,30);
+		for($j=0; $j<$randProp; $j++)
+		{
+			$price=mt_rand(0,100000);
+			$area=mt_rand(1,200);
+			$Afloor=mt_rand(0,10);
+			$constr_date=mt_rand(1960,2010);
+			$message1="insert into property (address,price,offer_type,area,constr_date,Afloor,propState,user_id) values
+					('Μαιζώνος$j$i',$price,'S',$area,$constr_date,$Afloor,'T','user$i')";
+			mysql_query($message1);
+			$propId=mysql_insert_id();
+			$cat=mt_rand(1,9);
+			$message2="insert into cat_prop (prop_id,cat_id) values (".$propId.",$cat)";
+			mysql_query($message2);
+			$fac=mt_rand(0,22);
+			for($k=0; $k<$fac; $k++)
+			{
+				$tempFac=mt_rand(1,22);
+				$message2="insert into fac_prop (prop_id,fac_id) values (".$propId.",$tempFac)";
+				mysql_query($message2);
+			}
+			
+		}
+		set_time_limit(60);
+	}
+	//echo $message1."   ".$message2;
 	//exit;
 
+}
 
+function createUsers()
+{
 	
+	$link=db_connect();
+	$message="select * from users";
+	$res=mysql_query($message);
+	$rows=mysql_num_rows($res);
+	$rows++;
+	for($i=$rows; $i<$rows+100; $i++)
+	{
+		$price=mt_rand(0,100000);
+		$area=mt_rand(1,200);
+		$Afloor=mt_rand(0,10);
+		$constr_date=mt_rand(1960,2010);
+		$message1="insert into property (address,price,offer_type,area,constr_date,Afloor,propState,user_id) values
+				('Μαιζώνος$i',$price,'S',$area,$constr_date,$Afloor,'T','vasilakis')";
+		mysql_query($message1);
+		$cat=mt_rand(1,9);
+		$message2="insert into cat_prop (prop_id,cat_id) values (".mysql_insert_id().",$cat)";
+		mysql_query($message2);
+	}
+	//echo $message1."   ".$message2;
+	//exit;
 
 }
 
