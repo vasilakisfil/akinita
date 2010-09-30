@@ -487,6 +487,7 @@ afouron tin lista me tis aggelies kai tin provoli aggelias me leptomereies *****
 
 /******Oi Klaseis gia tin lista aggeliwn******************************************************************/
 
+/*****To kouti mesa sto opoio vrisketai i kathe aggelia************************/
 .propListingBox {
 	width: 762px;
 	height: 112px;
@@ -494,9 +495,7 @@ afouron tin lista me tis aggelies kai tin provoli aggelias me leptomereies *****
 	background: url('images/bgPropListing.gif') no-repeat;
 
 	}
-.propListingNegTopPad {
-	margin-top: -3px;
-	}
+/***********************i foto tis aggelias topothetimeni aristera kai rithmiseis**********************/
 .propListingPhoto {
 	float: left;
 	display: inline;
@@ -507,9 +506,13 @@ afouron tin lista me tis aggelies kai tin provoli aggelias me leptomereies *****
 	border: 1px solid #b8b79c;
 	
 	}
+
+/******To plaisio tis fotos lefko*****************/	
 .propListingPhoto img {
 	border: 1px solid #fff;
 	}
+
+/*****Oi vasikes plirofories gia to to akinito rithmiseis**********************************/	
 .propListingCoreInfo {
 	float: left;
 	display: inline;
@@ -518,6 +521,7 @@ afouron tin lista me tis aggelies kai tin provoli aggelias me leptomereies *****
 	margin-top: 25px;
 	margin-left: 12px;
 	}
+/****Diefthisi rithmiseis*****************/	
 .propListingAddress {
 	font-size: 14px;
 	font-weight: bold;
@@ -529,17 +533,13 @@ afouron tin lista me tis aggelies kai tin provoli aggelias me leptomereies *****
 	color: #ffc20e;
 	text-decoration:none;
 	}
-	
-.propListingLocation {
+/***Katigoria Rithmiseis*************************/	
+.propListingCategory {
 	font-size: 14px;
 	font-weight: bold;
 	color: #fff;
 	}
-.propListingDate {
-	margin-top: 5px;
-	font-size: 12px;
-	color: #d8d9b8;
-	}
+/***Oi defteres plirofories gia emvado klp****************/
 .propListingSubInfo {
 	float: right;
 	display: inline;
@@ -548,16 +548,19 @@ afouron tin lista me tis aggelies kai tin provoli aggelias me leptomereies *****
 	margin-top: 25px;
 	margin-left: 15px;
 	}
+/****Oi idiotites polisi kai emfaniseis************/	
 .propListingAmenities {
 	font-size: 12px;
 	color: #323232;
 	}
-.propListingDeposit {
+/****Emvado rithmiseis******/	
+.propListingEmvado {
 	font-size: 12px;
 	color: #26475d;
 	margin-top: 15px;
 	}
-.propListingCallToAction {
+/****Oi telikes plirofories timi kai view more*******/
+.propListingFinal {
 	float: right;
 	display: inline;
 	width: 188px;
@@ -566,36 +569,40 @@ afouron tin lista me tis aggelies kai tin provoli aggelias me leptomereies *****
 	margin-left: 0px;
 	text-align: center;
 	}
+/****Timi rithmiseis*****************/	
 .propListingRent {
 	font-size: 14px;
 	font-weight: bold;
 	color: #26475d;
 	text-align: center;
 	}
+/**Koumpi view more rythmiseis********/	
 .propListingViewDetail {
 	margin-top: 20px;
 	margin-left: 38px;
 	}
 	
-.propCheckBox{
-font-size: 12px;
-color:#fff;
-padding-bottom:25px;
-}	
+	
 /*****Telos oi klaseis gia tin lista aggeliwn*****************/
 
 /******Emfanisi mia aggelias me leptomeries****************************************************/
+
+/*****To megalo kouti pou periexei tin aggelia panw meros*******************/
 #propDetailBoxContainer {
 	width: 763px;
 	margin-bottom: 0px;
 	background: url('images/bg-detail-base-top.gif') no-repeat;
 	}
+	
+/*****To megalo kouti pou periexei tin aggelia katw meros*******************/	
 #propDetailBox {
 	width: 763px;
 	padding-top: 7px;
 	padding-bottom: 17px;
 	background: url('images/bg-detail-base-bottom.gif') bottom center no-repeat;
 	}
+
+/**To aristero kouti me photos xarti klp********/
 #propDetailLeftBox {
 	float: left;
 	display: inline;
@@ -604,6 +611,7 @@ padding-bottom:25px;
 	margin-left: 7px;
 	background: #1d262c url('images/bg-detail-blue.gif') repeat-x;
 	}
+/****To kouti tis photos*************/
 #propDetailPhoto {
 	width: 311px;
 	height: 215px;
@@ -611,45 +619,38 @@ padding-bottom:25px;
 	margin-top: 5px;
 	border: 1px solid #b8b79c;
 	}
+/******To plaisio tis photo***********/
 #propDetailPhoto img {
 	border: 1px solid #fff;
 	}
+
+/***to kouti pou periexei ola ta thumbs twn photos******/	
 #propDetailThumbs {
 	margin-top: 0px;
 	margin-left: 5px;
 	
 	height: 70px;
 	}
+/****eikonidio rithmiseis************/
 .propDetailThumb {
 	float: left;
 	display: inline;
 	border: 1px solid #b8b79c;
 	}
+	
+/*****i eikona ton thumb plaisio**********/	
 .propDetailThumb img {
 	border: 1px solid #fff;
 	}
+/**epipleon rithmiseis gia kena deksia kai pano**/
 .propDetailRight {
 	margin-right: 4px;
 	margin-top:2px;
 	}
-.propDetailClear {
-	clear: left;
-	}
-.propDetailSecond {
-	margin-top: 4px;
-	}
-#propDetailGoogleMap {
-	clear: both;
-	width: 120px;
-	margin: 30px auto;
-	padding-top:20px;
-	text-align: center;
-	}
-#propDetailRequestInfo {
-	width: 278px;
-	margin: 40px auto 50px auto;
-	text-align: center;
-	}
+
+
+/*******to deksi kouti pou periexei tis plirofories tis paroxes sxolia klp****************************************************/
+
 #propDetailRightBox {
 	float: left;
 	display: inline;
@@ -658,31 +659,37 @@ padding-bottom:25px;
 	border-left: 1px solid #fff;
 	background: #fff url('images/bg-detail-white.gif') bottom center repeat-x;
 	}
+/************to ble kouti pou periexei katigoria kai diefthinsi**********************************************************************************/
 #propDetailCoreInfo {
 	width: 424px;
 	height: 57px;
 	background: #1d262c url('images/bg-detail-blue.gif') repeat-x;
 	}
-#propDetailAddress {
+/************H katigoria tou spitiou kena rithmiseis grammata xroma klp****************************************************/
+#propDetailCategory {
 	padding-top: 10px;
 	padding-left: 15px;
 	font-size: 14px;
 	font-weight: bold;
 	color: #ffc20e;
 	}
+/***H diefthinsi tou spitiou***/
 #propDetailLocation {
 	font-size: 14px;
 	font-weight: bold;
 	color: #fff;
 	padding-left: 15px;
 	}
+/**Oi plirifories tou akinitou xroma**/
 .propDetailSubInfo {
 	clear: both;
 	background-color: #EFF0E3;
 	}
+/**To lefko background**/
 .whitebg {
 	background-color: #fff;
 	}
+/**oi paroxes rithmiseis**/
 .propDetailAmenities {
 	float: left;
 	display: inline;
@@ -690,11 +697,13 @@ padding-bottom:25px;
 	padding: 8px;
 	width: 183px;
 	}
+/**periorizoume na ta floats opou xriazetai**/
 .clearDiv {
 	clear: both;
 	font-size: 0px;
 	height: 0px;
 	}
+/**oi paroxes rithmiseis kenwn***/
 #propDetailAmenities {
 	margin-top: 10px;
 	margin-left: 20px;

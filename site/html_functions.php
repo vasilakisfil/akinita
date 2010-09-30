@@ -30,7 +30,7 @@ function dispHeader($header,$num=1)
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;language=el" >
 
 </script>
-<title>Akinita.gr</title>
+<title>Akinita Project</title>
 </head>
 <body>
 <div id="main">

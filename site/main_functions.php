@@ -833,7 +833,7 @@ echo "
 	// to deksi tmima
 	echo "<div id='propDetailRightBox'>";
 	echo "<div id='propDetailCoreInfo'>
-	<div id='propDetailAddress'>".$row['category']."</div>
+	<div id='propDetailCategory'>".$row['category']."</div>
 	<div id='propDetailLocation'>".$row['address']."</div></div>";
 	
 	echo "<div class='propDetailSubInfo whitebg'>
@@ -1061,7 +1061,7 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 					<strong>Προς:</strong>Πώληση<br />
 					<strong>Εμφανίσεις:</strong> 1
 				</div>
-				<div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>";
+				<div class='propListingEmvado'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>";
 				if(isset($type))
 				{
 					if($Ftype=="Delete" && $type=="Admin") echo "<strong>Διαγραφή?</strong> 
@@ -1080,7 +1080,7 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 				<strong>Προς:</strong>Ενοικίαση<br />
 				<strong>Εμφανίσεις:</strong> 1
 				</div>
-				<div class='propListingDeposit'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>";
+				<div class='propListingEmvado'><strong>Εμβαδό:</strong>"."$row[4]"." τμ </div>";
 				if(isset($type))
 				{
 					if($Ftype=="Delete" && $type=="Admin") echo "<strong>Διαγραφή?</strong> 
@@ -1100,13 +1100,13 @@ function propertySearch($message,$Ftype=NULL,$page,$results=15)
 				width='125px' height='87px' alt='photo' /></a></div>
 				<div class='propListingCoreInfo'>
 					<div class='propListingAddress'>"."<a href='viewProperty.php?propId=".$row[0]."' title='View Photo'>".$row[1]."</a></div>
-					<div class='propListingLocation'>Τύπος:"."$row[6]"."<br />Πάτρα</div>
+					<div class='propListingCategory'>Τύπος:"."$row[6]"."<br />Πάτρα</div>
 				</div>";
 			}
 		
 			if ($i==2)
 			{
-				echo "<div class='propListingCallToAction'> 
+				echo "<div class='propListingFinal'> 
 				<div class='propListingRent'>Τιμή:"."$row[2]"."€</div>
 				<div class='propListingViewDetail'><a href='viewProperty.php?propId=$row[0]' title='View Details' >
 				<img src='images/btnPropListingViewDetail.gif' alt='View Detail'/></a></div> </div>";
