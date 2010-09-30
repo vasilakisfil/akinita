@@ -80,7 +80,10 @@ a.logo {
 	}
 h1 {margin:0;}
 	
-
+/******
+Telos To panw kommati tis selidas aka header kai ta logo 
+******/
+	
 /*********************************************************************************************************************************************
 To menu pou vazisetai se relative-absolute position kai z-index logiki oi eikones menou einai dio se mia me height tis eikonas
 nai einai oso einai i kathe mia x2. Etsi dilonoume to miso heigh kai emfanizetai mono i mia eikona i alli den emfanizetai..
@@ -132,66 +135,48 @@ Thetoume position relative gia na emfanizontai se sxesi me tin bara menu pou exo
 	
 
 /*****Telos ta menu***************************************************************************************************/
+
+/***************************************************************************************************
+Ta parakatw aforoun to kedriko periexomeno aka content olwn ton selidwn sto site.
+***************************************************************************************************/	
+
+/*********H lefki grammi pou diaxorizei ta menou apo to content tis selidas***************************/
+#whiteline {
+	overflow:hidden;
+	background:#fff;
+	padding:2px 0 0px 61px;
 	
+	height:5px;
+	}
 
-
-
-#middle-alt {
+/*******To bg tou perexomenou tis selidas. Ena xroma apo panw mexri katw kai katw aristera fotoskiasmeni 
+eikona pou kanei repeat x *************************************/
+#pagecontentbg {
 	width:940px;
 	overflow:hidden;
 	background: #d8d9b8 url(images/bg-middle-alt.gif) repeat-x left bottom;
-	}
-#bg {
-	width:940px;
-	overflow:hidden;
-	background:url(images/bg-middle-bottom.jpg) no-repeat left bottom;
 	position:relative;
 	}
-#bg-alt {
-	width:940px;
-	overflow:hidden;
-	position:relative;
-	}
-#middle.index {background:url(images/bg-middle-index.gif) repeat-y left;}
-#middle.index #bg {background:url(images/bg-middle-index.jpg) no-repeat left bottom;}
-	
-#left-column {
-	float:left;
-	width:356px;
-	}
-#right-column {
-	float:right;
-	width:461px;
-	padding:43px 56px 43px 0;
-	}
-.left-column {
-	float:left;
-	width:246px;
-	padding:70px 0 30px 0;
-	}
-.right-column {
-	float:right;
-	width:589px;
-	padding:26px 63px 65px 5px;
-	min-height:100px;
-	}
-.no-column {
+
+
+/*****To pragmatiko periexomeno selidas sto opoio mporei na mpei keimeno eikones klp *********************/	
+
+.pagecontent {
 	float:right;
 	width:815px;
 	padding:26px 63px 65px 5px;
 	min-height:400px;
 	}
-* html .right-column {height:100px;}
-	
-.triangle {
-	width:118px;
-	height:58px;
-	background:url(images/triangle.gif) no-repeat left top;
-	position:absolute;
-	top:0;
-	left:170px;	
+/*****Oi paragrafoi tou periexomenou selidas. Liges rithmiseis***************************************/
+.pagecontent p {
+	line-height:24px;
+	margin:0 0 1em 0;
+	text-align:left;
 	}
-.triangle-alt {
+
+/******To xaraktiristiko trigwno pou einai panw areistera**************************************/	
+
+.triangle {
 	width:118px;
 	height:58px;
 	background:url(images/triangle-alt.gif) no-repeat left top;
@@ -199,38 +184,11 @@ Thetoume position relative gia na emfanizontai se sxesi me tin bara menu pou exo
 	top:0;
 	left:0px;	
 	}
-.index .triangle {
-	left:301px;
-	}
-	
-.contact {
-	line-height:18px;
-	color:#fff;
-	padding:50px 0 50px 71px;
-	}
-.contact strong,
-.contact span {color:#ffc20e;}
-.contact a {color:#d8d9b8;}
 
-.right-column p, .no-column p {
-	line-height:24px;
-	margin:0 0 1em 0;
-	text-align:justify;
-	}
-.index p {
-	line-height:24px;
-	margin:0 10px 0 0;
-	text-align:justify;
-	}
-.index div.button a {float:right;}
+/***************
+Telos to kedriko periexomeno aka content olwn ton selidwn sto site
+***************************************************************************************************/	
 	
-	
-a.continue-reading {
-	width:160px;
-	height:33px;
-	background:url(images/btn-continue-reading.gif);
-	}
-		
 
 /*******To katw menu**************************************************************/		
 #bottom-navigation {
@@ -288,22 +246,15 @@ margin-top:-3px;}
 
 /******Telos O footer**************************************************************************/
 
-#visual {
-	overflow:hidden;
-	background:#fff;
-	padding:2px 0 0px 61px;
 	
-	height:5px;
-	}
-	
-	
+/******H grammi katw apo ton header olwn twn selidwn mas****************************/
 .header-bar-full {
 	width:883px;
 	margin:0 -63px 20px -5px;
 	padding:0 0 9px 5px;
 	background:url(images/bg-header-bar-full.gif) no-repeat left bottom;
 	}
-	
+/******Telos H grammi katw apo ton header olwn twn selidwn mas****************************/	
 
 /*******************************************************************************************
 ***************Parakato yparxoun kapoies klaseis gia xromata kai typous grammatoseirwn*********/
@@ -382,7 +333,9 @@ text-shadow:1px 1px 1px #fff;
 	margin-left:27px;
 	padding: 13px 13px 0 13px;
 	background:url(images/bg-sub-header.png) no-repeat left top;
-	}	
+	}
+
+/*************Telos Ta lepta ble plaisia pou vriskontai se polles selides kai leitourgoun san defteres epikefalides*******/	
 	
 /***********Ta plaisia pou periexoun ton arithmo aggeliwn ana selida kai tis sinolikes mas selides*************
 ***************************************************************************************************************/
@@ -411,6 +364,8 @@ text-shadow:1px 1px 1px #fff;
 	font-size: 10px;
 	font-weight: normal;
 	}
+/***********Telos Ta plaisia pou periexoun ton arithmo aggeliwn ana selida kai tis sinolikes mas selides*************/	
+	
 
 /******************Parakato vriskontai ids kai klaseis gia ola ta ble megala koutia pou vriskontai sto site kai
 dexontai i emfanizoun dedomena***************************************/

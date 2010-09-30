@@ -67,11 +67,10 @@ else
 
 </div>
 
-<div id="visual"></div>
-<div id="middle-alt">
-<div id="bg-alt">
-<div class="no-column">
-
+<div id="whiteline"></div>
+<div id="pagecontentbg">
+<div class="pagecontent">
+<div class="triangle">&nbsp;</div>
 
 <?php
 	if($header)
@@ -92,8 +91,8 @@ function dispFooter()
   // print an HTML footer
 ?>
   </div>
-<div class="triangle-alt">&nbsp;</div>
-</div>
+
+
 </div>
 <ul id="bottom-navigation">
         <li class="rss-icon"><a  href="generateRSS.php"><img src="images/rssIcon.png" /></a></li>
