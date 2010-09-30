@@ -527,10 +527,10 @@ if($type_=="User")
 <div class="content-box-1-content">
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Change your password</legend>
-	Old Password:<input class="field-input-gen" type="password" name="oldPassword"/><br/><br/>
-	New Password:<input class="field-input-gen" type="password" name="newPassword1"/>
-	New Password:<input class="field-input-gen" type="password" name="newPassword2"/>
+	<legend>Αλλαγή κωδικού</legend>
+	Παλιός κωδικός:<input class="field-input-gen" type="password" name="oldPassword"/><br/><br/>
+	Νέος κωδικός:<input class="field-input-gen" type="password" name="newPassword1"/>
+	Νέος κωδικός:<input class="field-input-gen" type="password" name="newPassword2"/>
 	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
@@ -546,9 +546,9 @@ else
 <div class="content-box-1-content">
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Change users password</legend>
-	New Password:<input class="field-input-gen" type="password" name="newPassword1"/>
-	New Password:<input class="field-input-gen" type="password" name="newPassword2"/>
+	<legend>Αλλαγή του κωδικού του χρήστη</legend>
+	Νέος Κωδικός:<input class="field-input-gen" type="password" name="newPassword1"/>
+	Νέος Κωδικός:<input class="field-input-gen" type="password" name="newPassword2"/>
 	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
@@ -558,16 +558,16 @@ else
 
 <form method="post" action="editUser.php?user=<?php echo $user; ?>">
 <fieldset>
-<legend>Change your email</legend>
-New Email:<input class="field-input-gen" type="text" name="newEmail"/>
+<legend>Αλλαγή του email</legend>
+email:<input class="field-input-gen" type="text" name="newEmail"/>
 <input type="submit" id="button-view2" name="submit" value="Αλλαγή" />
 </fieldset>
 </form>
 
 <form method="post" action="editUser.php?user=<?php echo $user; ?>">
 <fieldset>
-<legend>Change your mobile1 number</legend>
-New Number:<input class="field-input-gen" type="text" name="newMob1"/>
+<legend>Αλλαγή του κινητού1</legend>
+Κινητό1<input class="field-input-gen" type="text" name="newMob1"/>
 <input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 </fieldset>
 </form>
@@ -577,8 +577,8 @@ if($name==true)
 	?>
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Enter your firstname</legend>
-	Your Firstname:<input class="field-input-gen" type="text" name="newName"/>
+	<legend>Εισαγωγή του ονόματος</legend>
+	Όνομα:<input class="field-input-gen" type="text" name="newName"/>
 	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
@@ -589,8 +589,8 @@ else
 	?>
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Change your firstname</legend>
-	Your Firstname:<input class="field-input-gen" type="text" name="newName"/>
+	<legend>Αλλαγή του ονόματος</legend>
+	Όνομα:<input class="field-input-gen" type="text" name="newName"/>
 	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
@@ -601,8 +601,8 @@ if($surname==true)
 	?>
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Enter your lastname</legend>
-	Your Lastname:<input class="field-input-gen" type="text" name="newLast"/>
+	<legend>Εισαγωγή του επιθέτου</legend>
+	Επίθετο:<input class="field-input-gen" type="text" name="newLast"/>
 	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
@@ -613,8 +613,8 @@ else
 	?>
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Change your lasttname</legend>
-	Your Lastname:<input class="field-input-gen" type="text" name="newLast"/>
+	<legend>Αλλαγή του επιθέτου</legend>
+	Επίθετο:<input class="field-input-gen" type="text" name="newLast"/>
 	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
@@ -625,8 +625,8 @@ if($mobile2==true)
 	?>
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Enter your mobile2</legend>
-	New Number:<input class="field-input-gen" type="text" name="newMob2"/>
+	<legend>Εισαγωγή του κινητού2</legend>
+	Κινητό2:<input class="field-input-gen" type="text" name="newMob2"/>
 	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
@@ -637,8 +637,8 @@ else
 	?>
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Change your mobile2</legend>
-	New Number:<input class="field-input-gen" type="text" name="newMob2"/>
+	<legend>Αλλαγή του κινητού2</legend>
+	Κινητό2:<input class="field-input-gen" type="text" name="newMob2"/>
 	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
@@ -649,8 +649,8 @@ if($home==true)
 	?>
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Enter your home number</legend>
-	New Number:<input class="field-input-gen" type="text" name="newHome"/>
+	<legend>Εισαγωγή του τηλεφώνου σπιτιού</legend>
+	Τηλέφωνο σπιτιού:<input class="field-input-gen" type="text" name="newHome"/>
 	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
@@ -661,8 +661,8 @@ else
 	?>
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Change your home number</legend>
-	New Number:<input class="field-input-gen" type="text" name="newHome"/>
+	<legend>Αλλαγή του τηλεφώνου σπιτιού</legend>
+	Τηλέφωνο σπιτιού:<input class="field-input-gen" type="text" name="newHome"/>
 	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form>
@@ -673,8 +673,8 @@ if($other==true)
 	?>
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Enter your other number</legend>
-	New Number:<input class="field-input-gen" type="text" name="newOthr"/>
+	<legend>Εισαγωγή του άλλου τηλεφώνου</legend>
+	Άλλο τηλέφωνο:<input class="field-input-gen" type="text" name="newOthr"/>
 	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form></div>
@@ -688,8 +688,8 @@ else
 	?>
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Change your other number</legend>
-	New Number:<input class="field-input-gen" type="text" name="newOthr"/>
+	<legend>Αλλαγή του άλλου τηλεφώνου</legend>
+	Άλλο τηλέφωνο:<input class="field-input-gen" type="text" name="newOthr"/>
 	<input type="submit" id="button-view2" name="submit" value="Αλλαγή"/>
 	</fieldset>
 	</form></div>
@@ -707,7 +707,7 @@ if($type_=="Admin")
 <div class="content-box-1-content">
 	<form method="post" action="editUser.php?user=<?php echo $user; ?>">
 	<fieldset>
-	<legend>Make the user:</legend>
+	<legend>Κάνε τον χρήστη:</legend>
 	<input type="radio" name="privilege" value="Admin" /> Admin<br />
 	<input type="radio" name="privilege" value="User" /> User<br />
 	<input type="submit" id="button-view" name="submit" value="submit"/>
