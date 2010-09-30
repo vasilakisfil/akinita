@@ -582,7 +582,11 @@ afouron tin lista me tis aggelies kai tin provoli aggelias me leptomereies *****
 	margin-left: 38px;
 	}
 	
-	
+.propCheckBox{
+font-size: 12px;
+color:#fff;
+padding-bottom:25px;
+}		
 /*****Telos oi klaseis gia tin lista aggeliwn*****************/
 
 /******Emfanisi mia aggelias me leptomeries****************************************************/
