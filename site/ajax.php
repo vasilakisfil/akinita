@@ -4,7 +4,7 @@
 include('includes.php');
 //sthn arxh thn arxikopoioume me to vasiko query, dld epilegoume olous tous pinakes kai ta stoixeia pou 8eloume
 $message="select distinct property.prop_id,address,price,offer_type,area,views,category from property,categories,cat_prop";
-if(isset($_GET['facilities'])) $message.="fac_prop,facilities";
+if(isset($_GET['facilities'])) $message.=",fac_prop,facilities";
 //pros8etoume to keyword where
 $message.=" where property.propState='T'";
 $test=$message;

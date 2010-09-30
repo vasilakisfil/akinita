@@ -43,7 +43,7 @@ try
 			$_SESSION['prevPage']="homeSearchRes.php";
 			//sthn arxh thn arxikopoioume me to vasiko query, dld epilegoume olous tous pinakes kai ta stoixeia pou 8eloume
 			$message="select distinct property.prop_id,address,price,offer_type,area,views,category from property,categories,cat_prop";
-			if(isset($_POST['facilities'])) $message.="fac_prop,facilities";
+			if(isset($_POST['facilities'])) $message.=",fac_prop,facilities";
 			//pros8etoume to keyword where
 			$message.=" where property.propState='T'";
 			//elegxoume an exei epilex8ei tupos akinhtou kai analoga pros8etoume ton typo sto query(thn metavlhth $message dld)
@@ -157,7 +157,7 @@ try
 				//ta vazoume mesa edw
 				$message.=" and property.prop_id=fac_prop.prop_id and facilities.fac_id=fac_prop.fac_id";
 			}
-			$message.=" and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id ORDER BY prop_id DESC";
+			$message.=" and property.prop_id=cat_prop.prop_id and categories.cat_id=cat_prop.cat_id ORDER BY property.prop_id DESC";
 			$message=$message.";";
 			$_SESSION['query']=$message;
 		}
@@ -170,6 +170,7 @@ try
 	dispHeader('');
 	//echo $message;
 	echo "<div class='header-bar-full'><h1 class='blue'>Αποτελέσματα Αναζήτησης</h1></div>";
+	echo $message;
 	$result=db_excecute($message,"searchRes");
 	if(mysql_num_rows($result)==0) echo "Δεν υπάρχουν αγγελίες με τα κριτήρια που επιλέξατε!";
 	else propertySearch($message,"Delete",$page,$results);

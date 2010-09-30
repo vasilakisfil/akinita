@@ -1070,6 +1070,7 @@ $message="select * from categories;";
 $categories=db_excecute($message,'select1');
 $message="select * from facilities;";
 $facilities=db_excecute($message,'select2');
+$rowsFac=mysql_num_rows($facilities);
 $num=mysql_num_rows($facilities);
 $lists=intval($num/3);
 $mod=$num%3;
@@ -1109,7 +1110,6 @@ while($row = mysql_fetch_array($categories))
 	<input type="checkbox" name="category[]" value="<?php echo $row['category']?>" /> <?php echo $row['category']?>
 <?php
 }?>
-
  
 
 <h3>Τιμή</h3><br />
@@ -1190,7 +1190,6 @@ while($row = mysql_fetch_array($categories))
 <option value="500">500</option>
 <option value="nolimit" selected>Πάνω από 500</option>
 </select>
-</h3>
 
 <h3>Όροφος</h3>
 
@@ -1240,37 +1239,41 @@ for($i=0; $i<11; $i++)
 <option value="1965">1965</option>
 <option value="nolimit" selected>Πριν το 1960</option>
 </select>
-</h3>
 
 
 <h3>Παροχές:</h3>
+<input type="hidden" id="numberFac" value="<?php echo $rowsFac; ?>" />
 <div class="broken_list">
 <ul class="broken_list">
 <li style="width: 30%;"><ul>
 <?php
+$k=0;
 for($i=0; $i<($lists+$mod); $i++)
 {
+	$k++;
 	$row = mysql_fetch_array($facilities);
 ?>
-	 <li><input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?></li>	
+	 <li><input type="checkbox" name="facilities[]" id="<?php echo "fac$k"; ?>" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?></li>	
 <?php
 }
 ?> </ul></li>
 <li style="width: 30%;"><ul><?php
 for($i=0; $i<$lists; $i++)
 {
+	$k++;
 	$row = mysql_fetch_array($facilities);
 ?>
-	 <li><input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?></li>		
+	 <li><input type="checkbox" name="facilities[]" id="<?php echo "fac$k"; ?>" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?></li>		
 <?php
 }
 ?> </ul></li>
 <li style="width: 30%;"><ul><?php
 for($i=0; $i<$lists; $i++)
 {
+	$k++;
 	$row = mysql_fetch_array($facilities);
 ?>
-	 <li><input type="checkbox" name="facilities[]" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?></li>		
+	 <li><input type="checkbox" name="facilities[]" id="<?php echo "fac$k"; ?>" value="<?php echo $row['facility']?>" /> <?php echo $row['facility']?></li>		
 <?php
 }
 ?></ul></li></ul></div><br />

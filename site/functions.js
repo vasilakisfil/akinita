@@ -455,7 +455,7 @@ function get(obj)
 						getstr += obj.childNodes[i].name + "=" + obj.childNodes[i].value + "&";
 					}
 			}
-		}   
+		}  		
 		if (obj.childNodes[i].tagName == "SELECT")
 		{
 			//alert("aleeert");
@@ -463,6 +463,16 @@ function get(obj)
 			getstr += sel.name + "=" + sel.options[sel.selectedIndex].value + "&";
 		}
 		//alert(obj.childNodes[i].tagName);
+	}
+	
+	var numFac = document.getElementById('numberFac');
+	for(i=1; i<=numFac.value; i++)
+	{
+		var fac = document.getElementById('fac'+i);
+		if(fac.checked)
+		{
+			getstr+=fac.name + "=" + fac.value + "&";
+		}
 	}
 	//ajaxDiv.innerHTML=getstr;
 	loadXMLDoc(getstr);
