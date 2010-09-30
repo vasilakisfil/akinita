@@ -808,13 +808,14 @@ function showProperty($propId)
 		$Imrow = mysql_fetch_array($resImg);
 		echo "<div id='propDetailLeftBox'>
 		<div id='propDetailPhoto'><img name='mainphoto' id=\"mainphoto\" src=\"".$Imrow['filename']."\" width='311px' height='215px' alt='no photo' /></div>";
-		echo "<div id=switch style=\"color:#ffc20e\">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;".$Imrow['description']."</div>";
+		echo "<div id=switch style=\"color:#ffc20e\">&nbsp;".$Imrow['description']."</div>";
 		
-		echo "<div id='propDetailThumbs' style='height:auto;'>";
+		echo "<div id='propDetailThumbs' style='height:60px;'>";
 		mysql_data_seek($resImg,0);
 		while($Imrow = mysql_fetch_array($resImg))
 		{
-			echo "<div class='propDetailThumb propDetailRight'><a href=\"".$Imrow['filename']."\"><img src=\"".$Imrow['filename']."\" width='97px' height='60px'  onmouseover=\"mouseOver('".$Imrow['filename']."','".$Imrow['description']."')\" alt='' /></a></div>";
+			echo "<div class='propDetailThumb propDetailRight'><a href=\"".$Imrow['filename']."\"><img src=\"".$Imrow['filename']."\" width='97px' 
+			height='60px'  onmouseover=\"mouseOver('".$Imrow['filename']."','".$Imrow['description']."')\" alt='' /></a></div>";
 		}
 	}
 	else
@@ -827,7 +828,7 @@ function showProperty($propId)
 		
 echo "	
 </div>
-	 <div class='map'  id='mainMap' style='width:311px; height:300px; margin-left:7px;' ></div><br/><br/>
+	 <br/><div class='map'  id='mainMap' style='width:311px; height:300px; margin-left:7px;' ></div><br/><br/>
 	</div>";
 	// to deksi tmima
 	echo "<div id='propDetailRightBox'>";
