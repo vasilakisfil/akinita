@@ -383,12 +383,12 @@ echo "<li><a href='viewProperty.php?propId=".$row[0]."' title='View Photo'><img 
 function dispLoginBox()
 {
 ?>
-	<div class='header-bar-full'><h1 class="blue">Κεντρικη Σελιδας Συνδεσης</h1></div>
+	<div class='header-bar-full'><h1 class="blue">Κεντρική Σελίδα Συνδεσης</h1></div>
 	<div class="content-box-1">
 <div class="content-box-1-top"></div>
 <div class="content-box-1-middle">
 <div class="content-box-1-content"> <div align="left">
-	<h3>Είσαι μέλος;Κάνε τώρα Log In!</h3>
+	<h3>Είσαι μέλος; Κάνε τώρα Log In!</h3>
 	
 	<form  method="post" action="member.php">
 	<span class="fieldLabel-reg">Όνομα Χρήστη: </span>

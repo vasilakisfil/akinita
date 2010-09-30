@@ -83,13 +83,19 @@ function check_valid_user($guest=NULL)
 	{
 		// they are not logged in 
 		dispHeader('');
-		echo "<div class='header-bar-full'><h1 class='blue'>Η σελίδα αυτη είναι μόνο για εγγεγραμένα μέλη</h1></div>
+		echo "<div class='header-bar-full'><h1 class='blue'>Η σελίδα αυτή είναι μόνο για εγγεγραμένα μέλη</h1></div>
+		<div class='content-box-1'>
+        <div class='content-box-1-top'></div>
+        <div class='content-box-1-middle'>
+        <div class='content-box-1-content'> <div align='left'>
 		<h3>Δεν είστε συνδεδεμένος.</h3> 
 		<p class='blue-tip-text'>Θα πρέπει να συνδεθείτε ως μελος ή να κάνετε εγγραφή για να δείτε αυτή τη σελίδα.</p>
-		Αν έχετε κανει εγγραφή";
+		Αν έχετε κανει εγγραφή;";
 		dispURL('login.php', 'Σύνδεθειτε');
 		echo "<br />Δεν είστε μέλος; ";
 		dispURL("signup.php","Εγγραφτείτε τώρα δωρεάν!");
+		echo "</div></div></div>
+              <div class='content-box-1-bottom'>&nbsp;</div></div> ";
 		dispFooter();
 		exit;
 	} 
