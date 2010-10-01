@@ -50,19 +50,19 @@ try
 	//elegxoume an to mhkos tou thlefwnou einai to swsto
 	if (strlen($mob1)!=10 || !(is_numeric($mob1)))
 	{
-		throw new Exception('Tα τηλέφωνα θα πρέπει να περιέχει μόνο αριθμούς και να έχει ακριβώς 10 ψηφία.');
+		throw new Exception('To κινητό1 θα πρέπει να περιέχει μόνο αριθμούς και να έχει ακριβώς 10 ψηφία.');
 	}
-	if (strlen($mob2)!=10 || !(is_numeric($mob2)))
+	if (strlen($mob2)>0 && (strlen($mob2)!=10 || !(is_numeric($mob2))))
 	{
-		throw new Exception('Tα τηλέφωνα θα πρέπει να περιέχει μόνο αριθμούς και να έχει ακριβώς 10 ψηφία.');
+		throw new Exception('Tο κινητό2 θα πρέπει να περιέχει μόνο αριθμούς και να έχει ακριβώς 10 ψηφία.');
 	}
-	if (strlen($othr)!=10 || !(is_numeric($othr)))
+	if (strlen($othr)>0 & (strlen($othr)!=10 || !(is_numeric($othr))))
 	{
-		throw new Exception('Tα τηλέφωνα θα πρέπει να περιέχει μόνο αριθμούς και να έχει ακριβώς 10 ψηφία.');
+		throw new Exception('Tα άλλο τηλεφωνο θα πρέπει να περιέχει μόνο αριθμούς και να έχει ακριβώς 10 ψηφία.');
 	}
-	if (strlen($home)!=10 || !(is_numeric($home)))
+	if (strlen($home)>0 & (strlen($home)!=10 || !(is_numeric($home))))
 	{
-		throw new Exception('Tα τηλέφωνα θα πρέπει να περιέχει μόνο αριθμούς και να έχει ακριβώς 10 ψηφία.');
+		throw new Exception('Tο σταθερό τηλέφωνο θα πρέπει να περιέχει μόνο αριθμούς και να έχει ακριβώς 10 ψηφία.');
 	}
 	
 
