@@ -194,15 +194,22 @@ function RTisNumeric(elem,span){
 
 	var smob1 = document.getElementById(elem);
 	var shome = document.getElementById(span);
-	
+
 	var numericExpression = /^[0-9]+$/;
-	if(smob1.value.match(numericExpression))
+	if(smob1.value.length!=0)
 	{
-		shome.innerHTML = '<span style="color:green">Αποδεκτό τηλέφωνο!</span>';
+		if(smob1.value.match(numericExpression))
+		{
+			shome.innerHTML = '<span style="color:green">Αποδεκτό τηλέφωνο!</span>';
+		}
+		else
+		{
+			shome.innerHTML = '<span style="color:red">Μη αποδεκτό τηλέφωνο!</span>';
+		}
 	}
 	else
 	{
-		shome.innerHTML = '<span style="color:red">Μη αποδεκτό τηλέφωνο!</span>';
+		shome.innerHTML = '';
 	}
 }
 

@@ -474,11 +474,11 @@ function dispRegForm()
 <span id="smob1"></span></div><br/>
 
 <div class="fieldLabel">Αριθμός κινητού 2:</div>  
-<div class="fieldInput"><input type="text" name="mob2phone" id="mob2phone" onchange="RTisNumeric('mob2phone','smob2')" />
+<div class="fieldInput"><input type="text" name="mob2phone" id="mob2phone" onkeyup="RTisNumeric('mob2phone','smob2')" />
 <span id="smob2"></span></div><br/>
 
 <div class="fieldLabel">Άλλος αριθμός: </div> 
-<div class="fieldInput"><input type="text" name="othrnumber" id="othrnumber" onchange="RTisNumeric('othrnumber','othr')"  />
+<div class="fieldInput"><input type="text" name="othrnumber" id="othrnumber" onkeyup="RTisNumeric('othrnumber','othr')"  />
 <span id="othr"></span></div><br/>
 
 <div class="fieldLabel">Όνομα: </div> 
