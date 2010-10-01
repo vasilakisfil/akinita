@@ -48,10 +48,23 @@ try
 		throw new Exception('Το μήκος του κωδικού σας θα πρέπει να είναι μεταξύ 4 και 16.');
 	}
 	//elegxoume an to mhkos tou thlefwnou einai to swsto
-	if (strlen($mob1)!=10)
+	if (strlen($mob1)!=10 || !(is_numeric($mob1)))
 	{
-		throw new Exception('Your mobile phone must have exactly 10 digits.');
+		throw new Exception('Tα τηλέφωνα θα πρέπει να περιέχει μόνο αριθμούς και να έχει ακριβώς 10 ψηφία.');
 	}
+	if (strlen($mob2)!=10 || !(is_numeric($mob2)))
+	{
+		throw new Exception('Tα τηλέφωνα θα πρέπει να περιέχει μόνο αριθμούς και να έχει ακριβώς 10 ψηφία.');
+	}
+	if (strlen($othr)!=10 || !(is_numeric($othr)))
+	{
+		throw new Exception('Tα τηλέφωνα θα πρέπει να περιέχει μόνο αριθμούς και να έχει ακριβώς 10 ψηφία.');
+	}
+	if (strlen($home)!=10 || !(is_numeric($home)))
+	{
+		throw new Exception('Tα τηλέφωνα θα πρέπει να περιέχει μόνο αριθμούς και να έχει ακριβώς 10 ψηφία.');
+	}
+	
 
 	//afou ta vasika stoixeia einai swsta ginetai h prospa8eia eggrafhs tou xrhsth
 	//h sunarthsh register(...) eggrafei to xrhsth..epishs yparxei periptwsh na peta3ei exception an kati einai la8os

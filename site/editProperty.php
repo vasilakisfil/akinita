@@ -220,7 +220,7 @@ try{
 		
 	}
 	//elegxoume an exei epilextei na diagrafei mia eikona
-	if($delete)
+	if(isset($delete))
 	{
 		//an exei epilextei diagrafoume thn antistoixh eikona
 		$selectFile="select * from images where image_id=$delete";
