@@ -1096,7 +1096,7 @@ echo "<span id=\"ajaxDiv\" class='blue-small'>Βρέθηκαν:&nbsp $rows &nbsp
 
 <!--<fieldset id="typos">-->
 <input type="checkbox" id="sell" name="typos[]" value="s"  /> Πώληση
-<input type="checkbox" id="lent" name="typos[]" value="l"  /> Ενοικίαση
+<input type="checkbox" id="lent" name="typos[]" value="l" onclick="checkType();"  /> Ενοικίαση
 <!--</fieldset>--><span id="typos">&nbsp; &nbsp; &nbsp; Καλό είναι να επιλέξετε να βρείτε αυτό που θέλετε πιο γρήγορα</span>
 
 
@@ -1113,7 +1113,7 @@ while($row = mysql_fetch_array($categories))
 
 <h3>Τιμή</h3><br />
 
-από:<select class="field-gen" name="low_price" >
+από:<select class="field-gen" name="low_price" id="low_price" >
 <option value="nolimit" >Χωρις Οριο</option>
 <option value="30000">30.000</option>
 <option value="40000">40.000</option>
@@ -1133,7 +1133,7 @@ while($row = mysql_fetch_array($categories))
 <option value="1000000">1.000.000</option>
 </select>
 
-έως:<select class="field-gen" name="high_price">
+έως:<select class="field-gen" name="high_price" id="high_price">
 <option value="40000">40.000</option>
 <option value="50000">50.000</option>
 <option value="60000">60.000</option>
@@ -1148,9 +1148,8 @@ while($row = mysql_fetch_array($categories))
 <option value="500000">500.000</option>
 <option value="750000">750.000</option>
 <option value="1000000">1.000.000</option>
-<option value="nolimit" selected>Χωρις Οριο</option>
+<option value="nolimit" selected=\"selected\">Χωρις Οριο</option>
 </select>
-</h3>
 
 <h3>Eμβαδό</h3><br />
 

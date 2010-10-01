@@ -27,25 +27,25 @@ try
 	//elegxoume an oi vasikes formes periexoun stoixeia..an oxi mia e3airesh petagetai me to antistoixo error
 	if (!filledOut($username) || !filledOut($passwd) || !filledOut($passwd2) || !filledOut($email) || !filledOut($mob1))
 	{
-		throw new Exception('You have not filled the form out correctly - please go back and try again.');    
+		throw new Exception('Δεν έχετε συμπληρώσει σωστά την φόρμα εγγραφής.Παρακαλούμε πατήστε προσπαθείστε ξανά.');    
 	}
 
 	//elegxoume an to email einai swsto
 	if (!valid_email($email))
 	{
-		throw new Exception('That is not a valid email address.  Please go back  and try again.');
+		throw new Exception('Αυτό το mail που εισάγατε δεν είναι έγκυρο.Παρακαλούμε επιλέξτε ξανά.');
 	}
 
 	//elegxoume an oi duo kwdikoi einai idioi meta3u tous
 	if ($passwd != $passwd2)
 	{
-		throw new Exception('The passwords you entered do not match - please go back and try again.');
+		throw new Exception('Οι κωδικοί που εισάγατε δεν ταιριάζουν.Παρακαλούμε προσπαθείστε ξανά.');
 	}
 
 	//elegxoume an to mhkos tou kwdikou einai swsto
 	if (strlen($passwd)<4 || strlen($passwd) >16)
 	{
-		throw new Exception('Your password must be between 4 and 16 characters.Please go back and try again.');
+		throw new Exception('Το μήκος του κωδικού σας θα πρέπει να είναι μεταξύ 4 και 16.');
 	}
 	//elegxoume an to mhkos tou thlefwnou einai to swsto
 	if (strlen($mob1)!=10)
@@ -83,7 +83,7 @@ try
         <div class='content-box-1-top'></div>
         <div class='content-box-1-middle'>
         <div class='content-box-1-content'>
-	<h3>Η εγγραφή σας πραγματοποιήθηκε με επιτυχία!</h3> ".$ret."Καλως Ορίσατε στο Ακινητα Project! <br/>
+	<h3>Η εγγραφή σας πραγματοποιήθηκε με επιτυχία!</h3> Καλως Ορίσατε στο Ακινητα Project! <br/>
 	Μπορείτε πλεον να συνδεθείτε στο σύστημα μεσω της σελίδας σύνδεσης. <br/><br/>  ";
 	dispURL('login.php', 'Σελίδα Σύνδεσης');
 echo "</div></div>

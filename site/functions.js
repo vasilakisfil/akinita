@@ -437,7 +437,91 @@ function validSearch()
 
 function checkType()
 {
-	//var newSelect = document.getElementById("
+	var newSelectLowPrice = document.getElementById("low_price");
+	var newSelectHighPrice = document.getElementById("high_price");
+	var lent=document.getElementById("lent");
+	if(lent.checked)
+	{
+		newSelectLowPrice.innerHTML="\
+		<option value=\"nolimit\" >Χωρις Οριο</option>\
+		<option value=\"100\">100</option>\
+		<option value=\"150\">150</option>\
+		<option value=\"180\">180</option>\
+		<option value=\"200\">200</option>\
+		<option value=\"225\">225</option>\
+		<option value=\"250\">250</option>\
+		<option value=\"275\">275</option>\
+		<option value=\"300\">300</option>\
+		<option value=\"350\">350</option>\
+		<option value=\"400\">400</option>\
+		<option value=\"450\">450</option>\
+		<option value=\"500\">500</option>\
+		<option value=\"550\">550</option>\
+		<option value=\"600\">600</option>\
+		<option value=\"800\">800</option>\
+		<option value=\"1000\">1000</option>";
+		
+		newSelectHighPrice.innerHTML="\
+		<option value=\"100\">100</option>\
+		<option value=\"150\">150</option>\
+		<option value=\"180\">180</option>\
+		<option value=\"200\">200</option>\
+		<option value=\"225\">225</option>\
+		<option value=\"250\">250</option>\
+		<option value=\"275\">275</option>\
+		<option value=\"300\">300</option>\
+		<option value=\"350\">350</option>\
+		<option value=\"400\">400</option>\
+		<option value=\"450\">450</option>\
+		<option value=\"500\">500</option>\
+		<option value=\"550\">550</option>\
+		<option value=\"600\">600</option>\
+		<option value=\"800\">800</option>\
+		<option value=\"1000\">1000</option>\
+		<option value=\"nolimit\" selected=\"selected\" >Χωρις Οριο</option>";
+		
+
+	}
+	else
+	{
+		newSelectLowPrice.innerHTML="\
+		<option value=\"nolimit\" >Χωρις Οριο</option>\
+		<option value=\"30000\">30.000</option>\
+		<option value=\"40000\">40.000</option>\
+		<option value=\"50000\">50.000</option>\
+		<option value=\"50000\">50.000</option>\
+		<option value=\"60000\">60.000</option>\
+		<option value=\"75000\">75.000</option>\
+		<option value=\"100000\">100.000</option>\
+		<option value=\"150000\">150.000</option>\
+		<option value=\"200000\">200.000</option>\
+		<option value=\"250000\">250.000</option>\
+		<option value=\"300000\">300.000</option>\
+		<option value=\"350000\">350.000</option>\
+		<option value=\"400000\">400.000</option>\
+		<option value=\"500000\">500.000</option>\
+		<option value=\"750000\">750.000</option>\
+		<option value=\"1000000\">1.000.000</option>";
+		
+		newSelectHighPrice.innerHTML="\
+		<option value=\"30000\">30.000</option>\
+		<option value=\"40000\">40.000</option>\
+		<option value=\"50000\">50.000</option>\
+		<option value=\"50000\">50.000</option>\
+		<option value=\"60000\">60.000</option>\
+		<option value=\"75000\">75.000</option>\
+		<option value=\"100000\">100.000</option>\
+		<option value=\"150000\">150.000</option>\
+		<option value=\"200000\">200.000</option>\
+		<option value=\"250000\">250.000</option>\
+		<option value=\"300000\">300.000</option>\
+		<option value=\"350000\">350.000</option>\
+		<option value=\"400000\">400.000</option>\
+		<option value=\"500000\">500.000</option>\
+		<option value=\"750000\">750.000</option>\
+		<option value=\"1000000\">1.000.000</option>\
+		<option value=\"nolimit\" selected=\"selected\" >Χωρις Οριο</option>";
+	}
 
 
 }
