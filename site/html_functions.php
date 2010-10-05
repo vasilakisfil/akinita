@@ -125,7 +125,7 @@ else
 			<li><span>Developed by</span></li>
 			<li><span>Klisiaris</span></li>
 			<li><span>Karathanou</span></li>
-			<li class="last"><span>Vasilakis</span></li>
+			<li class="last"><span>Vasillakis</span></li>
 		</ul>
 	</div>
 </div>
