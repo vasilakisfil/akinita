@@ -162,7 +162,8 @@ eikona pou kanei repeat x *************************************/
 /*****To pragmatiko periexomeno selidas sto opoio mporei na mpei keimeno eikones klp *********************/	
 
 .pagecontent {
-	float:right;
+	margin-left:auto;
+	margin-right:auto;
 	width:815px;
 	padding:26px 63px 65px 5px;
 	min-height:400px;
