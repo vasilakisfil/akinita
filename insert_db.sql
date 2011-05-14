@@ -1,4 +1,3 @@
-﻿
 use akinita;
 
 insert into users (username,password,email,user_type) values
