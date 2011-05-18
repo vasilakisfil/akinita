@@ -11,13 +11,13 @@ try
 {
 	//elegxoume an o xrhsths einai swsta sundedemenos, an den einai ton emfanizoume ws guest
 	check_valid_user(1);
-	dispHeader('');
+	dispHeader();
 	dispMainPage();
 	dispFooter();
 }
 catch(Exception $e)
 {
-	dispHeader("Error:");
+	dispHeader();
 	echo $e->getMessage();
 	dispFooter();
 	exit;

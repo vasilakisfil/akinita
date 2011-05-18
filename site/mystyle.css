@@ -13,7 +13,8 @@ margin:0;
 	font-family:verdana,tahoma,sans-serif;
 	background:#b8b79c url(images/bg-body.gif) repeat-x top;
 	font-size:13px;
-	min-width:940px;
+
+	
 	
 }
 
@@ -57,9 +58,10 @@ a.logo,
 /**H main selida rithmiseis platous, min-height wste na min mazevetai pote ypervolika panw kai kapoia margins***/	
 #main {
 	width:940px;
-	margin:0 auto;
-	margin-top:-17px;
+	margin-left: auto;
+	margin-right:auto;
 	min-height:700px;
+	border:2px solid red;
 	}
 /*O header - rithmiseis**/	
 #header {
@@ -67,7 +69,7 @@ a.logo,
 	height:229px;
 	background:#223846 url(images/bg-header2.jpg) no-repeat left top;
 	position:relative;
-	
+	border:2px solid red;
 	}
 /***to logo mas - rithmiseis megethous kai theshs se sxesi me ton header - to background image einai kai to mono pou fenetai**/	
 a.logo {
@@ -162,8 +164,7 @@ eikona pou kanei repeat x *************************************/
 /*****To pragmatiko periexomeno selidas sto opoio mporei na mpei keimeno eikones klp *********************/	
 
 .pagecontent {
-	margin-left:auto;
-	margin-right:auto;
+	float:right;
 	width:815px;
 	padding:26px 63px 65px 5px;
 	min-height:400px;

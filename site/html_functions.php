@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /****************************************************************************************
 *	Auto to arxeio periexei tis vasikes html sunarthseis
 *	Epeidh o html kwdikas kai genika h html einai sxetika aplh sxolia 8a uparxoun se
@@ -15,30 +15,22 @@ require_once('includes.php');
 * ka8e fora.Pairnei ws deutero orisma ena numero
 * to opoio einai to mege8os ths epikefalidas
 *************************************************/
-function dispHeader($header,$num=1)
-{
+function dispHeader(){
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <script type="text/javascript" src="functions.js"></script>
 <link rel="stylesheet" type="text/css" href="mystyle.css" />
 <link rel="shortcut icon" href="images/homeico.gif" />
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;language=el" >
-
-</script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;language=el" ></script>
 <title>Akinita Project</title>
 </head>
 <body>
 <div id="main">
 <div id="header">
 <h1><a href="main.php" class="logo"></a></h1>
-
-
-
 
 <ul id="menu">
 
@@ -72,13 +64,8 @@ else
 <div class="pagecontent">
 <div class="triangle">&nbsp;</div>
 
-<?php
-	if($header)
-	{
-	?>
-		<h<?php echo $num;?>><?php echo $header;?></h<?php echo $num;?>>
+
 	<?php
-	}
 }
 
 
