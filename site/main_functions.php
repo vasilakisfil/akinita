@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 //including required files
 require_once('includes.php');
