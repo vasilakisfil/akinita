@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 /****************************************************************************************
 *	Auth h selida emfanizei thn vasikh selida enos xrhsth
 *	Epishs auth h selida emfanizetai amesws meta to login enos xrhsth

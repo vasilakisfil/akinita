@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 //including required files
 include('includes.php');
