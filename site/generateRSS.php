@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 header("Content-Type: application/xml; charset=UTF-8");
 //sundesh sth vash ws xrhsths akinauth

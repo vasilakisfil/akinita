@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 /****************************************************************************************
 *	Auto to arxeio periexei ola ta aparaithta includes kai tis aparaithtes dhlwseis
 *	Ginetai include sxedon se ka8e arxeio .php

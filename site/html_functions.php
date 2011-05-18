@@ -339,13 +339,13 @@ for($i=0; $i<$max; $i++)
 	{
 		$image="images/no_photo.gif";
 	}
-echo "<li><a href='viewProperty.php?propId=".$row[0]."' title='View Photo'><img src='".$image."' 
-				width='125px' height='95px' alt='photo' /></a>";
+	echo "<li><a href='viewProperty.php?propId=".$row[0]."' title='View Photo'><img src='".$image."' 
+				width='120px' height='90px' alt='photo' /></a>";
 	
 	echo "<a href='viewProperty.php?propId=".$row[0]."' title='View property'>Κατηγορία: ".$row[4]."<br/>
 	Διευθυνση: ".$row[1]."<br/> Τιμή: ".$row[2]."<br/> 
 	 ";
-	if($row[3]=='S') echo "Πωλειται"; else echo "Ενοικιάζεται</a>";
+	if($row[3]=='S') echo "Πωλειται</a>"; else echo "Ενοικιάζεται</a>";
 	echo "</li>";
 }
 
