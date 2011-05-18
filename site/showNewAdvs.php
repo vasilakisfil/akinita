@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /****************************************************************************************
 *		Ayth h selida emfanizei oles tis kainourgies aggelies tou susthmatos
 *		wste na paroun egkrish apo tous admins.

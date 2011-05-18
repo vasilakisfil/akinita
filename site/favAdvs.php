@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /****************************************************************************************
 * Auth h selida emfanizei oles tis agaphmenes aggelies enos xrhsth
 *

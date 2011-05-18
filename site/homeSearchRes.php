@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /****************************************************************************************
 *	Auto to arxeio ektelei thn anazhthsh twn akinhtwn sth vash kai e3agei ta
 *	apotelesmata analoga me ta stoixeia pou edwse o xrhsths

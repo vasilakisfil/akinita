@@ -20,7 +20,7 @@ try
 }
 catch (Exception $e)
 {
-	dispHeader('ÓöÜëìá:');
+	dispHeader('Î£Ï†Î¬Î»Î¼Î±:');
 	echo $e->getMessage(); 
 	dispFooter();
 	exit;

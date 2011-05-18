@@ -415,24 +415,26 @@ function dispRegForm()
 
 ?>
 <div class='header-bar-full'><h1 class='blue'>Σελιδα εγγραφής Χρήστη</h1></div>
-<h3>Φόρμα εγγραφής</h3>
-<p>Μπορείτε να χρησιμοποιείσετε είτε το ποντίκι είτε το tab για να μετακινηθείτε από πεδίο σε πεδίο.</p>
-<p>*Υποχρεωτικα πεδία</p>
-<h3>Παρακαλούμε εισάγετε ένα όνομα χρήστη και έναν κωδικό:</h3>
-<p class="blue-tip-text">Tip: O κωδικός για να είναι ασφαλής καλό είναι να περιέχει γραμματα αριθμούς και λοιπούς χαρακτήρες καθώς και να μην περιέχει
-κάποια λέξη που ανήκει σε λεξικό ή ένα όνομα!<p>
-
 <div id="sub-header">Συμπληρώστε τα στοιχεία σας στην παρακάτω <span class="yellow">Φόρμα Εγγραφής</span></div>
 
 <div class="content-box-1">
 <div class="content-box-1-top"></div>
 <div class="content-box-1-middle">
-<div class="content-box-1-content"> <div align="center">
+<div class="content-box-1-content">
+
+<div align="left">
+<h3>Φόρμα εγγραφής</h3>
+<p>Μπορείτε να χρησιμοποιείσετε είτε το ποντίκι είτε το tab για να μετακινηθείτε από πεδίο σε πεδίο.</p>
+<p class="blue-tip-text">Τα πεδία με αστερίσκο* είναι υποχρεωτικά.</p>
+<p class="blue-tip-text">Tip: O κωδικός για να είναι ασφαλής καλό είναι να περιέχει γραμματα αριθμούς και λοιπούς χαρακτήρες καθώς και να μην περιέχει
+κάποια λέξη που ανήκει σε λεξικό ή ένα όνομα!<p>
+</div>
+ <div align="center">
 <div id="contactForm">
 <form method="post" onsubmit="validRegForm()"  action="signup_new.php"  >
 
-<h4 class="blue-tip-text">Τα πεδία με αστερίσκο* είναι υποχρεωτικά.</h4><br/>
 
+<h3>Ονομα Χρήστη και Κωδικός</h3>
 <div class="fieldLabel" style="font-weight:bold;">Όνομα Χρήστη*:</div> 
 <div class="fieldInput"><input type="text" name="username" id="username" /></div><br />
 

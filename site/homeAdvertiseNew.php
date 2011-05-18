@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /****************************************************************************************
 *	auto to arxeio periexei tous aparaithtous elegxous kata kataxwrhsh kapoias aggelias.

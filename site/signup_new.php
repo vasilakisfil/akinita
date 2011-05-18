@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /****************************************************************************************
 *	auto to arxeio periexei tous aparaithtous elegxous kata thn eggrafh kapoiou xrhsth.
 *	an einai ola swsta tote eggrafete o xrhsths
