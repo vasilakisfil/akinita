@@ -1066,15 +1066,20 @@ ul#mainPageAdvsLayout,
     ul#mainPageAdvsLayout li {
        margin: 0;
         padding: 0;
+		overflow:hidden;
+	  display:inline-block;
 		}
 
     ul#mainPageAdvsLayout li {
-      display:inline-block;
+      float:left;
+	  list-style:none;
+	  
 		text-align:center;
-        width: 140px;
+        width: 130px;
         min-height: 150px;
         background: #eee;
 		vertical-align: top;
+		border:1px solid red;
     }
 	
 	ul#mainPageAdvsLayout img {
