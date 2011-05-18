@@ -61,7 +61,7 @@ a.logo,
 	margin-left: auto;
 	margin-right:auto;
 	min-height:700px;
-	border:2px solid red;
+
 	}
 /*O header - rithmiseis**/	
 #header {
@@ -69,7 +69,7 @@ a.logo,
 	height:229px;
 	background:#223846 url(images/bg-header2.jpg) no-repeat left top;
 	position:relative;
-	border:2px solid red;
+
 	}
 /***to logo mas - rithmiseis megethous kai theshs se sxesi me ton header - to background image einai kai to mono pou fenetai**/	
 a.logo {
