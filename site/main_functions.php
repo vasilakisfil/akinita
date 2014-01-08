@@ -27,6 +27,13 @@ function db_connect()
 		die ("Η σύνδεση στη βάση απέτυχε.Αν το πρόβλημα επιμένει εποικινωνήστε με τον adminstrator. " . mysql_error());
 	}
 	//epistrofh tou resource tou mysql_connect()
+
+  mysql_query("SET character_set_client=utf8"); 
+  mysql_query("SET character_set_connection=utf8"); 
+  mysql_query("SET character_set_database=utf8"); 
+  mysql_query("SET character_set_results=utf8"); 
+  mysql_query("SET character_set_server=utf8"); 
+  mysql_query("SET NAMES 'utf8'");
 	return $db_conn;
 }
 
